@@ -1,19 +1,35 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-public class GodController
+﻿public class GodController
 {
-    private GodData data;
-    private GodConfig config;
-    private GodMaster master;
+
+    #region Fields
+
+    private GodMaster godMaster = null;
+    private GodConfig godConfig = null;
+    private GodData godData = null;
+
+    #endregion
+
+    #region Constructors
 
     private GodController() { }
-    public GodController(GodData data, GodConfig config, GodMaster master)
+    public GodController(GodMaster godMaster, GodConfig godConfig, GodData godData)
     {
-        this.data = data;
-        this.config = config;
-        this.master = master;
+        this.godMaster = godMaster;
+        this.godConfig = godConfig;
+        this.godData = godData;
     }
+
+    #endregion
+
+    #region Methods
+
+    public void Update()
+    {
+
+    }
+
+    #endregion
+
+
 
 }

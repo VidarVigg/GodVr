@@ -44,9 +44,9 @@ public class GameMaster : MonoBehaviour
         gameController.Update();
     }
 
-    public void GetInput(BitArray array)
+    public void ForwardInput(BitArray input)
     {
-        //gameData.Player.GetInput(array);
+        gameData.GodMaster.SetInput(input);
     }
 
     #endregion

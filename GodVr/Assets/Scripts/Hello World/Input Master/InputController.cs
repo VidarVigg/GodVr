@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class InputController
@@ -28,11 +29,7 @@ public class InputController
 
     public void Update()
     {
-
         Test();
-
-        try { GameMaster.INSTANCE.GetInput(null); } catch(NullReferenceException e) { Debug.LogError("<b>[GameMaster.INSTANCE] : " + e.Message + "</b>", inputMaster); }
-
     }
 
     private void Test()
@@ -41,6 +38,9 @@ public class InputController
         if (Input.GetKeyDown(inputData.HelloWorld))
         {
             Debug.Log("<b>Hello World!</b>");
+
+            try { GameMaster.INSTANCE.ForwardInput(new BitArray(new bool[] { true, true, false, false } )); } catch (NullReferenceException e) { Debug.LogError("<b>[GameMaster.INSTANCE] : " + e.Message + "</b>", inputMaster); }
+
         }
 
     }

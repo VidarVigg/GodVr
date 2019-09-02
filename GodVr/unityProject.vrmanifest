@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.godvr.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "D:\\God VR\\GodVr\\GodVr\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "GodVr [Testing]"
+        }
+      }
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-﻿
+﻿using System.Collections;
 using UnityEngine;
 
 public class GodMaster : MonoBehaviour
@@ -21,15 +21,20 @@ public class GodMaster : MonoBehaviour
     {
         controller = new GodController(this, config, data);
     }
-    void Start()
+    private void Start()
     {
 
     }
 
-    void Update()
+    private void Update()
     {
         controller.Update();
     }
+
+    public void SetInput(BitArray input)
+    {
+
+    } 
 
     #endregion
 

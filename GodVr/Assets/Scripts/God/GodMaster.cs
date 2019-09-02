@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class GodMaster : MonoBehaviour
 {
+
+    #region Fields
+
     [SerializeField]
     private GodConfig config = null;
 
@@ -11,6 +14,9 @@ public class GodMaster : MonoBehaviour
 
     private GodController controller = null;
 
+    #endregion
+
+    #region Methods
     private void Awake()
     {
         controller = new GodController(this, config, data);
@@ -22,6 +28,9 @@ public class GodMaster : MonoBehaviour
 
     void Update()
     {
-
+        controller.Update();
     }
+
+    #endregion
+
 }

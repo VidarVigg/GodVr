@@ -18,6 +18,15 @@ public class GameMaster : MonoBehaviour
 
     #endregion
 
+    #region Properties
+
+    public GodMaster GodMaster
+    {
+        get { return gameData.GodMaster; }
+    }
+
+    #endregion
+
     #region Methods
 
     private void Awake()
@@ -42,11 +51,6 @@ public class GameMaster : MonoBehaviour
     private void Update()
     {
         gameController.Update();
-    }
-
-    public void ForwardInput(BitArray input)
-    {
-        gameData.GodMaster.SetInput(input);
     }
 
     #endregion

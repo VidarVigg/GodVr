@@ -39,7 +39,7 @@ public class InputController
         {
             Debug.Log("<b>Hello World!</b>");
 
-            try { GameMaster.INSTANCE.ForwardInput(new BitArray(new bool[] { true, true, false, false } )); } catch (NullReferenceException e) { Debug.LogError("<b>[GameMaster.INSTANCE] : " + e.Message + "</b>", inputMaster); }
+            try { GameMaster.INSTANCE.GodMaster.SetInput(new BitArray(new bool[] { true, true, false, false } )); } catch (NullReferenceException e) { Debug.LogError("<b>[GameMaster.INSTANCE] : " + e.Message + "</b>", inputMaster); }
 
         }
 

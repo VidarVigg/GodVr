@@ -9,6 +9,11 @@ public class InputData
 
     [SerializeField]
     private KeyCode helloWorld = KeyCode.None;
+
+    #endregion
+
+    #region Properties
+
     public KeyCode HelloWorld
     {
         get { return helloWorld; }

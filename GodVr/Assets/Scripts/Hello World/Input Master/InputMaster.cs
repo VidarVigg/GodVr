@@ -15,6 +15,12 @@ public class InputMaster : MonoBehaviour
 
     #endregion
 
+    #region Properties
+
+
+
+    #endregion
+
     #region Methods
 
     private void Awake()

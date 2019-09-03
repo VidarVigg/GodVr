@@ -1,7 +1,7 @@
 ﻿using System;
 
 [Serializable]
-public class GameConfig
+public class InterfaceData
 {
 
     #region Fields

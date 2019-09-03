@@ -2,21 +2,21 @@
 using UnityEngine;
 
 [Serializable]
-public class InputConfig
+public class NaturalConfig
 {
 
     #region Fields
 
     [SerializeField]
-    private KeyCode helloWorld = KeyCode.None;
+    private Resource[] resources = null;
 
     #endregion
 
     #region Properties
 
-    public KeyCode HelloWorld
+    public Resource[] Resources
     {
-        get { return helloWorld; }
+        get { return resources; }
     }
 
     #endregion

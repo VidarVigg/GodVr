@@ -9,6 +9,11 @@ public class GameData
 
     [SerializeField]
     private GodMaster godMaster = null;
+
+    #endregion
+
+    #region Properties
+
     public GodMaster GodMaster
     {
         get { return godMaster; }

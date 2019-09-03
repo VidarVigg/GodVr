@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 [Serializable]
@@ -10,6 +11,9 @@ public class InputData
     [SerializeField]
     private KeyCode helloWorld = KeyCode.None;
 
+    [SerializeField]
+    private BitArray inputs = null;
+
     #endregion
 
     #region Properties
@@ -18,6 +22,12 @@ public class InputData
     {
         get { return helloWorld; }
         set { helloWorld = value; }
+    }
+
+    public BitArray Inputs
+    {
+        get { return inputs; }
+        set { inputs = value; }
     }
 
     #endregion

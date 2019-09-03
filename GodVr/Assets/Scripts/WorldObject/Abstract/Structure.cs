@@ -5,19 +5,10 @@ using UnityEngine;
 public abstract class Structure : InteractableWorldObject
 {
 
-    public ResourceStruct[] resourceCosts = null;
-    public override void Grab()
-    {
+    [SerializeField]
+    protected ResourceStruct[] resourceCosts = null;
 
-    }
+    [SerializeField]
+    protected Vector3 scale = Vector3.zero;
 
-    public override void Place()
-    {
-
-    }
-
-    public override void Throw()
-    {
-
-    }
 }

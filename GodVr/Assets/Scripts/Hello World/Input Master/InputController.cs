@@ -29,7 +29,14 @@ public class InputController
 
     public void Update()
     {
+
+
+
         Test();
+        Keyboard();
+
+        try { GameMaster.INSTANCE.GodMaster.SetInput(new BitArray(new bool[] { true, true, false, false })); } catch (NullReferenceException e) { Debug.LogError("<b>[GameMaster.INSTANCE] : " + e.Message + "</b>", inputMaster); }
+
     }
 
     private void Test()
@@ -40,6 +47,41 @@ public class InputController
             Debug.Log("<b>Hello World!</b>");
 
             try { GameMaster.INSTANCE.GodMaster.SetInput(new BitArray(new bool[] { true, true, false, false } )); } catch (NullReferenceException e) { Debug.LogError("<b>[GameMaster.INSTANCE] : " + e.Message + "</b>", inputMaster); }
+
+        }
+
+    }
+
+    private void Keyboard()
+    {
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            
+        }
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            //inputData.Inputs += 1 << 0;
+        }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+
+        }
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
 
         }
 

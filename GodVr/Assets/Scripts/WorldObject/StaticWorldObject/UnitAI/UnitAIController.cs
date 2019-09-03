@@ -1,18 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class UnitAIController : MonoBehaviour
+public class UnitAIController
 {
-    // Start is called before the first frame update
-    void Start()
+
+    #region Fields
+
+    private UnitAIMaster unitAIMaster = null;
+
+    [SerializeField]
+    private UnitAIConfig unitAIConfig = null;
+
+    [SerializeField]
+    private UnitAIData unitAIData = null;
+
+    #endregion
+
+    #region Constructors
+
+    private UnitAIController() { }
+    public UnitAIController(UnitAIMaster unitAIMaster, UnitAIConfig unitAIConfig, UnitAIData unitAIData)
     {
-        
+        this.unitAIMaster = unitAIMaster;
+        this.unitAIConfig = unitAIConfig;
+        this.unitAIData = unitAIData;
+    }'
+
+    #endregion
+
+    #region Methods
+
+    public void Update()
+    {
+
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    #endregion
+
 }

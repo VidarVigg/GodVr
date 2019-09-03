@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class InteractableWorldObject : WorldObject
 {
-    public abstract void Grab();
-    public abstract void Place();
-    public abstract void Throw();   
+    public virtual void Grab() { }
+    public virtual void Place() { }
+    public virtual void Throw() { }   
 }

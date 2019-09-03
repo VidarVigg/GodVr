@@ -34,6 +34,13 @@ public class GodMaster : MonoBehaviour
     public void SetInput(BitArray input)
     {
 
+        string result = string.Empty;
+        for (int i = 0; i < input.Length; i++)
+        {
+            result = string.Concat(result, input[i].ToString());
+        }
+
+        Debug.Log(result);
     } 
 
     #endregion

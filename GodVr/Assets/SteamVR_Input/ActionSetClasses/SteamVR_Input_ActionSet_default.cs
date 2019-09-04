@@ -17,38 +17,6 @@ namespace Valve.VR
     public class SteamVR_Input_ActionSet_default : Valve.VR.SteamVR_ActionSet
     {
         
-        public virtual SteamVR_Action_Boolean InteractUI
-        {
-            get
-            {
-                return SteamVR_Actions.default_InteractUI;
-            }
-        }
-        
-        public virtual SteamVR_Action_Boolean Teleport
-        {
-            get
-            {
-                return SteamVR_Actions.default_Teleport;
-            }
-        }
-        
-        public virtual SteamVR_Action_Boolean GrabPinch
-        {
-            get
-            {
-                return SteamVR_Actions.default_GrabPinch;
-            }
-        }
-        
-        public virtual SteamVR_Action_Boolean GrabGrip
-        {
-            get
-            {
-                return SteamVR_Actions.default_GrabGrip;
-            }
-        }
-        
         public virtual SteamVR_Action_Pose Pose
         {
             get
@@ -73,19 +41,59 @@ namespace Valve.VR
             }
         }
         
-        public virtual SteamVR_Action_Single Squeeze
-        {
-            get
-            {
-                return SteamVR_Actions.default_Squeeze;
-            }
-        }
-        
         public virtual SteamVR_Action_Boolean HeadsetOnHead
         {
             get
             {
                 return SteamVR_Actions.default_HeadsetOnHead;
+            }
+        }
+        
+        public virtual SteamVR_Action_Vector2 TrackPad
+        {
+            get
+            {
+                return SteamVR_Actions.default_TrackPad;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean PadClick
+        {
+            get
+            {
+                return SteamVR_Actions.default_PadClick;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean PadTouching
+        {
+            get
+            {
+                return SteamVR_Actions.default_PadTouching;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean OpenMenu
+        {
+            get
+            {
+                return SteamVR_Actions.default_OpenMenu;
+            }
+        }
+        
+        public virtual SteamVR_Action_Boolean TriggerClick
+        {
+            get
+            {
+                return SteamVR_Actions.default_TriggerClick;
+            }
+        }
+        
+        public virtual SteamVR_Action_Single TriggerDrag
+        {
+            get
+            {
+                return SteamVR_Actions.default_TriggerDrag;
             }
         }
         

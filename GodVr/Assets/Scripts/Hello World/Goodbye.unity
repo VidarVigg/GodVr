@@ -149,6 +149,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc0b9c8d74899843a1c6c7aa4f66816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rock: {fileID: 0}
+  displayItem: {fileID: 0}
+  heldItem: {fileID: 0}
 --- !u!4 &304953247
 Transform:
   m_ObjectHideFlags: 0
@@ -458,13 +461,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioConfig:
     menuAudioDefault: {fileID: 0}
-    gameAudioDefault: {fileID: 0}
+    gameAudioDefault: {fileID: 11400000, guid: 7d3dcc01dbaa7ef42aaa8a7e90e46b74, type: 2}
   audioData:
-    audioObjects:
-    - audioType: 0
-      audioClip: {fileID: 0}
-    - audioType: 0
-      audioClip: {fileID: 0}
+    audioObjectsMenu: []
+    audioObjectsGame: []
 --- !u!4 &1340005422
 Transform:
   m_ObjectHideFlags: 0

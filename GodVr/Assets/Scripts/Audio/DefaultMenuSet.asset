@@ -9,13 +9,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a03f990ac70a05143b47aabfeb6eb8dc, type: 3}
-  m_Name: DefaultGameSet
+  m_Script: {fileID: 11500000, guid: b91157e129d10484c8787c0f56166196, type: 3}
+  m_Name: DefaultMenuSet
   m_EditorClassIdentifier: 
   audioObjects:
-  - audioType: 1
+  - audioType: 0
     audioClip: {fileID: 0}
-  - audioType: 2
+  - audioType: 0
     audioClip: {fileID: 0}
-  - audioType: 4
+  - audioType: 0
+    audioClip: {fileID: 0}
+  - audioType: 0
     audioClip: {fileID: 0}

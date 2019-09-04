@@ -1,9 +1,32 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
+using UnityEngine;
 
 [Serializable]
 public class AudioConfig
 {
-    [SerializeField] private MenuAudioSet menuAudioDefault;
-    [SerializeField] private GameAudioSet gameAudioDefault;
+
+    #region Fields
+
+    [SerializeField]
+    private MenuAudioSet menuAudioDefault = null;
+
+    [SerializeField]
+    private GameAudioSet gameAudioDefault = null;
+
+    #endregion
+
+    #region Properties
+
+    public MenuAudioSet MenuAudioSet
+    {
+        get { return menuAudioDefault; }
+    }
+
+    public GameAudioSet GameAudioSet
+    {
+        get { return gameAudioDefault; }
+    }
+
+    #endregion
+
 }

@@ -3,7 +3,22 @@
 [CreateAssetMenu(fileName = "DefaultGameSet", menuName = "AudioSet/Menu")]
 public class MenuAudioSet : ScriptableObject
 {
-    
-    [SerializeField] private AudioObject[] audioObjects = new AudioObject[4];
+
+    #region Fields
+
+    [SerializeField] private AudioObject[] audioObjects = new AudioObject[] 
+    {
+
+        new AudioObject(AudioType.Select, null),
+
+    };
+
+    #endregion
+
+    #region Properties
+
+    public AudioObject[] AudioObjects { get { return audioObjects; } }
+
+    #endregion
 
 }

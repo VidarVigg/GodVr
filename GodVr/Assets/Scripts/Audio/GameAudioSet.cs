@@ -11,7 +11,7 @@ public class GameAudioSet : ScriptableObject
     {
         new AudioObject(AudioType.PickUp, null),
         new AudioObject(AudioType.PutDown, null),
-        new AudioObject(AudioType.Select, null),
+
     };
 
     #endregion

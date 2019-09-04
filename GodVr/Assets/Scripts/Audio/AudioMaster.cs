@@ -9,15 +9,15 @@ public class AudioMaster : MonoBehaviour
 
     private void Awake()
     {
-        
+        audioController = new AudioController(this, audioConfig, audioData);
     }
-    // Start is called before the first frame update
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+
     void Update()
     {
         

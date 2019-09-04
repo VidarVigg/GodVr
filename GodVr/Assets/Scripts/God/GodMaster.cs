@@ -31,16 +31,57 @@ public class GodMaster : MonoBehaviour
         controller.Update();
     }
 
-    public void SetInput(BitArray input)
+    public InteractableWorldObject rock;
+    public InteractableWorldObject displayItem = null;
+    public InteractableWorldObject heldItem = null;
+
+    public void WriteInput(BitArray input)
     {
 
-        string result = string.Empty;
         for (int i = 0; i < input.Length; i++)
         {
-            result = string.Concat(result, input[i].ToString());
+            Debug.Log(i + " = " + input[i]);
         }
 
-        Debug.Log(result);
+        if (input[0] == true)
+        {
+            
+            if (!heldItem)
+            {
+                displayItem = Instantiate(rock);
+            }
+            
+        }
+
+        if (input[1] == true)
+        {
+
+            if (displayItem)
+            {
+                Destroy(displayItem.gameObject);
+                displayItem = null;
+            }
+
+        }
+
+        if (input[2] == true)
+        {
+
+            if (displayItem)
+            {
+                //Close Menu
+                heldItem = displayItem;
+                displayItem = null;
+            }
+            
+        }
+
+        if (input[3] == true)
+        {
+            //Throw/Place/Drop
+            heldItem = null;
+        }
+
     } 
 
     #endregion

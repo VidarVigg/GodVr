@@ -1,14 +1,18 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class AudioController : MonoBehaviour
 {
+
     #region Fields
 
-    [SerializeField] private AudioMaster audioMaster = null;
-    [SerializeField] private AudioConfig audioConfig = null;
-    [SerializeField] private AudioData audioData = null;
+    [SerializeField]
+    private AudioMaster audioMaster = null;
+
+    [SerializeField]
+    private AudioConfig audioConfig = null;
+
+    [SerializeField]
+    private AudioData audioData = null;
 
     #endregion
 

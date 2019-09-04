@@ -6,7 +6,12 @@ public class GameAudioSet : ScriptableObject
 
     #region Fields
 
-    [SerializeField] private AudioObject[] audioObjects = new AudioObject[4];
+    [SerializeField]
+    private AudioObject[] audioObjects = new AudioObject[]
+    {
+        new AudioObject(AudioType.PickUp, null),
+        new AudioObject(AudioType.PutDown, null)
+    };
 
     #endregion
 

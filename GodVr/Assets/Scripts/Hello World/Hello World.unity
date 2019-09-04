@@ -149,6 +149,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc0b9c8d74899843a1c6c7aa4f66816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rock: {fileID: 1290225225278213777, guid: 93ee1cf5252478446b3df866cf6496fa, type: 3}
+  spawned: {fileID: 0}
 --- !u!4 &304953247
 Transform:
   m_ObjectHideFlags: 0

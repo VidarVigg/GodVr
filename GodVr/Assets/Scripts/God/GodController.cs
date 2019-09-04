@@ -1,4 +1,6 @@
-﻿public class GodController
+﻿using UnityEngine;
+
+public class GodController
 {
 
     #region Fields
@@ -26,6 +28,11 @@
     public void Update()
     {
 
+    }
+
+    public WorldObject Spawn(WorldObject worldObject)
+    {
+        return GodMaster.Instantiate(worldObject);
     }
 
     #endregion

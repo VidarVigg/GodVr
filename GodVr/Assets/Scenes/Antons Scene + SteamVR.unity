@@ -4131,7 +4131,45 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 118197674}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &118894796
+=======
+--- !u!21 &72751789
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sprites/Default
+  m_Shader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _AlphaTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - PixelSnap: 0
+    - _EnableExternalAlpha: 0
+    m_Colors:
+    - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Flip: {r: 1, g: 1, b: 1, a: 1}
+    - _RendererColor: {r: 1, g: 1, b: 1, a: 1}
+--- !u!1001 &74020163
+>>>>>>> master
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -16230,7 +16268,56 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 393817650}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &395499748
+=======
+  m_GameObject: {fileID: 332366463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4f36585e15b1942827390ff1a92502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1408731620}
+  attachPoint: {fileID: 967381576}
+  spawn:
+    actionPath: /actions/default/in/TriggerClick
+    needsReinit: 1
+--- !u!114 &332366467
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332366463}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5325ed1051e95a74294ec540afee70df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputConfig:
+    helloWorld: 0
+  inputData:
+    logControllerDebug: 0
+    triggerClick:
+      actionPath: /actions/default/in/TriggerClick
+      needsReinit: 0
+    triggerDrag:
+      actionPath: /actions/default/in/TriggerDrag
+      needsReinit: 0
+    openMenu:
+      actionPath: /actions/default/in/OpenMenu
+      needsReinit: 0
+    padClick:
+      actionPath: /actions/default/in/PadClick
+      needsReinit: 0
+    padTouching:
+      actionPath: /actions/default/in/PadTouching
+      needsReinit: 0
+    trackpad:
+      actionPath: /actions/default/in/TrackPad
+      needsReinit: 0
+--- !u!1001 &333930083
+>>>>>>> master
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -24882,9 +24969,15 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3633776013380898628, guid: 09bac74bb0b0e674bbd06a0b45866e37,
     type: 3}
+<<<<<<< HEAD
   m_PrefabInstance: {fileID: 572102555}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &572582655
+=======
+  m_PrefabInstance: {fileID: 528099235}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &531631694
+>>>>>>> master
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -32010,9 +32103,15 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 3633776013380898628, guid: 09bac74bb0b0e674bbd06a0b45866e37,
     type: 3}
+<<<<<<< HEAD
   m_PrefabInstance: {fileID: 766992689}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &769634904
+=======
+  m_PrefabInstance: {fileID: 712429153}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &714234617
+>>>>>>> master
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -35279,6 +35378,7 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
+<<<<<<< HEAD
   m_SourcePrefab: {fileID: 100100000, guid: 09bac74bb0b0e674bbd06a0b45866e37, type: 3}
 --- !u!4 &858363737 stripped
 Transform:
@@ -35287,6 +35387,173 @@ Transform:
   m_PrefabInstance: {fileID: 858363736}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &861844467
+=======
+  m_SourcePrefab: {fileID: 100100000, guid: b43bddbb5a0e0ac44bc93be8fac26d93, type: 3}
+--- !u!43 &816275316
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  serializedVersion: 10
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 24
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 8
+    localAABB:
+      m_Center: {x: 0, y: 0.01, z: 0}
+      m_Extent: {x: 1.3000004, y: 0, z: 1.2500004}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_BonesAABB: []
+  m_VariableBoneCountWeights:
+    m_Data: 
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000004000100010004000500010005000200020005000600020006000300030006000700030007000000000007000400
+  m_VertexData:
+    serializedVersion: 3
+    m_VertexCount: 8
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 4
+    - stream: 0
+      offset: 28
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 288
+    _typelessdata: 3733933f0ad7233cd0cc8cbf000000000000803f0000803f0000803f0000000000000000373393bf0ad7233cd0cc8cbf000000000000803f0000803f0000803f0000803f00000000373393bf0ad7233cd0cc8c3f000000000000803f0000803f0000803f00000000000000003733933f0ad7233cd0cc8c3f000000000000803f0000803f0000803f0000803f000000006a66a63f0ad7233c0300a0bf000000000000803f0000803f00000000000000000000803f6a66a6bf0ad7233c0300a0bf000000000000803f0000803f000000000000803f0000803f6a66a6bf0ad7233c0300a03f000000000000803f0000803f00000000000000000000803f6a66a63f0ad7233c0300a03f000000000000803f0000803f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0.01, z: 0}
+    m_Extent: {x: 1.3000004, y: 0, z: 1.2500004}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimizationFlags: 1
+  m_StreamData:
+    offset: 0
+    size: 0
+    path: 
+--- !u!1001 &816357695
+>>>>>>> master
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -47222,9 +47489,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     - target: {fileID: 3633776013380898628, guid: 09bac74bb0b0e674bbd06a0b45866e37,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
+=======
+    - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 816275316}
+    - target: {fileID: 11489174, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+      propertyPath: drawInGame
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11489174, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+      propertyPath: size
+>>>>>>> master
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3633776013380898628, guid: 09bac74bb0b0e674bbd06a0b45866e37,
@@ -47237,15 +47517,49 @@ PrefabInstance:
       propertyPath: m_LODs.Array.data[1].screenRelativeHeight
       value: 0
       objectReference: {fileID: 0}
+<<<<<<< HEAD
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 09bac74bb0b0e674bbd06a0b45866e37, type: 3}
 --- !u!4 &1124519275 stripped
+=======
+    - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 72751789}
+    m_RemovedComponents:
+    - {fileID: 11403694, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+    - {fileID: 11438774, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+    - {fileID: 11453314, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+  m_SourcePrefab: {fileID: 100100000, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+--- !u!4 &1110379725 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 478542, guid: 4d293c8e162f3874b982baadd71153d2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1110379724}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1110379726 stripped
+>>>>>>> master
 Transform:
   m_CorrespondingSourceObject: {fileID: 3633776013380898628, guid: 09bac74bb0b0e674bbd06a0b45866e37,
     type: 3}
   m_PrefabInstance: {fileID: 1124519274}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 --- !u!1001 &1124757444
+=======
+  m_GameObject: {fileID: 1110379727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff4f36585e15b1942827390ff1a92502, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 1408731620}
+  attachPoint: {fileID: 1820526387}
+  spawn:
+    actionPath: /actions/default/in/TriggerClick
+    needsReinit: 1
+--- !u!1001 &1113013456
+>>>>>>> master
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2

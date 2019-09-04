@@ -25,7 +25,6 @@ public struct AudioObject
 
     #endregion
 
-
     #region Properties
 
     public AudioType AudioType { get { return audioType; } }

@@ -12,10 +12,10 @@ public class MenuSetEditor : Editor
 
         MenuAudioSet gas = (MenuAudioSet)target;
 
-        //for (int i = 0; i < gas.AudioObjects.Length; i++)
-        //{
-        //    EditorGUILayout.ObjectField(gas.AudioObjects[i].AudioType.ToString(), gas.AudioObjects[i].AudioClip, typeof(AudioClip), allowSceneObjects: true);
-        //}
+        for (int i = 0; i < gas.MenuAudioObjects.Length; i++)
+        {
+            EditorGUILayout.ObjectField(gas.MenuAudioObjects[i].MenuAudioType.ToString(), gas.MenuAudioObjects[i].AudioClip, typeof(AudioClip), allowSceneObjects: true);
+        }
 
     }
 

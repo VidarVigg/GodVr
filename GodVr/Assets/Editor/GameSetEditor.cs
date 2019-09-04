@@ -12,9 +12,9 @@ public class GameSetEditor : Editor
 
         GameAudioSet gas = (GameAudioSet)target;
 
-        for (int i = 0; i < gas.AudioObjects.Length; i++)
+        for (int i = 0; i < gas.GameAudioObject.Length; i++)
         {
-            EditorGUILayout.ObjectField(gas.AudioObjects[i].AudioType.ToString(), gas.AudioObjects[i].AudioClip, typeof(AudioClip), allowSceneObjects: true);
+            EditorGUILayout.ObjectField(gas.GameAudioObject[i].GameAudioType.ToString(), gas.GameAudioObject[i].AudioClip, typeof(AudioClip), allowSceneObjects: true);
         }
 
     }

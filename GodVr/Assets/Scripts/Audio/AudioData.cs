@@ -7,9 +7,8 @@ public class AudioData
 
     #region Fields
 
-    [SerializeField] private AudioObject[] audioObjectsMenu = new AudioObject[0];
-    [SerializeField] private AudioObject[] audioObjectsGame = new AudioObject[0];
-
+    [SerializeField] private AudioObject[] audioObjectsMenu = null;
+    [SerializeField] private AudioObject[] audioObjectsGame = null;
 
     #endregion
 

@@ -10,7 +10,8 @@ public class GameAudioSet : ScriptableObject
     private AudioObject[] audioObjects = new AudioObject[]
     {
         new AudioObject(AudioType.PickUp, null),
-        new AudioObject(AudioType.PutDown, null)
+        new AudioObject(AudioType.PutDown, null),
+        new AudioObject(AudioType.Select, null),
     };
 
     #endregion

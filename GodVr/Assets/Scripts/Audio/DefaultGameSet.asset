@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a03f990ac70a05143b47aabfeb6eb8dc, type: 3}
   m_Name: DefaultGameSet
   m_EditorClassIdentifier: 
-  pickUp:
-    audioType: 1
+  audioObjects:
+  - audioType: 1
+    audioClip: {fileID: 0}
+  - audioType: 2
+    audioClip: {fileID: 0}
+  - audioType: 4
     audioClip: {fileID: 0}

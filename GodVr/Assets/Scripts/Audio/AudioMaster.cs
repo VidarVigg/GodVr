@@ -10,6 +10,13 @@ public class AudioMaster : MonoBehaviour
     private void Awake()
     {
         audioController = new AudioController(this, audioConfig, audioData);
+        audioData.AudioObjectsGame = new AudioObject[audioConfig.GameAudioSet.AudioObjects.Length];
+        for (int i = 0; i < audioConfig.GameAudioSet.AudioObjects.Length; i++)
+        {
+
+            audioData.AudioObjectsGame[i] = audioConfig.GameAudioSet.AudioObjects[i];
+
+        }
 
     }
 

@@ -33,21 +33,6 @@ public class NaturalMaster : InteractableWorldObject
         naturalController.Update();
     }
 
-    public override void Grab()
-    {
-
-    }
-
-    public override void Place()
-    {
-
-    }
-
-    public override void Throw()
-    {
-
-    }
-
     #endregion
 
 }

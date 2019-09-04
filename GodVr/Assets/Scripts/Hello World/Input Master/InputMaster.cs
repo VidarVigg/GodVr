@@ -6,7 +6,7 @@ public class InputMaster : MonoBehaviour
     #region Fields
 
     [SerializeField]
-    private InputConfig inputConfig = null;
+    private InputConfig inputConfig = null; 
 
     [SerializeField]
     private InputData inputData = null;

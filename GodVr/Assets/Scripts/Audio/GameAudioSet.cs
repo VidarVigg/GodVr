@@ -4,6 +4,6 @@
 public class GameAudioSet : ScriptableObject
 {
 
-    [SerializeField] private AudioObject pickUp = new AudioObject(AudioType.PickUp, null);
+    [SerializeField] private AudioObject[] audioObjects = new AudioObject[4];
 
 }

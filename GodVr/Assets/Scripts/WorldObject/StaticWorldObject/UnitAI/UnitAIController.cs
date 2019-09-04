@@ -23,7 +23,7 @@ public class UnitAIController
         this.unitAIMaster = unitAIMaster;
         this.unitAIConfig = unitAIConfig;
         this.unitAIData = unitAIData;
-    }'
+    }
 
     #endregion
 

@@ -12,7 +12,7 @@ public class GameAudioSet : ScriptableObject
 
     #region Properties
 
-    public AudioObject[] AudioObject { get { return audioObjects; }}
+    public AudioObject[] AudioObjects { get { return audioObjects; }}
 
     #endregion
 

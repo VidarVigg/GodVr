@@ -25,4 +25,11 @@ public struct AudioObject
 
     #endregion
 
+
+    #region Properties
+
+    public AudioClip AudioClip { get { return audioClip; } }
+
+    #endregion
+
 }

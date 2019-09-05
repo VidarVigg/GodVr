@@ -42,56 +42,9 @@ public class InputController
 
     private void VRController()
     {
-        #region Top Menu Button
-        if (inputData.openMenu.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any))
-        {
-            
-            // Returns True the frame it is Down
-            if (inputData.LogControllerDebug)
-                Debug.Log("Open Main Menu " + inputData.openMenu.activeDevice + " is pressed");
-        }
 
-        if (inputData.openMenu.GetStateUp(Valve.VR.SteamVR_Input_Sources.Any))
-        {
-            // Returns True the frame it is Up
-            if (inputData.LogControllerDebug)
-                Debug.Log("Open Main Menu " + inputData.openMenu.activeDevice + " is released");
-        }
-        #endregion
-
-        #region Trigger
-        if (inputData.triggerClick.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any))
-        {
-            
-            // Returns True the frame it is Down
-            if (inputData.LogControllerDebug)
-                Debug.Log("Trigger Click " + inputData.triggerClick.activeDevice + " is pressed");
-        }
-
-        if (inputData.triggerClick.GetStateUp(Valve.VR.SteamVR_Input_Sources.Any))
-        {
-            // Returns True the frame it is Up
-            if (inputData.LogControllerDebug)
-                Debug.Log("Trigger Click " + inputData.triggerClick.activeDevice + " is released");
-        }
-
-        if (inputData.triggerDrag.GetLastAxis(Valve.VR.SteamVR_Input_Sources.Any) <= 0.25f &&
-            inputData.triggerDrag.GetAxis(Valve.VR.SteamVR_Input_Sources.Any) > 0.25f)
-        {
-            inputData.Inputs[2] = true;
-            // Returns a float between 0 and 1
-            if (inputData.LogControllerDebug)
-                Debug.Log("TriggerDrag " + inputData.triggerDrag.activeDevice + " reached threshold");
-        }
-        if (inputData.triggerDrag.GetLastAxis(Valve.VR.SteamVR_Input_Sources.Any) > 0.25f &&
-            inputData.triggerDrag.GetAxis(Valve.VR.SteamVR_Input_Sources.Any) <= 0.25f)
-        {
-            inputData.Inputs[3] = true;
-        }
-            #endregion
-
-            #region Touchpad
-            if (inputData.padTouching.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any))
+        #region Touchpad
+        if (inputData.padTouching.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any))
         {
             inputData.Inputs[0] = true;
 
@@ -100,20 +53,72 @@ public class InputController
                 Debug.Log("Touching " + inputData.padTouching.activeDevice + " trackpad");
 
             // Return a Vector2 with values between -1 and 1
-              if(inputData.LogControllerDebug)
-            inputData.trackpad.GetAxis(Valve.VR.SteamVR_Input_Sources.Any);
+            if (inputData.LogControllerDebug)
+                inputData.trackpad.GetAxis(Valve.VR.SteamVR_Input_Sources.Any);
 
         }
 
         if (inputData.padTouching.GetStateUp(Valve.VR.SteamVR_Input_Sources.Any))
         {
             inputData.Inputs[1] = true;
-            
+
             // Returns True the frame it is Up
             if (inputData.LogControllerDebug)
                 Debug.Log("Not touching " + inputData.padTouching.activeDevice + " trackpad");
         }
         #endregion
+
+        #region Trigger
+        if (inputData.triggerDrag.GetLastAxis(Valve.VR.SteamVR_Input_Sources.Any) <= 0.25f &&
+            inputData.triggerDrag.GetAxis(Valve.VR.SteamVR_Input_Sources.Any) > 0.25f)
+        {
+            inputData.Inputs[2] = true;
+            // Returns a float between 0 and 1
+            if (inputData.LogControllerDebug)
+                Debug.Log("TriggerDrag " + inputData.triggerDrag.activeDevice + " reached threshold");
+        }
+
+        if (inputData.triggerDrag.GetLastAxis(Valve.VR.SteamVR_Input_Sources.Any) > 0.25f &&
+            inputData.triggerDrag.GetAxis(Valve.VR.SteamVR_Input_Sources.Any) <= 0.25f)
+        {
+            inputData.Inputs[3] = true;
+        }
+
+        if (inputData.triggerClick.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any))
+        {
+            inputData.Inputs[4] = true;
+            // Returns True the frame it is Down
+            if (inputData.LogControllerDebug)
+                Debug.Log("Trigger Click " + inputData.triggerClick.activeDevice + " is pressed");
+        }
+
+        if (inputData.triggerClick.GetStateUp(Valve.VR.SteamVR_Input_Sources.Any))
+        {
+            inputData.Inputs[5] = true;
+            // Returns True the frame it is Up
+            if (inputData.LogControllerDebug)
+                Debug.Log("Trigger Click " + inputData.triggerClick.activeDevice + " is released");
+        }
+        #endregion
+
+        #region Top Menu Button
+        if (inputData.openMenu.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any))
+        {
+            inputData.Inputs[6] = true;
+            // Returns True the frame it is Down
+            if (inputData.LogControllerDebug)
+                Debug.Log("Open Main Menu " + inputData.openMenu.activeDevice + " is pressed");
+        }
+
+        if (inputData.openMenu.GetStateUp(Valve.VR.SteamVR_Input_Sources.Any))
+        {
+            inputData.Inputs[7] = true;
+            // Returns True the frame it is Up
+            if (inputData.LogControllerDebug)
+                Debug.Log("Open Main Menu " + inputData.openMenu.activeDevice + " is released");
+        }
+        #endregion
+
     }
     private void WriteGodMasterInput()
     {

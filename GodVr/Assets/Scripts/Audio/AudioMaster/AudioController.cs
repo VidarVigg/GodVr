@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class AudioController : MonoBehaviour
+public class AudioController
 {
 
     #region Fields

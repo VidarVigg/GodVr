@@ -33,9 +33,9 @@ public class InputController
 
     public void Update()
     {
-        VRController();
         WriteGodMasterInput();
-
+        VRController();
+        TryToSendToGameMaster();
         //try { GameMaster.INSTANCE.GodMaster.WriteInput(new BitArray(new bool[] { true, true, false, false })); } catch (NullReferenceException e) { Debug.LogError("<b>[GameMaster.INSTANCE] : " + e.Message + "</b>", inputMaster); }
 
     }
@@ -45,8 +45,9 @@ public class InputController
         #region Top Menu Button
         if (inputData.openMenu.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any))
         {
+            
             // Returns True the frame it is Down
-            if(inputData.LogControllerDebug)
+            if (inputData.LogControllerDebug)
                 Debug.Log("Open Main Menu " + inputData.openMenu.activeDevice + " is pressed");
         }
 
@@ -61,6 +62,7 @@ public class InputController
         #region Trigger
         if (inputData.triggerClick.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any))
         {
+            
             // Returns True the frame it is Down
             if (inputData.LogControllerDebug)
                 Debug.Log("Trigger Click " + inputData.triggerClick.activeDevice + " is pressed");
@@ -73,17 +75,26 @@ public class InputController
                 Debug.Log("Trigger Click " + inputData.triggerClick.activeDevice + " is released");
         }
 
-        if (inputData.triggerDrag.GetAxis(Valve.VR.SteamVR_Input_Sources.Any) > 0.25f)
+        if (inputData.triggerDrag.GetLastAxis(Valve.VR.SteamVR_Input_Sources.Any) <= 0.25f &&
+            inputData.triggerDrag.GetAxis(Valve.VR.SteamVR_Input_Sources.Any) > 0.25f)
         {
+            inputData.Inputs[2] = true;
             // Returns a float between 0 and 1
             if (inputData.LogControllerDebug)
                 Debug.Log("TriggerDrag " + inputData.triggerDrag.activeDevice + " reached threshold");
         }
-        #endregion
-
-        #region Touchpad
-        if (inputData.padTouching.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any))
+        if (inputData.triggerDrag.GetLastAxis(Valve.VR.SteamVR_Input_Sources.Any) > 0.25f &&
+            inputData.triggerDrag.GetAxis(Valve.VR.SteamVR_Input_Sources.Any) <= 0.25f)
         {
+            inputData.Inputs[3] = true;
+        }
+            #endregion
+
+            #region Touchpad
+            if (inputData.padTouching.GetStateDown(Valve.VR.SteamVR_Input_Sources.Any))
+        {
+            inputData.Inputs[0] = true;
+
             // Returns True the frame it is Down
             if (inputData.LogControllerDebug)
                 Debug.Log("Touching " + inputData.padTouching.activeDevice + " trackpad");
@@ -96,6 +107,8 @@ public class InputController
 
         if (inputData.padTouching.GetStateUp(Valve.VR.SteamVR_Input_Sources.Any))
         {
+            inputData.Inputs[1] = true;
+            
             // Returns True the frame it is Up
             if (inputData.LogControllerDebug)
                 Debug.Log("Not touching " + inputData.padTouching.activeDevice + " trackpad");
@@ -129,7 +142,9 @@ public class InputController
         {
             inputData.Inputs[3] = true;
         }
-        
+    }
+    private void TryToSendToGameMaster()
+    {
         bool send = false;
 
         for (int i = 0; i < inputData.Inputs.Length; i++)
@@ -144,19 +159,20 @@ public class InputController
         {
             return;
         }
-
+        Send();
+    }
+    private void Send()
+    {
         try
         {
             GameMaster.INSTANCE.GodMaster.WriteInput(inputData.Inputs);
         }
 
-        catch(NullReferenceException e)
+        catch (NullReferenceException e)
         {
             Debug.LogError("<b>[GameMaster.INSTANCE || GameMaster.INSTANCE.GodMaster] : " + e.Message + "</b>", inputMaster);
         }
-
     }
-
     #endregion
 
 }

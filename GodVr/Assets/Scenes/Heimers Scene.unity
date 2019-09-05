@@ -524,7 +524,7 @@ MonoBehaviour:
   attachPoint: {fileID: 967381576}
   spawn:
     actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
+    needsReinit: 1
 --- !u!1 &347994645
 GameObject:
   m_ObjectHideFlags: 0
@@ -1715,7 +1715,7 @@ MonoBehaviour:
   attachPoint: {fileID: 1820526387}
   spawn:
     actionPath: /actions/default/in/InteractUI
-    needsReinit: 0
+    needsReinit: 1
 --- !u!43 &1117155005
 Mesh:
   m_ObjectHideFlags: 0
@@ -4050,6 +4050,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 123eebcb0461f7d4bb4ca6c3226abef5, type: 3}
+--- !u!1 &1901820174620607866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9119740681405683619, guid: 123eebcb0461f7d4bb4ca6c3226abef5,
+    type: 3}
+  m_PrefabInstance: {fileID: 1901820174620607865}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1901820174620607867
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901820174620607866}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.3
+  m_Height: 6.0135736
+  m_Direction: 1
+  m_Center: {x: -0.18, y: 3.0067868, z: 0.00000011920929}
 --- !u!1001 &2030451926970395048
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4531,6 +4551,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7067552925598853470, guid: bbd1cd954d1d1b84aae80ab5ec872198,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bbd1cd954d1d1b84aae80ab5ec872198, type: 3}
 --- !u!1001 &7902034838010107899
@@ -4602,3 +4627,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d6c5414197aa9743b163bee70b85a34, type: 3}
+--- !u!1 &7902034838010107900 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 435059349835752112, guid: 5d6c5414197aa9743b163bee70b85a34,
+    type: 3}
+  m_PrefabInstance: {fileID: 7902034838010107899}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &7902034838010107901
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7902034838010107900}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_Mesh: {fileID: -742405603948984063, guid: a50494e18e8d7f449a1d49cde35c7ca7, type: 3}

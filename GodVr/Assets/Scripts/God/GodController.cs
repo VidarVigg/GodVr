@@ -45,6 +45,8 @@ public class GodController
         Trigger_Click_Up,
         TopMenu_Up,
         TopMenu_Down,
+        RightHand,
+        LeftHand
     }
     public void HandleInput(BitArray inputs)
     {
@@ -111,6 +113,8 @@ public class GodController
                 //Pick Up
                 case GodData.PlayerState.EmptyHanded:
                     //Non Alloc Sphere Cast, Config Radius
+                    GrabObject();
+
                     break;
 
                 //Grab Display Item
@@ -141,7 +145,13 @@ public class GodController
                 //Place/Drop
                 case GodData.PlayerState.HoldingItem:
                     //Throw/Place/Drop
-                    godData.heldItem = null;
+                    if (!Place())
+                    {
+                        Throw();
+                    }
+                    break;
+                case GodData.PlayerState.InMenu:
+                    //Throw/Place/Drop
                     break;
 
                 default:
@@ -150,9 +160,83 @@ public class GodController
             }
 
         }
-
-
-
         #endregion
     }
+
+    private void Throw()
+    {
+        Debug.Log("Throw In hand");
+        if (godData.heldItem)
+        {
+            godData.heldItem.Throw(godData.rightControllerPoint);
+            godData.heldItem = null;
+        }
+        godData.state = GodData.PlayerState.EmptyHanded;
+    }
+
+    private void GrabObject()
+    {
+        Debug.Log("Grab Something");
+        RaycastHit[] hitted = new RaycastHit[10];
+
+
+        //Need to make it so depending on which hand that activates it.
+        Vector3 position = godData.rightControllerAttach.position;        
+        
+        
+        //Put this in Config
+        int layerMask = 1 << 9;
+
+        int numberOfHits = Physics.SphereCastNonAlloc(position, godData.RayCastSphereRadius, Vector3.down, hitted, layerMask);
+
+        if (numberOfHits < 1)
+        {
+            return;
+        }
+        int nearestHitIndex = 0;
+
+
+        for (int i = 0; i < numberOfHits; i++)
+        {
+            Debug.Log(hitted[i].collider.gameObject, hitted[i].collider.gameObject);
+            if(hitted[nearestHitIndex].distance < hitted[i].distance)
+            {
+                continue;
+            }
+            nearestHitIndex = i;
+
+        }
+        InteractableWorldObject intObj = hitted[nearestHitIndex].transform.GetComponent<InteractableWorldObject>();
+        //Debug.Log(intObj);
+        if (intObj)
+        {
+            intObj.Grab(godData.rightControllerAttach);
+            godData.heldItem = intObj;
+        }
+
+        if(godData.heldItem)
+        {
+            godData.state = GodData.PlayerState.HoldingItem;
+        }
+
+    }
+
+    private bool Place()
+    {
+        if (godData.heldItem)
+        {
+            Vector3 position = godData.rightControllerAttach.position;
+            RaycastHit hit;
+            if (Physics.Raycast(position, Vector3.down, out hit, godData.RayPlaceDistance, 1 << 8))
+            {
+                godData.heldItem.Place(hit.point, Quaternion.identity);
+                godData.heldItem = null;
+                godData.state = GodData.PlayerState.EmptyHanded;
+                Debug.Log("Placed Item");
+                return true;
+            }
+        }
+        return false;
+    }
+
 }

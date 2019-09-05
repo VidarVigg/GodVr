@@ -23,7 +23,7 @@ public class UnitMaster : StaticWorldObject
 
     #region Methods
 
-    private void Awake()
+    protected override void Setup()
     {
         unitController = new UnitController(this, unitConfig, unitData);
     }

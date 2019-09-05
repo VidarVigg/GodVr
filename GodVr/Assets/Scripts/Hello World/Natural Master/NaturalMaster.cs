@@ -23,8 +23,9 @@ public class NaturalMaster : InteractableWorldObject
 
     #region Methods
 
-    private void Awake()
+    protected override void Setup()
     {
+        base.Setup();
         naturalController = new NaturalController(this, naturalConfig, naturalData);
     }
 

@@ -29,9 +29,8 @@ public class GameMaster : WorldObject, IGameMasterService
 
     #region Methods
 
-    private void Awake()
+    protected override void Setup()
     {
-
         if (INSTANCE)
         {
             Destroy(gameObject);

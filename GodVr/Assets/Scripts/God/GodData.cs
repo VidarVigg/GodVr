@@ -1,5 +1,7 @@
 ﻿using UnityEngine;
 using System;
+using Valve.VR;
+
 [Serializable]
 public class GodData 
 {
@@ -9,8 +11,13 @@ public class GodData
     public InteractableWorldObject displayItem = null;
     public InteractableWorldObject heldItem = null;
 
-    public Transform rightControllerAttach;
-    public Transform leftControllerAttach;
+    public Rigidbody rightControllerAttach;
+    public Rigidbody leftControllerAttach;
+    public SteamVR_Behaviour_Pose rightControllerPoint;
+    public SteamVR_Behaviour_Pose leftControllerPoint;
+
+    public float RayCastSphereRadius = 0.5f;
+    public float RayPlaceDistance = 0.5f;
 
     public enum PlayerState
     {

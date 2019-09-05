@@ -23,7 +23,7 @@ public class InputController
         this.inputConfig = inputConfig;
         this.inputData = inputData;
 
-        inputData.Inputs = new BitArray(4);
+        this.inputData.Inputs = new BitArray(20);
 
     }
 
@@ -120,6 +120,8 @@ public class InputController
         #endregion
 
     }
+
+
     private void WriteGodMasterInput()
     {
 
@@ -148,6 +150,8 @@ public class InputController
             inputData.Inputs[3] = true;
         }
     }
+
+
     private void TryToSendToGameMaster()
     {
         bool send = false;
@@ -168,9 +172,15 @@ public class InputController
     }
     private void Send()
     {
+
+        //Debug.Log(GameMaster.INSTANCE);
+        //Debug.Log(GameMaster.INSTANCE.GodMaster);
+        //Debug.Log(inputData);
+        //Debug.Log(inputData.Inputs);
+            GameMaster.INSTANCE.GodMaster.WriteInput(inputData.Inputs);
+
         try
         {
-            GameMaster.INSTANCE.GodMaster.WriteInput(inputData.Inputs);
         }
 
         catch (NullReferenceException e)

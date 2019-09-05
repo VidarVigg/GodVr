@@ -10,6 +10,9 @@ public class ProgramConfig
     [SerializeField]
     private GameMaster gameMaster = null;
 
+    [SerializeField]
+    private AudioMaster audioMaster = null;
+
     #endregion
 
     #region Properties
@@ -17,6 +20,11 @@ public class ProgramConfig
     public GameMaster GameMaster
     {
         get { return gameMaster; }
+    }
+
+    public AudioMaster AudioMaster
+    {
+        get { return audioMaster; }
     }
 
     #endregion

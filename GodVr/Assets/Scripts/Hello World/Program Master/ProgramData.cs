@@ -10,6 +10,9 @@ public class ProgramData
     [SerializeField]
     private GameMaster gameMaster = null;
 
+    [SerializeField]
+    private AudioMaster audioMaster = null;
+
     #endregion
 
     #region Properties
@@ -18,6 +21,12 @@ public class ProgramData
     {
         get { return gameMaster; }
         set { gameMaster = value; }
+    }
+
+    public AudioMaster AudioMaster
+    {
+        get { return audioMaster; }
+        set{ audioMaster = value; }
     }
 
     #endregion

@@ -1,2 +1,7 @@
 ﻿using UnityEngine;
-public abstract class WorldObject : MonoBehaviour { }
+public abstract class WorldObject : MonoBehaviour
+{
+    
+    
+
+}

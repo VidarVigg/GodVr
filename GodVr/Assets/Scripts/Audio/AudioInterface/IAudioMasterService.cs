@@ -4,21 +4,19 @@ public interface IAudioMasterService
 {
     #region Methods
 
-    void PlayOneShot(MenuAudioType menuAudioType);
-    void PlayOneShot(MenuAudioType menuAudioType, WorldObject worldObject);
-    void PlayOneShot(MenuAudioType menuAudioType, Vector3 position);
+    void PlayOneShot(MenuAudioType menuAudioType, AudioOptions options = null);
 
-    void PlayOneShot(GameAudioType gameAudioType);
-    void PlayOneShot(GameAudioType gameAudioType, WorldObject worldObject);
-    void PlayOneShot(GameAudioType gameAudioType, Vector3 position);
+    void PlayOneShot(GameAudioType gameAudioType, AudioOptions options = null);
 
-    void PlayLoop(MenuAudioType menuAudioType);
-    void PlayLoop(MenuAudioType menuAudioType, WorldObject worldObject);
-    void PlayLoop(MenuAudioType menuAudioType, Vector3 position);
+    void PlayLoop(MenuAudioType menuAudioType, AudioOptions options = null);
 
-    void PlayLoop(GameAudioType gameAudioType);
-    void PlayLoop(GameAudioType gameAudioType, WorldObject worldObject);
-    void PlayLoop(GameAudioType gameAudioType, Vector3 position);
+    void PlayLoop(GameAudioType gameAudioType, AudioOptions options = null);
+
+    void StopLoop(GameAudioType gameAudioType, AudioSource source);
+
+    void StopLoop(MenuAudioType menuAudioType, AudioSource source);
+
+    void StopAllLoops(AudioSource source);
 
     #endregion
 }

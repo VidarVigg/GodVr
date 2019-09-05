@@ -12,7 +12,7 @@
     #region Constructors
 
     private ProgramController() { }
-    public ProgramController(ProgramMaster programMaster, ProgramConfig programConfig, ProgramData programData)
+    public ProgramController(ProgramMaster programMaster, ProgramConfig programConfig, ref ProgramData programData)
     {
         this.programMaster = programMaster;
         this.programConfig = programConfig;
@@ -25,9 +25,9 @@
 
     #endregion
 
-    public void Spawn(WorldObject from, WorldObject to)
+    public WorldObject Spawn(WorldObject worldObject)
     {
-        to = Object2.Instantiate(from);
+        return Object2.Instantiate(worldObject);
     }
 
 }

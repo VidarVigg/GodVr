@@ -1,9 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ProgramMaster : MonoBehaviour
 {
+
+    #region Fields
 
     [SerializeField]
     private ProgramConfig programConfig = null;
@@ -13,9 +13,13 @@ public class ProgramMaster : MonoBehaviour
 
     private ProgramController programController = null;
 
+    #endregion
+
+    #region Methods
+
     private void Awake()
     {
-        programController = new ProgramController(this, programConfig, programData);
+        programController = new ProgramController(this, programConfig, ref programData);
         Initialize();
         GameMaster gm = Instantiate(programConfig.GameMaster);
         ServiceLocator.GameMasterService = gm;
@@ -26,11 +30,20 @@ public class ProgramMaster : MonoBehaviour
     {
         ServiceLocator.Iniitalize();
         SpawnGameMaster();
+        SpawnAudioMaster();
     }
 
     private void SpawnGameMaster()
     {
-        programController.Spawn(programConfig.GameMaster, programData.GameMaster);
+        programData.GameMaster = (GameMaster)programController.Spawn(programConfig.GameMaster);
     }
+
+    private void SpawnAudioMaster()
+    {
+        programData.AudioMaster = (AudioMaster)programController.Spawn(programConfig.AudioMaster);
+    }
+
+    #endregion
+
 
 }

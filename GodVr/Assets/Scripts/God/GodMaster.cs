@@ -35,6 +35,15 @@ public class GodMaster : MonoBehaviour
     public InteractableWorldObject displayItem = null;
     public InteractableWorldObject heldItem = null;
 
+    public enum PlayerState
+    {
+        EmptyHanded,
+        HoldingItem,
+        InMenu
+    }
+
+    public PlayerState state = PlayerState.EmptyHanded;
+
     public void WriteInput(BitArray input)
     {
 
@@ -43,18 +52,46 @@ public class GodMaster : MonoBehaviour
             Debug.Log(i + " = " + input[i]);
         }
 
-        if (input[0] == true)
+        //Touch/Click Button (Personal Preference, Options Bool)
+        if (input[0])
         {
             
-            if (!heldItem)
+            switch (state)
             {
-                displayItem = Instantiate(rock);
+
+                //Open Menu
+                case PlayerState.InMenu:
+
+                    if (!heldItem)
+                    {
+                        displayItem = Instantiate(rock);
+                    }
+
+                    break;
+
+                default:
+                    break;
+
             }
-            
+
         }
 
-        if (input[1] == true)
+
+        if (input[1])
         {
+
+            switch (state)
+            {
+
+                //Close Menu
+                case PlayerState.InMenu:
+
+                    break;
+
+                default:
+                    break;
+
+            }
 
             if (displayItem)
             {
@@ -64,22 +101,53 @@ public class GodMaster : MonoBehaviour
 
         }
 
-        if (input[2] == true)
+        if (input[2])
         {
 
-            if (displayItem)
+            switch (state)
             {
-                //Close Menu
-                heldItem = displayItem;
-                displayItem = null;
+
+                //Pick Up
+                case PlayerState.EmptyHanded:
+                    //Non Alloc Sphere Cast, Config Radius
+                    break;
+
+                //Grab Display Item
+                case PlayerState.InMenu:
+
+                    if (displayItem)
+                    {
+                        //Close Menu
+                        heldItem = displayItem;
+                        displayItem = null;
+                    }
+
+                    break;
+
+                default:
+                    break;
+
             }
-            
+
         }
 
-        if (input[3] == true)
+        if (input[3])
         {
-            //Throw/Place/Drop
-            heldItem = null;
+
+            switch (state)
+            {
+
+                //Place/Drop
+                case PlayerState.HoldingItem:
+                    //Throw/Place/Drop
+                    heldItem = null;
+                    break;
+
+                default:
+                    break;
+
+            }
+
         }
 
     } 

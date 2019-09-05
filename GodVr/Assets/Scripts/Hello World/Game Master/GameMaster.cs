@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class GameMaster : MonoBehaviour
+public class GameMaster : WorldObject, IGameMasterService
 {
 
     #region Fields

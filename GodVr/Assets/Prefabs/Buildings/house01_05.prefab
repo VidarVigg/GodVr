@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 7413582812017087565}
   - component: {fileID: 2742650787085172728}
   - component: {fileID: 1902296881}
+  - component: {fileID: 4464594902041701030}
+  - component: {fileID: -488484848599297624}
   m_Layer: 0
   m_Name: house01_05
   m_TagString: Untagged
@@ -120,6 +122,38 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: -3972294571443521582, guid: 604bced136b93a945ad479bdc567bd15, type: 3}
+--- !u!54 &4464594902041701030
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141885328836681873}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &-488484848599297624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9141885328836681873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe622003b90e2e419c7132d2b98b74c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  naturalConfig:
+    resources: []
+  naturalData:
+    resources: []
 --- !u!1001 &731476637112506681
 PrefabInstance:
   m_ObjectHideFlags: 0

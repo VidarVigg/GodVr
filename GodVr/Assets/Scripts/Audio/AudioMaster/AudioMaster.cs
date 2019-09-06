@@ -79,6 +79,11 @@ public class AudioMaster : WorldObject, IAudioMasterService
 
     }
 
+    protected override void Setup()
+    {
+        
+    }
+
     #endregion
 
 }

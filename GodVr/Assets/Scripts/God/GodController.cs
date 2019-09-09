@@ -241,4 +241,14 @@ public class GodController
         return false;
     }
 
+    private void MovementDrag()
+    {
+
+    }
+
+    private void MovementTeleport()
+    {
+
+    }
+
 }

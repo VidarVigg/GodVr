@@ -35,7 +35,7 @@ public class AudioController
 
         AudioSource audioSource = null;
 
-        
+
 
         if (audioOptions == null)
         {
@@ -57,13 +57,20 @@ public class AudioController
             audioSource.transform.position = audioOptions.Position;
         }
 
-        audioSource.PlayOneShot(audioData.AudioObjectsGame[Brujin.Position((int)gameAudioType)].AudioClip);
+       // audioSource.PlayOneShot(audioData.AudioObjectsGame[Brujin.Position((int)gameAudioType)].AudioClip);
 
     }
 
     public void PlayLoop(GameAudioType gameAudioType, AudioOptions audioOptions = null)
     {
-        
+        if (audioOptions == null)
+        {
+
+        }
+        else if (audioOptions.WorldObject != null)
+        {
+            
+        }
     }
 
     #endregion

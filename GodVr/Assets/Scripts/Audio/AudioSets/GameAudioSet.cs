@@ -9,6 +9,7 @@ public class GameAudioSet : ScriptableObject
     [SerializeField]
     private GameAudioObject[] gameAudioObject = new GameAudioObject[]
     {
+
         new GameAudioObject(GameAudioType.PickUp, null),
         new GameAudioObject(GameAudioType.PutDown, null),
         new GameAudioObject(GameAudioType.PickUp, null),

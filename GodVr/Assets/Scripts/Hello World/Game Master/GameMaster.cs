@@ -45,7 +45,7 @@ public class GameMaster : WorldObject, IGameMasterService
 
     public void RecieveInput(BitArray rightBitArray, BitArray leftBitArray)
     {
-        gameController.RecieveInput(rightBitArray, leftBitArray);
+        gameController.ReceiveInputs(rightBitArray, leftBitArray);
     }
 
     public void ObjectPlaced(InteractableWorldObject interactableWorldObject)

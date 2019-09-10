@@ -8,4 +8,8 @@ public class NullGodMaster : MonoBehaviour, IGodMasterService
 
     }
 
+    public void SetInputs(BitArray rightBitArray, BitArray leftBitArray)
+    {
+    
+    }
 }

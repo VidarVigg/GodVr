@@ -2,8 +2,9 @@
 
 public class NullGameMaster : IGameMasterService
 {
-    public void RecieveInput(BitArray rightBitArray, BitArray leftBitArray)
+    public void ReceiveInput(BitArray rightBitArray, BitArray leftBitArray)
     {
 
     }
+
 }

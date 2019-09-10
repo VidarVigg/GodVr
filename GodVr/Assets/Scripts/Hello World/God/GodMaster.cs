@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public class GodMaster : MonoBehaviour
+public class GodMaster : MonoBehaviour, IGodMasterService
 {
 
     #region Fields
@@ -32,6 +32,16 @@ public class GodMaster : MonoBehaviour
     {
         data.RightBitArray = rightBitArray;
         data.LeftBitArray = leftBitArray;
+    }
+
+    public void RecieveInput(BitArray rightBitArray, BitArray leftBitArray)
+    {
+        
+    }
+
+    public void SetInputs(BitArray rightBitArray, BitArray leftBitArray)
+    {
+        //controller.SetInputs(rightBitArray, leftBitArray);
     }
 
     #endregion

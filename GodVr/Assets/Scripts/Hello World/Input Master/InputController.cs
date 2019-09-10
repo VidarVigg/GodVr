@@ -100,15 +100,17 @@ public class InputController
 
         if (inputData.triggerDrag.GetLastAxis(SteamVR_Input_Sources.Any) >= 0.25f && inputData.triggerDrag.GetAxis(SteamVR_Input_Sources.Any) < 0.25f)
         {
-            Handler(inputData.triggerDrag, 2);
+            Handler(inputData.triggerDrag, InputID.Trigger_Threshhold_Down);
         }
 
         if (inputData.triggerDrag.GetLastAxis(SteamVR_Input_Sources.Any) < 0.25f && inputData.triggerDrag.GetAxis(SteamVR_Input_Sources.Any) >= 0.25f)
         {
-            Handler(inputData.triggerDrag, 3);
+            Handler(inputData.triggerDrag, InputID.Trigger_Threshhold_Up);
         }
 
         #endregion
+
+        return;
 
         #region Menu Button
 

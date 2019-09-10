@@ -349,6 +349,8 @@ public class GodController
     public void TriggerDown(WhichID whichID)
     {
 
+        Debug.Log("HELLOOOOOOOOOOOOOOOOOOO");
+
         switch (godData.state)
         {
 
@@ -379,6 +381,9 @@ public class GodController
     }
     public void TriggerUp(WhichID whichID)
     {
+
+        Debug.Log("GOOOOOOOOOOOOOOOOOODBYEEEEEEE");
+
 
         switch (godData.state)
         {

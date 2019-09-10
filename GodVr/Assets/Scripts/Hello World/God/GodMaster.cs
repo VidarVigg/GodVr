@@ -26,7 +26,7 @@ public class GodMaster : MonoBehaviour, IGodMasterService
     private void Update()
     {
         controller.Update();
-    }    
+    }
 
     public void ReceiveInput(BitArray rightBitArray, BitArray leftBitArray)
     {
@@ -36,7 +36,7 @@ public class GodMaster : MonoBehaviour, IGodMasterService
 
     public void RecieveInput(BitArray rightBitArray, BitArray leftBitArray)
     {
-        
+
     }
 
 
@@ -48,12 +48,12 @@ public class GodMaster : MonoBehaviour, IGodMasterService
 
     public void TriggerDown(WhichID id)
     {
-        
+        controller.TriggerDown(id);
     }
 
     public void TriggerUp(WhichID id)
     {
-        
+        controller.TriggerUp(id);
     }
 
     #endregion

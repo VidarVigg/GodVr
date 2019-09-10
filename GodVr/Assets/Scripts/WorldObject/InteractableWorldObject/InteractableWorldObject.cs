@@ -7,7 +7,10 @@ using Valve.VR;
 public abstract class InteractableWorldObject : WorldObject
 {
 
+    [SerializeField]
     protected Rigidbody rigi;
+
+    [SerializeField]
     protected FixedJoint joint;
 
     protected virtual void Awake()

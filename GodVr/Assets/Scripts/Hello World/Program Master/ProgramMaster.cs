@@ -21,16 +21,18 @@ public class ProgramMaster : MonoBehaviour
     {
         programController = new ProgramController(this, programConfig, ref programData);
         Initialize();
-        GameMaster gm = Instantiate(programConfig.GameMaster);
-        ServiceLocator.GameMasterService = gm;
+        //GameMaster gm = Instantiate(programConfig.GameMaster);
+        //ServiceLocator.GameMasterService = gm;
 
     }
 
     private void Initialize()
     {
         ServiceLocator.Iniitalize();
-        SpawnGameMaster();
-        SpawnAudioMaster();
+        ServiceLocator.GameMasterService = FindObjectOfType<GameMaster>();
+        ServiceLocator.GodMasterService = FindObjectOfType<GodMaster>();
+        //SpawnGameMaster();
+        //SpawnAudioMaster();
     }
 
     private void SpawnGameMaster()

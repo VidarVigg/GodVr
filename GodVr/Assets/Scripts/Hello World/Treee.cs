@@ -25,7 +25,7 @@ public class Treee : NaturalMaster
 
         rigi.maxAngularVelocity = rigi.angularVelocity.magnitude;
         Debug.Log("I'm a tree being thrown");
-        rigi.useGravity = true;
+        rigi.isKinematic = false;
     }
     //public override void Grab(Rigidbody attach)
     //{

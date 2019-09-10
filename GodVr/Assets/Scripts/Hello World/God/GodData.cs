@@ -1,10 +1,38 @@
 ﻿using UnityEngine;
 using System;
 using Valve.VR;
+using System.Collections;
 
 [Serializable]
 public class GodData 
 {
+
+    #region Fields
+
+    [SerializeField]
+    private BitArray rightBitArray = null;
+
+    [SerializeField]
+    private BitArray leftBitArray = null;
+
+    #endregion
+
+    #region Properties
+
+    public BitArray RightBitArray
+    {
+        get { return rightBitArray; }
+        set { rightBitArray = value; }
+    }
+
+    public BitArray LeftBitArray
+    {
+        get { return leftBitArray; }
+        set { leftBitArray = value; }
+    }
+
+    #endregion
+
     [SerializeField] private ResourceStruct[] gatheredResources;
 
     public InteractableWorldObject rock;

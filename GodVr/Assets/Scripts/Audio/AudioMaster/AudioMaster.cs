@@ -35,12 +35,12 @@ public class AudioMaster : WorldObject, IAudioMasterService
         //    audioData.AudioObjectsMenu[i] = audioConfig.GameAudioSet.GameAudioObject[i]; //Change GameAudioSet to MenuAudioSet
         //}
 
-        audioData.AudioObjectsGame = new AudioObject[audioConfig.GameAudioSet.GameAudioObject.Length];
+        //audioData.AudioObjectsGame = new AudioObject[audioConfig.GameAudioSet.GameAudioObject.Length];
 
-        for (int i = 0; i < audioConfig.GameAudioSet.GameAudioObject.Length; i++)
-        {
-            audioData.AudioObjectsGame[i] = audioConfig.GameAudioSet.GameAudioObject[i];
-        }
+        //for (int i = 0; i < audioConfig.GameAudioSet.GameAudioObject.Length; i++)
+        //{
+        //    audioData.AudioObjectsGame[i] = audioConfig.GameAudioSet.GameAudioObject[i];
+        //}
 
     }
 
@@ -77,11 +77,6 @@ public class AudioMaster : WorldObject, IAudioMasterService
     public void StopAllLoops(AudioSource source)
     {
 
-    }
-
-    protected override void Setup()
-    {
-        
     }
 
     #endregion

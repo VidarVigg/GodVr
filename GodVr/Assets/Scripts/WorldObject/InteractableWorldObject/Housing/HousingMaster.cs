@@ -13,8 +13,9 @@ public class HousingMaster : Structure
 
     #region Methods
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         housingController = new HousingController(this, housingConfig, housingData);
     }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using UnityEngine;
 
 [Serializable]
@@ -8,16 +9,25 @@ public class GameData
     #region Fields
 
     [SerializeField]
-    private GodMaster godMaster = null;
+    private BitArray rightBitArray = null;
+
+    [SerializeField]
+    private BitArray leftBitArray = null;
 
     #endregion
 
     #region Properties
 
-    public GodMaster GodMaster
+    public BitArray RightBitArray
     {
-        get { return godMaster; }
-        set { godMaster = value; }
+        get { return rightBitArray; }
+        set { rightBitArray = value; }
+    }
+
+    public BitArray LeftBitArray
+    {
+        get { return leftBitArray; }
+        set { leftBitArray = value; }
     }
 
     #endregion

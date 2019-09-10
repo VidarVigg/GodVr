@@ -10,7 +10,7 @@ public abstract class InteractableWorldObject : WorldObject
     protected Rigidbody rigi;
     protected FixedJoint joint;
 
-    protected override void Setup()
+    protected virtual void Awake()
     {
         rigi = gameObject.GetComponent<Rigidbody>();
     }

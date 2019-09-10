@@ -2,5 +2,7 @@
 
 public interface IGameMasterService
 {
-    void RecieveInput(BitArray rightBitArray, BitArray leftBitArray);
+
+    void ReceiveInput(BitArray rightBitArray, BitArray leftBitArray);
+
 }

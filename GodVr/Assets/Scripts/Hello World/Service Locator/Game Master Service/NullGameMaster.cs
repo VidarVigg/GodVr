@@ -7,4 +7,13 @@ public class NullGameMaster : IGameMasterService
 
     }
 
+    public void TriggerDown(WhichID id)
+    {
+      
+    }
+
+    public void TriggerUp(WhichID id)
+    {
+        
+    }
 }

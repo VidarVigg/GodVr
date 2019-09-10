@@ -166,6 +166,7 @@ MonoBehaviour:
   audioConfig:
     menuAudioDefault: {fileID: 0}
     gameAudioDefault: {fileID: 0}
+  whatever: {fileID: 0}
 --- !u!1 &304953245
 GameObject:
   m_ObjectHideFlags: 0
@@ -195,10 +196,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc0b9c8d74899843a1c6c7aa4f66816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rock: {fileID: 1290225225278213777, guid: 93ee1cf5252478446b3df866cf6496fa, type: 3}
-  displayItem: {fileID: 0}
-  heldItem: {fileID: 0}
-  state: 0
+  config:
+    rightInputPackets:
+    - inputID: 0
+      actionID: 0
+      whichID: 1
+    leftInputPackets:
+    - inputID: 0
+      actionID: 0
+      whichID: 2
+  data:
+    rock: {fileID: 0}
+    displayItem: {fileID: 0}
+    heldItem: {fileID: 0}
+    rightControllerAttach: {fileID: 0}
+    leftControllerAttach: {fileID: 0}
+    rightControllerPoint: {fileID: 0}
+    leftControllerPoint: {fileID: 0}
+    RayCastSphereRadius: 0.5
+    RayPlaceDistance: 0.5
+    state: 0
 --- !u!4 &304953247
 Transform:
   m_ObjectHideFlags: 0
@@ -387,6 +404,86 @@ Transform:
   m_Father: {fileID: 2058437827}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &921155748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 921155750}
+  - component: {fileID: 921155749}
+  m_Layer: 0
+  m_Name: New Sprite
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!212 &921155749
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921155748}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 1, y: 1}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 0
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
+--- !u!4 &921155750
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 921155748}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.608787, y: 1.1691263, z: -4.696938}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &945725776
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,9 +557,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputConfig:
-    helloWorld: 116
+    inputLength: 2
   inputData:
-    logControllerDebug: 0
     triggerClick:
       actionPath: /actions/default/in/TriggerClick
       needsReinit: 0
@@ -590,8 +686,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29f2aa0c220581a4ea4ac53fc5ed8d46, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameData:
-    godMaster: {fileID: 304953246}
+  gameConfig:
+    rightInputPackets:
+    - inputID: 0
+      actionID: 0
+      whichID: 1
+    - inputID: 1
+      actionID: 1
+      whichID: 1
+    leftInputPackets:
+    - inputID: 0
+      actionID: 0
+      whichID: 2
+    - inputID: 1
+      actionID: 1
+      whichID: 2
   obj: {fileID: 0}
   sessionMaster: {fileID: 0}
 --- !u!4 &1580960809
@@ -637,8 +746,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f821a3e6e32a5ca45b22d8d4c757828d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameMaster: {fileID: 4065381423255028633, guid: 7c8aa11fbf6341644b2c3169d9596ea1,
-    type: 3}
+  programConfig:
+    gameMaster: {fileID: 0}
+    audioMaster: {fileID: 0}
+  programData:
+    gameMaster: {fileID: 0}
+    audioMaster: {fileID: 0}
 --- !u!4 &1728893912
 Transform:
   m_ObjectHideFlags: 0

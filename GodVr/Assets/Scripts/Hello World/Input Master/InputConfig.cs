@@ -8,15 +8,15 @@ public class InputConfig
     #region Fields
 
     [SerializeField]
-    private KeyCode helloWorld = KeyCode.None;
+    private int inputLength = 0;
 
     #endregion
 
     #region Properties
 
-    public KeyCode HelloWorld
+    public int InputLength
     {
-        get { return helloWorld; }
+        get { return inputLength; }
     }
 
     #endregion

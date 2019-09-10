@@ -2,7 +2,7 @@
 using UnityEngine;
 
 [Serializable]
-public class GameConfig
+public class GodConfig
 {
 
     #region Fields
@@ -10,12 +10,12 @@ public class GameConfig
     [SerializeField]
     private InputPacket[] rightInputPackets =
     {
-        new InputPacket(InputID.TouchTrackpad_Down, ActionID.TouchDown, WhichID.Right)
+        new InputPacket(InputID.TouchTrackpad_Down, ActionID.TouchDown)
     };
 
     [SerializeField]
     private InputPacket[] leftInputPackets =
-{
+    {
         new InputPacket(InputID.TouchTrackpad_Down, ActionID.TouchDown, WhichID.Left)
     };
 

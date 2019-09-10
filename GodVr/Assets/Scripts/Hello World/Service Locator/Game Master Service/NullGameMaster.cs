@@ -1,8 +1,8 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 
 public class NullGameMaster : IGameMasterService
 {
+
+    public void ReceiveInput(BitArray rightBitArray, BitArray leftBitArray) { }
 
 }

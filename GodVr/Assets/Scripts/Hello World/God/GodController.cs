@@ -24,12 +24,106 @@ public class GodController
 
     #endregion
 
-    #region Methods
+    #region Test
 
     public void Update()
     {
+        HandleInput();
+    }
+
+    #region Packet Core
+
+    private void HandleInput()
+    {
+        //Iterate(godData.RightBitArray, godConfig.RightInputPackets);
+        //Iterate(godData.LeftBitArray, godConfig.LeftInputPackets);
+    }
+    private void Iterate(BitArray bitArray, InputPacket[] inputPackets)
+    {
+
+        if (bitArray == null)
+        {
+            Debug.LogError("<b>NO BITARRAY</b>");
+            return;
+        }
+
+        if (inputPackets == null)
+        {
+            Debug.LogError("<b>NO INPUTPACKETS</b>");
+            return;
+        }
+
+        for (int i = 0; i < bitArray.Length; i++)
+        {
+
+            if (bitArray[i])
+            {
+
+                for (int j = 0; j < inputPackets.Length; j++)
+                {
+
+                    //if (inputPackets[j].InputID != i)
+                    //{
+                    //    continue;
+                    //}
+
+                    //inputPackets[j].Packet.Invoke(godMaster, godConfig, godData);
+                    break;
+
+                }
+
+            }
+
+        }
 
     }
+
+    #endregion
+
+    #region Packet Methods
+
+    public static void HelloWorldRight()
+    {
+        Debug.Log("Hello World RIGHT");
+    }
+
+    public static void HelloWorldLeft()
+    {
+        Debug.Log("Hello World LEFT");
+    }
+    
+    public static void TouchTrackpadDown(GodMaster godMaster, GodConfig godConfig, GodData godData)
+    {
+
+        Debug.LogWarning("HELLO");
+
+        switch (godData.state)
+        {
+
+            //Open Menu
+            case GodData.PlayerState.InMenu:
+
+                if (!godData.heldItem)
+                {
+                    godData.displayItem = GodMaster.Instantiate(godData.rock);
+                }
+
+                break;
+
+            default:
+                break;
+
+        }
+
+    }
+
+    #endregion
+
+    #endregion
+
+    #region Methods
+
+
 
     public WorldObject Spawn(WorldObject worldObject)
     {

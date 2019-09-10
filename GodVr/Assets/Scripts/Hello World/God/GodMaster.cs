@@ -17,13 +17,10 @@ public class GodMaster : MonoBehaviour
     #endregion
 
     #region Methods
+
     private void Awake()
     {
         controller = new GodController(this, config, data);
-    }
-    private void Start()
-    {
-
     }
 
     private void Update()
@@ -31,9 +28,12 @@ public class GodMaster : MonoBehaviour
         controller.Update();
     }    
 
-    public void WriteInput(BitArray input)
+    public void ReceiveInput(BitArray rightBitArray, BitArray leftBitArray)
     {
-        controller.HandleInput(input);
+        data.RightBitArray = rightBitArray;
+        data.LeftBitArray = leftBitArray;
     }
+
     #endregion
+
 }

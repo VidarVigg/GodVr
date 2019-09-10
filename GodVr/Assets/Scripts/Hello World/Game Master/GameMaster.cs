@@ -6,8 +6,6 @@ public class GameMaster : WorldObject, IGameMasterService
 
     #region Fields
 
-    public static GameMaster INSTANCE = null;
-
     [SerializeField]
     private GameConfig gameConfig = null;
 
@@ -18,33 +16,16 @@ public class GameMaster : WorldObject, IGameMasterService
 
     #endregion
 
-    #region Properties
-
-    public GodMaster GodMaster
-    {
-        get { return gameData.GodMaster; }
-    }
-
-    #endregion
-
     #region Methods
 
-    protected override void Setup()
+    private void Awake()
     {
-        if (INSTANCE)
-        {
-            Destroy(gameObject);
-            return;
-        }
-
-        INSTANCE = this;
         gameController = new GameController(this, gameConfig, gameData);
-
     }
 
     private void Start()
     {
-        //todo: external initialization
+        ServiceLocator.GameMasterService = this;
     }
 
     public InteractableWorldObject obj;
@@ -103,6 +84,11 @@ public class GameMaster : WorldObject, IGameMasterService
 
         }
 
+    }
+
+    public void ReceiveInput(BitArray rightBitArray, BitArray leftBitArray)
+    {
+        gameController.ReceiveInputs(rightBitArray, leftBitArray);
     }
 
     #endregion

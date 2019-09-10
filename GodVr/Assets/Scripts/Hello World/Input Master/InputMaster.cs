@@ -15,27 +15,18 @@ public class InputMaster : MonoBehaviour
 
     #endregion
 
-    #region Properties
-
-
-
-    #endregion
-
     #region Methods
 
     private void Awake()
     {
         inputController = new InputController(this, inputConfig, inputData);
-    }
-
-    private void Start()
-    {
-        //todo: external initialization
+        inputData.RightBitArray = new System.Collections.BitArray(inputConfig.InputLength);
+        inputData.LeftBitArray = new System.Collections.BitArray(inputConfig.InputLength);
     }
 
     private void Update()
     {
-        inputController.Update();
+        inputController.Upd8();
     }
 
     #endregion

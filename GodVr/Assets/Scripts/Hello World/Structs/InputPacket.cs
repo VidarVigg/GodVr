@@ -1,30 +1,53 @@
 ﻿using System;
 using UnityEngine;
 
-
+[Serializable]
+public delegate void Packet(GodMaster godMaster, GodConfig godConfig, GodData godData);
 
 [Serializable]
-public struct InputPacket
+public class InputPacket
 {
-
-    public delegate void Packet();
 
     #region Fields
 
     [SerializeField]
-    private int packetID;
+    private InputID inputID;
 
     [SerializeField]
-    private Packet packet;
+    private ActionID actionID;
+
+    [SerializeField]
+    private WhichID whichID;
+
+    #endregion
+
+    #region Properties
+
+    public InputID InputID
+    {
+        get { return inputID; }
+    }
+
+    public ActionID ActionID
+    {
+        get { return actionID; }
+    }
+
+    public WhichID WhichID
+    {
+        get { return whichID; }
+    }
 
     #endregion
 
     #region Constructors
 
-    public InputPacket(int packetID, Packet packet)
+    private InputPacket() { }
+    public InputPacket(InputID inputID, ActionID actionID, WhichID which = WhichID.Right)
     {
-        this.packetID = packetID;
-        this.packet = packet;
+        this.inputID = inputID;
+        this.actionID = actionID;
+        this.whichID = which;
     }
 
     #endregion

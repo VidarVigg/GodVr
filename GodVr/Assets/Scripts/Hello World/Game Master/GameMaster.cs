@@ -62,6 +62,11 @@ public class GameMaster : WorldObject, IGameMasterService
 
     public SessionMaster sessionMaster;
 
+    public void RecieveInput(BitArray rightBitArray, BitArray leftBitArray)
+    {
+        gameController.RecieveInput(rightBitArray, leftBitArray);
+    }
+
     public void ObjectPlaced(InteractableWorldObject interactableWorldObject)
     {
 
@@ -104,6 +109,8 @@ public class GameMaster : WorldObject, IGameMasterService
         }
 
     }
+
+
 
     #endregion
 

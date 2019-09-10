@@ -1,4 +1,7 @@
-﻿public class GameController
+﻿using System;
+using System.Collections;
+
+public class GameController
 {
 
     #region Fields
@@ -26,6 +29,22 @@
     public void Update()
     {
 
+    }
+
+    internal void RecieveInput(BitArray rightBitArray, BitArray leftBitArray)
+    {
+        //ReadInput(rightBitArray, leftBitArray);
+        SendInput(rightBitArray, leftBitArray);
+    }
+
+    private void ReadInput(BitArray rightBitArray, BitArray leftBitArray)
+    {
+      
+    }
+
+    private void SendInput(BitArray rightBitArray, BitArray leftBitArray)
+    {
+        ServiceLocator.GodMasterService.RecieveInput(rightBitArray, leftBitArray);
     }
 
     #endregion

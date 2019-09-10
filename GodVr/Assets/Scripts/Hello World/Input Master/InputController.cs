@@ -36,9 +36,31 @@ public class InputController
 
     public void Upd8()
     {
-        FixWriteInput();
-        //FixWriteInputVR();
+        ResetBoth();
+        //FixWriteInput();
+        FixWriteInputVR();
         Send();
+    }
+
+    #endregion
+
+    #region Global
+
+    private void ResetBoth()
+    {
+        Reset(inputData.RightBitArray);
+        Reset(inputData.LeftBitArray);
+    }
+    private BitArray Reset(BitArray bitArray)
+    {
+
+        for (int i = 0; i < bitArray.Length; i++)
+        {
+            bitArray[i] = false;
+        }
+
+        return bitArray;
+
     }
 
     #endregion
@@ -52,11 +74,6 @@ public class InputController
     }
     private BitArray FixWrite(BitArray bitArray, KeyCode keyCode)
     {
-
-        for (int i = 0; i < bitArray.Length; i++)
-        {
-            bitArray[i] = false;
-        }
 
         if (Input.GetKeyDown(keyCode))
         {
@@ -83,12 +100,12 @@ public class InputController
 
         if (inputData.triggerDrag.GetLastAxis(SteamVR_Input_Sources.Any) >= 0.25f && inputData.triggerDrag.GetAxis(SteamVR_Input_Sources.Any) < 0.25f)
         {
-            Handler(inputData.triggerDrag, 1);
+            Handler(inputData.triggerDrag, 2);
         }
 
         if (inputData.triggerDrag.GetLastAxis(SteamVR_Input_Sources.Any) < 0.25f && inputData.triggerDrag.GetAxis(SteamVR_Input_Sources.Any) >= 0.25f)
         {
-            Handler(inputData.triggerDrag, 2);
+            Handler(inputData.triggerDrag, 3);
         }
 
         #endregion

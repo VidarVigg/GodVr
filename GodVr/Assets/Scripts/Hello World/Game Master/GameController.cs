@@ -37,12 +37,12 @@ public class GameController
 
     public void Hello(WhichID whichID)
     {
-        UnityEngine.Debug.Log("<b>HELLO WORLD | WhichID = " + whichID + "</b>");
+        ServiceLocator.GodMasterService.TriggerDown(whichID);
     }
 
     public void Goodbye(WhichID whichID)
     {
-        UnityEngine.Debug.Log("<b>GOODBYE | WhichID = " + whichID + "</b>");
+        ServiceLocator.GodMasterService.TriggerUp(whichID);
     }
 
     public void ReceiveInputs(BitArray rightBitArray, BitArray leftBitArray)

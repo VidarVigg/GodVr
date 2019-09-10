@@ -123,8 +123,6 @@ public class GodController
 
     #region Methods
 
-
-
     public WorldObject Spawn(WorldObject worldObject)
     {
         return GodMaster.Instantiate(worldObject);
@@ -344,5 +342,66 @@ public class GodController
     {
 
     }
+
+
+    #region Input Whoho
+
+    public void TriggerDown(WhichID whichID)
+    {
+
+        switch (godData.state)
+        {
+
+            //Pick Up
+            case GodData.PlayerState.EmptyHanded:
+                //Non Alloc Sphere Cast, Config Radius
+                GrabObject();
+
+                break;
+
+            //Grab Display Item
+            case GodData.PlayerState.InMenu:
+
+                if (godData.displayItem)
+                {
+                    //Close Menu
+                    godData.heldItem = godData.displayItem;
+                    godData.displayItem = null;
+                }
+
+                break;
+
+            default:
+                break;
+
+        }
+
+    }
+    public void TriggerUp(WhichID whichID)
+    {
+
+        switch (godData.state)
+        {
+
+            //Place/Drop
+            case GodData.PlayerState.HoldingItem:
+                //Throw/Place/Drop
+                if (!Place())
+                {
+                    Throw();
+                }
+                break;
+            case GodData.PlayerState.InMenu:
+                //Throw/Place/Drop
+                break;
+
+            default:
+                break;
+
+        }
+
+    }
+
+    #endregion
 
 }

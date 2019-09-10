@@ -98,16 +98,6 @@ public class GameMaster : WorldObject, IGameMasterService
         gameController.ReceiveInputs(rightBitArray, leftBitArray);
     }
 
-    public void TriggerDown(WhichID id)
-    {
-        throw new System.NotImplementedException();
-    }
-
-    public void TriggerUp(WhichID id)
-    {
-        throw new System.NotImplementedException();
-    }
-
     #endregion
 
 }

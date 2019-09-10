@@ -39,9 +39,21 @@ public class GodMaster : MonoBehaviour, IGodMasterService
         
     }
 
+
+
     public void SetInputs(BitArray rightBitArray, BitArray leftBitArray)
     {
         //controller.SetInputs(rightBitArray, leftBitArray);
+    }
+
+    public void TriggerDown(WhichID id)
+    {
+        
+    }
+
+    public void TriggerUp(WhichID id)
+    {
+        
     }
 
     #endregion

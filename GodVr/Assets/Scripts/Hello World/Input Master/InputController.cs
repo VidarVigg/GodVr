@@ -181,8 +181,15 @@ public class InputController
     }
     private void Handler(ISteamVR_Action_In action, int index)
     {
+
         inputData.RightBitArray[index] = action.activeDevice == SteamVR_Input_Sources.RightHand;
+
+        Debug.Log("<b>Right[" + index + "] = " + inputData.RightBitArray[index] + "</b>");
+
         inputData.LeftBitArray[index] = action.activeDevice == SteamVR_Input_Sources.LeftHand;
+
+        Debug.Log("<b>Left[" + index + "] = " + inputData.RightBitArray[index] + "</b>");
+
     }
 
     #endregion

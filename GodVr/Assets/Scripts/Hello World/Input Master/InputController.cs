@@ -36,8 +36,8 @@ public class InputController
 
     private void Initialize()
     {
-        inputData.RightBitArray = new BitArray(inputConfig.SteamVRInputs.Length);
-        inputData.LeftBitArray = new BitArray(inputConfig.SteamVRInputs.Length);
+        inputData.RightBitArray = new BitArray(inputConfig.SteamVRInputs.Length * 2);
+        inputData.LeftBitArray = new BitArray(inputConfig.SteamVRInputs.Length * 2);
     }
 
     #endregion
@@ -245,14 +245,12 @@ public class InputController
             if (inputConfig.SteamVRInputs[i].Action is SteamVR_Action_Boolean action)
             {
 
-                //SteamVR_Action_Boolean action = (inputConfig.SteamVRInputs[i].Action as SteamVR_Action_Boolean);
-
                 if (action.GetState(SteamVR_Input_Sources.RightHand))
                 {
                     
                     if (!inputConfig.SteamVRInputs[i].RightLastState)
                     {
-                        inputData.RightBitArray[i] = true;
+                        inputData.RightBitArray[i * 2] = true;
                         inputConfig.SteamVRInputs[i].RightLastState = true;
                     }
 
@@ -262,7 +260,7 @@ public class InputController
                 {
                     if (inputConfig.SteamVRInputs[i].RightLastState)
                     {
-                        inputData.RightBitArray[i] = false;
+                        inputData.RightBitArray[i * 2 + 1] = false;
                         inputConfig.SteamVRInputs[i].RightLastState = false;
                     }
                 }
@@ -272,7 +270,7 @@ public class InputController
 
                     if (!inputConfig.SteamVRInputs[i].LeftLastState)
                     {
-                        inputData.LeftBitArray[i] = true;
+                        inputData.LeftBitArray[i * 2] = true;
                         inputConfig.SteamVRInputs[i].LeftLastState = true;
                     }
 
@@ -282,7 +280,7 @@ public class InputController
                 {
                     if (inputConfig.SteamVRInputs[i].LeftLastState)
                     {
-                        inputData.LeftBitArray[i] = false;
+                        inputData.LeftBitArray[i * 2 + 1] = false;
                         inputConfig.SteamVRInputs[i].LeftLastState = false;
                     }
                 }

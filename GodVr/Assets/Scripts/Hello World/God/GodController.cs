@@ -205,7 +205,7 @@ public class GodController
                 //Pick Up
                 case GodData.PlayerState.EmptyHanded:
                     //Non Alloc Sphere Cast, Config Radius
-                    GrabObject();
+                    //GrabObject();
 
                     break;
 
@@ -237,10 +237,10 @@ public class GodController
                 //Place/Drop
                 case GodData.PlayerState.HoldingItem:
                     //Throw/Place/Drop
-                    if (!Place())
-                    {
-                        //Throw();
-                    }
+                    //if (!Place())
+                    //{
+                    //    //Throw();
+                    //}
                     break;
                 case GodData.PlayerState.InMenu:
                     //Throw/Place/Drop

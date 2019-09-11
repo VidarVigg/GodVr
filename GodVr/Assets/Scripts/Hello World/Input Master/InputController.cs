@@ -36,8 +36,8 @@ public class InputController
 
     private void Initialize()
     {
-        inputData.RightBitArray = new BitArray(inputConfig.InputLength);
-        inputData.LeftBitArray = new BitArray(inputConfig.InputLength);
+        inputData.RightBitArray = new BitArray(inputConfig.SteamVRInputs.Length);
+        inputData.LeftBitArray = new BitArray(inputConfig.SteamVRInputs.Length);
     }
 
     #endregion
@@ -46,9 +46,29 @@ public class InputController
 
     public void Upd8()
     {
-        ResetBoth();
+        //ResetBoth();
         //FixWriteInput();
-        FixWriteInputVR();
+        //FixWriteInputVR();
+        Hello();
+
+        string rightResult = "Right = ";
+
+        for (int i = 0; i < inputData.RightBitArray.Length; i++)
+        {
+            rightResult += inputData.RightBitArray[i] + " ";
+        }
+
+        Debug.Log(rightResult);
+
+        string leftResult = "Left = ";
+
+        for (int i = 0; i < inputData.LeftBitArray.Length; i++)
+        {
+            leftResult += inputData.LeftBitArray[i] + " ";
+        }
+
+        Debug.Log(leftResult);
+
         Send();
     }
 
@@ -211,6 +231,67 @@ public class InputController
     }
 
     #endregion
+
+    #endregion
+
+    #region Hello
+
+    private void Hello()
+    {
+
+        for (int i = 0; i < inputConfig.SteamVRInputs.Length; i++)
+        {
+
+            if (inputConfig.SteamVRInputs[i].Type == typeof(SteamVR_Action_Boolean))
+            {
+
+                SteamVR_Action_Boolean action = (inputConfig.SteamVRInputs[i].Action as SteamVR_Action_Boolean);
+
+                if (action.GetState(SteamVR_Input_Sources.RightHand))
+                {
+                    
+                    if (!inputConfig.SteamVRInputs[i].RightLastState)
+                    {
+                        inputData.RightBitArray[i] = true;
+                        inputConfig.SteamVRInputs[i].RightLastState = true;
+                    }
+
+                }
+
+                else
+                {
+                    if (inputConfig.SteamVRInputs[i].RightLastState)
+                    {
+                        inputData.RightBitArray[i] = false;
+                        inputConfig.SteamVRInputs[i].RightLastState = false;
+                    }
+                }
+
+                if (action.GetState(SteamVR_Input_Sources.LeftHand))
+                {
+
+                    if (!inputConfig.SteamVRInputs[i].LeftLastState)
+                    {
+                        inputData.LeftBitArray[i] = true;
+                        inputConfig.SteamVRInputs[i].LeftLastState = true;
+                    }
+
+                }
+
+                else
+                {
+                    if (inputConfig.SteamVRInputs[i].LeftLastState)
+                    {
+                        inputData.LeftBitArray[i] = false;
+                        inputConfig.SteamVRInputs[i].LeftLastState = false;
+                    }
+                }
+
+            }
+
+        }
+
+    }
 
     #endregion
 

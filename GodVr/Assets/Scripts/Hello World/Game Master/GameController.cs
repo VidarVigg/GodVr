@@ -48,6 +48,8 @@ public class GameController
     public void ReceiveInputs(BitArray rightBitArray, BitArray leftBitArray)
     {
 
+        return;
+
         #region Debug
 
         string rightResult = "Right = ";
@@ -77,6 +79,7 @@ public class GameController
 
     public void Update()
     {
+        return;
         Test();
     }
 

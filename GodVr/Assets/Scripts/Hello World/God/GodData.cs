@@ -47,6 +47,12 @@ public class GodData
     public float RayCastSphereRadius = 0.5f;
     public float RayPlaceDistance = 0.5f;
 
+    public Transform sphere;
+    public Transform cameraRig;
+    public Transform anotherTempThing;
+    public LineRenderer lr1;
+    public float aimAngleOffset;
+
     public enum PlayerState
     {
         EmptyHanded,

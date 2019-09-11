@@ -120,6 +120,49 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &31855948
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 31855950}
+  - component: {fileID: 31855949}
+  m_Layer: 0
+  m_Name: TestAudioMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &31855949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31855948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ade8d48678a72c447a01b1f8337dc3ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &31855950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 31855948}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 6.9675198, y: 8.8361225, z: 29.924994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &154789072
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -214,12 +257,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7cc0b9c8d74899843a1c6c7aa4f66816, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config:
+    rightInputPackets:
+    - inputID: 0
+      actionID: 0
+      whichID: 1
+    leftInputPackets:
+    - inputID: 0
+      actionID: 0
+      whichID: 2
   data:
     rock: {fileID: 0}
     displayItem: {fileID: 0}
     heldItem: {fileID: 0}
     rightControllerAttach: {fileID: 0}
     leftControllerAttach: {fileID: 0}
+    rightControllerPoint: {fileID: 0}
+    leftControllerPoint: {fileID: 0}
+    RayCastSphereRadius: 0.5
+    RayPlaceDistance: 0.5
     state: 0
 --- !u!4 &304953247
 Transform:
@@ -409,6 +465,36 @@ Transform:
   m_Father: {fileID: 2058437827}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &843865488
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 2124889109}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 843865489}
+  m_Layer: 0
+  m_Name: ToonRTS_demo_Knight (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &843865489
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 2124889109}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 843865488}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &945725776
 GameObject:
   m_ObjectHideFlags: 0
@@ -482,9 +568,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputConfig:
-    helloWorld: 116
+    inputLength: 0
   inputData:
-    logControllerDebug: 0
     triggerClick:
       actionPath: /actions/default/in/TriggerClick
       needsReinit: 0
@@ -593,6 +678,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c2268b0ea103d99499f1b6009ff7c3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigi: {fileID: 0}
+  joint: {fileID: 0}
   scale: {x: 0, y: 0, z: 0}
 --- !u!4 &1342668735
 Transform:
@@ -793,6 +880,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a40a7e64905d2459576d294a896966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigi: {fileID: 0}
+  joint: {fileID: 0}
   naturalConfig:
     resources:
     - type: 1

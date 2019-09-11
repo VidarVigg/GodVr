@@ -108,14 +108,24 @@ public class InputController
 
         #region Trigger
 
-        if (inputData.triggerClick.GetStateDown(SteamVR_Input_Sources.Any))
+        if (inputData.triggerClick.GetStateDown(SteamVR_Input_Sources.RightHand))
         {
             Handler(inputData.triggerClick, InputID.Trigger_Click_Down);
         }
 
-        if (inputData.triggerClick.GetStateUp(SteamVR_Input_Sources.Any))
+        if (inputData.triggerClick.GetStateUp(SteamVR_Input_Sources.RightHand))
         {
             Handler(inputData.triggerClick, InputID.Trigger_Click_Up);
+        }
+
+        if (inputData.triggerClick.GetStateDown(SteamVR_Input_Sources.LeftHand))
+        {
+            HandlerNotRight(inputData.triggerClick, InputID.Trigger_Click_Down);
+        }
+
+        if (inputData.triggerClick.GetStateUp(SteamVR_Input_Sources.LeftHand))
+        {
+            HandlerNotRight(inputData.triggerClick, InputID.Trigger_Click_Up);
         }
 
         return;
@@ -182,13 +192,21 @@ public class InputController
     private void Handler(ISteamVR_Action_In action, int index)
     {
 
-        inputData.RightBitArray[index] = action.activeDevice == SteamVR_Input_Sources.RightHand;
+        inputData.RightBitArray[index] = true;
 
         Debug.Log("<b>Right[" + index + "] = " + inputData.RightBitArray[index] + "</b>");
 
-        inputData.LeftBitArray[index] = action.activeDevice == SteamVR_Input_Sources.LeftHand;
+    }
+    private void HandlerNotRight(ISteamVR_Action_In action, InputID index)
+    {
+        Handler(action, (int)index);
+    }
+    private void HandlerNotRight(ISteamVR_Action_In action, int index)
+    {
 
-        Debug.Log("<b>Left[" + index + "] = " + inputData.RightBitArray[index] + "</b>");
+        inputData.LeftBitArray[index] = true;
+
+        Debug.Log("<b>Left[" + index + "] = " + inputData.LeftBitArray[index] + "</b>");
 
     }
 

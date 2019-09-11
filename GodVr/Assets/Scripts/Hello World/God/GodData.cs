@@ -15,6 +15,24 @@ public class GodData
     [SerializeField]
     private BitArray leftBitArray = null;
 
+    [Header("New")]
+    [SerializeField]
+    private Controller123 rightControllerStuff = null;
+    [SerializeField]
+    private Controller123 leftControllerStuff = null;
+
+    [Header("Don't Touch")]
+    public Rigidbody rightControllerAttach;
+    public Rigidbody leftControllerAttach;
+    public SteamVR_Behaviour_Pose rightControllerPoint;
+    public SteamVR_Behaviour_Pose leftControllerPoint;
+
+    [Header("Pickup Distance (Spheric)")]
+    public float RayCastSphereRadius = 0.5f;
+
+    [Header("Place Distance (Ray)")]
+    public float RayPlaceDistance = 0.5f;
+
     #endregion
 
     #region Properties
@@ -31,27 +49,32 @@ public class GodData
         set { leftBitArray = value; }
     }
 
+    public Controller123 RightControllerStuff
+    {
+        get { return rightControllerStuff; }
+    }
+
+    public Controller123 LeftControllerStuff
+    {
+        get { return leftControllerStuff; }
+    }
+
     #endregion
 
-    [SerializeField] private ResourceStruct[] gatheredResources;
-
+    [Header("Stuff")]
     public InteractableWorldObject rock;
     public InteractableWorldObject displayItem = null;
     public InteractableWorldObject heldItem = null;
 
-    public Rigidbody rightControllerAttach;
-    public Rigidbody leftControllerAttach;
-    public SteamVR_Behaviour_Pose rightControllerPoint;
-    public SteamVR_Behaviour_Pose leftControllerPoint;
-
-    public float RayCastSphereRadius = 0.5f;
-    public float RayPlaceDistance = 0.5f;
-
+    [Header("Idk")]
     public Transform sphere;
     public Transform cameraRig;
     public Transform anotherTempThing;
     public LineRenderer lr1;
     public float aimAngleOffset;
+
+    [Header("State...")]
+    public PlayerState state = PlayerState.EmptyHanded;
 
     public enum PlayerState
     {
@@ -59,7 +82,5 @@ public class GodData
         HoldingItem,
         InMenu
     }
-
-    public PlayerState state = PlayerState.EmptyHanded;
 
 }

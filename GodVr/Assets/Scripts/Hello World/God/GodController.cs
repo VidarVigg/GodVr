@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Valve.VR;
 
 public class GodController
 {
@@ -257,134 +258,92 @@ public class GodController
 
     #endregion
 
-    private void Throw(WhichID whichID)
+
+    private void Throw(Controller123 stuff, SteamVR_Behaviour_Pose pose)
     {
-        Debug.Log("Throw In hand");
-        if (godData.heldItem)
+
+        if (stuff.State == ControllerState.Holding)
         {
-
-            switch (whichID)
-            {
-                case WhichID.Right:
-                    godData.heldItem.Throw(godData.rightControllerPoint);
-                    break;
-
-                case WhichID.Left:
-                    godData.heldItem.Throw(godData.leftControllerPoint);
-                    break;
-            }
-
-
-            godData.heldItem = null;
+            stuff.Obj.Throw(pose);
+            stuff.Obj = null;
+            stuff.State = ControllerState.Empty;
         }
-        godData.state = GodData.PlayerState.EmptyHanded;
+
     }
 
-    private void GrabObject(WhichID whichID)
+    private int maxHits = 10;
+    private int lm = 1 << 9;
+
+    private void PickUp(Controller123 stuff, Rigidbody rb)
     {
-        Debug.Log("Grab Something");
-        RaycastHit[] hitted = new RaycastHit[10];
 
-
-        Vector3 position = Vector3.zero;
-
-        switch (whichID)
-        {
-
-            case WhichID.Right:
-                position = godData.rightControllerAttach.position;
-                break;
-
-            case WhichID.Left:
-                position = godData.leftControllerAttach.position;
-                break;
-
-        }
-
-        //Need to make it so depending on which hand that activates it.
-        
-        
-        //Put this in Config
-        int layerMask = 1 << 9;
-
-        int numberOfHits = Physics.SphereCastNonAlloc(position, godData.RayCastSphereRadius, Vector3.down, hitted, layerMask);
-
-        if (numberOfHits < 1)
+        if (stuff.State != ControllerState.Empty)
         {
             return;
         }
-        int nearestHitIndex = 0;
 
+        RaycastHit[] hits = new RaycastHit[maxHits];
 
-        for (int i = 0; i < numberOfHits; i++)
+        int count = Physics.SphereCastNonAlloc(rb.position, godData.RayCastSphereRadius, Vector3.down, hits, lm);
+
+        if (count < 1)
         {
-            Debug.Log(hitted[i].collider.gameObject, hitted[i].collider.gameObject);
-            if(hitted[nearestHitIndex].distance < hitted[i].distance)
+            return;
+        }
+
+        int nearest = 0;
+
+        for (int i = 1; i < count; i++)
+        {
+
+            if (hits[nearest].distance < hits[i].distance)
             {
                 continue;
             }
-            nearestHitIndex = i;
+
+            nearest = i;
 
         }
-        InteractableWorldObject intObj = hitted[nearestHitIndex].transform.GetComponent<InteractableWorldObject>();
-        //Debug.Log(intObj);
-        if (intObj)
+
+        InteractableWorldObject obj = hits[nearest].transform.GetComponent<InteractableWorldObject>();
+
+        if (!obj)
         {
-            switch (whichID)
-            {
-
-                case WhichID.Right:
-                    intObj.Grab(godData.rightControllerAttach);
-                    break;
-
-                case WhichID.Left:
-                    intObj.Grab(godData.leftControllerAttach);
-                    break;
-
-            }
-
-            godData.heldItem = intObj;
+            return;
         }
 
-        if(godData.heldItem)
-        {
-            godData.state = GodData.PlayerState.HoldingItem;
-        }
+        obj.Grab(rb);
+        stuff.Obj = obj;
+        stuff.State = ControllerState.Holding;
 
     }
 
-    private bool Place(WhichID whichID)
+    private int maxHitsRay = 1;
+    private int lmTerrain = 1 << 8;
+
+    private bool Place(Controller123 stuff, Vector3 position)
     {
-        if (godData.heldItem)
+
+        if (stuff.State != ControllerState.Holding)
         {
-
-            Vector3 position = Vector3.zero;
-
-            switch (whichID)
-            {
-
-                case WhichID.Right:
-                    position = godData.rightControllerAttach.position;
-                    break;
-
-                case WhichID.Left:
-                    position = godData.rightControllerAttach.position;
-                    break;
-
-            }
-
-            RaycastHit hit;
-            if (Physics.Raycast(position, Vector3.down, out hit, godData.RayPlaceDistance, 1 << 8))
-            {
-                godData.heldItem.Place(hit.point, Quaternion.identity);
-                godData.heldItem = null;
-                godData.state = GodData.PlayerState.EmptyHanded;
-                Debug.Log("Placed Item");
-                return true;
-            }
+            return false;
         }
-        return false;
+
+        RaycastHit[] hits = new RaycastHit[maxHitsRay];
+
+        if (Physics.RaycastNonAlloc(position, Vector3.down, hits, godData.RayPlaceDistance, lmTerrain) < 1)
+        {
+            return false;
+        }
+
+        stuff.Obj.Place(hits[0].point, Quaternion.Euler(hits[0].normal));
+        stuff.Obj = null;
+        stuff.State = ControllerState.Empty;
+
+        return true;
+
     }
+
 
     private void MovementDrag()
     {
@@ -396,37 +355,38 @@ public class GodController
 
     }
 
-
     #region Input Whoho
 
     public void TriggerDown(WhichID whichID)
     {
 
-        Debug.Log("HELLOOOOOOOOOOOOOOOOOOO");
-
-        switch (godData.state)
+        switch (whichID)
         {
 
-            //Pick Up
-            case GodData.PlayerState.EmptyHanded:
-                //Non Alloc Sphere Cast, Config Radius
-                GrabObject(whichID);
+            case WhichID.Right:
 
-                break;
-
-            //Grab Display Item
-            case GodData.PlayerState.InMenu:
-
-                if (godData.displayItem)
+                switch (godData.RightControllerStuff.State)
                 {
-                    //Close Menu
-                    godData.heldItem = godData.displayItem;
-                    godData.displayItem = null;
+
+                    case ControllerState.Empty:
+                        PickUp(godData.RightControllerStuff, godData.rightControllerAttach);
+                        break;
+
                 }
 
                 break;
 
-            default:
+            case WhichID.Left:
+
+                switch (godData.LeftControllerStuff.State)
+                {
+
+                    case ControllerState.Empty:
+                        PickUp(godData.RightControllerStuff, godData.leftControllerAttach);
+                        break;
+
+                }
+
                 break;
 
         }
@@ -435,25 +395,43 @@ public class GodController
     public void TriggerUp(WhichID whichID)
     {
 
-        Debug.Log("GOOOOOOOOOOOOOOOOOODBYEEEEEEE");
-
-
-        switch (godData.state)
+        switch (whichID)
         {
 
-            //Place/Drop
-            case GodData.PlayerState.HoldingItem:
-                //Throw/Place/Drop
-                if (!Place(whichID))
+            case WhichID.Right:
+
+                switch (godData.RightControllerStuff.State)
                 {
-                    Throw(whichID);
+
+                    case ControllerState.Holding:
+
+                        if (!Place(godData.RightControllerStuff, godData.rightControllerAttach.position))
+                        {
+                            Throw(godData.RightControllerStuff, godData.rightControllerPoint);
+                        }
+
+                        break;
+
                 }
-                break;
-            case GodData.PlayerState.InMenu:
-                //Throw/Place/Drop
+
                 break;
 
-            default:
+            case WhichID.Left:
+
+                switch (godData.LeftControllerStuff.State)
+                {
+
+                    case ControllerState.Holding:
+
+                        if (!Place(godData.LeftControllerStuff, godData.leftControllerAttach.position))
+                        {
+                            Throw(godData.LeftControllerStuff, godData.leftControllerPoint);
+                        }
+
+                        break;
+
+                }
+
                 break;
 
         }

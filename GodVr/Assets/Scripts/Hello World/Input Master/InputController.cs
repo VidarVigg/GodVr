@@ -260,7 +260,7 @@ public class InputController
                 {
                     if (inputConfig.SteamVRInputs[i].RightLastState)
                     {
-                        inputData.RightBitArray[i * 2 + 1] = false;
+                        inputData.RightBitArray[i * 2 + 1] = true;
                         inputConfig.SteamVRInputs[i].RightLastState = false;
                     }
                 }
@@ -280,7 +280,7 @@ public class InputController
                 {
                     if (inputConfig.SteamVRInputs[i].LeftLastState)
                     {
-                        inputData.LeftBitArray[i * 2 + 1] = false;
+                        inputData.LeftBitArray[i * 2 + 1] = true;
                         inputConfig.SteamVRInputs[i].LeftLastState = false;
                     }
                 }

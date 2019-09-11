@@ -43,13 +43,6 @@ public class GameMaster : WorldObject, IGameMasterService
 
     public SessionMaster sessionMaster;
 
-    public void RecieveInput(BitArray rightBitArray, BitArray leftBitArray)
-    {
-        gameController.ReceiveInputs(rightBitArray, leftBitArray);
-    }
-
-
-
     public void ObjectPlaced(InteractableWorldObject interactableWorldObject)
     {
 

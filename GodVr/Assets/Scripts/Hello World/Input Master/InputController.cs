@@ -19,18 +19,28 @@ public class InputController
     private InputController() { }
     public InputController(InputMaster inputMaster, InputConfig inputConfig, InputData inputData)
     {
+
         this.inputMaster = inputMaster;
         this.inputConfig = inputConfig;
         this.inputData = inputData;
 
-        inputData.RightBitArray = new BitArray(inputConfig.InputLength);
-        inputData.LeftBitArray = new BitArray(inputConfig.InputLength);
+        Initialize();
 
     }
 
     #endregion
 
     #region Methods
+
+    #region Initialize
+
+    private void Initialize()
+    {
+        inputData.RightBitArray = new BitArray(inputConfig.InputLength);
+        inputData.LeftBitArray = new BitArray(inputConfig.InputLength);
+    }
+
+    #endregion
 
     #region Upd8
 
@@ -48,8 +58,8 @@ public class InputController
 
     private void ResetBoth()
     {
-        Reset(inputData.RightBitArray);
-        Reset(inputData.LeftBitArray);
+        inputData.RightBitArray = Reset(inputData.RightBitArray);
+        inputData.LeftBitArray = Reset(inputData.LeftBitArray);
     }
     private BitArray Reset(BitArray bitArray)
     {
@@ -98,6 +108,18 @@ public class InputController
 
         #region Trigger
 
+        if (inputData.triggerClick.GetStateDown(SteamVR_Input_Sources.Any))
+        {
+            Handler(inputData.triggerClick, InputID.Trigger_Click_Down);
+        }
+
+        if (inputData.triggerClick.GetStateUp(SteamVR_Input_Sources.Any))
+        {
+            Handler(inputData.triggerClick, InputID.Trigger_Click_Up);
+        }
+
+        return;
+
         if (inputData.triggerDrag.GetLastAxis(SteamVR_Input_Sources.Any) >= 0.25f && inputData.triggerDrag.GetAxis(SteamVR_Input_Sources.Any) < 0.25f)
         {
             Handler(inputData.triggerDrag, InputID.Trigger_Threshhold_Down);
@@ -109,8 +131,6 @@ public class InputController
         }
 
         #endregion
-
-        return;
 
         #region Menu Button
 

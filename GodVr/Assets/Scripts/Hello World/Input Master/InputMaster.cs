@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections;
 
 public class InputMaster : MonoBehaviour
 {
@@ -20,8 +21,6 @@ public class InputMaster : MonoBehaviour
     private void Awake()
     {
         inputController = new InputController(this, inputConfig, inputData);
-        inputData.RightBitArray = new System.Collections.BitArray(inputConfig.InputLength);
-        inputData.LeftBitArray = new System.Collections.BitArray(inputConfig.InputLength);
     }
 
     private void Update()

@@ -242,10 +242,10 @@ public class InputController
         for (int i = 0; i < inputConfig.SteamVRInputs.Length; i++)
         {
 
-            if (inputConfig.SteamVRInputs[i].Type == typeof(SteamVR_Action_Boolean))
+            if (inputConfig.SteamVRInputs[i].Action is SteamVR_Action_Boolean action)
             {
 
-                SteamVR_Action_Boolean action = (inputConfig.SteamVRInputs[i].Action as SteamVR_Action_Boolean);
+                //SteamVR_Action_Boolean action = (inputConfig.SteamVRInputs[i].Action as SteamVR_Action_Boolean);
 
                 if (action.GetState(SteamVR_Input_Sources.RightHand))
                 {

@@ -22,8 +22,8 @@ public class GodControllerOld
 
     #region Constructors
 
-    private GodController() { }
-    public GodController(GodMaster godMaster, GodConfig godConfig, GodData godData)
+    private GodControllerOld() { }
+    public GodControllerOld(GodMaster godMaster, GodConfig godConfig, GodData godData)
     {
         this.godMaster = godMaster;
         this.godConfig = godConfig;

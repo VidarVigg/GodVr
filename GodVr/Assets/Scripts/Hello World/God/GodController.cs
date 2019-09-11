@@ -274,7 +274,7 @@ public class GodController
     private int maxHits = 10;
     private int lm = 1 << 9;
 
-    private void PickUp(Controller123 stuff, Rigidbody rb)
+    private void PickUp(Controller123 stuff, Rigidbody rb, Controller123 other)
     {
 
         if (stuff.State != ControllerState.Empty)
@@ -291,9 +291,9 @@ public class GodController
             return;
         }
 
-        int nearest = 0;
+        int nearest = -1;
 
-        for (int i = 1; i < count; i++)
+        for (int i = 0; i < count; i++)
         {
 
             if (hits[nearest].distance < hits[i].distance)
@@ -301,14 +301,28 @@ public class GodController
                 continue;
             }
 
+            if (other.Obj)
+            {
+                if (hits[nearest].transform == other.Obj.transform)
+                {
+                    continue;
+                }
+            }
+
             nearest = i;
 
+        }
+
+        if (nearest < 0)
+        {
+            return;
         }
 
         InteractableWorldObject obj = hits[nearest].transform.GetComponent<InteractableWorldObject>();
 
         if (!obj)
         {
+            Debug.LogError("INTERACTABLEWORLDOBJECT PLS");
             return;
         }
 
@@ -369,7 +383,7 @@ public class GodController
                 {
 
                     case ControllerState.Empty:
-                        PickUp(godData.RightControllerStuff, godData.rightControllerAttach);
+                        PickUp(godData.RightControllerStuff, godData.rightControllerAttach, godData.LeftControllerStuff);
                         break;
 
                 }
@@ -382,7 +396,7 @@ public class GodController
                 {
 
                     case ControllerState.Empty:
-                        PickUp(godData.LeftControllerStuff, godData.leftControllerAttach);
+                        PickUp(godData.LeftControllerStuff, godData.leftControllerAttach, godData.RightControllerStuff);
                         break;
 
                 }

@@ -20,6 +20,12 @@ public abstract class InteractableWorldObject : WorldObject
 
     public virtual void Grab(Rigidbody attach) {
 
+        
+        if (joint)
+        {
+            return;
+        }
+
         joint = gameObject.AddComponent<FixedJoint>();
         transform.position = attach.position;
         joint.connectedBody = attach;

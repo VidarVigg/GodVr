@@ -1,6 +1,0 @@
-﻿public enum TestAudioType
-{
-
-    Stone,
-
-}

@@ -31,6 +31,7 @@ public class ProgramMaster : MonoBehaviour
         ServiceLocator.Iniitalize();
         ServiceLocator.GameMasterService = FindObjectOfType<GameMaster>();
         ServiceLocator.GodMasterService = FindObjectOfType<GodMaster>();
+        ServiceLocator.TestAudioMasterService = FindObjectOfType<AudioMaster>();
         //SpawnGameMaster();
         //SpawnAudioMaster();
     }
@@ -38,11 +39,6 @@ public class ProgramMaster : MonoBehaviour
     private void SpawnGameMaster()
     {
         programData.GameMaster = (GameMaster)programController.Spawn(programConfig.GameMaster);
-    }
-
-    private void SpawnAudioMaster()
-    {
-        programData.AudioMaster = (AudioMaster)programController.Spawn(programConfig.AudioMaster);
     }
 
     #endregion

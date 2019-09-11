@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inputConfig:
-    helloWorld: 0
+    inputLength: 10
   inputData:
-    logControllerDebug: 0
     triggerClick:
       actionPath: /actions/default/in/TriggerClick
       needsReinit: 0
@@ -34,7 +33,7 @@ MonoBehaviour:
     trackpad:
       actionPath: /actions/default/in/TrackPad
       needsReinit: 0
---- !u!114 &661748735
+--- !u!114 &1859308563
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,17 +42,45 @@ MonoBehaviour:
   m_GameObject: {fileID: 1531369746631311009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cc0b9c8d74899843a1c6c7aa4f66816, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a28c804df1ea184b998117f64070f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config:
+    rightInputPackets:
+    - inputID: 2
+      actionID: 0
+      whichID: 1
+    - inputID: 3
+      actionID: 1
+      whichID: 1
+    leftInputPackets:
+    - inputID: 2
+      actionID: 0
+      whichID: 2
+    - inputID: 3
+      actionID: 1
+      whichID: 2
   data:
-    rock: {fileID: 0}
-    displayItem: {fileID: 0}
-    heldItem: {fileID: 0}
+    rightControllerStuff:
+      state: 0
+      obj: {fileID: 0}
+    leftControllerStuff:
+      state: 0
+      obj: {fileID: 0}
     rightControllerAttach: {fileID: 1531369747543101757}
     leftControllerAttach: {fileID: 1531369746153079878}
     rightControllerPoint: {fileID: 1501254263621865893}
     leftControllerPoint: {fileID: 1501254262318943789}
+    RayCastSphereRadius: 0.5
+    RayPlaceDistance: 0.5
+    rock: {fileID: 1951961922904734674, guid: 93ee1cf5252478446b3df866cf6496fa, type: 3}
+    displayItem: {fileID: 0}
+    heldItem: {fileID: 0}
+    sphere: {fileID: 0}
+    cameraRig: {fileID: 0}
+    anotherTempThing: {fileID: 0}
+    lr1: {fileID: 0}
+    aimAngleOffset: 0
     state: 0
 --- !u!1001 &1531369746631426933
 PrefabInstance:
@@ -110,17 +137,19 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3380982, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
-      propertyPath: m_Mesh
-      value: 
+    - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2348914, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
+    - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 1110379728, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
-    - {fileID: 332366464, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+    - target: {fileID: 420908, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d293c8e162f3874b982baadd71153d2, type: 3}
 --- !u!1 &1531369746631311009 stripped
 GameObject:

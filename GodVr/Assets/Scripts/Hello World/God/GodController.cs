@@ -239,7 +239,7 @@ public class GodController
                     //Throw/Place/Drop
                     if (!Place())
                     {
-                        Throw();
+                        //Throw();
                     }
                     break;
                 case GodData.PlayerState.InMenu:
@@ -257,25 +257,51 @@ public class GodController
 
     #endregion
 
-    private void Throw()
+    private void Throw(WhichID whichID)
     {
         Debug.Log("Throw In hand");
         if (godData.heldItem)
         {
-            godData.heldItem.Throw(godData.rightControllerPoint);
+
+            switch (whichID)
+            {
+                case WhichID.Right:
+                    godData.heldItem.Throw(godData.rightControllerPoint);
+                    break;
+
+                case WhichID.Left:
+                    godData.heldItem.Throw(godData.leftControllerPoint);
+                    break;
+            }
+
+
             godData.heldItem = null;
         }
         godData.state = GodData.PlayerState.EmptyHanded;
     }
 
-    private void GrabObject()
+    private void GrabObject(WhichID whichID)
     {
         Debug.Log("Grab Something");
         RaycastHit[] hitted = new RaycastHit[10];
 
 
+        Vector3 position = Vector3.zero;
+
+        switch (whichID)
+        {
+
+            case WhichID.Right:
+                position = godData.rightControllerAttach.position;
+                break;
+
+            case WhichID.Left:
+                position = godData.leftControllerAttach.position;
+                break;
+
+        }
+
         //Need to make it so depending on which hand that activates it.
-        Vector3 position = godData.rightControllerAttach.position;        
         
         
         //Put this in Config
@@ -304,7 +330,19 @@ public class GodController
         //Debug.Log(intObj);
         if (intObj)
         {
-            intObj.Grab(godData.rightControllerAttach);
+            switch (whichID)
+            {
+
+                case WhichID.Right:
+                    intObj.Grab(godData.rightControllerAttach);
+                    break;
+
+                case WhichID.Left:
+                    intObj.Grab(godData.leftControllerAttach);
+                    break;
+
+            }
+
             godData.heldItem = intObj;
         }
 
@@ -315,11 +353,26 @@ public class GodController
 
     }
 
-    private bool Place()
+    private bool Place(WhichID whichID)
     {
         if (godData.heldItem)
         {
-            Vector3 position = godData.rightControllerAttach.position;
+
+            Vector3 position = Vector3.zero;
+
+            switch (whichID)
+            {
+
+                case WhichID.Right:
+                    position = godData.rightControllerAttach.position;
+                    break;
+
+                case WhichID.Left:
+                    position = godData.rightControllerAttach.position;
+                    break;
+
+            }
+
             RaycastHit hit;
             if (Physics.Raycast(position, Vector3.down, out hit, godData.RayPlaceDistance, 1 << 8))
             {
@@ -357,7 +410,7 @@ public class GodController
             //Pick Up
             case GodData.PlayerState.EmptyHanded:
                 //Non Alloc Sphere Cast, Config Radius
-                GrabObject();
+                GrabObject(whichID);
 
                 break;
 
@@ -391,9 +444,9 @@ public class GodController
             //Place/Drop
             case GodData.PlayerState.HoldingItem:
                 //Throw/Place/Drop
-                if (!Place())
+                if (!Place(whichID))
                 {
-                    Throw();
+                    Throw(whichID);
                 }
                 break;
             case GodData.PlayerState.InMenu:

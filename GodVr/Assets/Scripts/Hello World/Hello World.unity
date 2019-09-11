@@ -193,7 +193,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 304953245}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cc0b9c8d74899843a1c6c7aa4f66816, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a28c804df1ea184b998117f64070f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   config:
@@ -809,6 +809,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 36a40a7e64905d2459576d294a896966, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigi: {fileID: 0}
+  joint: {fileID: 0}
   naturalConfig:
     resources: []
   naturalData:

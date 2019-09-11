@@ -9,7 +9,7 @@ public class SteamVRInput
     private Type type;
 
     [SerializeField]
-    private ISteamVR_Action_In action = null;
+    private SteamVR_Action_Boolean action = null;
 
     [SerializeField]
     private bool rightLastState = false;
@@ -22,7 +22,7 @@ public class SteamVRInput
         get { return type; }
     }
 
-    public ISteamVR_Action_In Action
+    public SteamVR_Action_Boolean Action
     {
         get { return action; }
     }
@@ -39,7 +39,7 @@ public class SteamVRInput
         set { leftLastState = value; }
     }
 
-    public SteamVRInput(ISteamVR_Action_In action)
+    public SteamVRInput(SteamVR_Action_Boolean action)
     {
         this.action = action;
     }

@@ -291,9 +291,9 @@ public class GodController
             return;
         }
 
-        int nearest = -1;
+        int nearest = 0;
 
-        for (int i = 0; i < count; i++)
+        for (int i = 1; i < count; i++)
         {
 
             if (hits[nearest].distance < hits[i].distance)
@@ -313,9 +313,17 @@ public class GodController
 
         }
 
-        if (nearest < 0)
+        if (nearest == 0)
         {
-            return;
+
+            if (other.Obj)
+            {
+                if (hits[nearest].transform == other.Obj.transform)
+                {
+                    return;
+                }
+            }
+
         }
 
         InteractableWorldObject obj = hits[nearest].transform.GetComponent<InteractableWorldObject>();

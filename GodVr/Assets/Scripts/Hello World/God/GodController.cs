@@ -382,7 +382,7 @@ public class GodController
                 {
 
                     case ControllerState.Empty:
-                        PickUp(godData.RightControllerStuff, godData.leftControllerAttach);
+                        PickUp(godData.LeftControllerStuff, godData.leftControllerAttach);
                         break;
 
                 }

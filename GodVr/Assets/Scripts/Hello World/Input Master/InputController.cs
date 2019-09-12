@@ -51,54 +51,24 @@ public class InputController
 
         for (int i = 0; i < inputConfig.SteamVRInputs.Length; i++)
         {
-
-            if (inputConfig.SteamVRInputs[i].Action is SteamVR_Action_Boolean action)
-            {
-
-                if (action.GetState(SteamVR_Input_Sources.RightHand))
-                {
-
-                    if (!inputConfig.SteamVRInputs[i].RightLastState)
-                    {
-                        inputData.RightBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = true;
-                        inputConfig.SteamVRInputs[i].RightLastState = true;
-                    }
-
-                }
-
-                else
-                {
-                    if (inputConfig.SteamVRInputs[i].RightLastState)
-                    {
-                        inputData.RightBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = true;
-                        inputConfig.SteamVRInputs[i].RightLastState = false;
-                    }
-                }
-
-                if (action.GetState(SteamVR_Input_Sources.LeftHand))
-                {
-
-                    if (!inputConfig.SteamVRInputs[i].LeftLastState)
-                    {
-                        inputData.LeftBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = true;
-                        inputConfig.SteamVRInputs[i].LeftLastState = true;
-                    }
-
-                }
-
-                else
-                {
-                    if (inputConfig.SteamVRInputs[i].LeftLastState)
-                    {
-                        inputData.LeftBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = true;
-                        inputConfig.SteamVRInputs[i].LeftLastState = false;
-                    }
-                }
-
-            }
-
+            inputData.RightBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = inputConfig.SteamVRInputs[i].Action.GetState(SteamVR_Input_Sources.RightHand);
+            inputData.LeftBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = inputConfig.SteamVRInputs[i].Action.GetState(SteamVR_Input_Sources.LeftHand);
         }
 
+        if (inputConfig.SendTrigger)
+        {
+            inputData.RightTrigger = inputConfig.Trigger.GetAxis(SteamVR_Input_Sources.RightHand);
+            inputData.LeftTrigger = inputConfig.Trigger.GetAxis(SteamVR_Input_Sources.LeftHand);
+        }
+
+        if (inputConfig.SendTrackpad)
+        {
+            inputData.RightTrackpadHorizontal = inputConfig.Trackpad.GetAxis(SteamVR_Input_Sources.RightHand).x;
+            inputData.RightTrackpadVertical = inputConfig.Trackpad.GetAxis(SteamVR_Input_Sources.RightHand).y;
+            inputData.LeftTrackpadHorizontal = inputConfig.Trackpad.GetAxis(SteamVR_Input_Sources.LeftHand).x;
+            inputData.LeftTrackpadVertical = inputConfig.Trackpad.GetAxis(SteamVR_Input_Sources.LeftHand).y;
+        }
+        
     }
     private void Send()
     {

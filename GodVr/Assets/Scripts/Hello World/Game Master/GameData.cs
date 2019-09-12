@@ -9,25 +9,43 @@ public class GameData
     #region Fields
 
     [SerializeField]
-    private BitArray rightBitArray = null;
+    private BitArray inRight = null;
 
     [SerializeField]
-    private BitArray leftBitArray = null;
+    private BitArray inLeft = null;
+
+    [SerializeField]
+    private BitArray outRight = null;
+
+    [SerializeField]
+    private BitArray outLeft = null;
 
     #endregion
 
     #region Properties
 
-    public BitArray RightBitArray
+    public BitArray InRight
     {
-        get { return rightBitArray; }
-        set { rightBitArray = value; }
+        get { return inRight; }
+        set { inRight = value; }
     }
 
-    public BitArray LeftBitArray
+    public BitArray InLeft
     {
-        get { return leftBitArray; }
-        set { leftBitArray = value; }
+        get { return inLeft; }
+        set { inLeft = value; }
+    }
+
+    public BitArray OutRight
+    {
+        get { return outRight; }
+        set { outRight = value; }
+    }
+
+    public BitArray OutLeft
+    {
+        get { return outLeft; }
+        set { outLeft = value; }
     }
 
     #endregion

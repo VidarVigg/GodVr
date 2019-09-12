@@ -14,6 +14,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputConfig:
     inputLength: 10
+    steamVRInputs:
+    - action:
+        actionPath: /actions/default/in/TriggerClick
+        needsReinit: 0
+      rightLastState: 0
+      leftLastState: 0
+    - action:
+        actionPath: /actions/default/in/PadClick
+        needsReinit: 0
+      rightLastState: 0
+      leftLastState: 0
+    - action:
+        actionPath: /actions/default/in/PadTouching
+        needsReinit: 0
+      rightLastState: 0
+      leftLastState: 0
+    - action:
+        actionPath: /actions/default/in/OpenMenu
+        needsReinit: 0
+      rightLastState: 0
+      leftLastState: 0
   inputData:
     triggerClick:
       actionPath: /actions/default/in/TriggerClick

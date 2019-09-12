@@ -290,9 +290,8 @@ public class GodControllerOld
         Debug.Log(vectorDiff);
         Debug.DrawLine(grabPoint, currentPoint);
 
-        //godData.cameraRig.transform.position = vectorDiff;
         pos = godData.cameraRig.transform.position + ((grabPoint - currentPoint));
-        godData.cameraRig.transform.position = new Vector3(pos.x * 5.0f, godData.cameraRig.transform.position.y, pos.z * 5.0f);
+        godData.cameraRig.transform.position = new Vector3(pos.x, godData.cameraRig.transform.position.y, pos.z * 5.0f);
     }
 
     private void MovementTeleport()

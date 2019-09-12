@@ -25,11 +25,22 @@ public class GodController
 
     #endregion
 
-    #region Test
+    #region Test(fields + Update, etc)
+
+    //For teleporting
+    private bool ray = false;
+
+    //For Dragging
+    private bool dragging = false;
+    private Vector3 grabPoint;
+    private Vector3 currentPoint;
+
+    //To enable teleporting, add TeleportOnButtonDown and Up for button down/up 
 
     public void Update()
     {
         HandleInput();
+        TestMethodsForUpdate();
     }
 
     #region Packet Core
@@ -366,16 +377,87 @@ public class GodController
 
     }
 
-
+    #region Non-elegant solutions for movement
+    //DRAG ONLY WORKS WITH 1:1 MOVEMENT, OTHERWISE IT BREAKS
     private void MovementDrag()
     {
-
+        var pos = Vector3.zero;
+        var vectorDiff = (grabPoint - currentPoint);
+        godData.cameraRig.transform.position = new Vector3(pos.x, godData.cameraRig.transform.position.y, pos.z * 5.0f);
     }
 
     private void MovementTeleport()
     {
+        godData.cameraRig.position = Ray();
+    }
+
+    private void TestMethodsForUpdate()
+    {
+        if (ray)
+            DisplayTeleportPoint();
+
+        if (dragging)
+            MovementDrag();
+
+        currentPoint = godData.rightControllerAttach.transform.position;
+    }
+
+    private Vector3 Ray()
+    {
+        Vector3 pos = godData.rightControllerAttach.position;
+        RaycastHit hit;
+
+        var nonFilthyVariable = godData.rightControllerAttach.transform.forward;
+        nonFilthyVariable = Quaternion.AngleAxis(godData.aimAngleOffset, godData.rightControllerAttach.transform.right) * nonFilthyVariable;
+
+        Physics.Raycast(pos, nonFilthyVariable, out hit);
+
+        return hit.point;
+    }
+
+    private void DisplayTeleportPoint()
+    {
+        Vector3 hitPoint = Ray();
+
+        godData.lr1.SetPosition(0, godData.rightControllerAttach.position);
+
+        if (hitPoint != Vector3.zero)
+            godData.lr1.SetPosition(1, hitPoint);
+
+        godData.sphere.position = hitPoint;
 
     }
+
+    private void DragOnButtonDown()
+    {
+        grabPoint = Vector3.zero;
+        currentPoint = Vector3.zero;
+        grabPoint = godData.rightControllerAttach.position;
+        dragging = true;
+    }
+
+    private void TeleportOnButtonDown()
+    {
+        ray = true;
+        godData.anotherTempThing.gameObject.SetActive(true);
+        godData.sphere.gameObject.SetActive(true);
+    }
+
+    private void DragOnButtonUp()
+    {
+        grabPoint = Vector3.zero;
+        currentPoint = Vector3.zero;
+        dragging = false;
+    }
+
+    private void TeleportOnButtonUp()
+    {
+        MovementTeleport();
+        ray = false;
+        godData.anotherTempThing.gameObject.SetActive(false);
+        godData.sphere.gameObject.SetActive(false);
+    }
+    #endregion
 
     #region Input Whoho
 

@@ -2,6 +2,7 @@
 
 public class AudioController
 {
+
     #region Fields
 
     private AudioMaster testAudioMaster = null;
@@ -32,12 +33,20 @@ public class AudioController
         {
             if (testAudioConfig.AudioStructs[i].type == testAudioType)
             {
-                audioSource?.PlayOneShot(testAudioConfig.AudioStructs[i].clip);
+                if (testAudioConfig.AudioStructs[i].clip != null)
+                {
+                    audioSource?.PlayOneShot(testAudioConfig.AudioStructs[i].clip);
+                }
+                else
+                {
+                    Debug.LogWarning("<b> No Audio Clip in Source! </b>");
+                }
             }
             
         }
         
     }
+
 
     #endregion
 

@@ -6,22 +6,8 @@ public class AudioConfig
 {
     #region Fields
 
-    [System.Serializable]
-    public struct AudioStruct
-    {
-        public AudioClip clip;
-        public AudioType type;
-        public GameObject go;
+    [SerializeField] private AudioStruct[] audioStructs = new AudioStruct[0];
 
-        public AudioStruct(AudioClip clip, AudioType type, GameObject go)
-        {
-            this.clip = clip;
-            this.type = type;
-            this.go = go;
-        }
-    }
-
-    [SerializeField] private AudioStruct[] audioStructs = new AudioStruct[0]; // make properties
     #endregion
 
     #region Properties

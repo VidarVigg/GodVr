@@ -3,31 +3,29 @@
 public class AudioMaster : MonoBehaviour, IAudioMasterService
 {
 
-    [SerializeField]
-    private AudioConfig testAudioConfig = null;
-    [SerializeField]
-    private AudioData testAudioData = null;
+    #region Fields
 
-    private AudioController testAudioController = null;
+    [SerializeField]
+    private AudioConfig audioConfig = null;
+    [SerializeField]
+    private AudioData audioData = null;
 
+    private AudioController audioController = null;
+
+    #endregion
+
+    #region Methods
 
     private void Awake()
     {
-        testAudioController = new AudioController(this, testAudioConfig, testAudioData);
+        audioController = new AudioController(this, audioConfig, audioData);
     }
 
-    private void Start()
+    public void PlayOneShot(AudioType testAudioType, AudioSource audioSource)
     {
-
-    }
-    private void Update()
-    {
-
+        audioController.PlaySound(testAudioType, audioSource);
     }
 
+    #endregion
 
-    public void Playsound(AudioType testAudioType, AudioSource audioSource)
-    {
-        testAudioController.PlaySound(testAudioType, audioSource);
-    }
 }

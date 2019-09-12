@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Valve.VR;
 
 [Serializable]
 public class InputConfig
@@ -10,6 +11,12 @@ public class InputConfig
     [SerializeField]
     private int inputLength = 0;
 
+    [SerializeField]
+    private SteamVRInput[] steamVRInputs =
+    {
+        new SteamVRInput(SteamVR_Input.GetAction<SteamVR_Action_Boolean>("TriggerClick"))
+    };
+
     #endregion
 
     #region Properties
@@ -17,6 +24,11 @@ public class InputConfig
     public int InputLength
     {
         get { return inputLength; }
+    }
+
+    public SteamVRInput[] SteamVRInputs
+    {
+        get { return steamVRInputs; }
     }
 
     #endregion

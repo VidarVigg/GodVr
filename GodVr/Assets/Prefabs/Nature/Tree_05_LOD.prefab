@@ -86,7 +86,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2549919314838927896}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 7f00aecb40873f0408c45679eb67fde7, type: 2}
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: 0.5
@@ -105,6 +105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe622003b90e2e419c7132d2b98b74c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigi: {fileID: 0}
+  joint: {fileID: 0}
   naturalConfig:
     resources:
     - type: 1
@@ -260,6 +262,7 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7067552925598853470, guid: bbd1cd954d1d1b84aae80ab5ec872198, type: 3}
     - {fileID: 4725721284367338937, guid: bbd1cd954d1d1b84aae80ab5ec872198, type: 3}
+    - {fileID: 3945183003722977781, guid: bbd1cd954d1d1b84aae80ab5ec872198, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: bbd1cd954d1d1b84aae80ab5ec872198, type: 3}
 --- !u!4 &4580650558122115953 stripped
 Transform:
@@ -471,7 +474,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4016410805752352772, guid: 1669818d9699fa34ba2050d8ee4fb853, type: 3}
+    - {fileID: 5244537430046117868, guid: 1669818d9699fa34ba2050d8ee4fb853, type: 3}
+    - {fileID: 627941825826929995, guid: 1669818d9699fa34ba2050d8ee4fb853, type: 3}
+    - {fileID: 2646991135850016104, guid: 1669818d9699fa34ba2050d8ee4fb853, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 1669818d9699fa34ba2050d8ee4fb853, type: 3}
 --- !u!1 &4263359304135927998 stripped
 GameObject:

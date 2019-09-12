@@ -28,15 +28,16 @@ public class GodMaster : MonoBehaviour, IGodMasterService
         controller.Update();
     }
 
-    public void ReceiveInput(BitArray rightBitArray, BitArray leftBitArray)
-    {
-        data.RightBitArray = rightBitArray;
-        data.LeftBitArray = leftBitArray;
-    }
+    //public void ReceiveInput(BitArray rightBitArray, BitArray leftBitArray)
+    //{
+    //    data.RightBitArray = rightBitArray;
+    //    data.LeftBitArray = leftBitArray;
+    //}
 
     public void RecieveInput(BitArray rightBitArray, BitArray leftBitArray)
     {
-
+        data.RightBitArray = rightBitArray;
+        data.LeftBitArray = leftBitArray;
     }
 
 

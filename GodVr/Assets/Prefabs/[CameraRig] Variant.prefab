@@ -14,26 +14,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputConfig:
     inputLength: 10
+    steamVRInputs:
+    - action:
+        actionPath: /actions/default/in/TriggerClick
+        needsReinit: 0
+      rightLastState: 0
+      leftLastState: 0
+    - action:
+        actionPath: /actions/default/in/OpenMenu
+        needsReinit: 0
+      rightLastState: 0
+      leftLastState: 0
+    - action:
+        actionPath: /actions/default/in/PadClick
+        needsReinit: 0
+      rightLastState: 0
+      leftLastState: 0
+    - action:
+        actionPath: /actions/default/in/PadTouching
+        needsReinit: 0
+      rightLastState: 0
+      leftLastState: 0
   inputData:
-    triggerClick:
-      actionPath: /actions/default/in/TriggerClick
-      needsReinit: 0
     triggerDrag:
       actionPath: /actions/default/in/TriggerDrag
-      needsReinit: 0
-    openMenu:
-      actionPath: /actions/default/in/OpenMenu
-      needsReinit: 0
-    padClick:
-      actionPath: /actions/default/in/PadClick
-      needsReinit: 0
-    padTouching:
-      actionPath: /actions/default/in/PadTouching
       needsReinit: 0
     trackpad:
       actionPath: /actions/default/in/TrackPad
       needsReinit: 0
 --- !u!114 &1859308563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531369746631311009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a28c804df1ea184b998117f64070f26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  config:
+    rightInputPackets:
+    - inputID: 2
+      actionID: 0
+      whichID: 1
+    - inputID: 3
+      actionID: 1
+      whichID: 1
+    leftInputPackets:
+    - inputID: 2
+      actionID: 0
+      whichID: 2
+    - inputID: 3
+      actionID: 1
+      whichID: 2
+  data:
+    rightControllerStuff:
+      state: 0
+      obj: {fileID: 0}
+    leftControllerStuff:
+      state: 0
+      obj: {fileID: 0}
+    rightControllerAttach: {fileID: 1531369747543101757}
+    leftControllerAttach: {fileID: 1531369746153079878}
+    rightControllerPoint: {fileID: 1501254263621865893}
+    leftControllerPoint: {fileID: 1501254262318943789}
+    RayCastSphereRadius: 0.5
+    RayPlaceDistance: 0.5
+    rock: {fileID: 1951961922904734674, guid: 93ee1cf5252478446b3df866cf6496fa, type: 3}
+    displayItem: {fileID: 0}
+    heldItem: {fileID: 0}
+    sphere: {fileID: 0}
+    cameraRig: {fileID: 0}
+    anotherTempThing: {fileID: 0}
+    lr1: {fileID: 0}
+    aimAngleOffset: 0
+    state: 0
+--- !u!114 &2333480780677842753
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

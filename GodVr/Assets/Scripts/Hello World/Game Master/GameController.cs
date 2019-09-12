@@ -47,89 +47,59 @@ public class GameController
 
     public void ReceiveInputs(BitArray rightBitArray, BitArray leftBitArray)
     {
-
-        return;
-
-        #region Debug
-
-        string rightResult = "Right = ";
-
-        for (int i = 0; i < rightBitArray.Length; i++)
-        {
-            rightResult += rightBitArray[i] + " ";
-        }
-
-        UnityEngine.Debug.Log(rightResult);
-
-        string leftResult = "Left = ";
-
-        for (int i = 0; i < leftBitArray.Length; i++)
-        {
-            leftResult += leftBitArray[i] + " ";
-        }
-
-        UnityEngine.Debug.Log(leftResult);
-
-        #endregion
-
         gameData.RightBitArray = rightBitArray;
         gameData.LeftBitArray = leftBitArray;
-
     }
 
     public void Update()
     {
-        return;
-        Test();
+        Read();
     }
 
-    private void Test()
+    private void Read()
     {
 
-        int rights = 0;
-        BitArray godRightBitArray = new BitArray(gameData.RightBitArray.Length);
+        //int rights = 0;
+        //BitArray godRightBitArray = new BitArray(gameData.RightBitArray.Length);
 
         for (int i = 0; i < gameConfig.RightInputPackets.Length; i++)
         {
 
-            if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].InputOwner == InputOwner.God)
+            if (!gameData.RightBitArray[(int)gameConfig.RightInputPackets[i].InputID])
             {
-                godRightBitArray[rights] = true;
-                rights++;
+                return;
             }
 
             if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].InputOwner == InputOwner.Game)
             {
 
-                if (gameData.RightBitArray[(int)gameConfig.RightInputPackets[i].InputID])
+                if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].ActionDelegate != null)
                 {
-
-                    if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].ActionDelegate != null)
-                    {
-                        ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].ActionDelegate.Invoke(WhichID.Right);
-                    }
-
-                    else
-                    {
-                        UnityEngine.Debug.Log("<b>WORKS BUT DEL IS NULL (RIGHT)</b>");
-                    }
-
+                    ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].ActionDelegate.Invoke(WhichID.Right);
                 }
 
             }
 
+            if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].InputOwner == InputOwner.God)
+            {
+                //godRightBitArray[rights] = true;
+                //rights++;
+            }
+
+
+
         }
 
-        int lefts = 0;
-        BitArray godLeftBitArray = new BitArray(gameData.LeftBitArray.Length);
+        //int lefts = 0;
+        //BitArray godLeftBitArray = new BitArray(gameData.LeftBitArray.Length);
 
         for (int i = 0; i < gameConfig.LeftInputPackets.Length; i++)
         {
 
             if (ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].InputOwner == InputOwner.God)
             {
-                godLeftBitArray[lefts] = true;
-                lefts++;
+                //godLeftBitArray[lefts] = true;
+                //lefts++;
             }
 
             if (ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].InputOwner == InputOwner.Game)
@@ -143,19 +113,13 @@ public class GameController
                         ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].ActionDelegate.Invoke(WhichID.Left);
                     }
 
-                    else
-                    {
-                        UnityEngine.Debug.Log("<b>WORKS BUT DEL IS NULL (LEFT)</b>");
-                    }
-
-                   
                 }
 
             }
 
         }
 
-        SendGodInputs(godRightBitArray, godLeftBitArray);
+        //SendGodInputs(godRightBitArray, godLeftBitArray);
 
     }
 

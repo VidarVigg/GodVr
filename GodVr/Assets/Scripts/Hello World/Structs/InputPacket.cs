@@ -16,9 +16,6 @@ public class InputPacket
     [SerializeField]
     private ActionID actionID;
 
-    [SerializeField]
-    private WhichID whichID;
-
     #endregion
 
     #region Properties
@@ -33,21 +30,15 @@ public class InputPacket
         get { return actionID; }
     }
 
-    public WhichID WhichID
-    {
-        get { return whichID; }
-    }
-
     #endregion
 
     #region Constructors
 
     private InputPacket() { }
-    public InputPacket(InputID inputID, ActionID actionID, WhichID which = WhichID.Right)
+    public InputPacket(InputID inputID, ActionID actionID)
     {
         this.inputID = inputID;
         this.actionID = actionID;
-        this.whichID = which;
     }
 
     #endregion

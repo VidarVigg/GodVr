@@ -1,6 +1,5 @@
 ﻿public enum InputID
 {
-
     TouchTrackpad_Down,
     TouchTrackpad_Up,
     Trigger_Threshhold_Down,

@@ -9,22 +9,19 @@ public class InputConfig
     #region Fields
 
     [SerializeField]
-    private int inputLength = 0;
-
-    [SerializeField]
     private SteamVRInput[] steamVRInputs =
     {
-        new SteamVRInput(SteamVR_Input.GetAction<SteamVR_Action_Boolean>("TriggerClick"))
+        new SteamVRInput(SteamVR_Input.GetAction<SteamVR_Action_Boolean>("TriggerClick")),
+        new SteamVRInput(SteamVR_Input.GetAction<SteamVR_Action_Boolean>("OpenMenu")),
+        new SteamVRInput(SteamVR_Input.GetAction<SteamVR_Action_Boolean>("PadClick")),
+        new SteamVRInput(SteamVR_Input.GetAction<SteamVR_Action_Boolean>("PadTouching")),
     };
+    //SteamVR_Input.GetAction<SteamVR_Action_Single>("TriggerDrag")
+    //SteamVR_Input.GetAction<SteamVR_Action_Vector2>("TrackPad")
 
     #endregion
 
     #region Properties
-
-    public int InputLength
-    {
-        get { return inputLength; }
-    }
 
     public SteamVRInput[] SteamVRInputs
     {

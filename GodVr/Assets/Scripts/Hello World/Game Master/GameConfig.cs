@@ -10,13 +10,13 @@ public class GameConfig
     [SerializeField]
     private InputPacket[] rightInputPackets =
     {
-        new InputPacket(InputID.TouchTrackpad_Down, ActionID.TouchDown, WhichID.Right)
+        new InputPacket(InputID.TouchTrackpad_Down, ActionID.TouchDown)
     };
 
     [SerializeField]
     private InputPacket[] leftInputPackets =
 {
-        new InputPacket(InputID.TouchTrackpad_Down, ActionID.TouchDown, WhichID.Left)
+        new InputPacket(InputID.TouchTrackpad_Down, ActionID.TouchDown)
     };
 
     #endregion

@@ -16,7 +16,7 @@ public class GodConfig
     [SerializeField]
     private InputPacket[] leftInputPackets =
     {
-        new InputPacket(InputID.TouchTrackpad_Down, ActionID.TouchDown, WhichID.Left)
+        new InputPacket(InputID.TouchTrackpad_Down, ActionID.TouchDown)
     };
 
     #endregion

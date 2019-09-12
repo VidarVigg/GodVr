@@ -6,7 +6,8 @@ using Valve.VR;
 public class SteamVRInput
 {
 
-    private Type type;
+    [SerializeField]
+    private InputID inputID;
 
     [SerializeField]
     private SteamVR_Action_Boolean action = null;
@@ -17,9 +18,9 @@ public class SteamVRInput
     [SerializeField]
     private bool leftLastState = false;
 
-    public Type Type
+    public InputID InputID
     {
-        get { return type; }
+        get { return inputID; }
     }
 
     public SteamVR_Action_Boolean Action

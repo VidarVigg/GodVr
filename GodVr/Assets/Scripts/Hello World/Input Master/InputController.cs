@@ -58,7 +58,7 @@ public class InputController
             rightResult += inputData.RightBitArray[i] + " ";
         }
 
-        Debug.Log(rightResult);
+        //Debug.Log(rightResult);
 
         string leftResult = "Left = ";
 
@@ -67,7 +67,7 @@ public class InputController
             leftResult += inputData.LeftBitArray[i] + " ";
         }
 
-        Debug.Log(leftResult);
+        //Debug.Log(leftResult);
 
         Send();
     }

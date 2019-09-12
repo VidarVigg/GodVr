@@ -1,4 +1,6 @@
 ﻿using UnityEngine;
+using UnityEngine.AI;
+using Unity;
 
 public class UnitAIMaster : MonoBehaviour
 {
@@ -20,16 +22,16 @@ public class UnitAIMaster : MonoBehaviour
     private void Awake()
     {
         unitAIController = new UnitAIController(this, unitAIConfig, unitAIData);
+        unitAIConfig.NavMeshAgent = GetComponent<NavMeshAgent>();
     }
 
     void Start()
     {
-        
     }
 
     void Update()
     {
-        
+            unitAIController.Update();
     }
 
     #endregion

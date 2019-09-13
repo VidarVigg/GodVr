@@ -18,6 +18,9 @@ public class UnitAIConfig
     [SerializeField]
     private int maxHits;
 
+    [SerializeField]
+    private float stopDistance;
+
     #endregion
 
     #region Properties
@@ -38,6 +41,12 @@ public class UnitAIConfig
     {
         get { return maxHits; }
         set { maxHits = value; }
+    }
+
+    public float StopDistance
+    {
+        get { return stopDistance; }
+        set { stopDistance = value; }
     }
 
     #endregion

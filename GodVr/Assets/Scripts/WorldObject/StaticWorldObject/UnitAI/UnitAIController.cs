@@ -39,13 +39,20 @@ public class UnitAIController
         if (SearchForStructure())
         {
             unitAIConfig.NavMeshAgent.SetDestination(unitAIData.Destination);
+            DamageBuilding();
         }
+        else
+        {
+            unitAIData.Target = null;
+        }
+
 
     }
 
     private void Initialize()
     {
         unitAIData.Hits = new Collider[unitAIConfig.MaxHits];
+        unitAIData.Animator = unitAIMaster.GetComponent<Animator>();
     }
 
     private bool SearchForStructure()
@@ -96,11 +103,30 @@ public class UnitAIController
             nearest = i;
 
         }
+
+
+        unitAIData.Target = unitAIData.Hits[nearest].GetComponent<HousingMaster>();
         unitAIData.Destination = unitAIData.Hits[nearest].transform.position;
+
         return true;
 
     }
 
+    private void DamageBuilding()
+    {
+        Vector3 temp = unitAIData.Target.transform.position;
+        if ((temp - unitAIMaster.gameObject.transform.position).magnitude < 1f)
+        {
+            (unitAIData.Target as IDamagable).Receive(ulong.MaxValue);
+            unitAIData.Animator.SetBool("New Bool", true);
+        }
+        else
+        {
+            unitAIData.Animator.SetBool("New Bool", false);
+        }
+    }
+    
+    
     #endregion
 
 }

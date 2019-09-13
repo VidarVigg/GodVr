@@ -16,6 +16,12 @@ public class UnitAIData
     [SerializeField]
     private Vector3 destination = Vector3.zero;
 
+    [SerializeField]
+    private HousingMaster target;
+
+    [SerializeField]
+    private Animator animator;
+
 
     #endregion
 
@@ -37,6 +43,18 @@ public class UnitAIData
     {
         get { return destination; }
         set { destination = value; }
+    }
+
+    public HousingMaster Target
+    {
+        get { return target; }
+        set { target = value; }
+    }
+
+    public Animator Animator
+    {
+        get { return animator; }
+        set { animator = value; }
     }
 
     #endregion

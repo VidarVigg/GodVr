@@ -39,9 +39,9 @@ public class EnemySpawnerController
 
     private void Spawn()
     {
-        for (int i = 0; i <= enemySpawnerConfig.SpawnAmount; i++)
+        for (int i = 0; i < enemySpawnerConfig.SpawnAmount; i++)
         {
-            for (int j = 0; j <= enemySpawnerConfig.SpawnAmount; j++)
+            for (int j = 0; j < enemySpawnerConfig.SpawnAmount; j++)
             {
                 enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPos.position + (new Vector3((float)i / 2, 0, (float)j / 2)), Quaternion.identity);
             }

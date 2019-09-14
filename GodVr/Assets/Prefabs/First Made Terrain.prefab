@@ -1864,7 +1864,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2135998970803742442}
   m_Layer: 0
-  m_Name: THE BIG PREFAB
+  m_Name: First Made Terrain
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

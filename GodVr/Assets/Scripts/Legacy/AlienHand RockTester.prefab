@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 4995479105248326616}
   - component: {fileID: 1951961922904734674}
   m_Layer: 0
-  m_Name: Rock
+  m_Name: AlienHand RockTester
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,6 +108,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20a46f3eeeedc5e4d85126908726500a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rigi: {fileID: 0}
+  joint: {fileID: 0}
   naturalConfig:
     resources: []
   naturalData:

@@ -139,7 +139,6 @@ public class GameController
 
     private void Convert(BitArray newRight, BitArray newLeft)
     {
-
         for (int i = 0; i < newRight.Length; i++)
         {
 
@@ -148,10 +147,7 @@ public class GameController
                 if (!gameData.InRight[i])
                 {
                     gameData.OutRight[i * 2] = true;
-                }
-                else
-                {
-                    gameData.OutRight[i * 2] = false;
+                    gameData.OutRight[i * 2 + 1] = false;
                 }
 
             }
@@ -160,51 +156,29 @@ public class GameController
                 if (gameData.InRight[i])
                 {
                     gameData.OutRight[i * 2 + 1] = true;
+                    gameData.OutRight[i * 2] = false;
                 }
-                else
-                {
-                    gameData.OutRight[i * 2 + 1] = false;
-                }
-
             }
-
-        }
-
-        for (int i = 0; i < newLeft.Length; i++)
-        {
-
+            // Do the NewLeft in the same loop, because NewLeft and NewRight will always be the same size
             if (newLeft[i])
             {
 
                 if (!gameData.InLeft[i])
                 {
                     gameData.OutLeft[i * 2] = true;
+                    gameData.OutLeft[i * 2 + 1] = false;
                 }
-                else
-                {
-                    gameData.OutLeft[i * 2] = false;
-                }
-
             }
-
             else
             {
-
                 if (gameData.InLeft[i])
                 {
                     gameData.OutLeft[i * 2 + 1] = true;
+                    gameData.OutLeft[i * 2] = false;
                 }
-                else
-                {
-                    gameData.OutLeft[i * 2 + 1] = false;
-                }
-
             }
 
         }
-
-
-
     }
     private void NewRead()
     {

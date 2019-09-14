@@ -10,21 +10,21 @@ public class SteamVRInput
     private InputID inputID = InputID.Trigger_Click;
 
     [SerializeField]
-    private SteamVR_Action_Boolean action = null;
+    private SteamVR_Action_Boolean steamVRAction = null;
 
     public InputID InputID
     {
         get { return inputID; }
     }
 
-    public SteamVR_Action_Boolean Action
+    public SteamVR_Action_Boolean SteamVRAction
     {
-        get { return action; }
+        get { return steamVRAction; }
     }
 
     public SteamVRInput(SteamVR_Action_Boolean action)
     {
-        this.action = action;
+        this.steamVRAction = action;
     }
 
 }

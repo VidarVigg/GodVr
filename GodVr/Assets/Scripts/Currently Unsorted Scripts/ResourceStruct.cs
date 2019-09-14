@@ -1,12 +1,29 @@
-﻿
- public struct ResourceStruct
+﻿using System;
+using UnityEngine;
+
+[Serializable]
+public struct ResourceStruct
+{
+    [SerializeField]
+    private ResourceType resource;
+
+    [SerializeField]
+    private int value;
+
+    public ResourceType Resource
     {
-        int value;
-        int resource;// Should be enum
-        public ResourceStruct(int value, int resource)
-        {
-            this.value = value;
-            this.resource = resource;
-        }
+        get { return resource; }
     }
+    public int Value
+    {
+        get { return value; }
+        set { this.value = value; }
+    }
+
+    public ResourceStruct(int value, ResourceType resource)
+    {
+        this.value = value;
+        this.resource = resource;
+    }
+}
 

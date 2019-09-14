@@ -51,8 +51,8 @@ public class InputController
         for (int i = 0; i < inputConfig.SteamVRInputs.Length; i++)
         {
             //Makes so the enums value is used as index for the state
-            inputData.RightBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = inputConfig.SteamVRInputs[i].Action.GetState(SteamVR_Input_Sources.RightHand);
-            inputData.LeftBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = inputConfig.SteamVRInputs[i].Action.GetState(SteamVR_Input_Sources.LeftHand);
+            inputData.RightBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = inputConfig.SteamVRInputs[i].SteamVRAction.GetState(SteamVR_Input_Sources.RightHand);
+            inputData.LeftBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = inputConfig.SteamVRInputs[i].SteamVRAction.GetState(SteamVR_Input_Sources.LeftHand);
         }
 
         if (inputConfig.SendTrigger)

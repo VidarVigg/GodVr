@@ -28,25 +28,6 @@ public class GodMaster : MonoBehaviour, IGodMasterService
         controller.Update();
     }
 
-    //public void ReceiveInput(BitArray rightBitArray, BitArray leftBitArray)
-    //{
-    //    data.RightBitArray = rightBitArray;
-    //    data.LeftBitArray = leftBitArray;
-    //}
-
-    public void RecieveInput(BitArray rightBitArray, BitArray leftBitArray)
-    {
-        data.RightBitArray = rightBitArray;
-        data.LeftBitArray = leftBitArray;
-    }
-
-
-
-    public void SetInputs(BitArray rightBitArray, BitArray leftBitArray)
-    {
-        //controller.SetInputs(rightBitArray, leftBitArray);
-    }
-
     public void TriggerClickDown(WhichID id)
     {
         controller.TriggerDown(id);

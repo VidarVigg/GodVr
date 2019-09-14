@@ -46,11 +46,13 @@ public class GameController
         
     }
 
+    // Needs new Name
     public void Hello(WhichID whichID)
     {
         ServiceLocator.GodMasterService.TriggerClickDown(whichID);
     }
 
+    // Needs new Name
     public void Goodbye(WhichID whichID)
     {
         ServiceLocator.GodMasterService.TriggerClickUp(whichID);
@@ -61,6 +63,7 @@ public class GameController
         Convert(rightBitArray, leftBitArray);
 
         // Why make a new BitArray, well so the gameData is not refrencing the new bitArrays from the Input
+        // this is a way that makes it work, if there is a better way to do it i am up for it.
         gameData.InRight = new BitArray(rightBitArray);
         gameData.InLeft = new BitArray(leftBitArray);
     }
@@ -136,99 +139,70 @@ public class GameController
         //SendGodInputs(godRightBitArray, godLeftBitArray);
 
     }
-
+    
+    /// <summary>
+    /// Convert to our own Up/Down states for the inputs
+    /// </summary>
+    /// <param name="newRight">Input from the Right controller</param>
+    /// <param name="newLeft">Input from the Left controller</param>
     private void Convert(BitArray newRight, BitArray newLeft)
     {
         for (int i = 0; i < newRight.Length; i++)
         {
-
-            if (newRight[i])
-            {
-                if (!gameData.InRight[i])
-                {
-                    gameData.OutRight[i * 2] = true;
-                    gameData.OutRight[i * 2 + 1] = false;
-                }
-
-            }
-            else
-            {
-                if (gameData.InRight[i])
-                {
-                    gameData.OutRight[i * 2 + 1] = true;
-                    gameData.OutRight[i * 2] = false;
-                }
-            }
+            CheckUpOrDown(i, newRight, gameData.InRight, gameData.OutRight);
             // Do the NewLeft in the same loop, because NewLeft and NewRight will always be the same size
-            if (newLeft[i])
-            {
-
-                if (!gameData.InLeft[i])
-                {
-                    gameData.OutLeft[i * 2] = true;
-                    gameData.OutLeft[i * 2 + 1] = false;
-                }
-            }
-            else
-            {
-                if (gameData.InLeft[i])
-                {
-                    gameData.OutLeft[i * 2 + 1] = true;
-                    gameData.OutLeft[i * 2] = false;
-                }
-            }
-
+            CheckUpOrDown(i, newLeft, gameData.InLeft, gameData.OutLeft);
         }
     }
+    private void CheckUpOrDown(int index, BitArray newInput, BitArray oldInput, BitArray outPut)
+    {
+        if (newInput[index])
+        {
+            if (!oldInput[index])
+            {
+                outPut[index * 2] = true;
+                outPut[index * 2 + 1] = false;
+            }
+        }
+        else
+        {
+            if (oldInput[index])
+            {
+                outPut[index * 2 + 1] = true;
+                outPut[index * 2] = false;
+            }
+        }
+
+    }
+
     private void NewRead()
     {
-        for (int i = 0; i < gameConfig.RightInputPackets.Length; i++)
-        {
-            //Get the Index of the InputID & UpDownID in OutRight
-            int index = (int)gameConfig.RightInputPackets[i].InputID * 2 + (int)gameConfig.RightInputPackets[i].UpDownID;
-            
-            // Then run the action that RightInputPackets is holding if the Index is True;
-            if(gameData.OutRight[index])
-            {
-                //UnityEngine.Debug.Log("OutRight[" + index + "] = " + gameData.OutRight[index]);
-                
-                //Check all registred ActionKVP for one that correspond to the action registerd in the Packet
-                for (int j = 0; j < ActionDictionary.ActionKVPs.Length; j++)
-                {
-                    if(ActionDictionary.ActionKVPs[j].ActionID == gameConfig.RightInputPackets[i].ActionID)
-                    {
-                        ActionDictionary.ActionKVPs[j].ActionDelegate.Invoke(WhichID.Right);
-                    }
-                }
-            }
-        }
-
-
-        for (int i = 0; i < gameConfig.LeftInputPackets.Length; i++)
-        {
-            //Get the Index of the InputID & UpDownID in OutRight
-            int index = (int)gameConfig.LeftInputPackets[i].InputID * 2 + (int)gameConfig.LeftInputPackets[i].UpDownID;
-
-            // Then run the action that RightInputPackets is holding if the Index is True;
-            if (gameData.OutLeft[index])
-            {
-                //UnityEngine.Debug.Log("OutLeft[" + index + "] = " + gameData.OutLeft[index]);
-               
-                //Check all registred ActionKVP for one that correspond to the action registerd in the Packet
-                for (int j = 0; j < ActionDictionary.ActionKVPs.Length; j++)
-                {
-                    if (ActionDictionary.ActionKVPs[j].ActionID == gameConfig.LeftInputPackets[i].ActionID)
-                    {
-                        ActionDictionary.ActionKVPs[j].ActionDelegate.Invoke(WhichID.Left);
-                    }
-                }
-            }
-        }
-
-
+        ExecuteActions(gameConfig.RightInputPackets, gameData.OutRight, WhichID.Right);
+        ExecuteActions(gameConfig.LeftInputPackets, gameData.OutLeft, WhichID.Left);
     }
-    
 
+    //TODO: Might need a better Name
+    private void ExecuteActions(InputPacket[] inputPackets, BitArray outPut ,WhichID hand)
+    {
+        for (int i = 0; i < inputPackets.Length; i++)
+        {
+            //Get the Index of the InputID & UpDownID
+            int index = (int)inputPackets[i].InputID * 2 + (int)inputPackets[i].UpDownID;
+
+            // Then run the action that RightInputPackets is holding if the Index is True;
+            if (outPut[index])
+            {
+                //Check all registred ActionKVP for one that correspond to the action registerd in the Packet
+                for (int j = 0; j < ActionDictionary.ActionKVPs.Length; j++)
+                {
+                    if (ActionDictionary.ActionKVPs[j].ActionID == inputPackets[i].ActionID)
+                    {
+                        ActionDictionary.ActionKVPs[j].ActionDelegate.Invoke(hand);
+                    }
+                }
+            }
+        }
+    }
 
     private void SendGodInputs(BitArray rightBitArray, BitArray leftBitArray)
     {

@@ -10,6 +10,4 @@ public enum UpDownID
 {
     Down,
     Up
-    
-
 }

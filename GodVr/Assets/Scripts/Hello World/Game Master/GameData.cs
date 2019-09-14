@@ -20,6 +20,8 @@ public class GameData
     [SerializeField]
     private BitArray outLeft = null;
 
+    [SerializeField]
+    public SessionMaster sessionMaster;
     #endregion
 
     #region Properties
@@ -46,6 +48,12 @@ public class GameData
     {
         get { return outLeft; }
         set { outLeft = value; }
+    }
+
+    public SessionMaster SessionMaster
+    {
+        get { return sessionMaster; }
+        set { sessionMaster = value; }
     }
 
     #endregion

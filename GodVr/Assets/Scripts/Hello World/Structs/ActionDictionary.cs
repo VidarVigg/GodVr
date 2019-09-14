@@ -7,13 +7,13 @@ public static class ActionDictionary
 
     #region Fields
 
-    private static ActionDelegate touchDown = null;
-    private static ActionDelegate touchUp = null;
+    private static ActionDelegate triggerClickDown = null;
+    private static ActionDelegate triggerClickUp = null;
 
     public static ActionKVP[] ActionKVPs { get; private set; } =
     {
-        new ActionKVP(ActionID.TouchDown, touchDown, InputOwner.Game),
-        new ActionKVP(ActionID.TouchUp, touchUp, InputOwner.Game)
+        new ActionKVP(ActionID.Trigger_Click_Down, triggerClickDown),
+        new ActionKVP(ActionID.Trigger_Click_Up, triggerClickUp)
     };
 
     #endregion

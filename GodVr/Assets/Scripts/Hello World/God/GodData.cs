@@ -61,12 +61,7 @@ public class GodData
 
     #endregion
 
-    [Header("Stuff")]
-    public InteractableWorldObject rock;
-    public InteractableWorldObject displayItem = null;
-    public InteractableWorldObject heldItem = null;
-
-    [Header("Idk")]
+    [Header("Movment/Teleport")]
     public Transform sphere;
     public Transform cameraRig;
     public Transform anotherTempThing;

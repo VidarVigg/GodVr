@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 
 public class GameController
 {
@@ -31,34 +32,37 @@ public class GameController
 
     private void Initialize()
     {
-        ActionDictionary.Subscribe(ActionID.TouchDown, Hello);
-        ActionDictionary.Subscribe(ActionID.TouchUp, Goodbye);
+        ActionDictionary.Subscribe(ActionID.Trigger_Click_Down, Hello);
+        ActionDictionary.Subscribe(ActionID.Trigger_Click_Up, Goodbye);
+        SetSize(Enum.GetValues(typeof(InputID)).Length);
     }
 
     private void SetSize(int length)
     {
+        gameData.InRight = new BitArray(length);
+        gameData.InLeft = new BitArray(length);
         gameData.OutRight = new BitArray(length * 2);
         gameData.OutLeft = new BitArray(length * 2);
+        
     }
 
     public void Hello(WhichID whichID)
     {
-        ServiceLocator.GodMasterService.TriggerDown(whichID);
+        ServiceLocator.GodMasterService.TriggerClickDown(whichID);
     }
 
     public void Goodbye(WhichID whichID)
     {
-        ServiceLocator.GodMasterService.TriggerUp(whichID);
+        ServiceLocator.GodMasterService.TriggerClickUp(whichID);
     }
 
     public void ReceiveInputs(BitArray rightBitArray, BitArray leftBitArray)
     {
-
         Convert(rightBitArray, leftBitArray);
 
-        gameData.InRight = rightBitArray;
-        gameData.InLeft = leftBitArray;
-
+        // Why make a new BitArray, well so the gameData is not refrencing the new bitArrays from the Input
+        gameData.InRight = new BitArray(rightBitArray);
+        gameData.InLeft = new BitArray(leftBitArray);
     }
 
     public void Update()
@@ -72,62 +76,62 @@ public class GameController
         //int rights = 0;
         //BitArray godRightBitArray = new BitArray(gameData.RightBitArray.Length);
 
-        for (int i = 0; i < gameConfig.RightInputPackets.Length; i++)
-        {
+        //for (int i = 0; i < gameConfig.RightInputPackets.Length; i++)
+        //{
 
-            if (!gameData.InRight[(int)gameConfig.RightInputPackets[i].InputID])
-            {
-                return;
-            }
+        //    if (!gameData.InRight[(int)gameConfig.RightInputPackets[i].InputID])
+        //    {
+        //        return;
+        //    }
 
-            if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].InputOwner == InputOwner.Game)
-            {
+        //    if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].InputOwner == InputOwner.Game)
+        //    {
 
-                if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].ActionDelegate != null)
-                {
-                    ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].ActionDelegate.Invoke(WhichID.Right);
-                }
+        //        if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].ActionDelegate != null)
+        //        {
+        //            ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].ActionDelegate.Invoke(WhichID.Right);
+        //        }
 
-            }
+        //    }
 
-            if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].InputOwner == InputOwner.God)
-            {
-                //godRightBitArray[rights] = true;
-                //rights++;
-            }
+        //    if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].InputOwner == InputOwner.God)
+        //    {
+        //        //godRightBitArray[rights] = true;
+        //        //rights++;
+        //    }
 
 
 
-        }
+        //}
 
-        //int lefts = 0;
-        //BitArray godLeftBitArray = new BitArray(gameData.LeftBitArray.Length);
+        ////int lefts = 0;
+        ////BitArray godLeftBitArray = new BitArray(gameData.LeftBitArray.Length);
 
-        for (int i = 0; i < gameConfig.LeftInputPackets.Length; i++)
-        {
+        //for (int i = 0; i < gameConfig.LeftInputPackets.Length; i++)
+        //{
 
-            if (ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].InputOwner == InputOwner.God)
-            {
-                //godLeftBitArray[lefts] = true;
-                //lefts++;
-            }
+        //    if (ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].InputOwner == InputOwner.God)
+        //    {
+        //        //godLeftBitArray[lefts] = true;
+        //        //lefts++;
+        //    }
 
-            if (ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].InputOwner == InputOwner.Game)
-            {
+        //    if (ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].InputOwner == InputOwner.Game)
+        //    {
 
-                if (gameData.InLeft[(int)gameConfig.LeftInputPackets[i].InputID])
-                {
+        //        if (gameData.InLeft[(int)gameConfig.LeftInputPackets[i].InputID])
+        //        {
 
-                    if (ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].ActionDelegate != null)
-                    {
-                        ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].ActionDelegate.Invoke(WhichID.Left);
-                    }
+        //            if (ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].ActionDelegate != null)
+        //            {
+        //                ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].ActionDelegate.Invoke(WhichID.Left);
+        //            }
 
-                }
+        //        }
 
-            }
+        //    }
 
-        }
+        //}
 
         //SendGodInputs(godRightBitArray, godLeftBitArray);
 
@@ -141,20 +145,25 @@ public class GameController
 
             if (newRight[i])
             {
-
                 if (!gameData.InRight[i])
                 {
                     gameData.OutRight[i * 2] = true;
                 }
+                else
+                {
+                    gameData.OutRight[i * 2] = false;
+                }
 
             }
-
             else
             {
-
                 if (gameData.InRight[i])
                 {
                     gameData.OutRight[i * 2 + 1] = true;
+                }
+                else
+                {
+                    gameData.OutRight[i * 2 + 1] = false;
                 }
 
             }
@@ -171,6 +180,10 @@ public class GameController
                 {
                     gameData.OutLeft[i * 2] = true;
                 }
+                else
+                {
+                    gameData.OutLeft[i * 2] = false;
+                }
 
             }
 
@@ -180,6 +193,10 @@ public class GameController
                 if (gameData.InLeft[i])
                 {
                     gameData.OutLeft[i * 2 + 1] = true;
+                }
+                else
+                {
+                    gameData.OutLeft[i * 2 + 1] = false;
                 }
 
             }
@@ -191,43 +208,53 @@ public class GameController
     }
     private void NewRead()
     {
-
-        for (int i = 0; i < gameData.OutRight.Length; i++)
+        for (int i = 0; i < gameConfig.RightInputPackets.Length; i++)
         {
-
-            if (!gameData.OutRight[i])
+            //Get the Index of the InputID & UpDownID in OutRight
+            int index = (int)gameConfig.RightInputPackets[i].InputID * 2 + (int)gameConfig.RightInputPackets[i].UpDownID;
+            
+            // Then run the action that RightInputPackets is holding if the Index is True;
+            if(gameData.OutRight[index])
             {
-                continue;
-            }
-
-            for (int j = 0; j < ActionDictionary.ActionKVPs.Length; j++)
-            {
-
-                if ((int)ActionDictionary.ActionKVPs[j].ActionID == i)
+                //UnityEngine.Debug.Log("OutRight[" + index + "] = " + gameData.OutRight[index]);
+                
+                //Check all registred ActionKVP for one that correspond to the action registerd in the Packet
+                for (int j = 0; j < ActionDictionary.ActionKVPs.Length; j++)
                 {
-
-                    if (ActionDictionary.ActionKVPs[j].InputOwner == InputOwner.God)
+                    if(ActionDictionary.ActionKVPs[j].ActionID == gameConfig.RightInputPackets[i].ActionID)
                     {
-
-
-
-                        continue;
+                        ActionDictionary.ActionKVPs[j].ActionDelegate.Invoke(WhichID.Right);
                     }
-
-                    if (ActionDictionary.ActionKVPs[j].ActionDelegate == null)
-                    {
-                        continue;
-                    }
-
-                    ActionDictionary.ActionKVPs[j].ActionDelegate.Invoke(WhichID.Right);
-
                 }
-
             }
-
         }
 
+
+        for (int i = 0; i < gameConfig.LeftInputPackets.Length; i++)
+        {
+            //Get the Index of the InputID & UpDownID in OutRight
+            int index = (int)gameConfig.LeftInputPackets[i].InputID * 2 + (int)gameConfig.LeftInputPackets[i].UpDownID;
+
+            // Then run the action that RightInputPackets is holding if the Index is True;
+            if (gameData.OutLeft[index])
+            {
+                //UnityEngine.Debug.Log("OutLeft[" + index + "] = " + gameData.OutLeft[index]);
+               
+                //Check all registred ActionKVP for one that correspond to the action registerd in the Packet
+                for (int j = 0; j < ActionDictionary.ActionKVPs.Length; j++)
+                {
+                    if (ActionDictionary.ActionKVPs[j].ActionID == gameConfig.LeftInputPackets[i].ActionID)
+                    {
+                        ActionDictionary.ActionKVPs[j].ActionDelegate.Invoke(WhichID.Left);
+                    }
+                }
+            }
+        }
+
+
     }
+    
+
 
     private void SendGodInputs(BitArray rightBitArray, BitArray leftBitArray)
     {

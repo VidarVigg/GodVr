@@ -34,12 +34,11 @@ public class InputController
 
     private void Initialize()
     {
-
+        //Fixes Space for each enum in InputID
         int inputLength = Enum.GetValues(typeof(InputID)).Length;
 
         inputData.RightBitArray = new BitArray(inputLength);
         inputData.LeftBitArray = new BitArray(inputLength);
-
     }
     public void Upd8()
     {
@@ -51,6 +50,7 @@ public class InputController
 
         for (int i = 0; i < inputConfig.SteamVRInputs.Length; i++)
         {
+            //Makes so the enums value is used as index for the state
             inputData.RightBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = inputConfig.SteamVRInputs[i].Action.GetState(SteamVR_Input_Sources.RightHand);
             inputData.LeftBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = inputConfig.SteamVRInputs[i].Action.GetState(SteamVR_Input_Sources.LeftHand);
         }
@@ -72,6 +72,7 @@ public class InputController
     }
     private void Send()
     {
+        //Debug.Log("Send Data to GameMaster");
         ServiceLocator.GameMasterService.ReceiveInput(inputData.RightBitArray, inputData.LeftBitArray);
     }
 

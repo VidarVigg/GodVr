@@ -10,15 +10,19 @@ public class GameConfig
     [SerializeField]
     private InputPacket[] rightInputPackets =
     {
-        new InputPacket(InputID.TouchTrackpad_Down, ActionID.TouchDown)
+        new InputPacket(InputID.Trigger_Click,UpDownID.Down, ActionID.Trigger_Click_Down),
+        new InputPacket(InputID.Trigger_Click,UpDownID.Up, ActionID.Trigger_Click_Up)
     };
 
     [SerializeField]
     private InputPacket[] leftInputPackets =
 {
-        new InputPacket(InputID.TouchTrackpad_Down, ActionID.TouchDown)
+        new InputPacket(InputID.Trigger_Click,UpDownID.Down, ActionID.Trigger_Click_Down),
+        new InputPacket(InputID.Trigger_Click,UpDownID.Up, ActionID.Trigger_Click_Up)
     };
 
+    [SerializeField]
+    private bool debugRecivedInput = false;
     #endregion
 
     #region Properties
@@ -32,7 +36,10 @@ public class GameConfig
     {
         get { return leftInputPackets; }
     }
-
+    public bool DebugInput
+    {
+        get { return debugRecivedInput; }
+    }
     #endregion
 
 }

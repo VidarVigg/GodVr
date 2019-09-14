@@ -7,7 +7,7 @@ public class SteamVRInput
 {
 
     [SerializeField]
-    private InputID inputID;
+    private InputID inputID = InputID.Trigger_Click;
 
     [SerializeField]
     private SteamVR_Action_Boolean action = null;

@@ -88,6 +88,26 @@ public class GameMaster : WorldObject, IGameMasterService
 
     public void ReceiveInput(BitArray rightBitArray, BitArray leftBitArray)
     {
+        #region Debug
+        if (gameConfig.DebugInput)
+        {
+            string rightResult = "Right = ";
+            for (int i = 0; i < rightBitArray.Length; i++)
+            {
+                rightResult += rightBitArray[i] + " | ";
+            }
+            Debug.Log(rightResult);
+
+            string result = "Left = ";
+            for (int i = 0; i < leftBitArray.Length; i++)
+            {
+                result += leftBitArray[i] + " | ";
+            }
+            Debug.Log(result);
+        }
+        #endregion
+
+
         gameController.ReceiveInputs(rightBitArray, leftBitArray);
     }
 

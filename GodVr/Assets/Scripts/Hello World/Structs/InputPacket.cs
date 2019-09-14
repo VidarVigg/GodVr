@@ -1,8 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-[Serializable]
-public delegate void Packet(GodMaster godMaster, GodConfig godConfig, GodData godData);
+//[Serializable]
+//public delegate void Packet(GodMaster godMaster, GodConfig godConfig, GodData godData);
 
 [Serializable]
 public class InputPacket
@@ -12,6 +12,9 @@ public class InputPacket
 
     [SerializeField]
     private InputID inputID;
+
+    [SerializeField]
+    private UpDownID upDownID;
 
     [SerializeField]
     private ActionID actionID;
@@ -24,7 +27,10 @@ public class InputPacket
     {
         get { return inputID; }
     }
-
+    public UpDownID UpDownID
+    {
+        get { return upDownID; }
+    }
     public ActionID ActionID
     {
         get { return actionID; }
@@ -35,9 +41,10 @@ public class InputPacket
     #region Constructors
 
     private InputPacket() { }
-    public InputPacket(InputID inputID, ActionID actionID)
+    public InputPacket(InputID inputID, UpDownID upDownID, ActionID actionID)
     {
         this.inputID = inputID;
+        this.upDownID = upDownID;
         this.actionID = actionID;
     }
 

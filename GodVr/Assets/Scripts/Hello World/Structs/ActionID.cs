@@ -1,5 +1,5 @@
 ﻿public enum ActionID
 {
-    TouchDown,
-    TouchUp
+    Trigger_Click_Down,
+    Trigger_Click_Up,
 }

@@ -47,12 +47,12 @@ public class GodMaster : MonoBehaviour, IGodMasterService
         //controller.SetInputs(rightBitArray, leftBitArray);
     }
 
-    public void TriggerDown(WhichID id)
+    public void TriggerClickDown(WhichID id)
     {
         controller.TriggerDown(id);
     }
 
-    public void TriggerUp(WhichID id)
+    public void TriggerClickUp(WhichID id)
     {
         controller.TriggerUp(id);
     }

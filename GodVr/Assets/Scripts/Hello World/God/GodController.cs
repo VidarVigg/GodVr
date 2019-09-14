@@ -39,95 +39,56 @@ public class GodController
 
     public void Update()
     {
-        HandleInput();
+        //HandleInput();
         TestMethodsForUpdate();
     }
 
     #region Packet Core
 
-    private void HandleInput()
-    {
-        //Iterate(godData.RightBitArray, godConfig.RightInputPackets);
-        //Iterate(godData.LeftBitArray, godConfig.LeftInputPackets);
-    }
-    private void Iterate(BitArray bitArray, InputPacket[] inputPackets)
-    {
+    //private void HandleInput()
+    //{
+    //    //Iterate(godData.RightBitArray, godConfig.RightInputPackets);
+    //    //Iterate(godData.LeftBitArray, godConfig.LeftInputPackets);
+    //}
+    //private void Iterate(BitArray bitArray, InputPacket[] inputPackets)
+    //{
 
-        if (bitArray == null)
-        {
-            Debug.LogError("<b>NO BITARRAY</b>");
-            return;
-        }
+    //    if (bitArray == null)
+    //    {
+    //        Debug.LogError("<b>NO BITARRAY</b>");
+    //        return;
+    //    }
 
-        if (inputPackets == null)
-        {
-            Debug.LogError("<b>NO INPUTPACKETS</b>");
-            return;
-        }
+    //    if (inputPackets == null)
+    //    {
+    //        Debug.LogError("<b>NO INPUTPACKETS</b>");
+    //        return;
+    //    }
 
-        for (int i = 0; i < bitArray.Length; i++)
-        {
+    //    for (int i = 0; i < bitArray.Length; i++)
+    //    {
 
-            if (bitArray[i])
-            {
+    //        if (bitArray[i])
+    //        {
 
-                for (int j = 0; j < inputPackets.Length; j++)
-                {
+    //            for (int j = 0; j < inputPackets.Length; j++)
+    //            {
 
-                    //if (inputPackets[j].InputID != i)
-                    //{
-                    //    continue;
-                    //}
+    //                //if (inputPackets[j].InputID != i)
+    //                //{
+    //                //    continue;
+    //                //}
 
-                    //inputPackets[j].Packet.Invoke(godMaster, godConfig, godData);
-                    break;
+    //                //inputPackets[j].Packet.Invoke(godMaster, godConfig, godData);
+    //                break;
 
-                }
+    //            }
 
-            }
+    //        }
 
-        }
+    //    }
 
-    }
-
-    #endregion
-
-    #region Packet Methods
-
-    public static void HelloWorldRight()
-    {
-        Debug.Log("Hello World RIGHT");
-    }
-
-    public static void HelloWorldLeft()
-    {
-        Debug.Log("Hello World LEFT");
-    }
-    
-    public static void TouchTrackpadDown(GodMaster godMaster, GodConfig godConfig, GodData godData)
-    {
-
-        Debug.LogWarning("HELLO");
-
-        switch (godData.state)
-        {
-
-            //Open Menu
-            case GodData.PlayerState.InMenu:
-
-                if (!godData.heldItem)
-                {
-                    godData.displayItem = GodMaster.Instantiate(godData.rock);
-                }
-
-                break;
-
-            default:
-                break;
-
-        }
-
-    }
+    //}
 
     #endregion
 
@@ -139,134 +100,6 @@ public class GodController
     {
         return GodMaster.Instantiate(worldObject);
     }
-    private enum InputOption
-    {
-        TouchTrackpad_Down,
-        TouchTrackpad_Up,
-        Trigger_Threshhold_Down,
-        Trigger_Threshhold_Up,
-        Trigger_Click_Down,
-        Trigger_Click_Up,
-        TopMenu_Up,
-        TopMenu_Down,
-        RightHand,
-        LeftHand
-    }
-    public void HandleInput(BitArray inputs)
-    {
-        //for (int i = 0; i < inputs.Length; i++)
-        //{
-        //    Debug.Log(i + " = " + inputs[i]);
-        //}
-
-        //Touch/Click Button (Personal Preference, Options Bool)
-        if (inputs[(int)InputOption.TouchTrackpad_Down])
-        {
-
-            switch (godData.state)
-            {
-
-                //Open Menu
-                case GodData.PlayerState.InMenu:
-
-                    if (!godData.heldItem)
-                    {
-                        godData.displayItem = GodMaster.Instantiate(godData.rock);
-                    }
-
-                    break;
-
-                default:
-                    break;
-
-            }
-
-        }
-
-
-        if (inputs[(int)InputOption.TouchTrackpad_Up])
-        {
-
-            switch (godData.state)
-            {
-
-                //Close Menu
-                case GodData.PlayerState.InMenu:
-
-                    break;
-
-                default:
-                    break;
-
-            }
-
-            if (godData.displayItem)
-            {
-                GodMaster.Destroy(godData.displayItem.gameObject);
-                godData.displayItem = null;
-            }
-
-        }
-
-        if (inputs[(int)InputOption.Trigger_Threshhold_Down])
-        {
-
-            switch (godData.state)
-            {
-
-                //Pick Up
-                case GodData.PlayerState.EmptyHanded:
-                    //Non Alloc Sphere Cast, Config Radius
-                    //GrabObject();
-
-                    break;
-
-                //Grab Display Item
-                case GodData.PlayerState.InMenu:
-
-                    if (godData.displayItem)
-                    {
-                        //Close Menu
-                        godData.heldItem = godData.displayItem;
-                        godData.displayItem = null;
-                    }
-
-                    break;
-
-                default:
-                    break;
-
-            }
-
-        }
-
-        if (inputs[(int)InputOption.Trigger_Threshhold_Up])
-        {
-
-            switch (godData.state)
-            {
-
-                //Place/Drop
-                case GodData.PlayerState.HoldingItem:
-                    //Throw/Place/Drop
-                    //if (!Place())
-                    //{
-                    //    //Throw();
-                    //}
-                    break;
-                case GodData.PlayerState.InMenu:
-                    //Throw/Place/Drop
-                    break;
-
-                default:
-                    break;
-
-            }
-
-        }
-
-    }
-
     #endregion
 
 
@@ -459,7 +292,7 @@ public class GodController
     }
     #endregion
 
-    #region Input Whoho
+    #region Input
 
     public void TriggerDown(WhichID whichID)
     {

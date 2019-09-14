@@ -14,12 +14,12 @@ public class NullGodMaster : MonoBehaviour, IGodMasterService
         
     }
 
-    public void TriggerDown(WhichID id)
+    public void TriggerClickDown(WhichID id)
     {
         
     }
 
-    public void TriggerUp(WhichID id)
+    public void TriggerClickUp(WhichID id)
     {
         
     }

@@ -174,7 +174,7 @@ public class GodController
 
         if (!obj)
         {
-            Debug.LogError("INTERACTABLEWORLDOBJECT PLS");
+            Debug.LogWarning("INTERACTABLEWORLDOBJECT PLS");
             return;
         }
 

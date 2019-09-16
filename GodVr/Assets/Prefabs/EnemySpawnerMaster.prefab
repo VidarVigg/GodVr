@@ -1,0 +1,89 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4506587201428576258
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4506587201428576260}
+  - component: {fileID: 4506587201428576261}
+  m_Layer: 0
+  m_Name: EnemySpawnerMaster
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4506587201428576260
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4506587201428576258}
+  m_LocalRotation: {x: -0, y: 0.9886509, z: -0, w: -0.15023157}
+  m_LocalPosition: {x: -29.6, y: 8.02, z: 8.56}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 197.28099, z: 0}
+--- !u!114 &4506587201428576261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4506587201428576258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93d2b278131913f40bec86519961b6dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemySpawnerConfig:
+    enemyPrefab: {fileID: 2650015023511798700, guid: 17405e97246c8214ca7b1dba67b6a62c,
+      type: 3}
+    enemyClone: {fileID: 0}
+    spawnPos: {fileID: 4506587201428576260}
+    spawnAmount: 0
+    spawnStructs:
+    - rows: 1
+      columns: 1
+    - rows: 1
+      columns: 2
+    - rows: 1
+      columns: 3
+    - rows: 1
+      columns: 4
+    - rows: 2
+      columns: 1
+    - rows: 2
+      columns: 2
+    - rows: 2
+      columns: 3
+    - rows: 2
+      columns: 4
+    - rows: 3
+      columns: 1
+    - rows: 3
+      columns: 2
+    - rows: 3
+      columns: 3
+    - rows: 3
+      columns: 4
+    - rows: 4
+      columns: 1
+    - rows: 4
+      columns: 2
+    - rows: 4
+      columns: 3
+    - rows: 4
+      columns: 4
+  enemySpawnerData:
+    spawnFrequency: 5
+    currentTime: 0
+    rowAmt: 0
+    columnAmt: 0

@@ -1,4 +1,6 @@
-﻿public class HousingController
+﻿using UnityEngine;
+
+public class HousingController
 { 
 
     #region Fields

@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class EnemySpawnerController
@@ -29,25 +30,49 @@ public class EnemySpawnerController
 
     #region Methods
 
+    System.Random random = new System.Random();
+
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+      
+        if((enemySpawnerData.CurrentTime += Time.deltaTime) >= enemySpawnerData.SpawnFrequency)
         {
-            Spawn();
+            enemySpawnerData.CurrentTime -= enemySpawnerData.SpawnFrequency;
+
+            Spawn(new SpawnStruct[] { enemySpawnerConfig.SpawnStructs[random.Next(0, enemySpawnerConfig.SpawnStructs.Length)] });
         }
     }
 
-    private void Spawn()
+    private void Spawn(SpawnStruct[] spawnStruct)
     {
-        for (int i = 0; i < enemySpawnerConfig.SpawnAmount; i++)
+        for (int i = 0; i < spawnStruct.Length; i++)
         {
-            for (int j = 0; j < enemySpawnerConfig.SpawnAmount; j++)
+            for (int j = 0; j < spawnStruct[i].rows; j++)
             {
-                enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPos.position + (new Vector3((float)i / 2, 0, (float)j / 2)), Quaternion.identity);
+                for (int k = 0; k < spawnStruct[i].columns; k++)
+                {
+
+                    enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPos.position + (new Vector3((float)k / 2 , 0, (float)j / 2)), Quaternion.identity);
+                
+                }
             }
         }
     }
 
     #endregion
+
+}
+
+[System.Serializable]
+public struct SpawnStruct
+{
+    public int rows;
+    public int columns;
+
+    public SpawnStruct(int rows, int columns)
+    {
+        this.rows = rows;
+        this.columns = columns;
+    }
 
 }

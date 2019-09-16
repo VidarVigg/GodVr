@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class HousingMaster : Structure, IDamagable
+public class HousingMaster : StructureMaster
 {
 
     #region Fields
@@ -8,8 +8,6 @@ public class HousingMaster : Structure, IDamagable
     [SerializeField] private HousingConfig housingConfig = null;
     [SerializeField] private HousingData housingData = null;
     [SerializeField] private HousingController housingController = null;
-
-
 
     #endregion
 
@@ -21,11 +19,7 @@ public class HousingMaster : Structure, IDamagable
         housingController = new HousingController(this, housingConfig, housingData);
     }
 
-    public void Receive(ulong damage)
-    {
-        
-        Debug.Log("<b> Housing took " + damage + " damage</b>", gameObject);
-    }
+
 
     #endregion
 

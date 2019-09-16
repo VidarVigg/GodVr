@@ -1185,14 +1185,14 @@ MonoBehaviour:
   size: 0
   color: {r: 0, g: 1, b: 1, a: 1}
   vertices:
-  - {x: 1.05, y: 0.01, z: -1}
-  - {x: -1.05, y: 0.01, z: -1}
-  - {x: -1.05, y: 0.01, z: 1}
-  - {x: 1.05, y: 0.01, z: 1}
-  - {x: 1.1999999, y: 0.01, z: -1.15}
-  - {x: -1.1999999, y: 0.01, z: -1.15}
-  - {x: -1.1999999, y: 0.01, z: 1.15}
-  - {x: 1.1999999, y: 0.01, z: 1.15}
+  - {x: 1.1499999, y: 0.01, z: -1.1000001}
+  - {x: -1.1499999, y: 0.01, z: -1.1000001}
+  - {x: -1.1499999, y: 0.01, z: 1.1000001}
+  - {x: 1.1499999, y: 0.01, z: 1.1000001}
+  - {x: 1.2999998, y: 0.01, z: -1.2500001}
+  - {x: -1.2999998, y: 0.01, z: -1.2500001}
+  - {x: -1.2999998, y: 0.01, z: 1.2500001}
+  - {x: 1.2999998, y: 0.01, z: 1.2500001}
 --- !u!1 &977356243518478616
 GameObject:
   m_ObjectHideFlags: 0
@@ -2471,7 +2471,7 @@ MonoBehaviour:
     leftControllerAttach: {fileID: 977356243174469775}
     rightControllerPoint: {fileID: 866175696700466540}
     leftControllerPoint: {fileID: 866175695332539108}
-    RayCastSphereRadius: 0.5
+    RayCastSphereRadius: 0.1
     RayPlaceDistance: 0.5
     sphere: {fileID: 0}
     cameraRig: {fileID: 0}
@@ -2635,19 +2635,19 @@ MonoBehaviour:
   inputConfig:
     bools:
     - inputID: 0
-      action:
+      steamVRAction:
         actionPath: /actions/default/in/TriggerClick
         needsReinit: 0
     - inputID: 3
-      action:
+      steamVRAction:
         actionPath: /actions/default/in/OpenMenu
         needsReinit: 0
     - inputID: 2
-      action:
+      steamVRAction:
         actionPath: /actions/default/in/PadClick
         needsReinit: 0
     - inputID: 1
-      action:
+      steamVRAction:
         actionPath: /actions/default/in/PadTouching
         needsReinit: 0
     trigger:

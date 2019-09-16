@@ -41,8 +41,10 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
     }
     public void DestroyHouse()
     {
-        if (joint != null)
+        if (joint == null)
+        {
             Destroy(gameObject);
+        }
     }
     #endregion
 

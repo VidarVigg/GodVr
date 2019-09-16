@@ -43,6 +43,9 @@ public class EnemySpawnerController
         }
     }
 
+
+    //todo: Stop Spawning When Idle
+    
     private void Spawn(SpawnStruct[] spawnStruct)
     {
         for (int i = 0; i < spawnStruct.Length; i++)
@@ -52,9 +55,9 @@ public class EnemySpawnerController
 
                 for (int k = 0; k < spawnStruct[i].columns; k++)
                 {
-                    enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPosNorth.position + (new Vector3((float)i / 2, 0, (float)j / 2)), Quaternion.identity);
-                    enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPosEast.position + (new Vector3((float)i / 2, 0, (float)j / 2)), Quaternion.identity);
-                    enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPosWest.position + (new Vector3((float)i / 2, 0, (float)j / 2)), Quaternion.identity);
+                    enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPosNorth.position + (new Vector3((float)k / 2, 0, (float)j / 2)), Quaternion.identity);
+                    enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPosEast.position + (new Vector3((float)k / 2, 0, (float)j / 2)), Quaternion.identity);
+                    enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPosWest.position + (new Vector3((float)k / 2, 0, (float)j / 2)), Quaternion.identity);
                     //enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPos.position + (new Vector3((float)k / 2 , 0, (float)j / 2)), Quaternion.identity);
                 
                 }

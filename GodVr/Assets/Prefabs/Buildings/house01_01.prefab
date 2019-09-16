@@ -13,10 +13,10 @@ GameObject:
   - component: {fileID: 4006412061700330668}
   - component: {fileID: 1160196073}
   - component: {fileID: -1007057116344570571}
-  - component: {fileID: -3860023186342461144}
-  m_Layer: 0
+  - component: {fileID: 308024519}
+  m_Layer: 9
   m_Name: house01_01
-  m_TagString: Untagged
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -113,7 +113,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-3860023186342461144
+--- !u!114 &308024519
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -122,15 +122,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 3433278416876413040}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbe622003b90e2e419c7132d2b98b74c, type: 3}
+  m_Script: {fileID: 11500000, guid: c2268b0ea103d99499f1b6009ff7c3ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rigi: {fileID: 0}
   joint: {fileID: 0}
-  naturalConfig:
-    resources: []
-  naturalData:
-    resources: []
+  resourceCosts: []
+  scale: {x: 0, y: 0, z: 0}
+  structureConfig:
+    maxHouseHealth: 0
+  structureData:
+    houseHealth: 0
 --- !u!1001 &1533487593464952077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -142,11 +144,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: box_02
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 7622a1c6f7e24cf40b2300e166d1f583,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7622a1c6f7e24cf40b2300e166d1f583,
         type: 3}
@@ -223,8 +220,7 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e2ebb1e7f62a68c43bb1f39355e0cfbb, type: 2}
-    m_RemovedComponents:
-    - {fileID: -6057140222963153312, guid: 7622a1c6f7e24cf40b2300e166d1f583, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7622a1c6f7e24cf40b2300e166d1f583, type: 3}
 --- !u!4 &5778890290386165271 stripped
 Transform:
@@ -243,11 +239,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: box_02 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 7622a1c6f7e24cf40b2300e166d1f583,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7622a1c6f7e24cf40b2300e166d1f583,
         type: 3}
@@ -324,8 +315,7 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e2ebb1e7f62a68c43bb1f39355e0cfbb, type: 2}
-    m_RemovedComponents:
-    - {fileID: -6057140222963153312, guid: 7622a1c6f7e24cf40b2300e166d1f583, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7622a1c6f7e24cf40b2300e166d1f583, type: 3}
 --- !u!4 &8327655714768800918 stripped
 Transform:

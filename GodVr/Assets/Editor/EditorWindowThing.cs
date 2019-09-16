@@ -100,6 +100,19 @@ public class EditorWindowExample : EditorWindow
 
 
         GUILayout.EndVertical();
+
+        GUILayout.Space(10.0f);
+
+        GUILayout.BeginVertical(GUI.skin.box);
+
+        if (GUILayout.Button("Send Item To Ground"))
+        {
+            if (Selection.gameObjects.Length != 0)
+            {
+                SendToGround(Selection.gameObjects);
+            }
+        }
+        GUILayout.EndVertical();
     }
 
     //It does... things
@@ -141,4 +154,31 @@ public class EditorWindowExample : EditorWindow
             obj.transform.localEulerAngles = Vector3.zero;
         }
     }
+
+    private void SendToGround(GameObject[] transforms)
+    {
+        Debug.Log("Sending to ground");
+
+        foreach (GameObject obj in transforms)
+        {
+            Ray ray = new Ray(obj.transform.position, Vector3.down);
+            RaycastHit hitInfo;
+            Physics.Raycast(ray, out hitInfo);
+
+            if (hitInfo.distance < 100.0f)
+            {
+                Undo.RecordObject(obj.transform, "Sent object(s) to ground");
+                obj.transform.position = hitInfo.point;
+
+                if (obj.transform.position == Vector3.zero)
+                {
+                    Debug.Log(obj.transform.name + "was placed out of bounds, now at 0,0,0");
+                }
+            }
+        }
+    }
+
+
+
+
 }

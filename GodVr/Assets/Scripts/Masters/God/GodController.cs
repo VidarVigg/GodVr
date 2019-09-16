@@ -232,8 +232,8 @@ public class GodController
 
         //if (dragging)
         //    MovementDrag();
-
-        currentPoint = chachedRb.transform.position;
+        if(chachedRb)
+            currentPoint = chachedRb.transform.position;
     }
     #endregion
 
@@ -245,7 +245,7 @@ public class GodController
         DisplayTeleportPoint(rb);
 
         currentPoint = rb.transform.position;
-
+        chachedRb = rb;
         //godData.anotherTempThing.gameObject.SetActive(true);
         godData.sphere.gameObject.SetActive(true);
     }

@@ -48,7 +48,7 @@ public class GodConfig
 
     public int MaxHitRay
     {
-        get { return MaxHitRay; }
+        get { return maxHitsRay; }
     }
     public LayerMask LayerMaskTerrain
     {

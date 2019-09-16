@@ -5491,11 +5491,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 4b7efcf50dded044aa6b8e7a9a148230,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_chump_01 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4b7efcf50dded044aa6b8e7a9a148230,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5565,6 +5560,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4b7efcf50dded044aa6b8e7a9a148230,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_chump_01 (1)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7efcf50dded044aa6b8e7a9a148230, type: 3}
@@ -6937,37 +6937,37 @@ PrefabInstance:
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.24
+      value: -13.11
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.14
+      value: -5.01
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -169.83
+      value: -169.61
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.013952079
+      value: -0.09510812
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.63556033
+      value: -0.60000104
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.05404504
+      value: 0.021995077
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.77003086
+      value: 0.7940211
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
@@ -6977,17 +6977,17 @@ PrefabInstance:
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 2.706
+      value: -7.1600003
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -78.93301
+      value: -74.69501
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 5.801
+      value: 8.64
       objectReference: {fileID: 0}
     - target: {fileID: 166625100228094443, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
@@ -10330,11 +10330,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 4b7efcf50dded044aa6b8e7a9a148230,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_chump_01
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4b7efcf50dded044aa6b8e7a9a148230,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10404,6 +10399,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4b7efcf50dded044aa6b8e7a9a148230,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_chump_01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7efcf50dded044aa6b8e7a9a148230, type: 3}
@@ -11196,37 +11196,37 @@ PrefabInstance:
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.259539
+      value: -16.04
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -6.2521796
+      value: -6.18
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -178.25266
+      value: -176.6
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0.03298529
+      value: -0.07389989
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.42935804
+      value: -0.4626161
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.06913299
+      value: 0.017114663
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.8998801
+      value: 0.8833076
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
@@ -11236,17 +11236,17 @@ PrefabInstance:
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
+      value: -6.5870004
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -51.014004
+      value: -55.613003
       objectReference: {fileID: 0}
     - target: {fileID: 7966767338118674862, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 8.786
+      value: 5.6970005
       objectReference: {fileID: 0}
     - target: {fileID: 166625100228094443, guid: 9f8dba974a2212f4fa0009ceddc53d12,
         type: 3}
@@ -12505,11 +12505,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 4b7efcf50dded044aa6b8e7a9a148230,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_chump_01 (2)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4b7efcf50dded044aa6b8e7a9a148230,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12579,6 +12574,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4b7efcf50dded044aa6b8e7a9a148230,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_chump_01 (2)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7efcf50dded044aa6b8e7a9a148230, type: 3}
@@ -15687,11 +15687,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 4b7efcf50dded044aa6b8e7a9a148230,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_chump_01 (3)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 4b7efcf50dded044aa6b8e7a9a148230,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15761,6 +15756,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 4b7efcf50dded044aa6b8e7a9a148230,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_chump_01 (3)
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4b7efcf50dded044aa6b8e7a9a148230, type: 3}

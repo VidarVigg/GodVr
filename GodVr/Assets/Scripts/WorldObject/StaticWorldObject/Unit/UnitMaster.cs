@@ -28,6 +28,26 @@ public class UnitMaster : StaticWorldObject
         unitController = new UnitController(this, unitConfig, unitData);
     }
 
+    protected override void OnCollision(Collision collision)
+    {
+        base.OnCollision(collision);
+        Debug.Log("hit");
+
+        if (collision.gameObject.GetComponent<Rock>())// temp Code
+        {
+            Debug.Log("Interactable Object hit actor ", collision.gameObject);
+        }
+        // Kolla velocity på den andra objectet
+        // Sen kör får vi hämta från objectet som kolliderade med oss dens damage.
+        // Sen ta och ge skadan på MIG. 
+
+    }
+    protected override void OnCollisionEnter(Collision collision)
+    {
+        base.OnCollisionEnter(collision);
+        Debug.Log("hesfhe");
+    }
+
     #endregion
 
 }

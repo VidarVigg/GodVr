@@ -1,11 +1,11 @@
 ﻿using UnityEngine;
 public abstract class WorldObject : MonoBehaviour {
 
-    private void OnCollisionEnter(Collision collision)
+    protected virtual void OnCollisionEnter(Collision collision)
     {
-        OnCollision();
+        OnCollision(collision);
     }
 
-    protected virtual void OnCollision() { }
+    protected virtual void OnCollision(Collision collision) { }
 
 }

@@ -17,15 +17,28 @@
         this.unitMaster = unitMaster;
         this.unitConfig = unitConfig;
         this.unitData = unitData;
+
+        Initialize();
+
     }
 
     #endregion
 
     #region Methods
 
+    public void Initialize()
+    {
+        unitData.Health = unitConfig.MaxHealth;
+    }
+
     public void Update()
     {
 
+    }
+
+    public void RecieveDamage(int damage)
+    {
+        unitData.Health -= damage;
     }
 
     #endregion

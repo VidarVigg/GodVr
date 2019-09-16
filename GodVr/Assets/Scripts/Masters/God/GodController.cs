@@ -126,9 +126,9 @@ public class GodController
             return;
         }
 
-        RaycastHit[] hits = new RaycastHit[maxHits];
+        Collider[] hits = new Collider[maxHits];
 
-        int count = Physics.SphereCastNonAlloc(rb.position, godData.RayCastSphereRadius, Vector3.down, hits, lm);
+        int count = Physics.OverlapSphereNonAlloc(rb.position, godData.RayCastSphereRadius, hits, lm);
 
         if (count < 1)
         {
@@ -140,7 +140,7 @@ public class GodController
         for (int i = 1; i < count; i++)
         {
 
-            if (hits[nearest].distance < hits[i].distance)
+            if (Vector3.Distance(rb.position, hits[nearest].transform.position) < Vector3.Distance(rb.position, hits[i].transform.position))
             {
                 continue;
             }

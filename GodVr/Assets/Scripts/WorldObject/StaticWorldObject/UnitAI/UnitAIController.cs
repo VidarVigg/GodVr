@@ -38,13 +38,25 @@ public class UnitAIController
 
         if (SearchForStructure())
         {
-            unitAIConfig.NavMeshAgent.SetDestination(unitAIData.Destination);
-            DamageBuilding();
+
+            unitAIData.Animator.SetBool("Running", true);
+            if ((unitAIData.Tick += Time.deltaTime) >= unitAIData.DamageFrequency)
+            {
+                unitAIData.Tick -= unitAIData.DamageFrequency;
+                DamageBuilding();
+
+            }
+
         }
         else
         {
             unitAIData.Target = null;
+            unitAIData.Destination = unitAIMaster.transform.position;
+            unitAIData.Animator.SetBool("Running", false);
+            unitAIData.Animator.SetBool("Attacking", false);
+            
         }
+            unitAIConfig.NavMeshAgent.SetDestination(unitAIData.Destination);
 
 
     }
@@ -115,15 +127,14 @@ public class UnitAIController
     private void DamageBuilding()
     {
         Vector3 temp = unitAIData.Target.transform.position;
+
         if ((temp - unitAIMaster.gameObject.transform.position).magnitude < 1f)
         {
-            (unitAIData.Target as IDamagable).Receive(ulong.MaxValue);
-            unitAIData.Animator.SetBool("New Bool", true);
+            (unitAIData.Target as IDamagable).Receive(1);
+            unitAIData.Animator.SetBool("Attacking", true);
         }
-        else
-        {
-            unitAIData.Animator.SetBool("New Bool", false);
-        }
+
+
     }
     
     

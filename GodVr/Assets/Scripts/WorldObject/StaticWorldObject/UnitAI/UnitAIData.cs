@@ -22,6 +22,11 @@ public class UnitAIData
     [SerializeField]
     private Animator animator;
 
+    [SerializeField]
+    private float tick;
+
+    [SerializeField]
+    private float damageFrequency;
 
     #endregion
 
@@ -55,6 +60,18 @@ public class UnitAIData
     {
         get { return animator; }
         set { animator = value; }
+    }
+
+    public float Tick
+    {
+        get { return tick;}
+        set { tick = value;}
+    }
+
+    public float DamageFrequency
+    {
+        get { return damageFrequency; }
+        set { damageFrequency = value; }
     }
 
     #endregion

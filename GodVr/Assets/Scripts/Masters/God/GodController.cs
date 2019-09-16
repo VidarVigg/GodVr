@@ -102,7 +102,7 @@ public class GodController
     }
     #endregion
 
-
+    #region Basic Actions
     private void Throw(Controller123 stuff, SteamVR_Behaviour_Pose pose)
     {
 
@@ -114,10 +114,6 @@ public class GodController
         }
 
     }
-
-    private int maxHits = 10;
-    private int lm = 1 << 9;
-
     private void PickUp(Controller123 stuff, Rigidbody rb, Controller123 other)
     {
 
@@ -126,9 +122,9 @@ public class GodController
             return;
         }
 
-        Collider[] hits = new Collider[maxHits];
+        Collider[] hits = new Collider[godConfig.MaxHitsPickUpSphere];
 
-        int count = Physics.OverlapSphereNonAlloc(rb.position, godData.RayCastSphereRadius, hits, lm);
+        int count = Physics.OverlapSphereNonAlloc(rb.position, godData.RayCastSphereRadius, hits, godConfig.LayerMaskPickUp);
 
         if (count < 1)
         {
@@ -184,21 +180,13 @@ public class GodController
 
     }
 
-    private int maxHitsRay = 1;
-    private int lmTerrain = 1 << 8;
-
     private bool Place(Controller123 stuff, Vector3 position)
     {
+        RaycastHit[] hits = new RaycastHit[godConfig.MaxHitRay];
 
-        if (stuff.State != ControllerState.Holding)
+        if (Physics.RaycastNonAlloc(position, Vector3.down, hits, godData.RayPlaceDistance, godConfig.LayerMaskTerrain) < 1)
         {
-            return false;
-        }
-
-        RaycastHit[] hits = new RaycastHit[maxHitsRay];
-
-        if (Physics.RaycastNonAlloc(position, Vector3.down, hits, godData.RayPlaceDistance, lmTerrain) < 1)
-        {
+            Debug.Log("Failed to Place");
             return false;
         }
 
@@ -209,50 +197,78 @@ public class GodController
         return true;
 
     }
+    #endregion
 
-    #region Non-elegant solutions for movement
+    #region Antons Old Drag (Movement)
+    //private void DragOnButtonDown()
+    //{
+    //    grabPoint = Vector3.zero;
+    //    currentPoint = Vector3.zero;
+    //    grabPoint = godData.rightControllerAttach.position;
+    //    dragging = true;
+    //}
+
+    //private void DragOnButtonUp()
+    //{
+    //    grabPoint = Vector3.zero;
+    //    currentPoint = Vector3.zero;
+    //    dragging = false;
+    //}
+
     //DRAG ONLY WORKS WITH 1:1 MOVEMENT, OTHERWISE IT BREAKS
-    private void MovementDrag()
-    {
-        var pos = Vector3.zero;
-        var vectorDiff = (grabPoint - currentPoint);
-        godData.cameraRig.transform.position = new Vector3(pos.x, godData.cameraRig.transform.position.y, pos.z * 5.0f);
-    }
+    //private void MovementDrag()
+    //{
+    //    var pos = Vector3.zero;
+    //    var vectorDiff = (grabPoint - currentPoint);
+    //    godData.cameraRig.transform.position = new Vector3(pos.x, godData.cameraRig.transform.position.y, pos.z * 5.0f);
+    //}
 
-    private void MovementTeleport()
-    {
-        godData.cameraRig.position = Ray();
-    }
+    private Rigidbody chachedRb;
 
     private void TestMethodsForUpdate()
     {
         if (ray)
-            DisplayTeleportPoint();
+            DisplayTeleportPoint(chachedRb);
 
-        if (dragging)
-            MovementDrag();
+        //if (dragging)
+        //    MovementDrag();
 
-        currentPoint = godData.rightControllerAttach.transform.position;
+        currentPoint = chachedRb.transform.position;
+    }
+    #endregion
+
+    #region Teleport
+
+    public void TeleportOnButtonDown(Rigidbody rb)
+    {
+        ray = true;
+        DisplayTeleportPoint(rb);
+
+        currentPoint = rb.transform.position;
+
+        //godData.anotherTempThing.gameObject.SetActive(true);
+        godData.sphere.gameObject.SetActive(true);
     }
 
-    private Vector3 Ray()
+    public void TeleportOnButtonUp(Rigidbody rb)
     {
-        Vector3 pos = godData.rightControllerAttach.position;
-        RaycastHit hit;
 
-        var nonFilthyVariable = godData.rightControllerAttach.transform.forward;
-        nonFilthyVariable = Quaternion.AngleAxis(godData.aimAngleOffset, godData.rightControllerAttach.transform.right) * nonFilthyVariable;
-
-        Physics.Raycast(pos, nonFilthyVariable, out hit);
-
-        return hit.point;
+        MovementTeleport(rb);
+        ray = false;
+        // godData.anotherTempThing.gameObject.SetActive(false);
+        godData.sphere.gameObject.SetActive(false);
     }
 
-    private void DisplayTeleportPoint()
+    private void MovementTeleport(Rigidbody rb)
     {
-        Vector3 hitPoint = Ray();
+        godData.cameraRig.position = Ray(rb);
+    }
 
-        godData.lr1.SetPosition(0, godData.rightControllerAttach.position);
+    private void DisplayTeleportPoint(Rigidbody rb)
+    {
+        Vector3 hitPoint = Ray(rb);
+
+        godData.lr1.SetPosition(0, rb.position);
 
         if (hitPoint != Vector3.zero)
             godData.lr1.SetPosition(1, hitPoint);
@@ -261,39 +277,23 @@ public class GodController
 
     }
 
-    private void DragOnButtonDown()
+    private Vector3 Ray(Rigidbody rb)
     {
-        grabPoint = Vector3.zero;
-        currentPoint = Vector3.zero;
-        grabPoint = godData.rightControllerAttach.position;
-        dragging = true;
-    }
+        Vector3 pos = rb.position;
+        RaycastHit hit;
 
-    private void TeleportOnButtonDown()
-    {
-        ray = true;
-        godData.anotherTempThing.gameObject.SetActive(true);
-        godData.sphere.gameObject.SetActive(true);
-    }
+        Vector3 direction = rb.transform.forward;
+        direction = Quaternion.AngleAxis(godData.aimAngleOffset, rb.transform.right) * direction;
 
-    private void DragOnButtonUp()
-    {
-        grabPoint = Vector3.zero;
-        currentPoint = Vector3.zero;
-        dragging = false;
-    }
+        Physics.Raycast(pos, direction, out hit, 50, 1 << 8);
 
-    private void TeleportOnButtonUp()
-    {
-        MovementTeleport();
-        ray = false;
-        godData.anotherTempThing.gameObject.SetActive(false);
-        godData.sphere.gameObject.SetActive(false);
+        return hit.point;
     }
     #endregion
 
     #region Input
 
+    #region Triggers
     public void TriggerDown(WhichID whichID)
     {
 
@@ -308,6 +308,7 @@ public class GodController
                     case ControllerState.Empty:
                         PickUp(godData.RightControllerStuff, godData.rightControllerAttach, godData.LeftControllerStuff);
                         break;
+                    
 
                 }
 
@@ -321,7 +322,7 @@ public class GodController
                     case ControllerState.Empty:
                         PickUp(godData.LeftControllerStuff, godData.leftControllerAttach, godData.RightControllerStuff);
                         break;
-
+                    
                 }
 
                 break;
@@ -374,6 +375,69 @@ public class GodController
         }
 
     }
+    #endregion
+
+    #region Grip
+    public void GripDown(WhichID whichID)
+    {
+
+        switch (whichID)
+        {
+
+            case WhichID.Right:
+                if (!godData.LeftControllerStuff.Planning_To_Teleport)
+                {
+                    TeleportOnButtonDown(godData.rightControllerAttach);
+                    godData.RightControllerStuff.Planning_To_Teleport = true;
+                }
+                break;
+
+            case WhichID.Left:
+
+                if (!godData.RightControllerStuff.Planning_To_Teleport)
+                {
+                    TeleportOnButtonDown(godData.leftControllerAttach);
+                    godData.LeftControllerStuff.Planning_To_Teleport = true;
+                }
+                break;
+
+        }
+
+    }
+    public void GripUp(WhichID whichID)
+    {
+
+        switch (whichID)
+        {
+
+            case WhichID.Right:
+                if (!godData.LeftControllerStuff.Planning_To_Teleport)
+                {
+                    if (godData.RightControllerStuff.Planning_To_Teleport)
+                    {
+                        godData.RightControllerStuff.Planning_To_Teleport = false;
+                        TeleportOnButtonUp(godData.rightControllerAttach);
+                    }
+                }
+
+                break;
+
+            case WhichID.Left:
+                if (!godData.RightControllerStuff.Planning_To_Teleport)
+                {
+                    if (godData.LeftControllerStuff.Planning_To_Teleport)
+                    {
+                        godData.LeftControllerStuff.Planning_To_Teleport = false;
+                        TeleportOnButtonUp(godData.leftControllerAttach);
+                    }
+                }
+
+                break;
+
+        }
+
+    }
+    #endregion
 
     #endregion
 

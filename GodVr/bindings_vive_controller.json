@@ -4,6 +4,10 @@
    "app_key" : "application.generated.unity.godvr.exe",
    "bindings" : {
       "/actions/buggy" : {
+         "chords" : [],
+         "haptics" : [],
+         "poses" : [],
+         "skeleton" : [],
          "sources" : [
             {
                "inputs" : {
@@ -173,18 +177,30 @@
                "path" : "/user/hand/right/input/application_menu"
             },
             {
-               "inputs" : {},
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/default/in/gripclick"
+                  }
+               },
                "mode" : "button",
                "path" : "/user/hand/left/input/grip"
             },
             {
-               "inputs" : {},
+               "inputs" : {
+                  "click" : {
+                     "output" : "/actions/default/in/gripclick"
+                  }
+               },
                "mode" : "button",
                "path" : "/user/hand/right/input/grip"
             }
          ]
       },
       "/actions/platformer" : {
+         "chords" : [],
+         "haptics" : [],
+         "poses" : [],
+         "skeleton" : [],
          "sources" : [
             {
                "inputs" : {
@@ -228,7 +244,7 @@
    "category" : "steamvr_input",
    "controller_type" : "vive_controller",
    "description" : "",
-   "name" : "2019-09-06 Bindings For GodVr",
+   "name" : "My GodVr [Testing] configuration for Vive Controller",
    "options" : {},
    "simulated_actions" : []
 }

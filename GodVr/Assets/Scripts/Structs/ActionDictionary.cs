@@ -9,11 +9,17 @@ public static class ActionDictionary
 
     private static ActionDelegate triggerClickDown = null;
     private static ActionDelegate triggerClickUp = null;
+    private static ActionDelegate gripClickUp = null;
+    private static ActionDelegate gripClickDown = null;
 
     public static ActionKVP[] ActionKVPs { get; private set; } =
     {
         new ActionKVP(ActionID.Trigger_Click_Down, triggerClickDown),
-        new ActionKVP(ActionID.Trigger_Click_Up, triggerClickUp)
+        new ActionKVP(ActionID.Trigger_Click_Up, triggerClickUp),
+        new ActionKVP(ActionID.Grip_Click_Down, gripClickDown),
+        new ActionKVP(ActionID.Grip_Click_Up, gripClickUp)
+
+
     };
 
     #endregion

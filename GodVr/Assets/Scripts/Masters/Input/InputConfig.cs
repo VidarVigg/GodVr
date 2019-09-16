@@ -18,6 +18,7 @@ public class InputConfig
         new SteamVRInput(SteamVR_Input.GetAction<SteamVR_Action_Boolean>("OpenMenu")),
         new SteamVRInput(SteamVR_Input.GetAction<SteamVR_Action_Boolean>("PadClick")),
         new SteamVRInput(SteamVR_Input.GetAction<SteamVR_Action_Boolean>("PadTouching")),
+        new SteamVRInput(SteamVR_Input.GetAction<SteamVR_Action_Boolean>("GripClick")),
     };
 
 

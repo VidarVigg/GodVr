@@ -41,4 +41,9 @@ public class Treee : NaturalMaster
         transform.position = attach.position;
         joint.connectedBody = attach;
     }
+
+    protected override void OnCollision()
+    {
+        Destroy(gameObject);
+    }
 }

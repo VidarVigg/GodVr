@@ -4,6 +4,7 @@
     Trackpad_Touch,
     Trackpad_Click,
     TopMenu,
+    Grip_Click
 
 }
 public enum UpDownID

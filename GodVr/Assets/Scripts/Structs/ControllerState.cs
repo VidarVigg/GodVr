@@ -3,6 +3,6 @@
 
     Empty,
     Display,
-    Holding
+    Holding,   
 
 }

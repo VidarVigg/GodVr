@@ -38,6 +38,16 @@ public class GodMaster : MonoBehaviour, IGodMasterService
         controller.TriggerUp(id);
     }
 
+    public void GripClickDown(WhichID id)
+    {
+        controller.GripDown(id);
+    }
+
+    public void GripClickUp(WhichID id)
+    {
+        controller.GripUp(id);
+    }
+
     #endregion
 
 }

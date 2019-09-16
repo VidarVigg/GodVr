@@ -34,6 +34,9 @@ public class GameController
     {
         ActionDictionary.Subscribe(ActionID.Trigger_Click_Down, Hello);
         ActionDictionary.Subscribe(ActionID.Trigger_Click_Up, Goodbye);
+        ActionDictionary.Subscribe(ActionID.Grip_Click_Down, TeleportAim);
+        ActionDictionary.Subscribe(ActionID.Grip_Click_Up, TeleportMove);
+
         SetSize(Enum.GetValues(typeof(InputID)).Length);
     }
 
@@ -58,6 +61,17 @@ public class GameController
         ServiceLocator.GodMasterService.TriggerClickUp(whichID);
     }
 
+    public void TeleportAim(WhichID whichID)
+    {
+        ServiceLocator.GodMasterService.GripClickDown(whichID);
+    }
+    public void TeleportMove(WhichID whichID)
+    {
+        ServiceLocator.GodMasterService.GripClickUp(whichID);
+    }
+
+
+
     public void ReceiveInputs(BitArray rightBitArray, BitArray leftBitArray)
     {
         Convert(rightBitArray, leftBitArray);
@@ -66,11 +80,12 @@ public class GameController
         // this is a way that makes it work, if there is a better way to do it i am up for it.
         gameData.InRight = new BitArray(rightBitArray);
         gameData.InLeft = new BitArray(leftBitArray);
+        NewRead();
     }
 
     public void Update()
     {
-        NewRead();
+        
     }
 
     private void Read()
@@ -163,6 +178,10 @@ public class GameController
                 outPut[index * 2] = true;
                 outPut[index * 2 + 1] = false;
             }
+            else
+            {
+                outPut[index * 2] = false;
+            }
         }
         else
         {
@@ -170,6 +189,10 @@ public class GameController
             {
                 outPut[index * 2 + 1] = true;
                 outPut[index * 2] = false;
+            }
+            else
+            {
+                outPut[index * 2 + 1] = false;
             }
         }
 

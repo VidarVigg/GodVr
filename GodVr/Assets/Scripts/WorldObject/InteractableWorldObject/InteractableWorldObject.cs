@@ -18,8 +18,12 @@ public abstract class InteractableWorldObject : WorldObject
         rigi = gameObject.GetComponent<Rigidbody>();
     }
 
-    public virtual void Grab(Rigidbody attach) {
+    public virtual void Grab(Controller123 controller,Rigidbody attach) {
 
+        if(controller.State == ControllerState.Holding)
+        {
+            return;
+        }
         
         if (joint)
         {
@@ -29,15 +33,20 @@ public abstract class InteractableWorldObject : WorldObject
         joint = gameObject.AddComponent<FixedJoint>();
         transform.position = attach.position;
         joint.connectedBody = attach;
+        controller.Obj = this;
+        controller.State = ControllerState.Holding;
 
     }
 
-    public virtual void Place(Vector3 placePosition,Quaternion placeRotation ) {
+    public virtual bool Place(Controller123 stuff, Vector3 placePosition,Quaternion placeRotation ) {
         Object.DestroyImmediate(joint);
         joint = null;
 
         transform.position = placePosition;
         transform.rotation = placeRotation;
+        stuff.Obj = null;
+        stuff.State = ControllerState.Empty;
+        return true;
     }
 
 

@@ -195,7 +195,7 @@ MonoBehaviour:
     maxHits: 1894
     stopDistance: 0
   unitAIData:
-    sphereCastRadius: 512
+    sphereCastRadius: 1024
     hits: []
     destination: {x: 0, y: 0, z: 0}
     target: {fileID: 0}

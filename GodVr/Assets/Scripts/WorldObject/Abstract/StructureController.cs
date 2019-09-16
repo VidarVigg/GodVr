@@ -47,13 +47,8 @@ public class StructureController
 
         if (structureData.HouseHealth < 1f)
         {
-            DestroyHouse();
+            structureMaster.DestroyHouse();
         }
-    }
-
-    private void DestroyHouse()
-    {
-        GameObject.Destroy(structureMaster.gameObject);
     }
 
     #endregion;

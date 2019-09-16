@@ -39,7 +39,11 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
         structureController.RecieveDamage(damage);
         Debug.Log("<b> Housing took " + damage + " damage</b>", gameObject);
     }
-
+    public void DestroyHouse()
+    {
+        if (joint != null)
+            Destroy(gameObject);
+    }
     #endregion
 
 

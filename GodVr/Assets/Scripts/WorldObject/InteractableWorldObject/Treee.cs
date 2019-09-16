@@ -26,7 +26,7 @@ public class Treee : NaturalMaster
     //    rigi.maxAngularVelocity = rigi.angularVelocity.magnitude;
 
     //}
-    public override void Grab(Rigidbody attach)
+    public override void Grab(Controller123 controller,Rigidbody attach)
     {
         //Debug.Log("I'm a tree being Grabbed");
         rigi.isKinematic = false;
@@ -40,6 +40,8 @@ public class Treee : NaturalMaster
         joint = gameObject.AddComponent<FixedJoint>();
         transform.position = attach.position;
         joint.connectedBody = attach;
+        controller.Obj = this;
+        controller.State = ControllerState.Holding;
     }
 
     protected override void OnCollision()

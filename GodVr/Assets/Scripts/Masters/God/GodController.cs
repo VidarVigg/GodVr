@@ -174,9 +174,8 @@ public class GodController
             return;
         }
 
-        obj.Grab(rb);
-        stuff.Obj = obj;
-        stuff.State = ControllerState.Holding;
+        obj.Grab(stuff,rb);
+        
 
     }
 
@@ -189,13 +188,7 @@ public class GodController
             Debug.Log("Failed to Place");
             return false;
         }
-
-        stuff.Obj.Place(hits[0].point, Quaternion.Euler(hits[0].normal));
-        stuff.Obj = null;
-        stuff.State = ControllerState.Empty;
-
-        return true;
-
+        return stuff.Obj.Place(stuff, hits[0].point, Quaternion.Euler(hits[0].normal));
     }
     #endregion
 

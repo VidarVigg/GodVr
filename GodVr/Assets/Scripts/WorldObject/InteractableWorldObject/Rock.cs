@@ -8,4 +8,10 @@ public class Rock : NaturalMaster
     {
         return false;
     }
+
+    protected override void OnCollision(Collision collision)
+    {
+        //Destroy(gameObject);
+    }
+
 }

@@ -2460,12 +2460,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a28c804df1ea184b998117f64070f26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  config:
+    maxHitsRay: 1
+    layerMaskTerrain:
+      serializedVersion: 2
+      m_Bits: 256
+    maxHits: 10
+    layerMaskPickUp:
+      serializedVersion: 2
+      m_Bits: 512
   data:
     rightControllerStuff:
       state: 0
+      planningToTeleport: 0
       obj: {fileID: 0}
     leftControllerStuff:
       state: 0
+      planningToTeleport: 0
       obj: {fileID: 0}
     rightControllerAttach: {fileID: 977356244430267892}
     leftControllerAttach: {fileID: 977356243174469775}
@@ -2579,6 +2590,12 @@ MonoBehaviour:
     - inputID: 0
       upDownID: 1
       actionID: 1
+    - inputID: 4
+      upDownID: 0
+      actionID: 2
+    - inputID: 4
+      upDownID: 1
+      actionID: 3
     leftInputPackets:
     - inputID: 0
       upDownID: 0
@@ -2586,6 +2603,12 @@ MonoBehaviour:
     - inputID: 0
       upDownID: 1
       actionID: 1
+    - inputID: 4
+      upDownID: 0
+      actionID: 2
+    - inputID: 4
+      upDownID: 1
+      actionID: 3
     debugRecivedInput: 0
   gameData:
     sessionMaster: {fileID: 0}
@@ -2649,6 +2672,10 @@ MonoBehaviour:
     - inputID: 1
       steamVRAction:
         actionPath: /actions/default/in/PadTouching
+        needsReinit: 0
+    - inputID: 4
+      steamVRAction:
+        actionPath: /actions/default/in/GripClick
         needsReinit: 0
     trigger:
       actionPath: /actions/default/in/TriggerDrag

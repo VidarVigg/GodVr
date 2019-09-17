@@ -41,7 +41,7 @@ public class StructureController
 
     }
 
-    public void RecieveDamage(ulong damage)
+    public void RecieveDamage(long damage)
     {
         structureData.HouseHealth -= damage;
 

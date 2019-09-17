@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class UnitMaster : StaticWorldObject
+public class UnitMaster : StaticWorldObject, IDamagable
 {
 
     #region Fields
@@ -28,24 +28,22 @@ public class UnitMaster : StaticWorldObject
         unitController = new UnitController(this, unitConfig, unitData);
     }
 
-    protected override void OnCollision(Collision collision)
+    protected override void OnTriggerEnter(Collider collider)
     {
-        base.OnCollision(collision);
-        Debug.Log("hit");
-
-        if (collision.gameObject.GetComponent<Rock>())// temp Code
+        base.OnTriggerEnter(collider);
+        if (collider.gameObject.layer == 9)
         {
-            Debug.Log("Interactable Object hit actor ", collision.gameObject);
+            Debug.Log("Interactable Hit us");
+            Receive(long.MaxValue);
+            
         }
-        // Kolla velocity på den andra objectet
-        // Sen kör får vi hämta från objectet som kolliderade med oss dens damage.
-        // Sen ta och ge skadan på MIG. 
 
     }
-    protected override void OnCollisionEnter(Collision collision)
+
+    public void Receive(long damage)
     {
-        base.OnCollisionEnter(collision);
-        Debug.Log("hesfhe");
+        Debug.Log(damage + " damage");
+        unitController.RecieveDamage(damage);
     }
 
     #endregion

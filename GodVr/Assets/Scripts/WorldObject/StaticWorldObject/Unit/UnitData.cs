@@ -8,13 +8,13 @@ public class UnitData
     #region Fields
 
     [SerializeField]
-    private int health;
+    private long health;
 
     #endregion
 
     #region Properties
 
-    public int Health
+    public long Health
     {
         get { return health; }
         set { health = value; }

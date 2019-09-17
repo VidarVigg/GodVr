@@ -3,9 +3,12 @@ public abstract class WorldObject : MonoBehaviour {
 
     protected virtual void OnCollisionEnter(Collision collision)
     {
-        OnCollision(collision);
+
     }
 
-    protected virtual void OnCollision(Collision collision) { }
+    protected virtual void OnTriggerEnter(Collider collider)
+    {
+
+    }
 
 }

@@ -44,8 +44,10 @@ public class Treee : NaturalMaster
         controller.State = ControllerState.Holding;
     }
 
-    protected override void OnCollision(Collision collision)
+    protected override void OnCollisionEnter(Collision collision)
     {
-        Destroy(gameObject);
+        // play Tweening
+        // play Particles;
     }
+
 }

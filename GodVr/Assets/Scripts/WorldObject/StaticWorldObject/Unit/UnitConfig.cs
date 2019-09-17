@@ -9,13 +9,13 @@ public class UnitConfig
     #region Fields
 
     [SerializeField]
-    private int maxHealth = 0;
+    private long maxHealth = 0;
 
     #endregion
 
     #region Properties
 
-    public int MaxHealth
+    public long MaxHealth
     {
         get { return maxHealth; }
         set { maxHealth = value; }

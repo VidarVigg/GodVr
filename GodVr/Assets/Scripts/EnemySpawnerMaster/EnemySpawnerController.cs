@@ -39,7 +39,10 @@ public class EnemySpawnerController
         {
             enemySpawnerData.CurrentTime -= enemySpawnerData.SpawnFrequency;
 
-            Spawn(new SpawnStruct[] { enemySpawnerConfig.SpawnStructs[random.Next(0, enemySpawnerConfig.SpawnStructs.Length)] });
+            if (enemySpawnerData.SpawnInstances < enemySpawnerData.SpawnCap)
+            {
+                Spawn(new SpawnStruct[] { enemySpawnerConfig.SpawnStructs[random.Next(0, enemySpawnerConfig.SpawnStructs.Length)] });
+            }      
         }
     }
 
@@ -55,10 +58,9 @@ public class EnemySpawnerController
 
                 for (int k = 0; k < spawnStruct[i].columns; k++)
                 {
-                    enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPosNorth.position + (new Vector3((float)k / 2, 0, (float)j / 2)), Quaternion.identity);
-                    enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPosEast.position + (new Vector3((float)k / 2, 0, (float)j / 2)), Quaternion.identity);
-                    enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPosWest.position + (new Vector3((float)k / 2, 0, (float)j / 2)), Quaternion.identity);
-                    //enemySpawnerConfig.EnemyClone = GameObject.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPos.position + (new Vector3((float)k / 2 , 0, (float)j / 2)), Quaternion.identity);
+
+                    enemySpawnerConfig.EnemyClone = Object2.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPoints[random.Next(0, enemySpawnerConfig.SpawnPoints.Length)].position + (new Vector3((float)k / 2 , 0, (float)j / 2)), Quaternion.identity);
+                    enemySpawnerData.SpawnInstances ++;
                 
                 }
             }

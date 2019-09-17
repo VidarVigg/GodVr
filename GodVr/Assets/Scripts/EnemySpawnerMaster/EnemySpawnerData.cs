@@ -19,6 +19,15 @@ public class EnemySpawnerData
     [SerializeField]
     private int columnAmt;
 
+    [SerializeField]
+    private static int spawnInstances;
+
+    [SerializeField]
+    private int spawnInstancesVis;
+
+    [SerializeField]
+    private int spawnCap;
+
     #endregion
 
     #region Properties
@@ -33,6 +42,20 @@ public class EnemySpawnerData
     {
         get { return currentTime; }
         set { currentTime = value; }
+    }
+
+    public int SpawnInstances
+    {
+        get { return spawnInstances; }
+        set {
+            spawnInstancesVis = value;
+            spawnInstances = value; }
+    }
+
+    public int SpawnCap
+    {
+        get { return spawnCap; }
+        set { spawnCap = value; }
     }
 
     #endregion

@@ -34,8 +34,12 @@ public class GameController
     {
         ActionDictionary.Subscribe(ActionID.Trigger_Click_Down, Hello);
         ActionDictionary.Subscribe(ActionID.Trigger_Click_Up, Goodbye);
+
         ActionDictionary.Subscribe(ActionID.Grip_Click_Down, TeleportAim);
         ActionDictionary.Subscribe(ActionID.Grip_Click_Up, TeleportMove);
+
+        ActionDictionary.Subscribe(ActionID.TrackPad_Touching_Down, OpenMenu);
+        ActionDictionary.Subscribe(ActionID.TrackPad_Touching_Up, CloseMenu);
 
         SetSize(Enum.GetValues(typeof(InputID)).Length);
     }
@@ -61,6 +65,25 @@ public class GameController
         ServiceLocator.GodMasterService.TriggerClickUp(whichID);
     }
 
+    internal void ReceiveTrackPadPosition(WhichID hand, float horizontal, float vertical)
+    {
+        // Update the position for the radial menu for the hand.
+        UnityEngine.Debug.Log(hand + " Trackpad Position");
+        switch (hand)
+        {
+            case WhichID.Right:
+                if(gameData.rightRadialMenu.gameObject.activeInHierarchy)
+                    gameData.rightRadialMenu.CheckSelection(horizontal, vertical);
+                break;
+            case WhichID.Left:
+                if (gameData.leftRadialMenu.gameObject.activeInHierarchy)
+                    gameData.leftRadialMenu.CheckSelection(horizontal, vertical);
+                break;
+            default:
+                break;
+        }
+    }
+
     public void TeleportAim(WhichID whichID)
     {
         ServiceLocator.GodMasterService.GripClickDown(whichID);
@@ -69,8 +92,38 @@ public class GameController
     {
         ServiceLocator.GodMasterService.GripClickUp(whichID);
     }
-
-
+    public void OpenMenu(WhichID whichID)
+    {
+        UnityEngine.Debug.Log(whichID+ " Menu Open");
+        switch (whichID)
+        {
+            case WhichID.Right:   
+                gameData.rightRadialMenu.gameObject.SetActive(true);
+                break;
+            case WhichID.Left:
+                gameData.leftRadialMenu.gameObject.SetActive(true);
+                break;
+            default:
+                break;
+        }
+    }
+    public void CloseMenu(WhichID whichID)
+    {
+        UnityEngine.Debug.Log(whichID + " Menu Close");
+        switch (whichID)
+        {
+            case WhichID.Right:
+                
+                gameData.rightRadialMenu.gameObject.SetActive(false);
+                break;
+            case WhichID.Left:
+                
+                gameData.leftRadialMenu.gameObject.SetActive(false);
+                break;
+            default:
+                break;
+        }
+    }
 
     public void ReceiveInputs(BitArray rightBitArray, BitArray leftBitArray)
     {
@@ -85,73 +138,6 @@ public class GameController
 
     public void Update()
     {
-        
-    }
-
-    private void Read()
-    {
-
-        //int rights = 0;
-        //BitArray godRightBitArray = new BitArray(gameData.RightBitArray.Length);
-
-        //for (int i = 0; i < gameConfig.RightInputPackets.Length; i++)
-        //{
-
-        //    if (!gameData.InRight[(int)gameConfig.RightInputPackets[i].InputID])
-        //    {
-        //        return;
-        //    }
-
-        //    if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].InputOwner == InputOwner.Game)
-        //    {
-
-        //        if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].ActionDelegate != null)
-        //        {
-        //            ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].ActionDelegate.Invoke(WhichID.Right);
-        //        }
-
-        //    }
-
-        //    if (ActionDictionary.ActionKVPs[(int)gameConfig.RightInputPackets[i].ActionID].InputOwner == InputOwner.God)
-        //    {
-        //        //godRightBitArray[rights] = true;
-        //        //rights++;
-        //    }
-
-
-
-        //}
-
-        ////int lefts = 0;
-        ////BitArray godLeftBitArray = new BitArray(gameData.LeftBitArray.Length);
-
-        //for (int i = 0; i < gameConfig.LeftInputPackets.Length; i++)
-        //{
-
-        //    if (ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].InputOwner == InputOwner.God)
-        //    {
-        //        //godLeftBitArray[lefts] = true;
-        //        //lefts++;
-        //    }
-
-        //    if (ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].InputOwner == InputOwner.Game)
-        //    {
-
-        //        if (gameData.InLeft[(int)gameConfig.LeftInputPackets[i].InputID])
-        //        {
-
-        //            if (ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].ActionDelegate != null)
-        //            {
-        //                ActionDictionary.ActionKVPs[(int)gameConfig.LeftInputPackets[i].ActionID].ActionDelegate.Invoke(WhichID.Left);
-        //            }
-
-        //        }
-
-        //    }
-
-        //}
-
-        //SendGodInputs(godRightBitArray, godLeftBitArray);
 
     }
     

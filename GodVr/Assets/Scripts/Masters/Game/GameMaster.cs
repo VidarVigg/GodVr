@@ -54,6 +54,11 @@ public class GameMaster : WorldObject, IGameMasterService
         #endregion
 
         gameController.ReceiveInputs(rightBitArray, leftBitArray);
+        
+    }
+    public void ReceiveTrackPadPositions(WhichID hand, float horizontal, float vertical)
+    {
+        gameController.ReceiveTrackPadPosition(hand, horizontal, vertical);
     }
 
     #endregion

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+
 public abstract class WorldObject : MonoBehaviour {
 
     protected virtual void OnCollisionEnter(Collision collision)

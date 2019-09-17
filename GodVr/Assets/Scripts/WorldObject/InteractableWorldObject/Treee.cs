@@ -50,4 +50,8 @@ public class Treee : NaturalMaster
         // play Particles;
     }
 
+    public override bool Place(Controller123 stuff, Vector3 placePosition, Quaternion placeRotation)
+    {
+        return false;
+    }
 }

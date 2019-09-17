@@ -54,26 +54,27 @@ public class InputController
             inputData.RightBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = inputConfig.SteamVRInputs[i].SteamVRAction.GetState(SteamVR_Input_Sources.RightHand);
             inputData.LeftBitArray[(int)inputConfig.SteamVRInputs[i].InputID] = inputConfig.SteamVRInputs[i].SteamVRAction.GetState(SteamVR_Input_Sources.LeftHand);
         }
+        inputData.RightTrigger = inputConfig.Trigger.GetAxis(SteamVR_Input_Sources.RightHand);
+        inputData.LeftTrigger = inputConfig.Trigger.GetAxis(SteamVR_Input_Sources.LeftHand);
 
-        if (inputConfig.SendTrigger)
-        {
-            inputData.RightTrigger = inputConfig.Trigger.GetAxis(SteamVR_Input_Sources.RightHand);
-            inputData.LeftTrigger = inputConfig.Trigger.GetAxis(SteamVR_Input_Sources.LeftHand);
-        }
+        inputData.RightTrackpadHorizontal = inputConfig.Trackpad.GetAxis(SteamVR_Input_Sources.RightHand).x;
+        inputData.RightTrackpadVertical = inputConfig.Trackpad.GetAxis(SteamVR_Input_Sources.RightHand).y;
 
-        if (inputConfig.SendTrackpad)
-        {
-            inputData.RightTrackpadHorizontal = inputConfig.Trackpad.GetAxis(SteamVR_Input_Sources.RightHand).x;
-            inputData.RightTrackpadVertical = inputConfig.Trackpad.GetAxis(SteamVR_Input_Sources.RightHand).y;
-            inputData.LeftTrackpadHorizontal = inputConfig.Trackpad.GetAxis(SteamVR_Input_Sources.LeftHand).x;
-            inputData.LeftTrackpadVertical = inputConfig.Trackpad.GetAxis(SteamVR_Input_Sources.LeftHand).y;
-        }
+        inputData.LeftTrackpadHorizontal = inputConfig.Trackpad.GetAxis(SteamVR_Input_Sources.LeftHand).x;
+        inputData.LeftTrackpadVertical = inputConfig.Trackpad.GetAxis(SteamVR_Input_Sources.LeftHand).y;
         
     }
     private void Send()
     {
         //Debug.Log("Send Data to GameMaster");
+        if(inputData.RightBitArray[(int)InputID.Trackpad_Touch])
+            ServiceLocator.GameMasterService.ReceiveTrackPadPositions(WhichID.Right,inputData.RightTrackpadHorizontal,inputData.RightTrackpadVertical);
+            
+        if (inputData.LeftBitArray[(int)InputID.Trackpad_Touch])
+            ServiceLocator.GameMasterService.ReceiveTrackPadPositions(WhichID.Left,inputData.LeftTrackpadHorizontal,inputData.LeftTrackpadVertical);
+
         ServiceLocator.GameMasterService.ReceiveInput(inputData.RightBitArray, inputData.LeftBitArray);
+
     }
 
     #endregion

@@ -13,10 +13,6 @@ public class RMF_RadialMenu : MonoBehaviour {
     public RectTransform rt;
     //public RectTransform baseCircleRT;
     //public Image selectionFollowerImage;
-
-    [Tooltip("Adjusts the radial menu for use with a gamepad or joystick. You might need to edit this script if you're not using the default horizontal and vertical input axes.")]
-    public bool useGamepad = false;
-
     [Tooltip("With lazy selection, you only have to point your mouse (or joystick) in the direction of an element to select it, rather than be moused over the element entirely.")]
     public bool useLazySelection = true;
 
@@ -87,12 +83,10 @@ public class RMF_RadialMenu : MonoBehaviour {
 
 
     void Start() {
-
-        if (useGamepad) {
             //EventSystem.current.SetSelectedGameObject(gameObject, null); //We'll make this the active object when we start it. Comment this line to set it manually from another script.
             if (useSelectionFollower && selectionFollowerContainer != null)
                 selectionFollowerContainer.rotation = Quaternion.Euler(0, 0, -globalOffset); //Point the selection follower at the first element.
-        }
+        
 
     }
     public void CheckSelection(float horizontal, float vertical)

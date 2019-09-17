@@ -20,7 +20,11 @@ public class Rock : NaturalMaster
     {
         if (rigi.velocity.sqrMagnitude >= vfxSpawnThreshold)
         {
-            Instantiate<GameObject>(particleSystem, collision.GetContact(0).point, Quaternion.identity, null);
+            if (particleSystem)
+            {
+                var obj = Instantiate<GameObject>(particleSystem, collision.GetContact(0).point, Quaternion.identity, null);
+                Destroy(obj, 2.0f);
+            }
         }
     }
 

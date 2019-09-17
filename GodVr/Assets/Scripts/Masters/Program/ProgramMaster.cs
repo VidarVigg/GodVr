@@ -32,6 +32,7 @@ public class ProgramMaster : MonoBehaviour
         ServiceLocator.GameMasterService = FindObjectOfType<GameMaster>();
         ServiceLocator.GodMasterService = FindObjectOfType<GodMaster>();
         ServiceLocator.TestAudioMasterService = FindObjectOfType<AudioMaster>();
+        ServiceLocator.SpawnerMasterService = FindObjectOfType<EnemySpawnerMaster>();
         //SpawnGameMaster();
         //SpawnAudioMaster();
     }

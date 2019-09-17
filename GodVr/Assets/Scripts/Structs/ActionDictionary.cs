@@ -12,13 +12,26 @@ public static class ActionDictionary
     private static ActionDelegate gripClickUp = null;
     private static ActionDelegate gripClickDown = null;
 
+    private static ActionDelegate trackpadTouchkUp = null;
+    private static ActionDelegate trackpadTouchDown = null;
+
+
+    private static ActionDelegate trackpadClickkUp = null;
+    private static ActionDelegate trackpadClickDown = null;
+
     public static ActionKVP[] ActionKVPs { get; private set; } =
     {
         new ActionKVP(ActionID.Trigger_Click_Down, triggerClickDown),
         new ActionKVP(ActionID.Trigger_Click_Up, triggerClickUp),
-        new ActionKVP(ActionID.Grip_Click_Down, gripClickDown),
-        new ActionKVP(ActionID.Grip_Click_Up, gripClickUp)
 
+        new ActionKVP(ActionID.Grip_Click_Down, gripClickDown),
+        new ActionKVP(ActionID.Grip_Click_Up, gripClickUp),
+
+        new ActionKVP(ActionID.TrackPad_Touching_Down, trackpadTouchkUp),
+        new ActionKVP(ActionID.TrackPad_Touching_Up, trackpadTouchDown),
+
+        new ActionKVP(ActionID.TrackPad_Click_Down, trackpadClickkUp),
+        new ActionKVP(ActionID.TrackPad_Click_Up, trackpadTouchDown),
 
     };
 

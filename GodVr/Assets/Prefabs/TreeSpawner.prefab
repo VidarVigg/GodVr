@@ -353,7 +353,7 @@ MonoBehaviour:
     resources: []
   treePrefab: {fileID: 2549919314838927896, guid: bbacd93852258d146932bf059122b050,
     type: 3}
-  respawnTime: 0
+  respawnTime: 10
 --- !u!1 &1641068331832149621
 GameObject:
   m_ObjectHideFlags: 0

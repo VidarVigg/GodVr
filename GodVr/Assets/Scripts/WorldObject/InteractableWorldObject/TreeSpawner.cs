@@ -5,17 +5,36 @@ using DG.Tweening;
 
 public class TreeSpawner : NaturalMaster
 {
-
+    [Header("Spawner Variables")]
     [SerializeField]
     private GameObject treePrefab;
     [SerializeField]
+    private ParticleSystem pineParticles;
+    [SerializeField]
     private float respawnTime = 2;
-    private float timer;
 
+    private float timer;
     private bool isGrabbable = true;
+
+    [Header("Punch Variables")]
+
+    [SerializeField]
+    private float punchMultiplier = 0.25f;
+    [SerializeField]
+    private float punchTime = 0.5f;
+    [SerializeField]
+    private int punchVibrato = 10;
+    [SerializeField]
+    private float punchElasticity = 1.0f;
+
+
 
     private void Update()
     {
+        if (Input.anyKeyDown)
+        {
+            transform.DOPunchScale(Vector3.one * punchMultiplier, punchTime, punchVibrato, punchElasticity);
+        }
         // Apparently better than a coroutine, timer to control if new tree is grabbable
         if (!isGrabbable)
         {
@@ -23,6 +42,8 @@ public class TreeSpawner : NaturalMaster
             {
                 isGrabbable = true;
                 timer = 0;
+                transform.DOPunchScale(Vector3.one * punchMultiplier, punchTime, punchVibrato, punchElasticity);
+                pineParticles.Play();
             }
             else
             {
@@ -33,18 +54,19 @@ public class TreeSpawner : NaturalMaster
 
 
 
+
+
     public override void Grab(Controller123 controller, Rigidbody attach)
     {
         if (isGrabbable)
         {
             Regrow();
-
+            pineParticles.Play();
             //base.Grab(attach);
             GameObject gameobject = Instantiate(treePrefab);
             gameobject.GetComponent<Treee>().Grab(controller, attach);
 
         }
-
         else
         {
             Debug.Log("Tree is not ready yet");

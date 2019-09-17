@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class EnemySpawnerMaster : MonoBehaviour
+public class EnemySpawnerMaster : MonoBehaviour, ISpawnMasterService
 {
 
     #region Fields
@@ -24,4 +24,10 @@ public class EnemySpawnerMaster : MonoBehaviour
     {
         enemySpawnerController.Update();
     }
+
+    public void RegisterDeath()
+    {
+        enemySpawnerData.SpawnInstances--;
+    }
+
 }

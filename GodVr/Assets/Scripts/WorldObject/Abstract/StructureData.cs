@@ -7,13 +7,13 @@ public class StructureData
     #region Fields
 
     [SerializeField]
-    private float houseHealth;
+    private long houseHealth;
 
     #endregion
 
     #region Properties
 
-    public float HouseHealth
+    public long HouseHealth
     {
         get { return houseHealth; }
         set { houseHealth = value; }

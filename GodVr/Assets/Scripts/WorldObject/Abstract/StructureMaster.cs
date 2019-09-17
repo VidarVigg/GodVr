@@ -34,7 +34,7 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
         structureController = new StructureController(this, structureConfig, structureData);
     }
 
-    public void Receive(ulong damage)
+    public void Receive(long damage)
     {
         structureController.RecieveDamage(damage);
         Debug.Log("<b> Housing took " + damage + " damage</b>", gameObject);

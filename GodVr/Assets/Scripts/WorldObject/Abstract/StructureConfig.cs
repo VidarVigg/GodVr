@@ -7,13 +7,13 @@ public class StructureConfig
     #region Fields
 
     [SerializeField]
-    private float maxHouseHealth;
+    private long maxHouseHealth;
 
     #endregion
 
     #region Properties
 
-    public float MaxHouseHealth
+    public long MaxHouseHealth
     {
         get { return maxHouseHealth; }
         set { maxHouseHealth = value; }

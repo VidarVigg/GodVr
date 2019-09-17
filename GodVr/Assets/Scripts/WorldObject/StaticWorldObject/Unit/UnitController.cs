@@ -36,9 +36,17 @@
 
     }
 
-    public void RecieveDamage(int damage)
+    public void RecieveDamage(long damage)
     {
-        unitData.Health -= damage;
+        if ((unitData.Health -= damage) < 1)
+        {
+            UnityEngine.Debug.Log("ded af xd");
+            UnityEngine.GameObject.Destroy(unitMaster.gameObject);
+        }
+        else
+        {
+            UnityEngine.Debug.Log("Unit Health: " + unitData.Health/* + "Took " + damage + " damage"*/);
+        }
     }
 
     #endregion

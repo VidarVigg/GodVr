@@ -1,4 +1,4 @@
 ﻿public interface IDamagable
 {
-    void Receive(ulong damage);
+    void Receive(long damage);
 } 

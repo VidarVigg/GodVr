@@ -15,11 +15,7 @@ public class EnemySpawnerConfig
     private GameObject enemyClone;
 
     [SerializeField]
-    private Transform spawnPosNorth;
-    [SerializeField]
-    private Transform spawnPosEast;
-    [SerializeField]
-    private Transform spawnPosWest;
+    private Transform[] spawnPoints = new Transform[0];
 
     [SerializeField]
     private int spawnAmount;
@@ -62,25 +58,7 @@ public class EnemySpawnerConfig
         get { return enemyClone; }
         set { enemyClone = value; }
     }
-
-    public Transform SpawnPosNorth
-    {
-        get { return spawnPosNorth; }
-        set { spawnPosNorth = value; }
-    }
-
-    public Transform SpawnPosEast
-    {
-        get { return spawnPosEast; }
-        set { spawnPosEast = value; }
-    }
-
-    public Transform SpawnPosWest
-    {
-        get { return spawnPosWest; }
-        set { spawnPosWest = value; }
-    }
-
+    
     public int SpawnAmount
     {
         get { return spawnAmount; }
@@ -91,6 +69,12 @@ public class EnemySpawnerConfig
     {
         get { return spawnStructs; }
         set { spawnStructs = value; }
+    }
+
+    public Transform[] SpawnPoints
+    {
+        get { return spawnPoints; }
+        set { spawnPoints = value; }
     }
 
     #endregion

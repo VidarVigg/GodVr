@@ -46,6 +46,11 @@ public class Treee : NaturalMaster
 
     protected override void OnCollision(Collision collision)
     {
-        Destroy(gameObject);
+        //Destroy(gameObject);
+    }
+
+    public override bool Place(Controller123 stuff, Vector3 placePosition, Quaternion placeRotation)
+    {
+        return false;
     }
 }

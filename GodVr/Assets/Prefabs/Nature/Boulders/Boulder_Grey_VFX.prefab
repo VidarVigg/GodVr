@@ -132,8 +132,9 @@ MonoBehaviour:
       amount: 10
   naturalData:
     resources: []
-  number: 0
-  particleSystem: {fileID: 6105894704042928328}
+  vfxSpawnThreshold: 0.05
+  particleSystem: {fileID: 6440758003580319339, guid: fadd52b5b4277c043a7cc9e9fde5eb7a,
+    type: 3}
 --- !u!1001 &6858692434801120504
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -291,12 +292,6 @@ PrefabInstance:
 --- !u!4 &564142975020613155 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6411654060509260507, guid: fadd52b5b4277c043a7cc9e9fde5eb7a,
-    type: 3}
-  m_PrefabInstance: {fileID: 6858692434801120504}
-  m_PrefabAsset: {fileID: 0}
---- !u!198 &6105894704042928328 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 833876817702042672, guid: fadd52b5b4277c043a7cc9e9fde5eb7a,
     type: 3}
   m_PrefabInstance: {fileID: 6858692434801120504}
   m_PrefabAsset: {fileID: 0}

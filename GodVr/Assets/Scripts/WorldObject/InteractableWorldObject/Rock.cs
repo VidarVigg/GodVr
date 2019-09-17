@@ -6,10 +6,10 @@ public class Rock : NaturalMaster
 {
     [SerializeField]
     [Range(0.05f, 5.0f)]
-    private float vfxSpawnThreshold;
+    private float vfxSpawnThreshold = 0.05f;
 
     [SerializeField]
-    private ParticleSystem particleSystem;
+    private GameObject particleSystem;
 
     public override bool Place(Controller123 stuff, Vector3 placePosition, Quaternion placeRotation)
     {
@@ -20,7 +20,7 @@ public class Rock : NaturalMaster
     {
         if (rigi.velocity.sqrMagnitude >= vfxSpawnThreshold)
         {
-            particleSystem.Play();
+            Instantiate<GameObject>(particleSystem, collision.GetContact(0).point, Quaternion.identity, null);
         }
     }
 

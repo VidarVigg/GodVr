@@ -6,29 +6,10 @@ using Valve.VR;
 public class Treee : NaturalMaster
 {
 
-    //public override void Throw(SteamVR_Behaviour_Pose trackedObj)
-    //{
-    //    Object.DestroyImmediate(joint);
-    //    joint = null;
+    [SerializeField] TreeeConfig treeeConfig = new TreeeConfig();
 
-    //    Transform origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
-    //    if (origin != null)
-    //    {
-    //        rigi.velocity = origin.TransformVector(trackedObj.GetVelocity());
-    //        rigi.angularVelocity = origin.TransformVector(trackedObj.GetAngularVelocity());
-    //    }
-    //    else
-    //    {
-    //        rigi.velocity = trackedObj.GetVelocity();
-    //        rigi.angularVelocity = trackedObj.GetAngularVelocity();
-    //    }
-
-    //    rigi.maxAngularVelocity = rigi.angularVelocity.magnitude;
-
-    //}
     public override void Grab(Controller123 controller,Rigidbody attach)
     {
-        //Debug.Log("I'm a tree being Grabbed");
         rigi.isKinematic = false;
 
 
@@ -44,10 +25,27 @@ public class Treee : NaturalMaster
         controller.State = ControllerState.Holding;
     }
 
-    protected override void OnCollisionEnter(Collision collision)
+    protected override void OnTriggerEnter(Collider collider)
     {
-        // play Tweening
-        // play Particles;
+
+        if (rigi.velocity.sqrMagnitude >= 0.05)
+        {
+            treeeConfig.ParticleSystem.Play();
+            Debug.Log(collider.gameObject);
+
+            Debug.Log("tree was moving");
+            if (collider.gameObject.layer == 10)
+            {
+                Debug.Log("Enemy");
+                treeeConfig.ParticleSystem.Play();
+                Destroy(gameObject, 1f);
+            }
+        }
+        else
+        {
+            Debug.Log("Treee was not moving");
+        }
+
     }
 
     public override bool Place(Controller123 stuff, Vector3 placePosition, Quaternion placeRotation)

@@ -11,6 +11,9 @@ public class Rock : NaturalMaster
     [SerializeField]
     private GameObject particleSystem;
 
+    [SerializeField]
+    private AudioSource audioSource = null;
+
     public override bool Place(Controller123 stuff, Vector3 placePosition, Quaternion placeRotation)
     {
         return false;
@@ -22,7 +25,8 @@ public class Rock : NaturalMaster
         {
             if (particleSystem)
             {
-                var obj = Instantiate<GameObject>(particleSystem, collision.GetContact(0).point, Quaternion.identity, null);
+                var obj = Object2.Instantiate<GameObject>(particleSystem, collision.GetContact(0).point, Quaternion.identity, null);
+                ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXEnemyImpact, audioSource);
                 Destroy(obj, 2.0f);
             }
         }

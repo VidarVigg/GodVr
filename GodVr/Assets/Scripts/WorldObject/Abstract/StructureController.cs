@@ -31,9 +31,11 @@ public class StructureController
 
     #region Methods
 
+
     private void Initialize()
     {
         structureData.HouseHealth = structureConfig.MaxHouseHealth;
+        
     }
 
     private void Update()
@@ -48,6 +50,19 @@ public class StructureController
         if (structureData.HouseHealth < 1f)
         {
             structureMaster.DestroyHouse();
+        }
+    }
+
+    public void ChangePopulation(ValueModifier modifier, int amt)
+    {
+        if (modifier == ValueModifier.Increase)
+        {
+            Debug.Log($"{modifier.ToString()} {amt}");
+            
+        }
+        else
+        {
+            // gamemaster variable - amt
         }
     }
 

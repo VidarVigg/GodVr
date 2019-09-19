@@ -43,10 +43,11 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
     {
         if (joint == null)
         {
+            ServiceLocator.SessionMasterService.Population--;
             Destroy(gameObject);
         }
     }
-    #endregion
 
+    #endregion
 
 }

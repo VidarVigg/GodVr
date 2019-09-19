@@ -27,7 +27,10 @@ public class EnemySpawnerMaster : MonoBehaviour, ISpawnMasterService
 
     public void RegisterDeath()
     {
-        enemySpawnerData.SpawnInstances--;
+        if (enemySpawnerData.SpawnInstances > 1)
+        {
+            enemySpawnerData.SpawnInstances--;
+        }
     }
 
 }

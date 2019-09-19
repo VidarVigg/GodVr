@@ -48,6 +48,9 @@ public class RMF_RadialMenu : MonoBehaviour {
     private int previousActiveIndex = 0; //Used to determine which buttons to unhighlight in lazy selection.
 
     private PointerEventData pointer;
+    bool fixRotation = false;
+
+    public Vector3 OffsetAngle = new Vector3(90,0,0);
 
     void Awake() {
 
@@ -78,7 +81,7 @@ public class RMF_RadialMenu : MonoBehaviour {
             elements[i].assignedIndex = i;
 
         }
-
+        
     }
 
 
@@ -112,10 +115,17 @@ public class RMF_RadialMenu : MonoBehaviour {
 
         }
 
+        //This will only run once, tested putting it in Start and Awake, but the effect it would do is not the same when its runned in something that runs in a Update.
+        if (!fixRotation)
+        {
+            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x + OffsetAngle.x, transform.rotation.eulerAngles.y + OffsetAngle.y, transform.rotation.eulerAngles.z + OffsetAngle.z);
+            fixRotation = true;
+        }
+        
         //Updates the selection follower if we're using one.
         if (useSelectionFollower && selectionFollowerContainer != null)
         {
-            selectionFollowerContainer.rotation = Quaternion.Euler(0, 0, rawAngle + 270);
+            selectionFollowerContainer.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x + OffsetAngle.x, transform.rotation.eulerAngles.y + OffsetAngle.y, rawAngle + 270);
         }
     }
 
@@ -124,19 +134,17 @@ public class RMF_RadialMenu : MonoBehaviour {
         ExecuteEvents.Execute(elements[index].button.gameObject, pointer, ExecuteEvents.submitHandler);
     }
 
-
-
     //Selects the button with the specified index.
     private void selectButton(int i) {
 
-          if (elements[i].active == false) {
+        if (elements[i].active == false)
+        {
 
             elements[i].highlightThisElement(pointer); //Select this one
 
             if (previousActiveIndex != i) 
                 elements[previousActiveIndex].unHighlightThisElement(pointer); //Deselect the last one.
             
-
         }
 
         previousActiveIndex = i;

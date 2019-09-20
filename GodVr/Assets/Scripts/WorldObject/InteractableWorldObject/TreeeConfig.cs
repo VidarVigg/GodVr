@@ -6,11 +6,18 @@ using System;
 [Serializable]
 public class TreeeConfig
 {
-    [SerializeField] private ParticleSystem particleSystem;
+    [SerializeField] private GameObject particleSystem;
 
-    public ParticleSystem ParticleSystem
+    [SerializeField] private AudioSource audioSource;
+
+    public GameObject ParticleSystem
     {
         get { return particleSystem; }
         set { particleSystem = value; }
+    }
+    public AudioSource AudioSource
+    {
+        get { return audioSource; }
+        set { audioSource = value; }
     }
 }

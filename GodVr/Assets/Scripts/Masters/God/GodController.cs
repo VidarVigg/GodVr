@@ -328,7 +328,6 @@ public class GodController
                 godData.rightRadialMenu.gameObject.SetActive(false);
                 switch (godData.RightControllerStuff.State) 
                 {
-
                     case ControllerState.Display:
                         godData.RightControllerStuff.State = godData.RightControllerStuff.PreviousState;
                         break;
@@ -488,6 +487,78 @@ public class GodController
                         godData.LeftControllerStuff.Planning_To_Teleport = false;
                         TeleportOnButtonUp(godData.leftControllerAttach);
                     }
+                }
+
+                break;
+
+        }
+
+    }
+    #endregion
+    #region TrackPad
+    public void TrackPadClickDown(WhichID whichID)
+    {
+
+        switch (whichID)
+        {
+
+            case WhichID.Right:
+
+                switch (godData.RightControllerStuff.State)
+                {
+                    case ControllerState.Display:
+                        godData.rightRadialMenu.ExecuteSelectedButton();
+                        break;
+
+                }
+
+                break;
+
+            case WhichID.Left:
+
+                switch (godData.LeftControllerStuff.State)
+                {
+                    case ControllerState.Display:
+                        godData.leftRadialMenu.ExecuteSelectedButton();
+                        break;
+
+                }
+
+                break;
+
+        }
+
+    }
+    public void TrackPadClickUp(WhichID whichID)
+    {
+
+        switch (whichID)
+        {
+
+            case WhichID.Right:
+
+                switch (godData.RightControllerStuff.State)
+                {
+
+                    case ControllerState.Display:
+
+
+                        break;
+
+                }
+
+                break;
+
+            case WhichID.Left:
+
+                switch (godData.LeftControllerStuff.State)
+                {
+
+                    case ControllerState.Display:
+
+
+                        break;
+
                 }
 
                 break;

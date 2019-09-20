@@ -41,6 +41,9 @@ public class GameController
         ActionDictionary.Subscribe(ActionID.TrackPad_Touching_Down, OpenMenu);
         ActionDictionary.Subscribe(ActionID.TrackPad_Touching_Up, CloseMenu);
 
+        ActionDictionary.Subscribe(ActionID.TrackPad_Click_Down, TrackPadClickDown);
+        ActionDictionary.Subscribe(ActionID.TrackPad_Click_Up, TrackPadClickUp);
+
         SetSize(Enum.GetValues(typeof(InputID)).Length);
     }
 
@@ -87,6 +90,14 @@ public class GameController
     public void CloseMenu(WhichID whichID)
     {
         ServiceLocator.GodMasterService.CloseControllerMenu(whichID);
+    }
+    public void TrackPadClickDown(WhichID whichID)
+    {
+        ServiceLocator.GodMasterService.TrackPadClickDown(whichID);
+    }
+    public void TrackPadClickUp(WhichID whichID)
+    {
+        ServiceLocator.GodMasterService.TrackPadClickUp(whichID);
     }
 
     public void ReceiveInputs(BitArray rightBitArray, BitArray leftBitArray)
@@ -154,7 +165,6 @@ public class GameController
         ExecuteActions(gameConfig.LeftInputPackets, gameData.OutLeft, WhichID.Left);
     }
 
-    //TODO: Might need a better Name
     private void ExecuteActions(InputPacket[] inputPackets, BitArray outPut ,WhichID hand)
     {
         for (int i = 0; i < inputPackets.Length; i++)

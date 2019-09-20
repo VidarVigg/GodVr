@@ -63,6 +63,16 @@ public class GodMaster : MonoBehaviour, IGodMasterService
         controller.MenuSelection(id, horizontal, vertical);
     }
 
+    public void TrackPadClickDown(WhichID id)
+    {
+        controller.TrackPadClickDown(id);
+    }
+
+    public void TrackPadClickUp(WhichID id)
+    {
+        controller.TrackPadClickUp(id);
+    }
+
     #endregion
 
 }

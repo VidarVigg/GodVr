@@ -38,6 +38,16 @@ public class NullGodMaster : MonoBehaviour, IGodMasterService
         
     }
 
+    public void TrackPadClickDown(WhichID id)
+    {
+
+    }
+
+    public void TrackPadClickUp(WhichID id)
+    {
+
+    }
+
     public void TriggerClickDown(WhichID id)
     {
         

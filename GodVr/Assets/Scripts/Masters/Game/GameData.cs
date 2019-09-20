@@ -23,11 +23,7 @@ public class GameData
     [SerializeField]
     public SessionMaster sessionMaster;
 
-    [SerializeField]
-    public RMF_RadialMenu rightRadialMenu;
-
-    [SerializeField]
-    public RMF_RadialMenu leftRadialMenu;
+  
     #endregion
 
     #region Properties

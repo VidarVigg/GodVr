@@ -7,6 +7,9 @@ public class Controller123
 
     [SerializeField]
     private ControllerState state = ControllerState.Empty;
+
+    [SerializeField]
+    private ControllerState previousState = ControllerState.Empty;
     [SerializeField]
     private bool planningToTeleport = false;
     [SerializeField]
@@ -15,7 +18,13 @@ public class Controller123
     public ControllerState State
     {
         get { return state; }
-        set { state = value; }
+        set { PreviousState = state;
+              state = value; }
+    }
+    public ControllerState PreviousState
+    {
+        get { return previousState; }
+        set { previousState = value != previousState ? value : previousState ; }
     }
     public bool Planning_To_Teleport
     {

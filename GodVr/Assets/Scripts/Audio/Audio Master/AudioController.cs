@@ -35,7 +35,7 @@ public class AudioController
             {
                 if (testAudioConfig.AudioStructs[i].clip != null)
                 {
-                    audioSource?.PlayOneShot(testAudioConfig.AudioStructs[i].clip);
+                    audioSource?.PlayOneShot(testAudioConfig.AudioStructs[i].clip[Random.Range(0, testAudioConfig.AudioStructs[i].clip.Length)], testAudioConfig.AudioStructs[i].volume);
                 }
                 else
                 {

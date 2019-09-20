@@ -14,12 +14,6 @@ public class EnemySpawnerData
     private float currentTime;
 
     [SerializeField]
-    private int rowAmt;
-
-    [SerializeField]
-    private int columnAmt;
-
-    [SerializeField]
     private static int spawnInstances;
 
     [SerializeField]

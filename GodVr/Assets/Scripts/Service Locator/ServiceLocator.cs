@@ -7,6 +7,7 @@
     private static IGodMasterService godMasterService = null;
     private static IAudioMasterService testAudioMasterService = null;
     private static ISpawnMasterService spawnMasterService = null;
+    private static ISessionMasterService sessionMasterService = null;
 
 
     #endregion
@@ -68,6 +69,20 @@
         }
     }
 
+    public static ISessionMasterService SessionMasterService
+    {
+        get { return sessionMasterService; }
+        set
+        {
+
+            if (value == null)
+            {
+                value = new NullPopulationProvider();
+            }
+            sessionMasterService = value;
+        }
+    }
+
     #endregion
 
     #region Methods
@@ -78,6 +93,7 @@
         godMasterService = new NullGodMaster();
         testAudioMasterService = new NullAudioProvider();
         spawnMasterService = new NullSpawnMaster();
+        sessionMasterService = new NullPopulationProvider();
     }
 
     #endregion

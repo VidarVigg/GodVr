@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-[RequireComponent(typeof(Rigidbody),typeof(Collider))]
+[RequireComponent(typeof(Rigidbody), typeof(Collider))]
 public abstract class InteractableWorldObject : WorldObject
 {
 
@@ -18,13 +18,14 @@ public abstract class InteractableWorldObject : WorldObject
         rigi = gameObject.GetComponent<Rigidbody>();
     }
 
-    public virtual void Grab(Controller123 controller,Rigidbody attach) {
+    public virtual void Grab(Controller123 controller, Rigidbody attach)
+    {
 
-        if(controller.State == ControllerState.Holding)
+        if (controller.State == ControllerState.Holding)
         {
             return;
         }
-        
+
         if (joint)
         {
             return;
@@ -38,7 +39,8 @@ public abstract class InteractableWorldObject : WorldObject
 
     }
 
-    public virtual bool Place(Controller123 stuff, Vector3 placePosition,Quaternion placeRotation ) {
+    public virtual bool Place(Controller123 stuff, Vector3 placePosition, Quaternion placeRotation)
+    {
         Object.DestroyImmediate(joint);
         joint = null;
 
@@ -50,7 +52,8 @@ public abstract class InteractableWorldObject : WorldObject
     }
 
 
-    public virtual void Throw(SteamVR_Behaviour_Pose trackedObj) {
+    public virtual void Throw(SteamVR_Behaviour_Pose trackedObj)
+    {
 
         Object.DestroyImmediate(joint);
         joint = null;
@@ -68,5 +71,5 @@ public abstract class InteractableWorldObject : WorldObject
         }
 
         rigi.maxAngularVelocity = rigi.angularVelocity.magnitude;
-    }   
+    }
 }

@@ -1,6 +1,15 @@
 ﻿public enum AudioType
 {
     Null,
-    Test,
-
+    SFXEnemyImpact,
+    SFXRockImpact,
+    SFXHouseImpact,
+    SFXTreeImpact,
+    SFXAttackCharge,
+    SFXAttackHit,
+    SFXGrabTree,
+    SFXGrabHouse,
+    SFXGrabRock,
+    AMBEnvironment,
+    AMBMusic
 }

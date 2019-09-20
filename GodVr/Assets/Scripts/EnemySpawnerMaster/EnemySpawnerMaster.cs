@@ -31,7 +31,6 @@ public class EnemySpawnerMaster : MonoBehaviour, ISpawnMasterService
         {
             enemySpawnerData.SpawnInstances--;
         }
-
     }
 
 }

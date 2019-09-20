@@ -41,6 +41,7 @@ public class EnemySpawnerController
 
             if (enemySpawnerData.SpawnInstances < enemySpawnerData.SpawnCap)
             {
+                Debug.Log("Hej");
                 Spawn(new SpawnStruct[] { enemySpawnerConfig.SpawnStructs[random.Next(0, enemySpawnerConfig.SpawnStructs.Length)] });
             }      
         }

@@ -9,6 +9,7 @@ public class StructureConfig
     [SerializeField]
     private long maxHouseHealth;
 
+
     #endregion
 
     #region Properties
@@ -18,6 +19,7 @@ public class StructureConfig
         get { return maxHouseHealth; }
         set { maxHouseHealth = value; }
     }
+
 
     #endregion;
 }

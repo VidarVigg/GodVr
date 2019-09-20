@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-[RequireComponent(typeof(Rigidbody), typeof(Collider))]
+[RequireComponent(typeof(Rigidbody), typeof(Collider), typeof (AudioSource)), ]
 public abstract class InteractableWorldObject : WorldObject
 {
 
@@ -13,9 +13,13 @@ public abstract class InteractableWorldObject : WorldObject
     [SerializeField]
     protected FixedJoint joint;
 
+    [SerializeField]
+    protected AudioSource audioSource;
+
     protected virtual void Awake()
     {
         rigi = gameObject.GetComponent<Rigidbody>();
+        audioSource = gameObject.GetComponent<AudioSource>();
     }
 
     public virtual void Grab(Controller123 controller, Rigidbody attach)
@@ -36,7 +40,7 @@ public abstract class InteractableWorldObject : WorldObject
         joint.connectedBody = attach;
         controller.Obj = this;
         controller.State = ControllerState.Holding;
-
+        ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXGrab, audioSource);
     }
 
     public virtual bool Place(Controller123 stuff, Vector3 placePosition, Quaternion placeRotation)
@@ -71,5 +75,6 @@ public abstract class InteractableWorldObject : WorldObject
         }
 
         rigi.maxAngularVelocity = rigi.angularVelocity.magnitude;
+        ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXThrow, audioSource);
     }
 }

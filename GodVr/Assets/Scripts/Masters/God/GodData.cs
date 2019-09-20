@@ -60,6 +60,13 @@ public class GodData
     }
 
     #endregion
+    [Header("Menu Display")]
+    [SerializeField]
+    public RMF_RadialMenu rightRadialMenu;
+
+    [SerializeField]
+    public RMF_RadialMenu leftRadialMenu;
+
 
     [Header("Movment/Teleport")]
     public Transform sphere;

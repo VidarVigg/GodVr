@@ -41,6 +41,9 @@ public class GameController
         ActionDictionary.Subscribe(ActionID.TrackPad_Touching_Down, OpenMenu);
         ActionDictionary.Subscribe(ActionID.TrackPad_Touching_Up, CloseMenu);
 
+        ActionDictionary.Subscribe(ActionID.TrackPad_Click_Down, TrackPadClickDown);
+        ActionDictionary.Subscribe(ActionID.TrackPad_Click_Up, TrackPadClickUp);
+
         SetSize(Enum.GetValues(typeof(InputID)).Length);
     }
 
@@ -65,23 +68,11 @@ public class GameController
         ServiceLocator.GodMasterService.TriggerClickUp(whichID);
     }
 
-    internal void ReceiveTrackPadPosition(WhichID hand, float horizontal, float vertical)
+    internal void ReceiveTrackPadPosition(WhichID whichID, float horizontal, float vertical)
     {
         // Update the position for the radial menu for the hand.
-        UnityEngine.Debug.Log(hand + " Trackpad Position");
-        switch (hand)
-        {
-            case WhichID.Right:
-                if(gameData.rightRadialMenu.gameObject.activeInHierarchy)
-                    gameData.rightRadialMenu.CheckSelection(horizontal, vertical);
-                break;
-            case WhichID.Left:
-                if (gameData.leftRadialMenu.gameObject.activeInHierarchy)
-                    gameData.leftRadialMenu.CheckSelection(horizontal, vertical);
-                break;
-            default:
-                break;
-        }
+        UnityEngine.Debug.Log(whichID + " Trackpad Position");
+        ServiceLocator.GodMasterService.SendTrackPadPosition(whichID,horizontal,vertical);  
     }
 
     public void TeleportAim(WhichID whichID)
@@ -94,35 +85,19 @@ public class GameController
     }
     public void OpenMenu(WhichID whichID)
     {
-        UnityEngine.Debug.Log(whichID+ " Menu Open");
-        switch (whichID)
-        {
-            case WhichID.Right:   
-                gameData.rightRadialMenu.gameObject.SetActive(true);
-                break;
-            case WhichID.Left:
-                gameData.leftRadialMenu.gameObject.SetActive(true);
-                break;
-            default:
-                break;
-        }
+        ServiceLocator.GodMasterService.OpenControllerMenu(whichID);
     }
     public void CloseMenu(WhichID whichID)
     {
-        UnityEngine.Debug.Log(whichID + " Menu Close");
-        switch (whichID)
-        {
-            case WhichID.Right:
-                
-                gameData.rightRadialMenu.gameObject.SetActive(false);
-                break;
-            case WhichID.Left:
-                
-                gameData.leftRadialMenu.gameObject.SetActive(false);
-                break;
-            default:
-                break;
-        }
+        ServiceLocator.GodMasterService.CloseControllerMenu(whichID);
+    }
+    public void TrackPadClickDown(WhichID whichID)
+    {
+        ServiceLocator.GodMasterService.TrackPadClickDown(whichID);
+    }
+    public void TrackPadClickUp(WhichID whichID)
+    {
+        ServiceLocator.GodMasterService.TrackPadClickUp(whichID);
     }
 
     public void ReceiveInputs(BitArray rightBitArray, BitArray leftBitArray)
@@ -190,7 +165,6 @@ public class GameController
         ExecuteActions(gameConfig.LeftInputPackets, gameData.OutLeft, WhichID.Left);
     }
 
-    //TODO: Might need a better Name
     private void ExecuteActions(InputPacket[] inputPackets, BitArray outPut ,WhichID hand)
     {
         for (int i = 0; i < inputPackets.Length; i++)

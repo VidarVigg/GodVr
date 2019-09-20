@@ -31,10 +31,6 @@ public class TreeSpawner : NaturalMaster
 
     private void Update()
     {
-        if (Input.anyKeyDown)
-        {
-            transform.DOPunchScale(Vector3.one * punchMultiplier, punchTime, punchVibrato, punchElasticity);
-        }
         // Apparently better than a coroutine, timer to control if new tree is grabbable
         if (!isGrabbable)
         {

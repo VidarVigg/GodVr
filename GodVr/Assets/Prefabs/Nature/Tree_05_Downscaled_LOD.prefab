@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1212420476}
   - component: {fileID: 1212420474}
   - component: {fileID: -551135246211462403}
+  - component: {fileID: 7209554221352703155}
   m_Layer: 9
   m_Name: Tree_05_Downscaled_LOD
   m_TagString: Untagged
@@ -131,6 +132,22 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 14
   m_Mesh: {fileID: 3738928301642610199, guid: 73227e704b4c7044c8d8dd41a5ed9efb, type: 3}
+--- !u!208 &7209554221352703155
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2549919314838927896}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 0.5, y: 6, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0.16, y: 6, z: -0.02}
+  m_TimeToStationary: 0.5
 --- !u!212 &3122487655068379835
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -33,8 +33,16 @@ public class UnitMaster : StaticWorldObject, IDamagable
         base.OnTriggerEnter(collider);
         if (collider.gameObject.layer == 9)
         {
-            Debug.Log("Interactable Hit us");
-            Receive(long.MaxValue);
+            if (collider.attachedRigidbody.velocity.sqrMagnitude > 0.05)
+            {
+                Debug.Log("Interactable Hit us");
+                Receive(long.MaxValue);
+            }
+            else
+            {
+                Debug.Log("enemy encounter object is probably stationary");
+            }
+
             
         }
 

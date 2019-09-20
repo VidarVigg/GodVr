@@ -45,6 +45,12 @@ public class GodConfig
     [SerializeField]
     private LayerMask layerMaskPickUp = 1 << 9;
 
+    [SerializeField]
+    private AudioSource audioSourceLeft;
+
+    [SerializeField]
+    private AudioSource audioSourceRight;
+
 
     public int MaxHitRay
     {
@@ -62,6 +68,19 @@ public class GodConfig
     {
         get { return layerMaskPickUp; }
     }
+
+    public AudioSource AudioSourceLeft
+    {
+        get { return audioSourceLeft; }
+        set { audioSourceLeft = value; }
+    }
+
+    public AudioSource AudioSourceRight
+    {
+        get { return audioSourceRight; }
+        set { audioSourceRight = value; }
+    }
+
     #endregion
 
 }

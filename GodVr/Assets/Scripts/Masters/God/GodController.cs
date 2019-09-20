@@ -108,6 +108,8 @@ public class GodController
 
         if (stuff.State == ControllerState.Holding)
         {
+
+            ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXThrow, pose.GetComponent<AudioSource>());
             stuff.Obj.Throw(pose);
             stuff.Obj = null;
             stuff.State = ControllerState.Empty;

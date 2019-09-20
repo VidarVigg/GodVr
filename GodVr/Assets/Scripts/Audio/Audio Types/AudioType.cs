@@ -7,9 +7,8 @@
     SFXTreeImpact,
     SFXAttackCharge,
     SFXAttackHit,
-    SFXGrabTree,
-    SFXGrabHouse,
-    SFXGrabRock,
+    SFXGrab,
+    SFXThrow,
     AMBEnvironment,
     AMBMusic
 }

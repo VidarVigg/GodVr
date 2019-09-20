@@ -9,6 +9,9 @@ public class JackMaster : MonoBehaviour
     {
         data.source = GetComponent<AudioSource>();
     }
+
+
+
     void Start()
     {
     }
@@ -18,8 +21,8 @@ public class JackMaster : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.K))
         {
-            ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXEnemyImpact, data.source);
-            ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.Null, data.source);
+            Debug.Log("ksjefsejf");
+            ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXGrab, data.source);
         }
         if (Input.GetKeyDown(KeyCode.L))
         {

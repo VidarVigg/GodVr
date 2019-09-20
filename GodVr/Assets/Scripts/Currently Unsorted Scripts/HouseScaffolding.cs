@@ -6,17 +6,15 @@ public class HouseScaffolding : InteractableWorldObject
 {
 
     [SerializeField]
-    private int resourceRequired = 3;
+    private int resourceRequired = 3; // = HousingData.resourceCost kanske?
     [SerializeField]
     private int resourceCurrent = 0;
-
     [SerializeField]
-    private GameObject houseToBuild;
-
+    private GameObject actualHousePrefab;
     [SerializeField]
-    private GameObject housePreViz;
-
-    public Transform housesParent;
+    private GameObject houseProgressVisualizer;
+    [SerializeField]
+    private Transform targetTransformInHierarchy;
 
 
     protected override void OnCollisionEnter(Collision collision)
@@ -48,7 +46,8 @@ public class HouseScaffolding : InteractableWorldObject
     private void FinishConstruction()
     {
         gameObject.SetActive(false);
-        var house = Instantiate<GameObject>(houseToBuild, transform.position, Quaternion.identity, housesParent);
+        var house = Object2.Instantiate<GameObject>(actualHousePrefab, transform.position, Quaternion.identity, targetTransformInHierarchy);
+        house.transform.localScale = transform.localScale;
         //TODO: Implement Place() after the house has been instantiated
         //Update: Place doesn't do anything besides removing it from your hand?
         //So maybe use this?
@@ -58,10 +57,10 @@ public class HouseScaffolding : InteractableWorldObject
 
     private void UpdateProgressionVisuals(int progress)
     {
-        if (housePreViz.activeSelf == false)
-            housePreViz.SetActive(true);
+        if (houseProgressVisualizer.activeSelf == false)
+            houseProgressVisualizer.SetActive(true);
 
-        housePreViz.transform.localScale = new Vector3(1, (1 / (float)resourceRequired) * progress, 1);
+        houseProgressVisualizer.transform.localScale = new Vector3(1, (1 / (float)resourceRequired) * progress, 1);
     }
 
 }

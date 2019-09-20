@@ -128,8 +128,12 @@ public class RMF_RadialMenu : MonoBehaviour {
             selectionFollowerContainer.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x + OffsetAngle.x, transform.rotation.eulerAngles.y + OffsetAngle.y, rawAngle + 270);
         }
     }
+    public void ButtonPressedTest()
+    {
+        Debug.Log("Sucessfully pressed button!");
+    }
 
-    private void ExecuteSelectedButton()
+    public void ExecuteSelectedButton()
     {
         ExecuteEvents.Execute(elements[index].button.gameObject, pointer, ExecuteEvents.submitHandler);
     }

@@ -48,6 +48,21 @@ public class GodMaster : MonoBehaviour, IGodMasterService
         controller.GripUp(id);
     }
 
+    public void OpenControllerMenu(WhichID id)
+    {
+        controller.OpenMenu(id);
+    }
+
+    public void CloseControllerMenu(WhichID id)
+    {
+        controller.CloseMenu(id);
+    }
+
+    public void SendTrackPadPosition(WhichID id, float horizontal, float vertical)
+    {
+        controller.MenuSelection(id, horizontal, vertical);
+    }
+
     #endregion
 
 }

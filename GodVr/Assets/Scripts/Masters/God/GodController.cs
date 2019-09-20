@@ -190,6 +190,8 @@ public class GodController
         }
         return stuff.Obj.Place(stuff, hits[0].point, Quaternion.Euler(hits[0].normal));
     }
+
+   
     #endregion
 
     #region Antons Old Drag (Movement)
@@ -285,7 +287,65 @@ public class GodController
     #endregion
 
     #region Input
+    public void MenuSelection(WhichID whichID, float horizontal, float vertical)
+    {
+        switch (whichID)
+        {
+            case WhichID.Right:
+                if (godData.rightRadialMenu.gameObject.activeInHierarchy)
+                    godData.rightRadialMenu.CheckSelection(horizontal, vertical);
+                break;
+            case WhichID.Left:
+                if (godData.leftRadialMenu.gameObject.activeInHierarchy)
+                    godData.leftRadialMenu.CheckSelection(horizontal, vertical);
+                break;
+            default:
+                break;
+        }
+    }
 
+    public void OpenMenu(WhichID whichID)
+    {
+        switch (whichID)
+        {
+            case WhichID.Right:
+                godData.rightRadialMenu.gameObject.SetActive(true);
+                godData.RightControllerStuff.State = ControllerState.Display;
+                break;
+
+            case WhichID.Left:
+                godData.leftRadialMenu.gameObject.SetActive(true);
+                godData.LeftControllerStuff.State = ControllerState.Display;
+                break;
+
+        }
+    }
+    public void CloseMenu(WhichID whichID)
+    {
+        switch (whichID)
+        {
+            case WhichID.Right:
+                godData.rightRadialMenu.gameObject.SetActive(false);
+                switch (godData.RightControllerStuff.State) 
+                {
+
+                    case ControllerState.Display:
+                        godData.RightControllerStuff.State = godData.RightControllerStuff.PreviousState;
+                        break;
+                }
+                break;
+
+            case WhichID.Left:
+                godData.leftRadialMenu.gameObject.SetActive(false);
+                switch (godData.LeftControllerStuff.State)
+                {
+                    case ControllerState.Display:
+                        godData.LeftControllerStuff.State = godData.LeftControllerStuff.PreviousState;
+                        break;
+                }
+                break;
+        }
+    }
     #region Triggers
     public void TriggerDown(WhichID whichID)
     {
@@ -301,7 +361,9 @@ public class GodController
                     case ControllerState.Empty:
                         PickUp(godData.RightControllerStuff, godData.rightControllerAttach, godData.LeftControllerStuff);
                         break;
-                    
+                    case ControllerState.Display:
+                        godData.rightRadialMenu.ExecuteSelectedButton();
+                        break;
 
                 }
 
@@ -315,7 +377,10 @@ public class GodController
                     case ControllerState.Empty:
                         PickUp(godData.LeftControllerStuff, godData.leftControllerAttach, godData.RightControllerStuff);
                         break;
-                    
+                    case ControllerState.Display:
+                        godData.leftRadialMenu.ExecuteSelectedButton();
+                        break;
+
                 }
 
                 break;

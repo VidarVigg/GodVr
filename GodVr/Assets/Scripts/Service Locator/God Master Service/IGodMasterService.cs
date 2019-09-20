@@ -6,6 +6,9 @@ public interface IGodMasterService
     void TriggerClickUp(WhichID id);
     void GripClickDown(WhichID id);
     void GripClickUp(WhichID id);
+    void OpenControllerMenu(WhichID id);
+    void CloseControllerMenu(WhichID id);
+    void SendTrackPadPosition(WhichID id, float horizontal, float vertical);
 
 
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HouseScaffolding : InteractableWorldObject
+public class ConstructionFrame : InteractableWorldObject
 {
 
     [SerializeField]
@@ -19,6 +19,28 @@ public class HouseScaffolding : InteractableWorldObject
 
     protected override void OnCollisionEnter(Collision collision)
     {
+        if (collision.gameObject.layer == 8) //Terrain
+        {
+            var hej = transform.rotation;
+            Debug.Log($"hej: {hej}");
+            Debug.Log($"hej.eulerangles: {hej.eulerAngles}");
+
+            RaycastHit hitInfo;
+            LayerMask mask = LayerMask.GetMask("Terrain");
+            Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hitInfo, 100.0f, mask);
+            Debug.DrawLine(transform.position + Vector3.up, hitInfo.point, Color.blue, 5.0f);
+
+            rigi.isKinematic = true;
+
+            transform.position = hitInfo.point;
+
+            var asdf = hej.eulerAngles.y;
+            hej.eulerAngles = (new Vector3(0.0f, asdf, 0.0f));
+
+            transform.rotation = hej;
+
+        }
+
         if (collision.gameObject.GetComponent<Treee>())
         {
             if (resourceCurrent < resourceRequired)

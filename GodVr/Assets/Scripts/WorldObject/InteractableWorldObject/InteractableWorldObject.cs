@@ -77,4 +77,10 @@ public abstract class InteractableWorldObject : WorldObject
         rigi.maxAngularVelocity = rigi.angularVelocity.magnitude;
         ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXThrow, audioSource);
     }
+
+    protected override void OnCollisionEnter(Collision collision)
+    {
+        base.OnCollisionEnter(collision);
+        ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXImpact, audioSource);
+    }
 }

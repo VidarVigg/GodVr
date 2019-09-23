@@ -38,7 +38,7 @@ public class Treee : NaturalMaster
                     obj.transform.SetParent(null);
                     obj.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
                     obj.SetActive(true);
-                    ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXEnemyImpact, treeeConfig.AudioSource);
+                    //ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXEnemyImpact, treeeConfig.AudioSource);
                     Destroy(obj, 2f);
                     Destroy(gameObject);
                 }

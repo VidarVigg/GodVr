@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ConstructionFrame : InteractableWorldObject
 {
@@ -13,8 +14,6 @@ public class ConstructionFrame : InteractableWorldObject
     private GameObject actualHousePrefab;
     [SerializeField]
     private GameObject houseProgressVisualizer;
-    [SerializeField]
-    private Transform targetTransformInHierarchy;
 
 
     protected override void OnCollisionEnter(Collision collision)
@@ -63,7 +62,7 @@ public class ConstructionFrame : InteractableWorldObject
     private void FinishConstruction()
     {
         gameObject.SetActive(false);
-        var house = Object2.Instantiate<GameObject>(actualHousePrefab, transform.position, Quaternion.identity, targetTransformInHierarchy);
+        var house = Object2.Instantiate<GameObject>(actualHousePrefab, transform.position, Quaternion.identity);
         house.transform.localScale = transform.localScale;
         house.transform.localRotation = transform.localRotation;
         Destroy(gameObject, 0.0f);
@@ -81,6 +80,8 @@ public class ConstructionFrame : InteractableWorldObject
             houseProgressVisualizer.SetActive(true);
 
         houseProgressVisualizer.transform.localScale = new Vector3(1, (1 / (float)resourceRequired) * progress, 1);
+
+        houseProgressVisualizer.transform.DOPunchScale(Vector3.one * 0.25f, 0.25f, 13, 1);
     }
 
 }

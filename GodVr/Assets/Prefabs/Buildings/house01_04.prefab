@@ -13,11 +13,11 @@ GameObject:
   - component: {fileID: 5373539203863903109}
   - component: {fileID: 1748086965}
   - component: {fileID: -4357122327409917905}
-  - component: {fileID: -4586031973196151091}
   - component: {fileID: 5360238188897085020}
-  m_Layer: 0
+  - component: {fileID: -2292356447759772391}
+  m_Layer: 9
   m_Name: house01_04
-  m_TagString: Untagged
+  m_TagString: House
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -116,28 +116,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &-4586031973196151091
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5957826227126619993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbe622003b90e2e419c7132d2b98b74c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rigi: {fileID: 0}
-  joint: {fileID: 0}
-  audioSource: {fileID: 0}
-  naturalConfig:
-    resources: []
-  naturalData:
-    resources: []
-  treeeConfig:
-    particleSystem: {fileID: 0}
-    audioSource: {fileID: 0}
 --- !u!82 &5360238188897085020
 AudioSource:
   m_ObjectHideFlags: 0
@@ -234,6 +212,27 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &-2292356447759772391
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5957826227126619993}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2268b0ea103d99499f1b6009ff7c3ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rigi: {fileID: 0}
+  joint: {fileID: 0}
+  audioSource: {fileID: 0}
+  resourceCosts: []
+  scale: {x: 0, y: 0, z: 0}
+  structureConfig:
+    maxHouseHealth: 0
+  structureData:
+    houseHealth: 0
 --- !u!1001 &1135073570784265182
 PrefabInstance:
   m_ObjectHideFlags: 0

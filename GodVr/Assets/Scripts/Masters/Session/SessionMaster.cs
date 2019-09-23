@@ -37,7 +37,6 @@ public class SessionMaster : MonoBehaviour, ISessionMasterService
     {
         sessionController = new SessionController(this, sessionData);
     }
-
     #endregion
 
 }

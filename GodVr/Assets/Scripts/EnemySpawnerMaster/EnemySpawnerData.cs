@@ -7,30 +7,16 @@ public class EnemySpawnerData
 
     #region Fields
 
-    [SerializeField]
-    private float spawnFrequency;
 
     [SerializeField]
     private float currentTime;
 
     [SerializeField]
-    private static int spawnInstances;
-
-    [SerializeField]
-    private int spawnInstancesVis;
-
-    [SerializeField]
-    private int spawnCap;
+    private int lastWave;
 
     #endregion
 
     #region Properties
-
-    public float SpawnFrequency
-    {
-        get { return spawnFrequency; }
-        set { spawnFrequency = value; }
-    }
 
     public float CurrentTime
     {
@@ -38,18 +24,12 @@ public class EnemySpawnerData
         set { currentTime = value; }
     }
 
-    public int SpawnInstances
-    {
-        get { return spawnInstances; }
-        set {
-            spawnInstancesVis = value;
-            spawnInstances = value; }
-    }
 
-    public int SpawnCap
+
+    public int LastWave
     {
-        get { return spawnCap; }
-        set { spawnCap = value; }
+        get { return lastWave; }
+        set { lastWave = value; }
     }
 
     #endregion

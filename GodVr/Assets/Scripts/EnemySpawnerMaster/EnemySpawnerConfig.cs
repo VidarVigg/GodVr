@@ -18,7 +18,16 @@ public class EnemySpawnerConfig
     private Transform[] spawnPoints = new Transform[0];
 
     [SerializeField]
-    private int spawnAmount;
+    private float howOftenShouldEnemiesSpawn;
+
+    [SerializeField]
+    private int howManyWavesAreAllowed;
+
+    [SerializeField]
+    private static int waveAmt;
+
+    [SerializeField]
+    private int wavesInGame;
 
     [SerializeField]
     private SpawnStruct[] spawnStructs = new SpawnStruct[16] 
@@ -59,11 +68,6 @@ public class EnemySpawnerConfig
         set { enemyClone = value; }
     }
     
-    public int SpawnAmount
-    {
-        get { return spawnAmount; }
-        set { spawnAmount = value; }
-    }
 
     public SpawnStruct[] SpawnStructs
     {
@@ -76,6 +80,30 @@ public class EnemySpawnerConfig
         get { return spawnPoints; }
         set { spawnPoints = value; }
     }
+
+    public float HowOftenShouldEnemiesSpawn
+    {
+        get { return howOftenShouldEnemiesSpawn; }
+        set { howOftenShouldEnemiesSpawn = value; }
+    }
+
+    public int WaveAmt
+    {
+        get { return waveAmt; }
+        set
+        {
+            wavesInGame = value;
+            waveAmt = value;
+        }
+    }
+
+    public int HowManyWavesAreAllowed
+    {
+        get { return howManyWavesAreAllowed; }
+        set { howManyWavesAreAllowed = value; }
+    }
+
+
 
     #endregion
 

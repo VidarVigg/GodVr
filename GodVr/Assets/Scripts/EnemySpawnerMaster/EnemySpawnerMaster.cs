@@ -27,9 +27,17 @@ public class EnemySpawnerMaster : MonoBehaviour, ISpawnMasterService
 
     public void RegisterDeath()
     {
-        if (enemySpawnerData.SpawnInstances > 1)
+        if (enemySpawnerData.LastWave > 0)
         {
-            enemySpawnerData.SpawnInstances--;
+            enemySpawnerData.LastWave--;
+        }
+
+        if (enemySpawnerData.LastWave == 0)
+        {
+            if (enemySpawnerConfig.WaveAmt > 1)
+            {
+                enemySpawnerConfig.WaveAmt--;
+            }
         }
     }
 

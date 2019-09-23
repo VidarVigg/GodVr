@@ -16,7 +16,7 @@ public static class ActionDictionary
     private static ActionDelegate trackpadTouchDown = null;
 
 
-    private static ActionDelegate trackpadClickkUp = null;
+    private static ActionDelegate trackpadClickUp = null;
     private static ActionDelegate trackpadClickDown = null;
 
     public static ActionKVP[] ActionKVPs { get; private set; } =
@@ -30,8 +30,8 @@ public static class ActionDictionary
         new ActionKVP(ActionID.TrackPad_Touching_Down, trackpadTouchkUp),
         new ActionKVP(ActionID.TrackPad_Touching_Up, trackpadTouchDown),
 
-        new ActionKVP(ActionID.TrackPad_Click_Down, trackpadClickkUp),
-        new ActionKVP(ActionID.TrackPad_Click_Up, trackpadTouchDown),
+        new ActionKVP(ActionID.TrackPad_Click_Down, trackpadClickDown),
+        new ActionKVP(ActionID.TrackPad_Click_Up, trackpadClickUp),
 
     };
 

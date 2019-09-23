@@ -24,6 +24,7 @@ public abstract class InteractableWorldObject : WorldObject
 
     public virtual void Grab(Controller123 controller, Rigidbody attach)
     {
+        rigi.isKinematic = false;
 
         if (controller.State == ControllerState.Holding)
         {
@@ -50,6 +51,7 @@ public abstract class InteractableWorldObject : WorldObject
 
         transform.position = placePosition;
         transform.rotation = placeRotation;
+        rigi.isKinematic = true;
         stuff.Obj = null;
         stuff.State = ControllerState.Empty;
         return true;
@@ -61,6 +63,8 @@ public abstract class InteractableWorldObject : WorldObject
 
         Object.DestroyImmediate(joint);
         joint = null;
+
+        rigi.isKinematic = false;
 
         Transform origin = trackedObj.origin ? trackedObj.origin : trackedObj.transform.parent;
         if (origin != null)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class ConstructionFrame : InteractableWorldObject
 {
@@ -13,31 +14,24 @@ public class ConstructionFrame : InteractableWorldObject
     private GameObject actualHousePrefab;
     [SerializeField]
     private GameObject houseProgressVisualizer;
-    [SerializeField]
-    private Transform targetTransformInHierarchy;
 
 
     protected override void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.layer == 8) //Terrain
         {
-            var hej = transform.rotation;
-            Debug.Log($"hej: {hej}");
-            Debug.Log($"hej.eulerangles: {hej.eulerAngles}");
+            var rotation = transform.rotation;
 
             RaycastHit hitInfo;
             LayerMask mask = LayerMask.GetMask("Terrain");
             Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hitInfo, 100.0f, mask);
-            Debug.DrawLine(transform.position + Vector3.up, hitInfo.point, Color.blue, 5.0f);
 
             rigi.isKinematic = true;
 
             transform.position = hitInfo.point;
-
-            var asdf = hej.eulerAngles.y;
-            hej.eulerAngles = (new Vector3(0.0f, asdf, 0.0f));
-
-            transform.rotation = hej;
+            var localYRotation = rotation.eulerAngles.y;
+            rotation.eulerAngles = (new Vector3(0.0f, localYRotation, 0.0f));
+            transform.rotation = rotation;
 
         }
 
@@ -68,8 +62,11 @@ public class ConstructionFrame : InteractableWorldObject
     private void FinishConstruction()
     {
         gameObject.SetActive(false);
-        var house = Object2.Instantiate<GameObject>(actualHousePrefab, transform.position, Quaternion.identity, targetTransformInHierarchy);
+        var house = Object2.Instantiate<GameObject>(actualHousePrefab, transform.position, Quaternion.identity);
         house.transform.localScale = transform.localScale;
+        house.transform.localRotation = transform.localRotation;
+        Destroy(gameObject, 0.0f);
+
         //TODO: Implement Place() after the house has been instantiated
         //Update: Place doesn't do anything besides removing it from your hand?
         //So maybe use this?
@@ -83,6 +80,8 @@ public class ConstructionFrame : InteractableWorldObject
             houseProgressVisualizer.SetActive(true);
 
         houseProgressVisualizer.transform.localScale = new Vector3(1, (1 / (float)resourceRequired) * progress, 1);
+
+        houseProgressVisualizer.transform.DOPunchScale(Vector3.one * 0.25f, 0.25f, 13, 1);
     }
 
 }

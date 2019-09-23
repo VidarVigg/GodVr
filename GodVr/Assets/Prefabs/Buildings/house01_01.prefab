@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1160196073}
   - component: {fileID: -1007057116344570571}
   - component: {fileID: 308024519}
-  - component: {fileID: 2839923345491828717}
+  - component: {fileID: 4217959203315300418}
   m_Layer: 9
   m_Name: house01_01
   m_TagString: House
@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 3433278416876413040}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 5778890290386165271}
   - {fileID: 8327655714768800918}
@@ -135,7 +135,7 @@ MonoBehaviour:
     maxHouseHealth: 0
   structureData:
     houseHealth: 0
---- !u!82 &2839923345491828717
+--- !u!82 &4217959203315300418
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -191,7 +191,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -318,7 +318,9 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e2ebb1e7f62a68c43bb1f39355e0cfbb, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6057140222963153312, guid: 7622a1c6f7e24cf40b2300e166d1f583, type: 3}
+    - {fileID: -6057140222963153312, guid: 7622a1c6f7e24cf40b2300e166d1f583, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7622a1c6f7e24cf40b2300e166d1f583, type: 3}
 --- !u!4 &5778890290386165271 stripped
 Transform:

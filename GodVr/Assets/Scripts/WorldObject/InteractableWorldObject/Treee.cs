@@ -10,19 +10,8 @@ public class Treee : NaturalMaster
 
     public override void Grab(Controller123 controller,Rigidbody attach)
     {
+        base.Grab(controller, attach);
         rigi.isKinematic = false;
-
-
-        if (joint)
-        {
-            return;
-        }
-
-        joint = gameObject.AddComponent<FixedJoint>();
-        transform.position = attach.position;
-        joint.connectedBody = attach;
-        controller.Obj = this;
-        controller.State = ControllerState.Holding;
     }
 
     protected override void OnTriggerEnter(Collider collider)

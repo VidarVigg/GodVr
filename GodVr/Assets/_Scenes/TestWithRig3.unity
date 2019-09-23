@@ -25160,7 +25160,9 @@ MonoBehaviour:
     - {fileID: 600450376}
     - {fileID: 2072196217}
     - {fileID: 193841917}
-    spawnAmount: 0
+    howOftenShouldEnemiesSpawn: 5
+    howManyWavesAreAllowed: 5
+    wavesInGame: 0
     spawnStructs:
     - rows: 1
       columns: 1
@@ -25195,10 +25197,8 @@ MonoBehaviour:
     - rows: 4
       columns: 4
   enemySpawnerData:
-    spawnFrequency: 5
     currentTime: 0
-    spawnInstancesVis: 0
-    spawnCap: 100
+    lastWave: 0
 --- !u!1001 &1863791388
 PrefabInstance:
   m_ObjectHideFlags: 0

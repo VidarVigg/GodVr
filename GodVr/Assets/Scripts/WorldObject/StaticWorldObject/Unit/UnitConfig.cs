@@ -10,6 +10,8 @@ public class UnitConfig
 
     [SerializeField]
     private long maxHealth = 0;
+    [SerializeField]
+    private GameObject flyingCorpse = null;
 
     #endregion
 
@@ -21,6 +23,13 @@ public class UnitConfig
         set { maxHealth = value; }
 
     }
+
+    public GameObject FlyingCorpse
+    {
+        get { return flyingCorpse; }
+        set { flyingCorpse = value; }
+    }
+
 
     #endregion
 

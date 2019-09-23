@@ -49,6 +49,24 @@ public class UnitMaster : StaticWorldObject, IDamagable
         unitController.RecieveDamage(damage);
     }
 
+    public void KillUnit()
+    {
+        UnityEngine.Debug.Log("ded af xd");
+        ServiceLocator.SpawnerMasterService.RegisterDeath();
+
+        GameObject newBoi = Instantiate(unitConfig.FlyingCorpse , transform.position, Quaternion.identity);
+        newBoi.SetActive(true);
+        Destroy(gameObject);
+    }
+
+    private void Update()
+    {
+        if (Input.anyKeyDown)
+        {
+            KillUnit();
+        }
+    }
+
     #endregion
 
 }

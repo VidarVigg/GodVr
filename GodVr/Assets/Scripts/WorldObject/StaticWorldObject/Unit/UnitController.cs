@@ -40,9 +40,9 @@
     {
         if ((unitData.Health -= damage) < 1)
         {
-            UnityEngine.Debug.Log("ded af xd");
-            ServiceLocator.SpawnerMasterService.RegisterDeath();
-            UnityEngine.GameObject.Destroy(unitMaster.gameObject);
+
+            unitMaster.KillUnit();
+
         }
         else
         {

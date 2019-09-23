@@ -52,7 +52,8 @@ public class RMF_RadialMenu : MonoBehaviour {
 
     public Vector3 OffsetAngle = new Vector3(90,0,0);
 
-    void Awake() {
+    void Awake()
+    {
 
         pointer = new PointerEventData(EventSystem.current);
 
@@ -69,8 +70,10 @@ public class RMF_RadialMenu : MonoBehaviour {
         angleOffset = (360f / (float)elementCount);
 
         //Loop through and set up the elements.
-        for (int i = 0; i < elementCount; i++) {
-            if (elements[i] == null) {
+        for (int i = 0; i < elementCount; i++)
+        {
+            if (elements[i] == null)
+            {
                 Debug.LogError("Radial Menu: element " + i.ToString() + " in the radial menu " + gameObject.name + " is null!");
                 continue;
             }
@@ -81,7 +84,17 @@ public class RMF_RadialMenu : MonoBehaviour {
             elements[i].assignedIndex = i;
 
         }
-        
+
+        //Det här borde fungera
+        //Vector3 direction = transform.forward;
+        //direction = Quaternion.AngleAxis(OffsetAngle.x, rt.transform.right) * direction;
+        //rt.transform.rotation = Quaternion.Euler(direction);
+    }
+
+    private void OnEnable()
+    {
+        //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x + OffsetAngle.x, OffsetAngle.y, OffsetAngle.z);
+        Debug.Log("123 " + rt.transform.rotation);
     }
 
 
@@ -89,7 +102,6 @@ public class RMF_RadialMenu : MonoBehaviour {
             //EventSystem.current.SetSelectedGameObject(gameObject, null); //We'll make this the active object when we start it. Comment this line to set it manually from another script.
             if (useSelectionFollower && selectionFollowerContainer != null)
                 selectionFollowerContainer.rotation = Quaternion.Euler(0, 0, -globalOffset); //Point the selection follower at the first element.
-        
 
     }
     public void CheckSelection(float horizontal, float vertical)
@@ -121,7 +133,7 @@ public class RMF_RadialMenu : MonoBehaviour {
             transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x + OffsetAngle.x, transform.rotation.eulerAngles.y + OffsetAngle.y, transform.rotation.eulerAngles.z + OffsetAngle.z);
             fixRotation = true;
         }
-        
+
         //Updates the selection follower if we're using one.
         if (useSelectionFollower && selectionFollowerContainer != null)
         {

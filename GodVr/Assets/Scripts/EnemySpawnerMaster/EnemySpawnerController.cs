@@ -34,37 +34,43 @@ public class EnemySpawnerController
 
     public void Update()
     {
-      
-        if((enemySpawnerData.CurrentTime += Time.deltaTime) >= enemySpawnerData.SpawnFrequency)
-        {
-            enemySpawnerData.CurrentTime -= enemySpawnerData.SpawnFrequency;
 
-            if (enemySpawnerData.SpawnInstances < enemySpawnerData.SpawnCap)
+        if ((enemySpawnerData.CurrentTime += Time.deltaTime) >= enemySpawnerConfig.HowOftenShouldEnemiesSpawn)
+        {
+            enemySpawnerData.CurrentTime -= enemySpawnerConfig.HowOftenShouldEnemiesSpawn;
+
+            if (enemySpawnerConfig.WaveAmt < enemySpawnerConfig.HowManyWavesAreAllowed)
             {
-                Debug.Log("Hej");
                 Spawn(new SpawnStruct[] { enemySpawnerConfig.SpawnStructs[random.Next(0, enemySpawnerConfig.SpawnStructs.Length)] });
-            }      
+            }
         }
     }
 
-
-    //todo: Stop Spawning When Idle
-    
     private void Spawn(SpawnStruct[] spawnStruct)
     {
-        for (int i = 0; i < spawnStruct.Length; i++)
-        {
-            for (int j = 0; j < spawnStruct[i].rows; j++)
-            {
+        int rand = UnityEngine.Random.Range(0, enemySpawnerConfig.SpawnPoints.Length);
+        enemySpawnerConfig.WaveAmt++;
 
-                for (int k = 0; k < spawnStruct[i].columns; k++)
+        if (enemySpawnerConfig.WaveAmt <= enemySpawnerConfig.HowManyWavesAreAllowed)
+        {
+            for (int i = 0; i < spawnStruct.Length; i++)
+            {
+                for (int j = 0; j < spawnStruct[i].rows; j++)
                 {
 
-                    enemySpawnerConfig.EnemyClone = Object2.Instantiate(enemySpawnerConfig.EnemyPrefab, enemySpawnerConfig.SpawnPoints[UnityEngine.Random.Range(0, enemySpawnerConfig.SpawnPoints.Length)].position + (new Vector3((float)k / 2 , 0, (float)j / 2)), Quaternion.identity);
-                    enemySpawnerData.SpawnInstances ++;
-                
+                    for (int k = 0; k < spawnStruct[i].columns; k++)
+                    {
+
+                        enemySpawnerConfig.EnemyClone = Object2.Instantiate(enemySpawnerConfig.EnemyPrefab, 
+                        enemySpawnerConfig.SpawnPoints[rand].position + (new Vector3((float)k / 2, 0, (float)j / 2)), 
+                        Quaternion.identity);
+
+                        enemySpawnerData.LastWave = spawnStruct[i].rows * spawnStruct[i].columns;
+                        
+                    }
                 }
             }
+
         }
     }
 

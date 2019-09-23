@@ -869,9 +869,9 @@ MonoBehaviour:
   rigi: {fileID: 0}
   joint: {fileID: 0}
   audioSource: {fileID: 0}
-  resourceRequired: 7
+  resourceRequired: 9
   resourceCurrent: 0
-  actualHousePrefab: {fileID: 8262338309512254825, guid: ca0efbec9a1c4074b9b5a89912cb0c06,
+  actualHousePrefab: {fileID: 5957826227126619993, guid: 012ce244e146e5541bee0bddcf9edead,
     type: 3}
   houseProgressVisualizer: {fileID: 2974554043330625390}
   targetTransformInHierarchy: {fileID: 0}

@@ -43,6 +43,7 @@ public class GameController
 
         ActionDictionary.Subscribe(ActionID.TrackPad_Click_Down, TrackPadClickDown);
         ActionDictionary.Subscribe(ActionID.TrackPad_Click_Up, TrackPadClickUp);
+        ActionDictionary.Subscribe(ActionID.Restart, Restart);
 
         SetSize(Enum.GetValues(typeof(InputID)).Length);
     }
@@ -99,6 +100,12 @@ public class GameController
     {
         ServiceLocator.GodMasterService.TrackPadClickUp(whichID);
     }
+    public void Restart(WhichID whichID)
+    {
+
+        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+    }
+
 
     public void ReceiveInputs(BitArray rightBitArray, BitArray leftBitArray)
     {

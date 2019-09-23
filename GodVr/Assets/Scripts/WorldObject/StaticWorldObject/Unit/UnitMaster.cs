@@ -38,11 +38,6 @@ public class UnitMaster : StaticWorldObject, IDamagable
                 Debug.Log("Interactable Hit us");
                 Receive(long.MaxValue);
             }
-            else
-            {
-                Debug.Log("enemy encounter object is probably stationary");
-            }
-
             
         }
 

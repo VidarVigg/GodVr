@@ -13,4 +13,6 @@
     TrackPad_Touching_Up,
     TrackPad_Click_Down,
     TrackPad_Click_Up,
+
+    Restart
 }

@@ -5,10 +5,4 @@ using UnityEngine;
 public class NullPopulationProvider : ISessionMasterService
 {
     public int Population { get; set; }
-
-    public void ChangePopulationCount(ValueModifier modifier, int amt)
-    {
-        Debug.Log("null population provider");
-    }
-
 }

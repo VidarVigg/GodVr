@@ -19,6 +19,8 @@ public static class ActionDictionary
     private static ActionDelegate trackpadClickUp = null;
     private static ActionDelegate trackpadClickDown = null;
 
+    private static ActionDelegate restart = null;
+
     public static ActionKVP[] ActionKVPs { get; private set; } =
     {
         new ActionKVP(ActionID.Trigger_Click_Down, triggerClickDown),
@@ -32,6 +34,7 @@ public static class ActionDictionary
 
         new ActionKVP(ActionID.TrackPad_Click_Down, trackpadClickDown),
         new ActionKVP(ActionID.TrackPad_Click_Up, trackpadClickUp),
+        new ActionKVP(ActionID.Restart, restart),
 
     };
 

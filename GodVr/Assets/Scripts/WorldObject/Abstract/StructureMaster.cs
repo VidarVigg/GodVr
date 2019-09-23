@@ -45,7 +45,7 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
         {
             ServiceLocator.SessionMasterService.Population--;
             ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXHouseDestroy, audioSource);
-            Destroy(gameObject);
+            Destroy(gameObject, 2);
         }
     }
 

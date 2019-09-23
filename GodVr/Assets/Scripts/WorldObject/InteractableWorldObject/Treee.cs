@@ -43,10 +43,6 @@ public class Treee : NaturalMaster
             //    Destroy(gameObject, 1f);
             //}
         }
-        else
-        {
-            Debug.Log("Treee was not moving");
-        }
 
     }
 

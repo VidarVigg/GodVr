@@ -1,6 +1,8 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SessionController
 {
@@ -10,8 +12,6 @@ public class SessionController
     private SessionData sessionData = null;
 
     #endregion
-
-
 
     #region Contructors
 
@@ -26,15 +26,49 @@ public class SessionController
 
     #endregion
 
-
     #region Properties
-
     public int Population
     {
         get { return sessionData.Population; }
-        set { sessionData.Population = value; }
+        set {
+            sessionData.Population = value;
+            CheckWinState();
+            CheckLoseState();
+        }
+    }
+    #endregion
+
+    #region Methods
+    public void CheckWinState()
+    {
+        if(sessionData.State == SessionData.SessionState.Playing)
+        {
+            // Check if population have reached a certain amount!!
+            if(sessionData.Population > sessionData.PopulationGoal)
+            {
+                sessionData.State = SessionData.SessionState.Win;
+                //Display WIN CANVAS
+                // Instruction for restarting.
+                // WELOCME TO SANDBOX MODE!
+            }
+
+
+        }
     }
 
+    public void CheckLoseState()
+    {
+        if (sessionData.State == SessionData.SessionState.Playing)
+        {
+            if (sessionData.Population <= 0)
+            {
+                sessionData.State = SessionData.SessionState.Losts;
+                SceneManager.LoadScene(1);
+            }
+        }
+    }
     #endregion
+
+
 
 }

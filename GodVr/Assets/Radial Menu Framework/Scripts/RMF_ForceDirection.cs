@@ -30,11 +30,13 @@ public class RMF_ForceDirection : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (!Application.isPlaying)
-        rot.z = forcedZRotation;
+        //if (!Application.isPlaying)
+        //rot.z = forcedZRotation;
 
 
-        if (rt.eulerAngles != rot)
-            rt.eulerAngles = rot;
+        //if (rt.eulerAngles != rot)
+        //    rt.eulerAngles = rot;
+
+
     }
 }

@@ -26,7 +26,7 @@ public class Rock : NaturalMaster
             if (particleSystem)
             {
                 var obj = Object2.Instantiate<GameObject>(particleSystem, collision.GetContact(0).point, Quaternion.identity, null);
-                ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXEnemyImpact, audioSource);
+                //ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXEnemyImpact, audioSource);
                 Destroy(obj, 2.0f);
             }
         }

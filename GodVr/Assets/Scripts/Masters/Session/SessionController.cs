@@ -32,6 +32,7 @@ public class SessionController
         get { return sessionData.Population; }
         set {
             sessionData.Population = value;
+            UpdateUIForPopulaiton();
             CheckWinState();
             CheckLoseState();
         }
@@ -47,7 +48,7 @@ public class SessionController
             if(sessionData.Population > sessionData.PopulationGoal)
             {
                 sessionData.State = SessionData.SessionState.Win;
-                //Display WIN CANVAS
+                sessionData.winCanvas.enabled = true;
                 // Instruction for restarting.
                 // WELOCME TO SANDBOX MODE!
             }
@@ -66,6 +67,11 @@ public class SessionController
                 SceneManager.LoadScene(1);
             }
         }
+    }
+    
+    private void UpdateUIForPopulaiton()
+    {
+        sessionData.tmp.text = sessionData.Population + "/" + sessionData.PopulationGoal;
     }
     #endregion
 

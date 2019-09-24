@@ -396,13 +396,17 @@ MonoBehaviour:
     layerMaskPickUp:
       serializedVersion: 2
       m_Bits: 512
+    audioSourceLeft: {fileID: 0}
+    audioSourceRight: {fileID: 0}
   data:
     rightControllerStuff:
       state: 0
+      previousState: 0
       planningToTeleport: 0
       obj: {fileID: 0}
     leftControllerStuff:
       state: 0
+      previousState: 0
       planningToTeleport: 0
       obj: {fileID: 0}
     rightControllerAttach: {fileID: 0}
@@ -411,6 +415,8 @@ MonoBehaviour:
     leftControllerPoint: {fileID: 0}
     RayCastSphereRadius: 0.5
     RayPlaceDistance: 0.5
+    rightRadialMenu: {fileID: 0}
+    leftRadialMenu: {fileID: 0}
     sphere: {fileID: 0}
     cameraRig: {fileID: 0}
     anotherTempThing: {fileID: 0}
@@ -1492,8 +1498,6 @@ MonoBehaviour:
     debugRecivedInput: 0
   gameData:
     sessionMaster: {fileID: 0}
-    rightRadialMenu: {fileID: 0}
-    leftRadialMenu: {fileID: 0}
 --- !u!4 &1580960809
 Transform:
   m_ObjectHideFlags: 0
@@ -1752,6 +1756,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigi: {fileID: 0}
   joint: {fileID: 0}
+  audioSource: {fileID: 0}
   naturalConfig:
     resources: []
   naturalData:

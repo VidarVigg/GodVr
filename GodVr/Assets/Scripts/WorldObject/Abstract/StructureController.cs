@@ -42,7 +42,7 @@ public class StructureController
     {
 
     }
-
+    
     public void RecieveDamage(long damage)
     {
         structureData.HouseHealth -= damage;

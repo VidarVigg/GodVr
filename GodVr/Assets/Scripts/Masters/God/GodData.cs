@@ -74,6 +74,8 @@ public class GodData
     public Transform anotherTempThing;
     public LineRenderer lr1;
     public float aimAngleOffset;
+    [Range(10, 300)]
+    public int missclickProtectionTime = 200;
 
     [Header("State...")]
     public PlayerState state = PlayerState.EmptyHanded;

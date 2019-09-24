@@ -27,6 +27,11 @@ public class SessionData
 
     [SerializeField]
     private ResourceStorageMaster storageMaster;
+
+    public Canvas winCanvas;
+
+    public TMPro.TextMeshProUGUI tmp;
+
     #endregion
 
     #region Properties

@@ -138,6 +138,8 @@ MonoBehaviour:
   scale: {x: 0, y: 0, z: 0}
   structureConfig:
     maxHouseHealth: 0
+    destroyFX: {fileID: 126937185018418378, guid: 47d7b25ba343efb47a20e59c1894d6c3,
+      type: 3}
   structureData:
     houseHealth: 0
 --- !u!82 &1111599773763630244

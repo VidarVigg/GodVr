@@ -37,6 +37,7 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
     public void Receive(long damage)
     {
         structureController.RecieveDamage(damage);
+        ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXHouseDamage, audioSource);
         Debug.Log("<b> Housing took " + damage + " damage</b>", gameObject);
     }
     public void DestroyHouse()
@@ -44,8 +45,16 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
         if (joint == null)
         {
             ServiceLocator.SessionMasterService.Population--;
-            ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXHouseDestroy, audioSource);
-            Destroy(gameObject);
+
+            if (!structureData.Triggered)
+            {
+                structureData.Triggered = true;
+                GameObject clone = Object2.Instantiate(structureConfig.DestroyFX);
+                Destroy(clone, 2);
+                Destroy(gameObject);
+            }
+          
+
         }
     }
 

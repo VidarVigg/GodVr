@@ -26,7 +26,7 @@ public class UnitAIData
     private float tick;
 
     [SerializeField]
-    private float damageFrequency;
+    private float damageFrequency ;
 
     #endregion
 

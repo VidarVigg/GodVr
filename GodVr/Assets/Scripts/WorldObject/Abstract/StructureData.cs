@@ -9,6 +9,9 @@ public class StructureData
     [SerializeField]
     private long houseHealth;
 
+    [SerializeField]
+    private bool triggered;
+
     #endregion
 
     #region Properties
@@ -17,6 +20,12 @@ public class StructureData
     {
         get { return houseHealth; }
         set { houseHealth = value; }
+    }
+
+    public bool Triggered
+    {
+        get { return triggered; }
+        set { triggered = value; }
     }
 
     #endregion;

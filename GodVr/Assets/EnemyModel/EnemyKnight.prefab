@@ -205,7 +205,7 @@ MonoBehaviour:
     target: {fileID: 0}
     animator: {fileID: 0}
     tick: 0
-    damageFrequency: 1
+    damageFrequency: 5
 --- !u!54 &7920652193405827600
 Rigidbody:
   m_ObjectHideFlags: 0

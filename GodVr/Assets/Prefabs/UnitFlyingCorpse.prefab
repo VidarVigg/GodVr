@@ -94,7 +94,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 395324538706972721}
-  force: 120
+  force: 200
   lifeTime: 3
 --- !u!54 &395324538706972721
 Rigidbody:

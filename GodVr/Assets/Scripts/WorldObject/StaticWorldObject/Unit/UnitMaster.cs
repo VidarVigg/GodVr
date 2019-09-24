@@ -51,21 +51,28 @@ public class UnitMaster : StaticWorldObject, IDamagable
 
     public void KillUnit()
     {
+        // the wise man bowed his head solemnly and spoke: "theres actually zero difference between good & bad things. you imbecile. you fucking moron"
+        RaycastHit hitInfo;
+        LayerMask mask = LayerMask.GetMask("Terrain");
+        Physics.Raycast(transform.position + Vector3.up * 10, Vector3.down, out hitInfo, 50.0f, mask);
+        var point = hitInfo.point;
+
         UnityEngine.Debug.Log("ded af xd");
         ServiceLocator.SpawnerMasterService.RegisterDeath();
 
-        GameObject newBoi = Instantiate(unitConfig.FlyingCorpse, transform.position, Quaternion.identity);
+        GameObject newBoi = Instantiate(unitConfig.FlyingCorpse, point, Quaternion.identity);
+        Debug.Log(transform.position);
         newBoi.SetActive(true);
         Destroy(gameObject);
     }
 
-    //private void Update()
-    //{
-    //    if (Input.anyKeyDown)
-    //    {
-    //        KillUnit();
-    //    }
-    //}
+    private void Update()
+    {
+        if (Input.anyKey)
+        {
+            KillUnit();
+        }
+    }
 
     #endregion
 

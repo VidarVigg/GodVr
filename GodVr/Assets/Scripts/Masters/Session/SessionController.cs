@@ -47,7 +47,7 @@ public class SessionController
             if(sessionData.Population > sessionData.PopulationGoal)
             {
                 sessionData.State = SessionData.SessionState.Win;
-                //Display WIN CANVAS
+                sessionData.winCanvas.enabled = true;
                 // Instruction for restarting.
                 // WELOCME TO SANDBOX MODE!
             }

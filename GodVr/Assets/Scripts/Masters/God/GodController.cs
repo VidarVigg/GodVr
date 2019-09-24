@@ -285,7 +285,7 @@ public class GodController
         Vector3 direction = rb.transform.forward;
         direction = Quaternion.AngleAxis(godData.aimAngleOffset, rb.transform.right) * direction;
 
-        Physics.Raycast(pos, direction, out hit, 50, 1 << 8);
+        Physics.Raycast(pos, direction, out hit, 50, 1 << 11);
 
         return hit.point;
     }

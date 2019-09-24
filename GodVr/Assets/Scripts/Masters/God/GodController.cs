@@ -14,6 +14,9 @@ public class GodController
 
     //Used for missclick protection on grip click button
     private Stopwatch stopwatch = new Stopwatch();
+    [SerializeField]
+    [Range(10, 300)]
+    private int missclickProtectionTime = 200;
 
     #endregion
 
@@ -261,7 +264,7 @@ public class GodController
         stopwatch.Stop();
         var time = stopwatch.ElapsedMilliseconds;
         UnityEngine.Debug.Log("grip button held for " + time + " ms");
-        if (time <= 200)
+        if (time >= 200)
         {
             MovementTeleport(rb);
         }

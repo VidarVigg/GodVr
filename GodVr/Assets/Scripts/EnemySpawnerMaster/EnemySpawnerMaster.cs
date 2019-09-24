@@ -23,20 +23,24 @@ public class EnemySpawnerMaster : MonoBehaviour, ISpawnMasterService
     void Update()
     {
         enemySpawnerController.Update();
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            FindObjectOfType<UnitMaster>().Receive(1337);
+        }
     }
 
     public void RegisterDeath()
     {
-        if (enemySpawnerData.LastWave > 0)
+        if (enemySpawnerData.LastWave != 0)
         {
-            enemySpawnerData.LastWave--;
-        }
-
-        if (enemySpawnerData.LastWave == 0)
-        {
-            if (enemySpawnerConfig.WaveAmt > 1)
+            if (enemySpawnerData.LastWave > 0)
             {
-                enemySpawnerConfig.WaveAmt--;
+                enemySpawnerData.LastWave--;
+                if (enemySpawnerData.LastWave == 0)
+                {
+
+                    enemySpawnerConfig.WaveAmt--;
+                }
             }
         }
     }

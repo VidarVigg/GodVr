@@ -38,6 +38,11 @@ public class UnitMaster : StaticWorldObject, IDamagable
                 Debug.Log("Interactable Hit us");
                 Receive(long.MaxValue);
             }
+            else if (collider.CompareTag("ImpactZone"))
+            {
+                Debug.Log("I'm in the impact zone!");
+                Receive(long.MaxValue);
+            }
             
         }
 

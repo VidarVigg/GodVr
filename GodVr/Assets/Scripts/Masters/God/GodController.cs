@@ -246,7 +246,7 @@ public class GodController
 
     public void TeleportOnButtonDown(Rigidbody rb)
     {
-        //stopwatch.Reset();
+        stopwatch.Reset();
         stopwatch.Start();
         ray = true;
         DisplayTeleportPoint(rb);
@@ -264,9 +264,9 @@ public class GodController
         if (time <= 200)
         {
             MovementTeleport(rb);
-            ray = false;
-            godData.sphere.gameObject.SetActive(false);
         }
+        ray = false;
+        godData.sphere.gameObject.SetActive(false);
     }
 
     private void MovementTeleport(Rigidbody rb)

@@ -295,9 +295,11 @@ public class GodController
         Vector3 direction = rb.transform.forward;
         direction = Quaternion.AngleAxis(godData.aimAngleOffset, rb.transform.right) * direction;
 
-        Physics.Raycast(pos, direction, out hit, 50, 1 << 11);
-
-        return hit.point;
+        if(Physics.Raycast(pos, direction, out hit, 50, 1 << 11))
+        {
+            return hit.point;
+        }
+        return godMaster.transform.position;
     }
     #endregion
 
@@ -324,12 +326,12 @@ public class GodController
         switch (whichID)
         {
             case WhichID.Right:
-                godData.rightRadialMenu.gameObject.SetActive(true);
+                godData.rightRadialMenu.transform.parent.GetComponent<Canvas>().enabled = true;
                 godData.RightControllerStuff.State = ControllerState.Display;
                 break;
 
             case WhichID.Left:
-                godData.leftRadialMenu.gameObject.SetActive(true);
+                godData.leftRadialMenu.transform.parent.GetComponent<Canvas>().enabled = true;
                 godData.LeftControllerStuff.State = ControllerState.Display;
                 break;
 
@@ -340,7 +342,7 @@ public class GodController
         switch (whichID)
         {
             case WhichID.Right:
-                godData.rightRadialMenu.gameObject.SetActive(false);
+                godData.rightRadialMenu.transform.parent.GetComponent<Canvas>().enabled = false;
                 switch (godData.RightControllerStuff.State) 
                 {
                     case ControllerState.Display:
@@ -350,7 +352,7 @@ public class GodController
                 break;
 
             case WhichID.Left:
-                godData.leftRadialMenu.gameObject.SetActive(false);
+                godData.leftRadialMenu.transform.parent.GetComponent<Canvas>().enabled = false;
                 switch (godData.LeftControllerStuff.State)
                 {
                     case ControllerState.Display:

@@ -8,6 +8,11 @@ public class NullGodMaster : MonoBehaviour, IGodMasterService
         
     }
 
+    public void GiveObj(InteractableWorldObject obj)
+    {
+        
+    }
+
     public void GripClickDown(WhichID id)
     {
         

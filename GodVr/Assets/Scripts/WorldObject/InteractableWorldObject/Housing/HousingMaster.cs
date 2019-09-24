@@ -24,7 +24,20 @@ public class HousingMaster : StructureMaster
         ServiceLocator.SessionMasterService.Population++;
     }
 
-
+    public override void Grab(Controller123 controller, Rigidbody attach)
+    {
+        base.Grab(controller, attach);
+        transform.tag = "Defualt";
+    }
+    public override bool Place(Controller123 stuff, Vector3 placePosition, Quaternion placeRotation)
+    {
+        bool result = base.Place(stuff, placePosition, placeRotation);
+        if(result)
+        {
+            transform.tag = "House";
+        }
+        return result;
+    }
     #endregion
 
 }

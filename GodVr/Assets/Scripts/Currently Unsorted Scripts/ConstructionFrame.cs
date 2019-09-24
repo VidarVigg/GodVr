@@ -65,6 +65,7 @@ public class ConstructionFrame : InteractableWorldObject
         var house = Object2.Instantiate<GameObject>(actualHousePrefab, transform.position, Quaternion.identity);
         house.transform.localScale = transform.localScale;
         house.transform.localRotation = transform.localRotation;
+        house.GetComponent<Rigidbody>().isKinematic = true;
         Destroy(gameObject, 0.0f);
 
         //TODO: Implement Place() after the house has been instantiated

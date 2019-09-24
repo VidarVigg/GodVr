@@ -73,6 +73,15 @@ public class GodMaster : MonoBehaviour, IGodMasterService
         controller.TrackPadClickUp(id);
     }
 
+    public void GiveObj(InteractableWorldObject obj)
+    {
+
+        if (data.RightControllerStuff.PreviousState == ControllerState.Empty)
+        {
+            Instantiate(obj).Grab(data.RightControllerStuff, data.rightControllerAttach);
+        }
+    }
+
     #endregion
 
 }

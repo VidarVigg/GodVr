@@ -94,7 +94,7 @@ public class RMF_RadialMenu : MonoBehaviour {
     private void OnEnable()
     {
         //transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x + OffsetAngle.x, OffsetAngle.y, OffsetAngle.z);
-        Debug.Log("123 " + rt.transform.rotation);
+        //Debug.Log("123 " + rt.transform.rotation);
     }
 
 
@@ -102,6 +102,8 @@ public class RMF_RadialMenu : MonoBehaviour {
             //EventSystem.current.SetSelectedGameObject(gameObject, null); //We'll make this the active object when we start it. Comment this line to set it manually from another script.
             if (useSelectionFollower && selectionFollowerContainer != null)
                 selectionFollowerContainer.rotation = Quaternion.Euler(0, 0, -globalOffset); //Point the selection follower at the first element.
+
+        transform.parent.GetComponent<Canvas>().enabled = false;
 
     }
     public void CheckSelection(float horizontal, float vertical)

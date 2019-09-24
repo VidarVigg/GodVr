@@ -9,8 +9,8 @@ public class DestroyOOR : MonoBehaviour
 
     private void OnTriggerExit(Collider collider)
     {
-
-        if (collider.gameObject.GetComponent<InteractableWorldObject>())
+        InteractableWorldObject interactable = collider.gameObject.GetComponent<InteractableWorldObject>();
+        if (interactable && interactable.joint == null)
         {
             Destroy(collider.gameObject, 5f);
         }

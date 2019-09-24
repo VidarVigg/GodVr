@@ -32,11 +32,7 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
     {
         base.Awake();
         structureController = new StructureController(this, structureConfig, structureData);
-    }
-    private void Start()
-    {
-        ServiceLocator.SessionMasterService.Population++;
-    }
+    }  
 
     public void Receive(long damage)
     {

@@ -32,6 +32,7 @@ public class SessionController
         get { return sessionData.Population; }
         set {
             sessionData.Population = value;
+            UpdateUIForPopulaiton();
             CheckWinState();
             CheckLoseState();
         }
@@ -66,6 +67,11 @@ public class SessionController
                 SceneManager.LoadScene(1);
             }
         }
+    }
+    
+    private void UpdateUIForPopulaiton()
+    {
+        sessionData.tmp.text = sessionData.Population + "/" + sessionData.PopulationGoal;
     }
     #endregion
 

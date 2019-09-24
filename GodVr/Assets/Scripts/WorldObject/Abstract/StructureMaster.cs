@@ -33,6 +33,10 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
         base.Awake();
         structureController = new StructureController(this, structureConfig, structureData);
     }
+    private void Start()
+    {
+        ServiceLocator.SessionMasterService.Population++;
+    }
 
     public void Receive(long damage)
     {
@@ -43,12 +47,15 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
     {
         if (joint == null)
         {
-            ServiceLocator.SessionMasterService.Population--;
+           
             ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXHouseDestroy, audioSource);
             Destroy(gameObject);
         }
     }
-
+    private void OnDestroy()
+    {
+        ServiceLocator.SessionMasterService.Population--;
+    }
     #endregion
 
 }

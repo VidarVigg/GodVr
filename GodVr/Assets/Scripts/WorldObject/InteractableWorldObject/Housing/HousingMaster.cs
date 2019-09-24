@@ -19,6 +19,10 @@ public class HousingMaster : StructureMaster
         housingController = new HousingController(this, housingConfig, housingData);
     }
 
+    private void Start()
+    {
+        ServiceLocator.SessionMasterService.Population++;
+    }
 
 
     #endregion

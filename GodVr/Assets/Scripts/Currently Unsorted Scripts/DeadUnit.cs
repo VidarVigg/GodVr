@@ -11,7 +11,10 @@ public class DeadUnit : MonoBehaviour
 
     private void OnEnable()
     {
-        rb.AddRelativeForce(Random.Range(-0.2f, 0.2f) * force, 1 * force, Random.Range(-0.2f, 0.2f) * force); //TODO: needs to be changed and tweaked
+        rb.AddRelativeForce(Random.Range(-0.2f, 0.2f) * force,
+                            1 * force,
+                            Random.Range(-0.2f, 0.2f) * force);
+        rb.AddTorque(Random.Range(-60, 60), Random.Range(-60, 60), Random.Range(-60, 60));
         Destroy(gameObject, lifeTime);
     }
 

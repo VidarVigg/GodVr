@@ -94,8 +94,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 395324538706972721}
-  force: 100
-  lifeTime: 5
+  force: 120
+  lifeTime: 3
 --- !u!54 &395324538706972721
 Rigidbody:
   m_ObjectHideFlags: 0

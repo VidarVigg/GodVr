@@ -11,6 +11,6 @@ public interface IGodMasterService
     void SendTrackPadPosition(WhichID id, float horizontal, float vertical);
     void TrackPadClickDown(WhichID id);
     void TrackPadClickUp(WhichID id);
-
+    void GiveObj(InteractableWorldObject obj);
 
 }

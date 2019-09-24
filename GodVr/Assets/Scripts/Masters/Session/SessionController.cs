@@ -65,6 +65,7 @@ public class SessionController
             {
                 sessionData.State = SessionData.SessionState.Losts;
                 SceneManager.LoadScene(1);
+                Debug.Log("Load LOST Scene");
             }
         }
     }

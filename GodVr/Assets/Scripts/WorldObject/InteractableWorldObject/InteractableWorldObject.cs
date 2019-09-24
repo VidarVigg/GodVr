@@ -11,7 +11,7 @@ public abstract class InteractableWorldObject : WorldObject
     protected Rigidbody rigi;
 
     [SerializeField]
-    protected FixedJoint joint;
+    public FixedJoint joint;
 
     [SerializeField]
     protected AudioSource audioSource;

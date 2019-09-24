@@ -41,7 +41,7 @@ public class ExampleSpawner : InteractableWorldObject
                 break;
             case Thing.House:
                 gameobject.GetComponent<HousingMaster>().Grab(controller, attach);
-                gameobject.transform.SetParent(GameObject.Find("Houses").transform);
+                gameobject.transform.SetParent(GameObject.Find("Houses").transform); //Temp
                 gameobject.transform.localScale = Vector3.one;
                 break;
             case Thing.ConstructionFrame:

@@ -17,6 +17,8 @@ public class EditorWindowExample : EditorWindow
     public bool xRot = true, yRot = true, zRot = true;
     public float rotationOffset;
 
+    public GameObject lookAtObject;
+
     [MenuItem(menuPath)]
 
     public static void SetupWindow()
@@ -50,9 +52,9 @@ public class EditorWindowExample : EditorWindow
         GUILayout.BeginVertical(GUI.skin.box);
         var backgroundColor = GUI.backgroundColor;
         GUI.backgroundColor = Color.red;
-        var hej = new GUIStyle(EditorStyles.toolbarButton);
-        hej.fontSize = 5;
-        EditorGUILayout.LabelField("murder", hej);
+        var test = new GUIStyle(EditorStyles.toolbarButton);
+        test.fontSize = 5;
+        EditorGUILayout.LabelField("murder", test);
         GUI.backgroundColor = backgroundColor;
         //EndTrams
 
@@ -101,8 +103,6 @@ public class EditorWindowExample : EditorWindow
 
         GUILayout.EndVertical();
 
-        GUILayout.Space(10.0f);
-
         GUILayout.BeginVertical(GUI.skin.box);
 
         if (GUILayout.Button("Send Item To Ground"))
@@ -112,6 +112,22 @@ public class EditorWindowExample : EditorWindow
                 SendToGround(Selection.gameObjects);
             }
         }
+        GUILayout.EndVertical();
+
+
+        GUILayout.BeginVertical(GUI.skin.box);
+
+        lookAtObject = (GameObject)EditorGUILayout.ObjectField(lookAtObject, typeof(GameObject), true);
+
+        if (GUILayout.Button("LookAt"))
+        {
+            if (Selection.gameObjects.Length != 0)
+            {
+                LookAtObject(Selection.gameObjects);
+            }
+        }
+
+
         GUILayout.EndVertical();
     }
 
@@ -175,6 +191,23 @@ public class EditorWindowExample : EditorWindow
                     Debug.Log(obj.transform.name + "was placed out of bounds, now at 0,0,0");
                 }
             }
+        }
+    }
+
+    private void LookAtObject(GameObject[] transforms)
+    {
+
+        if (lookAtObject)
+        {
+            foreach (GameObject obj in transforms)
+            {
+                Undo.RecordObject(obj.transform, "LookAt");
+                obj.transform.LookAt(lookAtObject.transform.position);
+            }
+        }
+        else
+        {
+            EditorUtility.DisplayDialog("Oh Dear", "", "Sssnnnniiiiifffffff");
         }
     }
 }

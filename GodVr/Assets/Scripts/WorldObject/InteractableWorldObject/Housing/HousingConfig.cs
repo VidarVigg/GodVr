@@ -1,4 +1,9 @@
 ﻿using System;
+using UnityEngine;
 
 [Serializable]
-public class HousingConfig { }
+public class HousingConfig
+
+{
+
+}

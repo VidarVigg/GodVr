@@ -4,7 +4,7 @@
     SFXImpact,
     SFXHouseDestroy,
     SFXAttackCharge,
-    SFXAttackHit,
+    SFXHouseDamage,
     SFXGrab,
     SFXThrow,
     AMBEnvironment,

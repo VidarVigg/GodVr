@@ -9,6 +9,12 @@ public class StructureConfig
     [SerializeField]
     private long maxHouseHealth;
 
+    [SerializeField]
+    private GameObject destroyFX;
+
+
+
+
 
     #endregion
 
@@ -18,6 +24,13 @@ public class StructureConfig
     {
         get { return maxHouseHealth; }
         set { maxHouseHealth = value; }
+    }
+
+
+    public GameObject DestroyFX
+    {
+        get { return destroyFX; }
+        set { destroyFX = value; }
     }
 
 

@@ -44,7 +44,6 @@ public class UnitAIController
             {
                 unitAIData.Tick -= unitAIData.DamageFrequency;
                 DamageBuilding();
-
             }
 
         }
@@ -65,6 +64,8 @@ public class UnitAIController
     {
         unitAIData.Hits = new Collider[unitAIConfig.MaxHits];
         unitAIData.Animator = unitAIMaster.GetComponent<Animator>();
+        unitAIData.Tick = Random.Range(0, unitAIData.DamageFrequency);
+
     }
 
     private bool SearchForStructure()
@@ -131,7 +132,6 @@ public class UnitAIController
         if ((temp - unitAIMaster.gameObject.transform.position).magnitude < 1f)
         {
             (unitAIData.Target as IDamagable).Receive(1);
-            unitAIData.Animator.SetBool("Attacking", true);
         }
 
 

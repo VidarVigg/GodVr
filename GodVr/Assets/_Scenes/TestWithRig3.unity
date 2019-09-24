@@ -25023,7 +25023,7 @@ MonoBehaviour:
     - {fileID: 600450376}
     - {fileID: 2072196217}
     - {fileID: 193841917}
-    howOftenShouldEnemiesSpawn: 5
+    howOftenShouldEnemiesSpawn: 1
     howManyWavesAreAllowed: 5
     wavesInGame: 0
     spawnStructs:

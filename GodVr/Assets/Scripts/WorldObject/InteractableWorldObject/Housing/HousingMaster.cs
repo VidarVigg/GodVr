@@ -27,7 +27,7 @@ public class HousingMaster : StructureMaster
     public override void Grab(Controller123 controller, Rigidbody attach)
     {
         base.Grab(controller, attach);
-        transform.tag = "Defualt";
+        transform.tag = "Untagged";
     }
     public override bool Place(Controller123 stuff, Vector3 placePosition, Quaternion placeRotation)
     {

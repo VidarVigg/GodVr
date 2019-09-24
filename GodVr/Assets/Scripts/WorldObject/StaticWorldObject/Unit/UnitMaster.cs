@@ -66,7 +66,7 @@ public class UnitMaster : StaticWorldObject, IDamagable
         ServiceLocator.SpawnerMasterService.RegisterDeath();
 
         GameObject newBoi = Instantiate(unitConfig.FlyingCorpse, point, Quaternion.identity);
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
         newBoi.SetActive(true);
         Destroy(gameObject);
     }

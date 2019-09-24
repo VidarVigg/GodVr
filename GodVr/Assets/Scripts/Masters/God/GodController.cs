@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Diagnostics;
 using System.Collections;
 using Valve.VR;
 
@@ -10,6 +11,9 @@ public class GodController
     private GodMaster godMaster = null;
     private GodConfig godConfig = null;
     private GodData godData = null;
+
+    //Used for missclick protection on grip click button
+    private Stopwatch stopwatch = new Stopwatch();
 
     #endregion
 
@@ -172,7 +176,7 @@ public class GodController
 
         if (!obj)
         {
-            Debug.LogWarning("INTERACTABLEWORLDOBJECT PLS");
+            UnityEngine.Debug.LogWarning("INTERACTABLEWORLDOBJECT PLS");
             return;
         }
 
@@ -187,14 +191,13 @@ public class GodController
 
         if (Physics.RaycastNonAlloc(position, Vector3.down, hits, godData.RayPlaceDistance, godConfig.LayerMaskTerrain) < 1)
         {
-            Debug.Log("Failed to Place");
+            UnityEngine.Debug.Log("Failed to Place");
             return false;
         }
 
         //Keep hand rotation
         var rotation = stuff.Obj.transform.eulerAngles = (new Vector3(0.0f, stuff.Obj.transform.eulerAngles.y, 0.0f));
 
-        //return stuff.Obj.Place(stuff, hits[0].point, Quaternion.Euler(hits[0].normal));
         return stuff.Obj.Place(stuff, hits[0].point, Quaternion.Euler(rotation));
     }
 
@@ -243,6 +246,8 @@ public class GodController
 
     public void TeleportOnButtonDown(Rigidbody rb)
     {
+        //stopwatch.Reset();
+        stopwatch.Start();
         ray = true;
         DisplayTeleportPoint(rb);
 
@@ -253,10 +258,15 @@ public class GodController
 
     public void TeleportOnButtonUp(Rigidbody rb)
     {
-
-        MovementTeleport(rb);
-        ray = false;
-        godData.sphere.gameObject.SetActive(false);
+        stopwatch.Stop();
+        var time = stopwatch.ElapsedMilliseconds;
+        UnityEngine.Debug.Log("grip button held for " + time + " ms");
+        if (time <= 200)
+        {
+            MovementTeleport(rb);
+            ray = false;
+            godData.sphere.gameObject.SetActive(false);
+        }
     }
 
     private void MovementTeleport(Rigidbody rb)

@@ -243,7 +243,6 @@ public class GodController
 
         currentPoint = rb.transform.position;
         chachedRb = rb;
-        //godData.anotherTempThing.gameObject.SetActive(true);
         godData.sphere.gameObject.SetActive(true);
     }
 
@@ -252,7 +251,6 @@ public class GodController
 
         MovementTeleport(rb);
         ray = false;
-        // godData.anotherTempThing.gameObject.SetActive(false);
         godData.sphere.gameObject.SetActive(false);
     }
 

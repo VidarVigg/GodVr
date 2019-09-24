@@ -11,7 +11,7 @@ public class DeadUnit : MonoBehaviour
 
     private void OnEnable()
     {
-        rb.AddExplosionForce(force,transform.position, 1f); //TODO: needs to be changed and tweaked
+        rb.AddRelativeForce(Random.Range(-0.2f, 0.2f) * force, 1 * force, Random.Range(-0.2f, 0.2f) * force); //TODO: needs to be changed and tweaked
         Destroy(gameObject, lifeTime);
     }
 

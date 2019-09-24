@@ -190,7 +190,12 @@ public class GodController
             Debug.Log("Failed to Place");
             return false;
         }
-        return stuff.Obj.Place(stuff, hits[0].point, Quaternion.Euler(hits[0].normal));
+
+        //Keep hand rotation
+        var rotation = stuff.Obj.transform.eulerAngles = (new Vector3(0.0f, stuff.Obj.transform.eulerAngles.y, 0.0f));
+
+        //return stuff.Obj.Place(stuff, hits[0].point, Quaternion.Euler(hits[0].normal));
+        return stuff.Obj.Place(stuff, hits[0].point, Quaternion.Euler(rotation));
     }
 
    

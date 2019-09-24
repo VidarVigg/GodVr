@@ -207,7 +207,7 @@ public class EditorWindowExample : EditorWindow
         }
         else
         {
-            EditorUtility.DisplayDialog("Oh Dear", "", "Sssnnnniiiiifffffff");
+            EditorUtility.DisplayDialog("Oh Dear", " ", "Sssnnnniiiiifffffff");
         }
     }
 }

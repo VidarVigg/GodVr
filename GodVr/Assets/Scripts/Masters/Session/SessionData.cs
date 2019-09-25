@@ -32,6 +32,7 @@ public class SessionData
     private float timeBeforeReset = 1;
 
     public Canvas winCanvas;
+    public Canvas loseCanvas;
 
     public TMPro.TextMeshProUGUI tmp;
 

@@ -51,7 +51,7 @@ public class SessionController
 
                 //Here we do winning stuff
 
-                sessionData.winCanvas.enabled = true;
+                sessionData.winCanvas.gameObject.SetActive(true);
                 // Instruction for restarting.
                 // WELOCME TO SANDBOX MODE!
 

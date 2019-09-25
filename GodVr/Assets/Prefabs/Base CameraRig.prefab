@@ -247,6 +247,7 @@ MonoBehaviour:
     state: 0
     mainBuilding: {fileID: 0}
     storageMaster: {fileID: 5415753468853743047}
+    timeBeforeReset: 1
     winCanvas: {fileID: 3437794618914453616}
     tmp: {fileID: 0}
 --- !u!1 &977356242517626320
@@ -2958,6 +2959,64 @@ MonoBehaviour:
     aimAngleOffset: 10
     yPositionOffset: 0.4
     missclickProtectionTime: 150
+    allowedTeleportColor:
+      serializedVersion: 2
+      key0: {r: 0, g: 0.5660378, b: 0.10654828, a: 1}
+      key1: {r: 0, g: 0.5686275, b: 0.1137255, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 1}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 65535
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    disallowedTeleportColor:
+      serializedVersion: 2
+      key0: {r: 1, g: 0, b: 0, a: 1}
+      key1: {r: 1, g: 0.007843138, b: 0.007843138, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
     state: 0
     cameraTransform: {fileID: 981346763351996298}
 --- !u!1 &2358879229806230455
@@ -3094,6 +3153,18 @@ MonoBehaviour:
     debugRecivedInput: 0
   gameData:
     sessionMaster: {fileID: 0}
+--- !u!114 &5695639687391002916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572254310582723904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0242660ae6730df4d9b7f9f0a2da23be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4263093118923384867
 GameObject:
   m_ObjectHideFlags: 0
@@ -3871,6 +3942,18 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: -0.00000004371139
       objectReference: {fileID: 0}
+    - target: {fileID: 11435124, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5695639687391002916}
+    - target: {fileID: 11435124, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 11435124, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 11499586, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3937,6 +4020,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
+--- !u!1 &3572254310582723904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 172674, guid: 69988eeaf22db50428892b9cf8812ad4,
+    type: 3}
+  m_PrefabInstance: {fileID: 3572254310582880194}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &3572254310571136868 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 22401190, guid: 69988eeaf22db50428892b9cf8812ad4,
@@ -3949,7 +4038,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 3572254310582880194}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3572254310582723904}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 596c16ceda382094bb544ea45272cec7, type: 3}

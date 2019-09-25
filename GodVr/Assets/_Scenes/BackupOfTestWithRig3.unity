@@ -29615,8 +29615,41 @@ PrefabInstance:
       propertyPath: sessionData.tmp
       value: 
       objectReference: {fileID: 1278048618416105874}
+    - target: {fileID: 3572254310572555190, guid: 1f6ef19d6ec32214f99294c24e26a94a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3572254309158222905}
+    - target: {fileID: 3572254310572555190, guid: 1f6ef19d6ec32214f99294c24e26a94a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ReloadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 3572254310572555190, guid: 1f6ef19d6ec32214f99294c24e26a94a,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f6ef19d6ec32214f99294c24e26a94a, type: 3}
+--- !u!1 &3572254309158222904 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3572254310582723904, guid: 1f6ef19d6ec32214f99294c24e26a94a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3572254309158222903}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &3572254309158222905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3572254309158222904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0242660ae6730df4d9b7f9f0a2da23be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5048326147329363344
 GameObject:
   m_ObjectHideFlags: 0

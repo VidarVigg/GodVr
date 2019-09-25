@@ -131,10 +131,8 @@ public class UnitAIController
 
         if ((temp - unitAIMaster.gameObject.transform.position).magnitude < 1f)
         {
-            (unitAIData.Target as IDamagable).Receive(1);
+            (unitAIData.Target as IDamagable).Receive(unitAIData.Damage);
         }
-
-
     }
     
     

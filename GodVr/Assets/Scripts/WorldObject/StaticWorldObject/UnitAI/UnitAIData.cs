@@ -28,6 +28,8 @@ public class UnitAIData
     [SerializeField]
     private float damageFrequency ;
 
+    [SerializeField]
+    private long damage;
     #endregion
 
     #region Properties
@@ -72,6 +74,11 @@ public class UnitAIData
     {
         get { return damageFrequency; }
         set { damageFrequency = value; }
+    }
+    public long Damage
+    {
+        get { return damage; }
+        set { damage = value; }
     }
 
     #endregion

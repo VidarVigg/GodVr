@@ -51,7 +51,9 @@ public class SessionController
 
                 //Here we do winning stuff
 
-                sessionData.winCanvas.gameObject.SetActive(true);
+                //sessionData.winCanvas.gameObject.SetActive(true);
+
+                sessionData.winBigSign.SetActive(true);
                 // Instruction for restarting.
                 // WELOCME TO SANDBOX MODE!
 
@@ -72,8 +74,10 @@ public class SessionController
             if (sessionData.Population <= 0)
             {
                 sessionData.State = SessionData.SessionState.Losts;
-                
                 // Here we do lossing stuff
+
+                //sessionData.loseCanvas.gameObject.SetActive(true);
+                sessionData.loseBigSign.SetActive(true);
 
 
                 sessionMaster.InvokeLoadScene();

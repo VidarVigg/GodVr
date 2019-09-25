@@ -34,6 +34,9 @@ public class SessionData
     public Canvas winCanvas;
     public Canvas loseCanvas;
 
+    public GameObject winBigSign;
+    public GameObject loseBigSign;
+
     public TMPro.TextMeshProUGUI tmp;
 
     #endregion

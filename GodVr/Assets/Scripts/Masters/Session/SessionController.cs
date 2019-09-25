@@ -48,9 +48,17 @@ public class SessionController
             if(sessionData.Population > sessionData.PopulationGoal)
             {
                 sessionData.State = SessionData.SessionState.Win;
+
+                //Here we do winning stuff
+
                 sessionData.winCanvas.enabled = true;
                 // Instruction for restarting.
                 // WELOCME TO SANDBOX MODE!
+
+                // Why if UNITY_EDITOR, det är för att då följer inte debug meddelandet med när vi bygger spelet. Men egentligen borde den tas bort helt!
+#if UNITY_EDITOR
+                Debug.Log("You Won");
+#endif
             }
 
 
@@ -64,9 +72,15 @@ public class SessionController
             if (sessionData.Population <= 0)
             {
                 sessionData.State = SessionData.SessionState.Losts;
-                //SceneManager.LoadScene(0);
+                
+                // Here we do lossing stuff
+
+
                 sessionMaster.InvokeLoadScene();
-                Debug.Log("Load LOST Scene");
+                // Why if UNITY_EDITOR, det är för att då följer inte debug meddelandet med när vi bygger spelet. Men egentligen borde den tas bort helt!
+#if UNITY_EDITOR
+                Debug.Log("LOST: Restarting in "+ sessionData.TimeBeforeReset + "s");
+#endif
             }
         }
     }

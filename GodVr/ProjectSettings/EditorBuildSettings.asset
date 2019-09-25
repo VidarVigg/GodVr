@@ -8,10 +8,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/BackupOfTestWithRig3.unity
     guid: d2a80534ae7574a4aa329feca495f248
-  - enabled: 1
-    path: Assets/_Scenes/TestWithRig3.unity
-    guid: 6019d9d1dd542ed4b8ea23b5f5daebf2
-  - enabled: 1
-    path: Assets/_Scenes/LOST.unity
-    guid: 37d2c62aa6375974b9793511cc7461b8
   m_configObjects: {}

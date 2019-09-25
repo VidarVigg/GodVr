@@ -337,7 +337,7 @@ public class GodController
     private Vector3 TransfromsPositionOnTeleport(Transform transform)
     {
         RaycastHit hit;
-        if (Physics.Raycast(transform.position, -transform.up, out hit, 50, 1 << 11))
+        if (Physics.Raycast(transform.position, Vector3.down, out hit, 50, 1 << 11))
         {
             return new Vector3( hit.point.x, 0,hit.point.z);
         }

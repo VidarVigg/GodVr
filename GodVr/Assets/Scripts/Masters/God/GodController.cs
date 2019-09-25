@@ -274,7 +274,7 @@ public class GodController
     {
         stopwatch.Stop();
         var time = stopwatch.ElapsedMilliseconds;
-        UnityEngine.Debug.Log("grip button held for " + time + " ms");
+        //UnityEngine.Debug.Log("grip button held for " + time + " ms");
         if (time >= godData.missclickProtectionTime)
         {
             MovementTeleport(rb);

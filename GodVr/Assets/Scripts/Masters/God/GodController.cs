@@ -112,11 +112,8 @@ public class GodController
 
         if (stuff.State == ControllerState.Holding)
         {
-
             ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXThrow, pose.GetComponent<AudioSource>());
             stuff.Obj.Throw(pose);
-            stuff.Obj = null;
-            stuff.State = ControllerState.Empty;
         }
 
     }
@@ -198,7 +195,7 @@ public class GodController
         //Keep hand rotation
         var rotation = stuff.Obj.transform.eulerAngles = (new Vector3(0.0f, stuff.Obj.transform.eulerAngles.y, 0.0f));
 
-        return stuff.Obj.Place(stuff, hits[0].point, Quaternion.Euler(rotation));
+        return stuff.Obj.Place(hits[0].point, Quaternion.Euler(rotation));
     }
 
    public void ClearHand(InteractableWorldObject obj)

@@ -29,9 +29,9 @@ public class HousingMaster : StructureMaster
         base.Grab(controller, attach);
         transform.tag = "Untagged";
     }
-    public override bool Place(Controller123 stuff, Vector3 placePosition, Quaternion placeRotation)
+    public override bool Place(Vector3 placePosition, Quaternion placeRotation)
     {
-        bool result = base.Place(stuff, placePosition, placeRotation);
+        bool result = base.Place(placePosition, placeRotation);
         if(result)
         {
             transform.tag = "House";

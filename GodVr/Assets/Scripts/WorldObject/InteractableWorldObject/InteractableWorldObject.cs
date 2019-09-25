@@ -14,10 +14,16 @@ public abstract class InteractableWorldObject : WorldObject
     public FixedJoint joint;
 
     [SerializeField]
+    public Controller123 heldBy;
+
+
+    [SerializeField]
     protected AudioSource audioSource;
 
     [SerializeField]
     protected float soundImpactThreshold = 0.05f;
+
+
     protected virtual void Awake()
     {
         rigi = gameObject.GetComponent<Rigidbody>();
@@ -41,21 +47,18 @@ public abstract class InteractableWorldObject : WorldObject
         joint = gameObject.AddComponent<FixedJoint>();
         transform.position = attach.position;
         joint.connectedBody = attach;
+        heldBy = controller;
         controller.Obj = this;
         controller.State = ControllerState.Holding;
         ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXGrab, audioSource);
     }
 
-    public virtual bool Place(Controller123 stuff, Vector3 placePosition, Quaternion placeRotation)
+    public virtual bool Place(Vector3 placePosition, Quaternion placeRotation)
     {
-        Object.DestroyImmediate(joint);
-        joint = null;
-
+        Drop();
         transform.position = placePosition;
         transform.rotation = placeRotation;
         rigi.isKinematic = true;
-        stuff.Obj = null;
-        stuff.State = ControllerState.Empty;
         return true;
     }
 
@@ -63,8 +66,7 @@ public abstract class InteractableWorldObject : WorldObject
     public virtual void Throw(SteamVR_Behaviour_Pose trackedObj)
     {
 
-        Object.DestroyImmediate(joint);
-        joint = null;
+        Drop();
 
         rigi.isKinematic = false;
 
@@ -82,6 +84,16 @@ public abstract class InteractableWorldObject : WorldObject
 
         rigi.maxAngularVelocity = rigi.angularVelocity.magnitude;
         ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXThrow, audioSource);
+    }
+    public virtual void Drop()
+    {
+        Object.DestroyImmediate(joint);
+        joint = null;
+
+        //Makes sure the controller we held is set correctly
+        heldBy.Obj = null;
+        heldBy.State = ControllerState.Empty;
+        heldBy = null;
     }
 
     protected override void OnCollisionEnter(Collision collision)

@@ -46,7 +46,7 @@ public class Treee : NaturalMaster
 
     }
 
-    public override bool Place(Controller123 stuff, Vector3 placePosition, Quaternion placeRotation)
+    public override bool Place(Vector3 placePosition, Quaternion placeRotation)
     {
         return false;
     }

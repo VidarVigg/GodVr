@@ -15,7 +15,7 @@ public class Rock : NaturalMaster
     private GameObject impactZone = null;
 
 
-    public override bool Place(Controller123 stuff, Vector3 placePosition, Quaternion placeRotation)
+    public override bool Place(Vector3 placePosition, Quaternion placeRotation)
     {
         return false;
     }

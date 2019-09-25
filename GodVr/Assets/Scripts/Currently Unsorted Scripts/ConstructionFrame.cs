@@ -39,11 +39,12 @@ public class ConstructionFrame : InteractableWorldObject
         {
             if (resourceCurrent < resourceRequired)
             {
-                if (collision.gameObject.GetComponent<InteractableWorldObject>())
+                InteractableWorldObject worldObject = collision.gameObject.GetComponent<InteractableWorldObject>();
+                if (worldObject)
                 {
-                    if (collision.gameObject.GetComponent<InteractableWorldObject>().joint)
+                    if (worldObject.joint)
                     {
-                        ServiceLocator.GodMasterService.ClearHand(collision.gameObject.GetComponent<InteractableWorldObject>());
+                        worldObject.Drop();
                     }
                 }
 

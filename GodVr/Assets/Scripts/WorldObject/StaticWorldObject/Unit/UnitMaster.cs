@@ -38,6 +38,11 @@ public class UnitMaster : StaticWorldObject, IDamagable
                 Debug.Log("Interactable Hit us");
                 Receive(long.MaxValue);
             }
+            else if (collider.CompareTag("ImpactZone"))
+            {
+                Debug.Log("I'm in the impact zone!");
+                Receive(long.MaxValue);
+            }
             
         }
 
@@ -61,7 +66,7 @@ public class UnitMaster : StaticWorldObject, IDamagable
         ServiceLocator.SpawnerMasterService.RegisterDeath();
 
         GameObject newBoi = Instantiate(unitConfig.FlyingCorpse, point, Quaternion.identity);
-        Debug.Log(transform.position);
+        //Debug.Log(transform.position);
         newBoi.SetActive(true);
         Destroy(gameObject);
     }

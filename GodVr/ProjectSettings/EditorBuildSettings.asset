@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Scenes/BackupOfTestWithRig3.unity
+    guid: d2a80534ae7574a4aa329feca495f248
+  - enabled: 1
     path: Assets/_Scenes/TestWithRig3.unity
     guid: 6019d9d1dd542ed4b8ea23b5f5daebf2
   - enabled: 1

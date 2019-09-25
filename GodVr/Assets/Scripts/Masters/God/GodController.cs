@@ -289,7 +289,7 @@ public class GodController
         godData.cameraRig.position = Ray(rb) + (Vector3.down * godData.yPositionOffset) + (godData.cameraRig.position - positionOfCameraOnTeleportArea == Vector3.zero?godData.cameraRig.position:positionOfCameraOnTeleportArea) ;
     }
 
-    private void DisplayTeleportPoint(Rigidbody rb)
+    private void DisplayTeleportPoint(Rigidbody rb) //gomenasorry /anton
     {
         Vector3 hitPoint = Ray(rb);
 
@@ -298,11 +298,17 @@ public class GodController
 
         if (hitPoint != godMaster.transform.position)
         {
+            godData.lr1.colorGradient = godData.allowedTeleportColor;
             godData.lr1.SetPositions(CalculateLineRenderPoints(rb.position, hitPoint));
         }
         else
         {
-            godData.lr1.SetPositions(CalculateLineRenderPoints(rb.position, rb.gameObject.transform.forward * 10.0f));
+            godData.lr1.colorGradient = godData.disallowedTeleportColor;
+
+            Vector3 direction = rb.transform.forward;
+            direction = Quaternion.AngleAxis(godData.aimAngleOffset, rb.transform.right) * direction;
+
+            godData.lr1.SetPositions(CalculateLineRenderPoints(rb.position, direction * 1.0f));
         }
 
         godData.sphere.position = hitPoint;
@@ -335,6 +341,7 @@ public class GodController
         }
         return Vector3.zero;
     }
+
     private Vector3 Ray(Rigidbody rb)
     {
         Vector3 pos = rb.position;

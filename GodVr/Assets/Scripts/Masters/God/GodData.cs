@@ -77,6 +77,7 @@ public class GodData
     public float yPositionOffset;
     [Range(10, 300)]
     public int missclickProtectionTime = 200;
+    public Gradient allowedTeleportColor, disallowedTeleportColor;
 
     [Header("State...")]
     public PlayerState state = PlayerState.EmptyHanded;

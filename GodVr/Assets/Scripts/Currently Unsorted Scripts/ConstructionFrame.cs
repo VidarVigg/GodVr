@@ -39,6 +39,14 @@ public class ConstructionFrame : InteractableWorldObject
         {
             if (resourceCurrent < resourceRequired)
             {
+                if (collision.gameObject.GetComponent<InteractableWorldObject>())
+                {
+                    if (collision.gameObject.GetComponent<InteractableWorldObject>().joint)
+                    {
+                        ServiceLocator.GodMasterService.ClearHand(collision.gameObject.GetComponent<InteractableWorldObject>());
+                    }
+                }
+
                 Destroy(collision.gameObject);
                 IncreaseBuildingProgression();
             }

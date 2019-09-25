@@ -82,6 +82,11 @@ public class GodMaster : MonoBehaviour, IGodMasterService
         }
     }
 
+    public void ClearHand(InteractableWorldObject obj)
+    {
+        controller.ClearHand(obj);
+    }
+
     #endregion
 
 }

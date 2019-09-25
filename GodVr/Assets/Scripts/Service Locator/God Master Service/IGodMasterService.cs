@@ -12,5 +12,6 @@ public interface IGodMasterService
     void TrackPadClickDown(WhichID id);
     void TrackPadClickUp(WhichID id);
     void GiveObj(InteractableWorldObject obj);
+    void ClearHand(InteractableWorldObject obj);
 
 }

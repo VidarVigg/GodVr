@@ -201,7 +201,21 @@ public class GodController
         return stuff.Obj.Place(stuff, hits[0].point, Quaternion.Euler(rotation));
     }
 
-   
+   public void ClearHand(InteractableWorldObject obj)
+    {
+        if (godData.LeftControllerStuff.Obj == obj)
+        {
+            godData.RightControllerStuff.Obj = null;
+            godData.LeftControllerStuff.State = ControllerState.Empty;
+        }
+
+        if (godData.RightControllerStuff.Obj == obj)
+        {
+            godData.RightControllerStuff.Obj = null;
+            godData.LeftControllerStuff.State = ControllerState.Empty;
+        }
+    }
+
     #endregion
 
     #region Antons Old Drag (Movement)
@@ -280,11 +294,31 @@ public class GodController
 
         godData.lr1.SetPosition(0, rb.position);
 
-        if (hitPoint != Vector3.zero)
-            godData.lr1.SetPosition(1, hitPoint);
+
+        if (hitPoint != godMaster.transform.position)
+        {
+            godData.lr1.SetPositions(CalculateLineRenderPoints(rb.position, hitPoint));
+        }
+        else
+        {
+            godData.lr1.SetPositions(CalculateLineRenderPoints(rb.position, rb.transform.forward * 2.0f));
+        }
 
         godData.sphere.position = hitPoint;
 
+    }
+
+    private Vector3[] CalculateLineRenderPoints(Vector3 A, Vector3 B)
+    {
+        Vector3[] linePoints = new Vector3[5];
+
+        var AB = Vector3.Normalize(B - A);
+
+        for (int i = 0; i < 5; i++)
+        {
+            linePoints[i] = (i + 0.2f) * AB + A;
+        }
+        return linePoints;
     }
 
     private Vector3 Ray(Rigidbody rb)

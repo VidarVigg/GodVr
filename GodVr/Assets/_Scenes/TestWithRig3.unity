@@ -29273,7 +29273,7 @@ PrefabInstance:
     - target: {fileID: 6142055234277902103, guid: 8055797a8b9a5d24dbfd4387f296a671,
         type: 3}
       propertyPath: m_Name
-      value: AudioMastet
+      value: AudioMaster
       objectReference: {fileID: 0}
     - target: {fileID: 6142055234277902097, guid: 8055797a8b9a5d24dbfd4387f296a671,
         type: 3}
@@ -29540,6 +29540,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 525784687801385979, guid: a234c4697ed52d049b2690cd26de8008,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: aec358c4593860444aaef5550e2f90aa,
+        type: 2}
+    - target: {fileID: 525784687801385979, guid: a234c4697ed52d049b2690cd26de8008,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 704077166338391502, guid: aec358c4593860444aaef5550e2f90aa,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a234c4697ed52d049b2690cd26de8008, type: 3}
 --- !u!114 &1278048618416105874 stripped

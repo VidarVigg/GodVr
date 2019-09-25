@@ -6,6 +6,7 @@ public struct AudioStruct
 {
     public AudioClip[] clip;
     public AudioType type;
+
     [Range(0, 1)]
     public float volume;
 

@@ -38,7 +38,6 @@ public class EnemySpawnerMaster : MonoBehaviour, ISpawnMasterService
                 enemySpawnerData.LastWave--;
                 if (enemySpawnerData.LastWave == 0)
                 {
-
                     enemySpawnerConfig.WaveAmt--;
                 }
             }

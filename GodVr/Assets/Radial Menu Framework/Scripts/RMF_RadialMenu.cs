@@ -139,7 +139,7 @@ public class RMF_RadialMenu : MonoBehaviour {
         //Updates the selection follower if we're using one.
         if (useSelectionFollower && selectionFollowerContainer != null)
         {
-            selectionFollowerContainer.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x + OffsetAngle.x, transform.rotation.eulerAngles.y + OffsetAngle.y, rawAngle + 270);
+            selectionFollowerContainer.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, rawAngle + 270);
         }
     }
     public void ButtonPressedTest()

@@ -52,7 +52,7 @@ public class RMF_RadialMenuElement : MonoBehaviour {
 
     void Start () {
 
-        rt.rotation = Quaternion.Euler(0, 0, -angleOffset); //Apply rotation determined by the parent radial menu.
+        //rt.rotation = Quaternion.Euler(0, 0, -angleOffset); //Apply rotation determined by the parent radial menu.
 
         //If we're using lazy selection, we don't want our normal mouse-over effects interfering, so we turn raycasts off.
         if (parentRM.useLazySelection)

@@ -14,7 +14,6 @@ public class Rock : NaturalMaster
     [SerializeField]
     private GameObject impactZone = null;
 
-
     public override bool Place(Vector3 placePosition, Quaternion placeRotation)
     {
         return false;
@@ -24,6 +23,9 @@ public class Rock : NaturalMaster
     {
 
         base.OnCollisionEnter(collision);
+        activateDestroyTimer = true;
+        Debug.Log("Activate DestroyTimer");
+
         if (rigi.velocity.sqrMagnitude >= vfxSpawnThreshold)
         {
             if (particleSystem)

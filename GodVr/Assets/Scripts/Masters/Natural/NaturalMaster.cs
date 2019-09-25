@@ -29,8 +29,9 @@ public class NaturalMaster : InteractableWorldObject
         naturalController = new NaturalController(this, naturalConfig, naturalData);
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         naturalController.Update();
     }
 

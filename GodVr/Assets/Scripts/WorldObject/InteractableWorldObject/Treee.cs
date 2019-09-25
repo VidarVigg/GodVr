@@ -16,7 +16,7 @@ public class Treee : NaturalMaster
 
     protected override void OnTriggerEnter(Collider collider)
     {
-
+        activateDestroyTimer = true;
         if (rigi.velocity.sqrMagnitude >= 0.05)
         {
             if (collider.gameObject.layer == 10)

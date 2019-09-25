@@ -127,7 +127,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigi: {fileID: 0}
   joint: {fileID: 0}
+  heldBy:
+    state: 0
+    previousState: 0
+    planningToTeleport: 0
+    obj: {fileID: 0}
   audioSource: {fileID: -6083713753718801719}
+  soundImpactThreshold: 0.05
+  destroyTimer: 10
   naturalConfig:
     resources:
     - type: 2

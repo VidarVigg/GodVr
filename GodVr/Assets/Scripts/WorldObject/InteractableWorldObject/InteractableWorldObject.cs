@@ -23,11 +23,54 @@ public abstract class InteractableWorldObject : WorldObject
     [SerializeField]
     protected float soundImpactThreshold = 0.05f;
 
+    [Header("Destroy Timer")]
+    [SerializeField]
+    protected float destroyTimer = 10;
+    protected float destroyTimerSavedValue;
+
+    // This variable should be set true, when we want it to start counting down. 
+    /* Exampels:
+     *  - Rock hit something.
+     *  - Tree hit something
+     *  - Houses should not be destroyed if they collide with terrain. Only when there tag is Untagged then it will destroy
+     */
+    protected bool activateDestroyTimer = false;
 
     protected virtual void Awake()
     {
         rigi = gameObject.GetComponent<Rigidbody>();
         audioSource = gameObject.GetComponent<AudioSource>();
+        destroyTimerSavedValue = destroyTimer;
+    }
+
+    protected virtual void Update()
+    {
+        // activateDestroyTimer should be set to true, in the scripts that inheriths from this one.
+        if (activateDestroyTimer)
+        {
+            // Make sure it is not in a hand
+            if (heldBy == null)
+            {
+                // Counting down
+                destroyTimer -= Time.deltaTime;
+                //Debug.Log("Run Timer");
+                //Destroy the object when the count is down
+                if (destroyTimer < 0)
+                {
+                    //Debug.Log("Destroyed "+ gameObject);
+                    Destroy(gameObject);
+                }
+            } else
+            {
+                // In a hand, it will reset and deactivate the timer
+                destroyTimer = destroyTimerSavedValue;
+                activateDestroyTimer = false;
+                //Debug.Log("Disable Timer");
+            }
+
+            
+        }
+        
     }
 
     public virtual void Grab(Controller123 controller, Rigidbody attach)

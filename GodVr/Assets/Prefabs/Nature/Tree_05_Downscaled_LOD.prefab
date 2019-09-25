@@ -111,8 +111,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigi: {fileID: 0}
   joint: {fileID: 0}
+  heldBy:
+    state: 0
+    previousState: 0
+    planningToTeleport: 0
+    obj: {fileID: 0}
   audioSource: {fileID: 0}
   soundImpactThreshold: 0.5
+  destroyTimer: 10
   naturalConfig:
     resources:
     - type: 1
@@ -335,16 +341,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3633776013380898628}
     m_Modifications:
-    - target: {fileID: 1820712507903677136, guid: bbd1cd954d1d1b84aae80ab5ec872198,
-        type: 3}
-      propertyPath: m_Name
-      value: tree_05_LOD0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1820712507903677136, guid: bbd1cd954d1d1b84aae80ab5ec872198,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 3395469726542160067, guid: bbd1cd954d1d1b84aae80ab5ec872198,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -415,6 +411,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1820712507903677136, guid: bbd1cd954d1d1b84aae80ab5ec872198,
+        type: 3}
+      propertyPath: m_Name
+      value: tree_05_LOD0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1820712507903677136, guid: bbd1cd954d1d1b84aae80ab5ec872198,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 106026377272600076, guid: bbd1cd954d1d1b84aae80ab5ec872198,
         type: 3}
       propertyPath: m_Enabled
@@ -457,16 +463,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3633776013380898628}
     m_Modifications:
-    - target: {fileID: 7667741351532340363, guid: 1669818d9699fa34ba2050d8ee4fb853,
-        type: 3}
-      propertyPath: m_Name
-      value: tree_05_LOD1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7667741351532340363, guid: 1669818d9699fa34ba2050d8ee4fb853,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
     - target: {fileID: 1850753284826832514, guid: 1669818d9699fa34ba2050d8ee4fb853,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -596,6 +592,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7667741351532340363, guid: 1669818d9699fa34ba2050d8ee4fb853,
+        type: 3}
+      propertyPath: m_Name
+      value: tree_05_LOD1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7667741351532340363, guid: 1669818d9699fa34ba2050d8ee4fb853,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3949354783838006421, guid: 1669818d9699fa34ba2050d8ee4fb853,
         type: 3}

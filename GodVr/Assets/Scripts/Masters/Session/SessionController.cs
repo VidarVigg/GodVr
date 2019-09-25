@@ -64,7 +64,7 @@ public class SessionController
             if (sessionData.Population <= 0)
             {
                 sessionData.State = SessionData.SessionState.Losts;
-                //SceneManager.LoadScene(1);
+                //SceneManager.LoadScene(0);
                 Debug.Log("Load LOST Scene");
             }
         }

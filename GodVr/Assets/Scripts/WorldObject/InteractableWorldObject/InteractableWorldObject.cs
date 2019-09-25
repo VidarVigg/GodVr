@@ -16,6 +16,8 @@ public abstract class InteractableWorldObject : WorldObject
     [SerializeField]
     protected AudioSource audioSource;
 
+    [SerializeField]
+    protected float soundImpactThreshold = 0.05f;
     protected virtual void Awake()
     {
         rigi = gameObject.GetComponent<Rigidbody>();
@@ -85,7 +87,7 @@ public abstract class InteractableWorldObject : WorldObject
     protected override void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
-        if (rigi.velocity.sqrMagnitude > 2.5f)
+        if (rigi.velocity.sqrMagnitude > soundImpactThreshold)
         {
             ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXImpact, audioSource);
         }

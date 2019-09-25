@@ -129,6 +129,7 @@ MonoBehaviour:
   rigi: {fileID: 0}
   joint: {fileID: 0}
   audioSource: {fileID: 0}
+  soundImpactThreshold: 0.05
   resourceCosts: []
   scale: {x: 0, y: 0, z: 0}
   structureConfig:
@@ -137,6 +138,7 @@ MonoBehaviour:
       type: 3}
   structureData:
     houseHealth: 0
+    triggered: 0
 --- !u!82 &1571427713
 AudioSource:
   m_ObjectHideFlags: 0
@@ -248,7 +250,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 7622a1c6f7e24cf40b2300e166d1f583,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7622a1c6f7e24cf40b2300e166d1f583,
         type: 3}
@@ -348,7 +350,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: 7622a1c6f7e24cf40b2300e166d1f583,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7622a1c6f7e24cf40b2300e166d1f583,
         type: 3}

@@ -59,7 +59,7 @@ public class TreeSpawner : NaturalMaster
             Regrow();
             pineParticles.Play();
             //base.Grab(attach);
-            GameObject gameobject = Instantiate(treePrefab);
+            GameObject gameobject = Object2.Instantiate(treePrefab);
             gameobject.GetComponent<Treee>().Grab(controller, attach);
 
         }

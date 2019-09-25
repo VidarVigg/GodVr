@@ -112,6 +112,7 @@ MonoBehaviour:
   rigi: {fileID: 0}
   joint: {fileID: 0}
   audioSource: {fileID: 0}
+  soundImpactThreshold: 0.5
   naturalConfig:
     resources:
     - type: 1

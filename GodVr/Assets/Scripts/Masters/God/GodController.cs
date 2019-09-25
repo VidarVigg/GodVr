@@ -285,7 +285,7 @@ public class GodController
 
     private void MovementTeleport(Rigidbody rb)
     {
-        godData.cameraRig.position = Ray(rb) + Vector3.down * godData.yPositionOffset ;
+        godData.cameraRig.position = Ray(rb) + (Vector3.down * godData.yPositionOffset) + (godData.cameraRig.position - TransfromsPositionOnTeleport(godData.cameraTransform)) ;
     }
 
     private void DisplayTeleportPoint(Rigidbody rb)
@@ -321,6 +321,15 @@ public class GodController
         return linePoints;
     }
 
+    private Vector3 TransfromsPositionOnTeleport(Transform transform)
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, -transform.up, out hit, 50, 1 << 11))
+        {
+            return hit.point;
+        }
+        return Vector3.zero;
+    }
     private Vector3 Ray(Rigidbody rb)
     {
         Vector3 pos = rb.position;

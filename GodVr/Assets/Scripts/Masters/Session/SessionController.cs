@@ -72,7 +72,7 @@ public class SessionController
     
     private void UpdateUIForPopulaiton()
     {
-        sessionData.tmp.text = sessionData.Population + "/" + sessionData.PopulationGoal;
+        sessionData.tmp.text = $"Population:\n{sessionData.Population} / {sessionData.PopulationGoal}";
     }
     #endregion
 

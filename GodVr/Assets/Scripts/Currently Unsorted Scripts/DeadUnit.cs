@@ -8,6 +8,8 @@ public class DeadUnit : MonoBehaviour
     private float force = 10f;
     [SerializeField]
     private float lifeTime = 5f;
+    [SerializeField]
+    private AudioSource audioSource;
 
     private void OnEnable()
     {
@@ -15,7 +17,9 @@ public class DeadUnit : MonoBehaviour
                             1 * force,
                             Random.Range(-0.2f, 0.2f) * force);
         rb.AddTorque(Random.Range(-60, 60), Random.Range(-60, 60), Random.Range(-60, 60));
+        ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXEnemyDies, audioSource);
         Destroy(gameObject, lifeTime);
+
     }
 
 

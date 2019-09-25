@@ -7,6 +7,7 @@
     SFXHouseDamage,
     SFXGrab,
     SFXThrow,
+    SFXEnemyDies,
     AMBEnvironment,
     AMBMusic
 }

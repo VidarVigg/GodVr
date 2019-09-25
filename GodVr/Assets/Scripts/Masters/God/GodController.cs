@@ -271,7 +271,7 @@ public class GodController
 
     private void MovementTeleport(Rigidbody rb)
     {
-        godData.cameraRig.position = Ray(rb);
+        godData.cameraRig.position = Ray(rb) + Vector3.down * godData.yPositionOffset ;
     }
 
     private void DisplayTeleportPoint(Rigidbody rb)

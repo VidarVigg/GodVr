@@ -74,6 +74,7 @@ public class GodData
     public Transform anotherTempThing;
     public LineRenderer lr1;
     public float aimAngleOffset;
+    public float yPositionOffset;
     [Range(10, 300)]
     public int missclickProtectionTime = 200;
 

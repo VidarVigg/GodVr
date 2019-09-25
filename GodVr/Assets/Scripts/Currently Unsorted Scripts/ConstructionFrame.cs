@@ -35,11 +35,10 @@ public class ConstructionFrame : InteractableWorldObject
 
         }
 
-        if (collision.gameObject.GetComponent<Treee>())
+        if (collision.collider.name == "Tree_05_Downscaled_LOD")
         {
             if (resourceCurrent < resourceRequired)
             {
-                //TODO: Figure out how to reliably only get one collider from tree prefab
                 Destroy(collision.gameObject);
                 IncreaseBuildingProgression();
             }

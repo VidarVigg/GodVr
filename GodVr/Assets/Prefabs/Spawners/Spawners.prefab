@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138124537723160053}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -143.09665, y: -0.07603429, z: -0.020001728}
+  m_LocalPosition: {x: -143.09665, y: -0.07603429, z: -2.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 138124539252231891}
@@ -180,7 +180,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 138124539252231888}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 20.229, y: 0.92, z: 11.866}
   m_LocalScale: {x: 0.3, y: 0.5, z: 0.3}
   m_Children:
@@ -214,42 +214,26 @@ MonoBehaviour:
     - {fileID: 138124538390440513}
     - {fileID: 138124539603188592}
     - {fileID: 138124537723160052}
-    howOftenShouldEnemiesSpawn: 1
-    howManyWavesAreAllowed: 5
+    howOftenShouldEnemiesSpawn: 15
+    howManyWavesAreAllowed: 1000
     wavesInGame: 0
     spawnStructs:
     - rows: 1
-      columns: 1
-    - rows: 1
       columns: 2
     - rows: 1
       columns: 3
+    - rows: 2
+      columns: 2
+    - rows: 2
+      columns: 2
     - rows: 1
-      columns: 4
-    - rows: 2
-      columns: 1
-    - rows: 2
-      columns: 2
+      columns: 5
     - rows: 2
       columns: 3
     - rows: 2
       columns: 4
     - rows: 3
-      columns: 1
-    - rows: 3
-      columns: 2
-    - rows: 3
       columns: 3
-    - rows: 3
-      columns: 4
-    - rows: 4
-      columns: 1
-    - rows: 4
-      columns: 2
-    - rows: 4
-      columns: 3
-    - rows: 4
-      columns: 4
   enemySpawnerData:
     currentTime: 0
     lastWave: 0

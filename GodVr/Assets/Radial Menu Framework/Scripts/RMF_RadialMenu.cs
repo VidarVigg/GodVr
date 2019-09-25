@@ -128,14 +128,6 @@ public class RMF_RadialMenu : MonoBehaviour {
             }
 
         }
-
-        //This will only run once, tested putting it in Start and Awake, but the effect it would do is not the same when its runned in something that runs in a Update.
-        if (!fixRotation)
-        {
-            transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x + OffsetAngle.x, transform.rotation.eulerAngles.y + OffsetAngle.y, transform.rotation.eulerAngles.z + OffsetAngle.z);
-            fixRotation = true;
-        }
-
         //Updates the selection follower if we're using one.
         if (useSelectionFollower && selectionFollowerContainer != null)
         {

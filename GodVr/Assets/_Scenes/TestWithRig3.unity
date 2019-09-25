@@ -14722,7 +14722,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1209459223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29612,7 +29612,7 @@ PrefabInstance:
     - target: {fileID: 977356243518217104, guid: 1f6ef19d6ec32214f99294c24e26a94a,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 977356243518217104, guid: 1f6ef19d6ec32214f99294c24e26a94a,
         type: 3}
@@ -29703,6 +29703,21 @@ PrefabInstance:
         type: 3}
       propertyPath: config.audioSourceRight
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649423781328838433, guid: 1f6ef19d6ec32214f99294c24e26a94a,
+        type: 3}
+      propertyPath: data.yPositionOffset
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4649423781328838433, guid: 1f6ef19d6ec32214f99294c24e26a94a,
+        type: 3}
+      propertyPath: data.cameraTransform
+      value: 
+      objectReference: {fileID: 3572254309158222904}
+    - target: {fileID: 4649423781328838433, guid: 1f6ef19d6ec32214f99294c24e26a94a,
+        type: 3}
+      propertyPath: data.missclickProtectionTime
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 537659975, guid: 1f6ef19d6ec32214f99294c24e26a94a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -29985,6 +30000,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1f6ef19d6ec32214f99294c24e26a94a, type: 3}
+--- !u!4 &3572254309158222904 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 981346763351996298, guid: 1f6ef19d6ec32214f99294c24e26a94a,
+    type: 3}
+  m_PrefabInstance: {fileID: 3572254309158222903}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5048326147329363344
 GameObject:
   m_ObjectHideFlags: 0

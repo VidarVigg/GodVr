@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SessionMaster : MonoBehaviour, ISessionMasterService
 {
@@ -37,6 +38,17 @@ public class SessionMaster : MonoBehaviour, ISessionMasterService
     {
         sessionController = new SessionController(this, sessionData);
     }
+
+    public void InvokeLoadScene()
+    {
+        Invoke("LoadScene", sessionData.TimeBeforeReset);
+    }
+
+    private void LoadScene()
+    {
+        SceneManager.LoadScene(0);
+    }
+
     #endregion
 
 }

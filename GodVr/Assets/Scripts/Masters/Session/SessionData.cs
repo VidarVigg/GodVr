@@ -28,6 +28,9 @@ public class SessionData
     [SerializeField]
     private ResourceStorageMaster storageMaster;
 
+    [SerializeField]
+    private float timeBeforeReset = 1;
+
     public Canvas winCanvas;
 
     public TMPro.TextMeshProUGUI tmp;
@@ -60,6 +63,10 @@ public class SessionData
     {
         get { return mainBuilding; }
         set { mainBuilding = value; }
+    }
+    public float TimeBeforeReset
+    {
+        get { return timeBeforeReset; }
     }
 
     #endregion

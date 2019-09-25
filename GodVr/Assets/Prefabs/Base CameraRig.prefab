@@ -2956,9 +2956,10 @@ MonoBehaviour:
     anotherTempThing: {fileID: 0}
     lr1: {fileID: 0}
     aimAngleOffset: 10
-    yPositionOffset: 0
-    missclickProtectionTime: 200
+    yPositionOffset: 0.4
+    missclickProtectionTime: 150
     state: 0
+    cameraTransform: {fileID: 981346763351996298}
 --- !u!1 &2358879229806230455
 GameObject:
   m_ObjectHideFlags: 0
@@ -3441,7 +3442,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 22401190, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 90
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22401190, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -3512,16 +3513,8 @@ PrefabInstance:
       value: -0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: 22415102, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22415102, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 22415102, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22415102, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
       propertyPath: m_LocalRotation.w
@@ -3695,15 +3688,7 @@ PrefabInstance:
       propertyPath: m_LocalRotation.w
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 11462960, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
-    - {fileID: 11449954, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
-    - {fileID: 11432962, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
-    - {fileID: 11490302, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
-    - {fileID: 11449954, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
-    - {fileID: 11432962, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
-    - {fileID: 11462960, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
-    - {fileID: 11490302, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69988eeaf22db50428892b9cf8812ad4, type: 3}
 --- !u!224 &3572254308954628388 stripped
 RectTransform:

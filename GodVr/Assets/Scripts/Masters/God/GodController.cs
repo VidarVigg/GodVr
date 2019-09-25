@@ -302,7 +302,7 @@ public class GodController
         }
         else
         {
-            godData.lr1.SetPositions(CalculateLineRenderPoints(rb.position, rb.transform.forward * 2.0f));
+            godData.lr1.SetPositions(CalculateLineRenderPoints(rb.position, rb.gameObject.transform.forward * 10.0f));
         }
 
         godData.sphere.position = hitPoint;
@@ -311,13 +311,17 @@ public class GodController
 
     private Vector3[] CalculateLineRenderPoints(Vector3 A, Vector3 B)
     {
-        Vector3[] linePoints = new Vector3[5];
+        Vector3[] linePoints = new Vector3[10];
 
-        var AB = Vector3.Normalize(B - A);
+        var AB = B - A;
 
-        for (int i = 0; i < 5; i++)
+        linePoints[0] = A;
+
+        linePoints[9] = B;
+
+        for (int i = 1; i < 9; i++)
         {
-            linePoints[i] = (i + 0.2f) * AB + A;
+            linePoints[i] = ((float)i / 10.0f) * AB + A;
         }
         return linePoints;
     }

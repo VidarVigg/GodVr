@@ -22,12 +22,13 @@ public class Rock : NaturalMaster
 
     protected override void OnCollisionEnter(Collision collision)
     {
+
+        base.OnCollisionEnter(collision);
         if (rigi.velocity.sqrMagnitude >= vfxSpawnThreshold)
         {
             if (particleSystem)
             {
                 var obj = Object2.Instantiate<GameObject>(particleSystem, collision.GetContact(0).point, Quaternion.identity, null);
-                //ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXEnemyImpact, audioSource);
                 Destroy(obj, 1.0f);
             }
         }

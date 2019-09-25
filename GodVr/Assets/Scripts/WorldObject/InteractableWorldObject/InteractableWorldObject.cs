@@ -85,7 +85,7 @@ public abstract class InteractableWorldObject : WorldObject
     protected override void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
-        if (rigi.velocity.sqrMagnitude > 0.05f)
+        if (rigi.velocity.sqrMagnitude > 0.23f)
         {
             ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXImpact, audioSource);
         }

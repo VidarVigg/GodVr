@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
 
-[RequireComponent(typeof(Rigidbody), typeof(Collider), typeof (AudioSource)), ]
+[RequireComponent(typeof(Rigidbody), typeof(Collider), typeof(AudioSource)),]
 public abstract class InteractableWorldObject : WorldObject
 {
 
@@ -85,6 +85,9 @@ public abstract class InteractableWorldObject : WorldObject
     protected override void OnCollisionEnter(Collision collision)
     {
         base.OnCollisionEnter(collision);
-        ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXImpact, audioSource);
+        if (rigi.velocity.sqrMagnitude > 0.05f)
+        {
+            ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXImpact, audioSource);
+        }
     }
 }

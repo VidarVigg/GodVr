@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class NullGodMaster : MonoBehaviour, IGodMasterService
 {
+    public void ClearHand(InteractableWorldObject obj)
+    {
+
+    }
+
     public void CloseControllerMenu(WhichID id)
     {
         

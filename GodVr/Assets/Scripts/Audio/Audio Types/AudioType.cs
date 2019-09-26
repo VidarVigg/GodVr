@@ -12,5 +12,8 @@
     AMBMusic,
     SFXHouseDone,
     MusicRegular,
-    MusicWin
+    MusicWin,
+    SFXScream,
+    Debug
+
 }

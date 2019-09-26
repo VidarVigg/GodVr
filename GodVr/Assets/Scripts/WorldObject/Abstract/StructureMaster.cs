@@ -48,12 +48,11 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
     {
         if (joint == null)
         {
-            ServiceLocator.SessionMasterService.Population -= structureConfig.PopulationValue;
-
             if (!structureData.Triggered)
             {
+                ServiceLocator.SessionMasterService.Population -= structureConfig.PopulationValue;
                 structureData.Triggered = true;
-                GameObject clone = Object2.Instantiate(structureConfig.DestroyFX);
+                GameObject clone = Object2.Instantiate(structureConfig.DestroyFX, transform.position, Quaternion.identity);
                 Destroy(clone, 2);
                 Destroy(gameObject);
             }

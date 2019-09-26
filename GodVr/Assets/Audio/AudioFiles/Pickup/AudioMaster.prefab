@@ -175,7 +175,7 @@ MonoBehaviour:
       - {fileID: 8300000, guid: e5ad9c34c6ed2584ebeb505e7d7475cd, type: 3}
       type: 10
       musicAudioSource: {fileID: 0}
-      volume: 0.484
+      volume: 1
     - clip:
       - {fileID: 8300000, guid: bbce3afc709bcdf47aa89fcbbbafbcb7, type: 3}
       type: 11

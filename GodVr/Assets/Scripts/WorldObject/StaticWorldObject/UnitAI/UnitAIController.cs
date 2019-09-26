@@ -33,8 +33,25 @@ public class UnitAIController
 
     #region Methods
 
+    bool idle = false;
+
+    public void Idle()
+    {
+        idle = true;
+        unitAIData.Target = null;
+        unitAIData.Destination = unitAIMaster.transform.position;
+        unitAIData.Animator.SetBool("Running", false);
+        unitAIData.Animator.SetBool("Attacking", false);
+        unitAIConfig.NavMeshAgent.SetDestination(unitAIData.Destination);
+    }
+
     public void Update()
     {
+
+        if (idle)
+        {
+            return;
+        }
 
         if (SearchForStructure())
         {

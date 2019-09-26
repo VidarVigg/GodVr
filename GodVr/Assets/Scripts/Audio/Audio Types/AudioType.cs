@@ -9,5 +9,6 @@
     SFXThrow,
     SFXEnemyDies,
     AMBEnvironment,
-    AMBMusic
+    AMBMusic,
+    SFXHouseDone
 }

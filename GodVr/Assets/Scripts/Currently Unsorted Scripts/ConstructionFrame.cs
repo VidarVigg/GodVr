@@ -74,6 +74,7 @@ public class ConstructionFrame : InteractableWorldObject
         house.transform.localScale = transform.localScale;
         house.transform.localRotation = transform.localRotation;
         house.GetComponent<Rigidbody>().isKinematic = true;
+        ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXHouseDone, house.GetComponent<AudioSource>());
         Destroy(gameObject, 0.0f);
 
         //TODO: Implement Place() after the house has been instantiated

@@ -68,6 +68,8 @@ public class SessionController
 
                 //sessionData.winCanvas.gameObject.SetActive(true);
 
+                sessionData.VFX.SetActive(true);
+
                 sessionData.winBigSign.SetActive(true);
                 // Instruction for restarting.
                 // WELOCME TO SANDBOX MODE!

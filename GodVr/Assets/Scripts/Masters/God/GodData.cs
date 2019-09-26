@@ -82,6 +82,7 @@ public class GodData
     [Header("State...")]
     public PlayerState state = PlayerState.EmptyHanded;
     public Transform cameraTransform;
+    public bool canTeleport;
 
     public enum PlayerState
     {

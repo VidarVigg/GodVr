@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -4357122327409917905}
   - component: {fileID: 5360238188897085020}
   - component: {fileID: -2292356447759772391}
+  - component: {fileID: -4767386312010437284}
   m_Layer: 9
   m_Name: house01_04
   m_TagString: House
@@ -244,6 +245,22 @@ MonoBehaviour:
   structureData:
     houseHealth: 0
     triggered: 0
+--- !u!208 &-4767386312010437284
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5957826227126619993}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 4.4960003, y: 3.2570002, z: 2.509}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 3.256, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1135073570784265182
 PrefabInstance:
   m_ObjectHideFlags: 0

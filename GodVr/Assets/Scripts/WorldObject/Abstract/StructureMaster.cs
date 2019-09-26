@@ -48,20 +48,19 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
     {
         if (joint == null)
         {
-            ServiceLocator.SessionMasterService.Population -= structureConfig.PopulationValue;
-
             if (!structureData.Triggered)
             {
                 structureData.Triggered = true;
-                GameObject clone = Object2.Instantiate(structureConfig.DestroyFX);
+                GameObject clone = Object2.Instantiate(structureConfig.DestroyFX, transform.position, Quaternion.identity);
                 Destroy(clone, 2);
                 Destroy(gameObject);
+                //ServiceLocator.SessionMasterService.Population -= structureConfig.PopulationValue;
             }
         }
     }
     private void OnDestroy()
     {
-        ServiceLocator.SessionMasterService.Population--;
+        ServiceLocator.SessionMasterService.Population -= structureConfig.PopulationValue;
     }
     #endregion
 

@@ -43,6 +43,7 @@ public class UnitAIController
         unitAIData.Animator.SetBool("Running", false);
         unitAIData.Animator.SetBool("Attacking", false);
         unitAIConfig.NavMeshAgent.SetDestination(unitAIData.Destination);
+        unitAIConfig.NavMeshAgent.speed = 0;
     }
 
     public void Update()

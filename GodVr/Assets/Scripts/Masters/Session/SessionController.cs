@@ -94,8 +94,19 @@ public class SessionController
                 //sessionData.loseCanvas.gameObject.SetActive(true);
                 sessionData.loseBigSign.SetActive(true);
 
+                
+                for (int i = 0; i < GameObject.FindObjectsOfType<EnemySpawnerMaster>().Length; i++)
+                {
+                    GameObject.Destroy(GameObject.FindObjectsOfType<EnemySpawnerMaster>()[i].gameObject);
+                }
 
-                sessionMaster.InvokeLoadScene();
+                for (int i = 0; i < GameObject.FindObjectsOfType<UnitAIMaster>().Length; i++)
+                {
+                    GameObject.FindObjectsOfType<UnitAIMaster>()[i].Idle();
+                }
+
+
+                //sessionMaster.InvokeLoadScene();
                 // Why if UNITY_EDITOR, det är för att då följer inte debug meddelandet med när vi bygger spelet. Men egentligen borde den tas bort helt!
 #if UNITY_EDITOR
                 Debug.Log("LOST: Restarting in "+ sessionData.TimeBeforeReset + "s");

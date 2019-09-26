@@ -45,6 +45,7 @@ public class ConstructionFrame : InteractableWorldObject
                     if (worldObject.joint)
                     {
                         worldObject.Drop();
+
                     }
                 }
 
@@ -57,7 +58,7 @@ public class ConstructionFrame : InteractableWorldObject
     private void IncreaseBuildingProgression()
     {
         resourceCurrent++;
-
+        ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXImpact, audioSource);
         if (resourceCurrent == resourceRequired)
         {
             FinishConstruction();

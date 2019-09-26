@@ -74,7 +74,7 @@ public class SessionController
             // Need sessionMaster for if that happens it will try do the things inside the if when exeting the scene
             if (sessionData.Population <= 0 && sessionMaster)
             {
-                sessionData.State = SessionData.SessionState.Losts;
+                sessionData.State = SessionData.SessionState.Lose;
                 // Here we do lossing stuff
 
                 //sessionData.loseCanvas.gameObject.SetActive(true);

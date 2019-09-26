@@ -43,7 +43,7 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
     {
         if (joint == null)
         {
-            ServiceLocator.SessionMasterService.Population--;
+            ServiceLocator.SessionMasterService.Population -= structureConfig.PopulationValue;
 
             if (!structureData.Triggered)
             {

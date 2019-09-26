@@ -132,6 +132,7 @@ public class UnitAIController
         if ((temp - unitAIMaster.gameObject.transform.position).magnitude < 1f)
         {
             (unitAIData.Target as IDamagable).Receive(unitAIData.Damage);
+            unitAIData.Animator.SetBool("Attacking", true);
         }
     }
     

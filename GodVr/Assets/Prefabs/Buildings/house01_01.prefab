@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -1007057116344570571}
   - component: {fileID: 308024519}
   - component: {fileID: 4217959203315300418}
+  - component: {fileID: 3371864137262104512}
   m_Layer: 9
   m_Name: house01_01
   m_TagString: House
@@ -97,7 +98,7 @@ MeshCollider:
   serializedVersion: 3
   m_Convex: 1
   m_CookingOptions: 14
-  m_Mesh: {fileID: -1320639122674228869, guid: 5972c1d0e5bde4041a12be6450308677, type: 3}
+  m_Mesh: {fileID: -1320639122674228869, guid: a17f0edb53ca88443a636975f1d3361d, type: 3}
 --- !u!54 &-1007057116344570571
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -128,15 +129,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigi: {fileID: 0}
   joint: {fileID: 0}
+  heldBy:
+    state: 0
+    previousState: 0
+    planningToTeleport: 0
+    obj: {fileID: 0}
   audioSource: {fileID: 0}
+  soundImpactThreshold: 0.05
+  destroyTimer: 10
   resourceCosts: []
   scale: {x: 0, y: 0, z: 0}
   structureConfig:
-    maxHouseHealth: 0
+    maxHouseHealth: 300
     destroyFX: {fileID: 126937185018418378, guid: 47d7b25ba343efb47a20e59c1894d6c3,
       type: 3}
+    populationValue: 3
   structureData:
     houseHealth: 0
+    triggered: 0
 --- !u!82 &4217959203315300418
 AudioSource:
   m_ObjectHideFlags: 0
@@ -233,6 +243,22 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!208 &3371864137262104512
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3433278416876413040}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 3.1130002, y: 3.246, z: 2.509}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: -0.531, y: 3.242, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1001 &1533487593464952077
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -240,11 +266,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1872984382344122979}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 7622a1c6f7e24cf40b2300e166d1f583,
-        type: 3}
-      propertyPath: m_Name
-      value: box_02
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7622a1c6f7e24cf40b2300e166d1f583,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -315,6 +336,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 4.491822
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7622a1c6f7e24cf40b2300e166d1f583,
+        type: 3}
+      propertyPath: m_Name
+      value: box_02
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 7622a1c6f7e24cf40b2300e166d1f583,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -337,11 +363,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1872984382344122979}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 7622a1c6f7e24cf40b2300e166d1f583,
-        type: 3}
-      propertyPath: m_Name
-      value: box_02 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7622a1c6f7e24cf40b2300e166d1f583,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -412,12 +433,18 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1.6834899
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7622a1c6f7e24cf40b2300e166d1f583,
+        type: 3}
+      propertyPath: m_Name
+      value: box_02 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 7622a1c6f7e24cf40b2300e166d1f583,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: e2ebb1e7f62a68c43bb1f39355e0cfbb, type: 2}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -6057140222963153312, guid: 7622a1c6f7e24cf40b2300e166d1f583, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7622a1c6f7e24cf40b2300e166d1f583, type: 3}
 --- !u!4 &8327655714768800918 stripped
 Transform:

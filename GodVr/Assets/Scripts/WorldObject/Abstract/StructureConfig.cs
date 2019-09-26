@@ -12,9 +12,8 @@ public class StructureConfig
     [SerializeField]
     private GameObject destroyFX;
 
-
-
-
+    [SerializeField]
+    private int populationValue;
 
     #endregion
 
@@ -31,6 +30,12 @@ public class StructureConfig
     {
         get { return destroyFX; }
         set { destroyFX = value; }
+    }
+
+    public int PopulationValue
+    {
+        get { return populationValue; }
+        set { populationValue = value; }
     }
 
 

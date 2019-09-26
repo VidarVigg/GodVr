@@ -54,7 +54,7 @@ LODGroup:
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
-  - screenRelativeHeight: 0.057929326
+  - screenRelativeHeight: 0.0065841605
     fadeTransitionWidth: 0
     renderers:
     - renderer: {fileID: 1294277732780508606}
@@ -463,6 +463,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3633776013380898628}
     m_Modifications:
+    - target: {fileID: 7667741351532340363, guid: 1669818d9699fa34ba2050d8ee4fb853,
+        type: 3}
+      propertyPath: m_Name
+      value: tree_05_LOD1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7667741351532340363, guid: 1669818d9699fa34ba2050d8ee4fb853,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1850753284826832514, guid: 1669818d9699fa34ba2050d8ee4fb853,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -592,16 +602,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7667741351532340363, guid: 1669818d9699fa34ba2050d8ee4fb853,
-        type: 3}
-      propertyPath: m_Name
-      value: tree_05_LOD1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7667741351532340363, guid: 1669818d9699fa34ba2050d8ee4fb853,
-        type: 3}
-      propertyPath: m_Layer
-      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 3949354783838006421, guid: 1669818d9699fa34ba2050d8ee4fb853,
         type: 3}

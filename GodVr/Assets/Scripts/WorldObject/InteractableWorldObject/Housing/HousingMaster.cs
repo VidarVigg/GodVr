@@ -21,7 +21,7 @@ public class HousingMaster : StructureMaster
 
     private void Start()
     {
-        ServiceLocator.SessionMasterService.Population++;
+        ServiceLocator.SessionMasterService.Population+= structureConfig.PopulationValue;
     }
 
     public override void Grab(Controller123 controller, Rigidbody attach)

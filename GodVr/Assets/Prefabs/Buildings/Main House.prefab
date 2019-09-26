@@ -511,12 +511,14 @@ MonoBehaviour:
     obj: {fileID: 0}
   audioSource: {fileID: 0}
   soundImpactThreshold: 0.05
+  destroyTimer: 10
   resourceCosts: []
   scale: {x: 0, y: 0, z: 0}
   structureConfig:
-    maxHouseHealth: 0
+    maxHouseHealth: 1000
     destroyFX: {fileID: 126937185018418378, guid: 47d7b25ba343efb47a20e59c1894d6c3,
       type: 3}
+    populationValue: 10
   structureData:
     houseHealth: 0
     triggered: 0
@@ -6217,11 +6219,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2754017230577303454}
     m_Modifications:
-    - target: {fileID: 5497131878014540473, guid: c4037ebd557079748a959ea21b8236ea,
-        type: 3}
-      propertyPath: m_Name
-      value: SignHolder
-      objectReference: {fileID: 0}
     - target: {fileID: 8640867620566218844, guid: c4037ebd557079748a959ea21b8236ea,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6277,6 +6274,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5497131878014540473, guid: c4037ebd557079748a959ea21b8236ea,
+        type: 3}
+      propertyPath: m_Name
+      value: SignHolder
+      objectReference: {fileID: 0}
+    - target: {fileID: 7762946647914289140, guid: c4037ebd557079748a959ea21b8236ea,
+        type: 3}
+      propertyPath: m_text
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7762946647914289140, guid: c4037ebd557079748a959ea21b8236ea,
         type: 3}
       propertyPath: m_textInfo.characterCount
@@ -6302,11 +6309,18 @@ PrefabInstance:
       propertyPath: m_textInfo.pageCount
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7762946647914289140, guid: c4037ebd557079748a959ea21b8236ea,
+    - target: {fileID: 4671091542501738131, guid: c4037ebd557079748a959ea21b8236ea,
         type: 3}
-      propertyPath: m_text
+      propertyPath: m_fontAsset
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 11400000, guid: aec358c4593860444aaef5550e2f90aa,
+        type: 2}
+    - target: {fileID: 4671091542501738131, guid: c4037ebd557079748a959ea21b8236ea,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 704077166338391502, guid: aec358c4593860444aaef5550e2f90aa,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c4037ebd557079748a959ea21b8236ea, type: 3}
 --- !u!4 &393480633380031115 stripped

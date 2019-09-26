@@ -186,8 +186,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rigi: {fileID: 0}
   joint: {fileID: 0}
+  heldBy:
+    state: 0
+    previousState: 0
+    planningToTeleport: 0
+    obj: {fileID: 0}
   audioSource: {fileID: 0}
-  resourceRequired: 3
+  soundImpactThreshold: 0.05
+  destroyTimer: 10
+  resourceRequired: 2
   resourceCurrent: 0
   actualHousePrefab: {fileID: 3433278416876413040, guid: ec46c8b260b9d8d4290b7e2aa37ea67f,
     type: 3}
@@ -295,11 +302,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2030592887331379832}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 0a3b0c870a38c7648863628eb65fd8c9,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_plank_02 (2)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0a3b0c870a38c7648863628eb65fd8c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -370,6 +372,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0a3b0c870a38c7648863628eb65fd8c9,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_plank_02 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 0a3b0c870a38c7648863628eb65fd8c9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -390,11 +397,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2030592887331379832}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 0a3b0c870a38c7648863628eb65fd8c9,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_plank_02 (3)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0a3b0c870a38c7648863628eb65fd8c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -465,6 +467,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0a3b0c870a38c7648863628eb65fd8c9,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_plank_02 (3)
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 0a3b0c870a38c7648863628eb65fd8c9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -485,11 +492,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2030592887331379832}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 0a3b0c870a38c7648863628eb65fd8c9,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_plank_02 (4)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0a3b0c870a38c7648863628eb65fd8c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -560,6 +562,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0a3b0c870a38c7648863628eb65fd8c9,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_plank_02 (4)
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 0a3b0c870a38c7648863628eb65fd8c9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -580,11 +587,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2030592887331379832}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: f8d44f5e672d2654995eb61a4be00266,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_chump_02
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f8d44f5e672d2654995eb61a4be00266,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -655,6 +657,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f8d44f5e672d2654995eb61a4be00266,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_chump_02
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: f8d44f5e672d2654995eb61a4be00266,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -675,11 +682,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2030592887331379832}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: f8d44f5e672d2654995eb61a4be00266,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_chump_02 (2)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f8d44f5e672d2654995eb61a4be00266,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -750,6 +752,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f8d44f5e672d2654995eb61a4be00266,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_chump_02 (2)
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: f8d44f5e672d2654995eb61a4be00266,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -770,11 +777,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2030592887331379832}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: f8d44f5e672d2654995eb61a4be00266,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_chump_02 (3)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f8d44f5e672d2654995eb61a4be00266,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -845,6 +847,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f8d44f5e672d2654995eb61a4be00266,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_chump_02 (3)
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: f8d44f5e672d2654995eb61a4be00266,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -865,11 +872,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2030592887331379832}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 0a3b0c870a38c7648863628eb65fd8c9,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_plank_02 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0a3b0c870a38c7648863628eb65fd8c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -940,6 +942,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0a3b0c870a38c7648863628eb65fd8c9,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_plank_02 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 0a3b0c870a38c7648863628eb65fd8c9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -960,11 +967,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2030592887331379832}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 0a3b0c870a38c7648863628eb65fd8c9,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_plank_02
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0a3b0c870a38c7648863628eb65fd8c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1035,6 +1037,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0a3b0c870a38c7648863628eb65fd8c9,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_plank_02
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 0a3b0c870a38c7648863628eb65fd8c9,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1055,11 +1062,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2030592887331379832}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: f8d44f5e672d2654995eb61a4be00266,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_chump_02 (1)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f8d44f5e672d2654995eb61a4be00266,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1130,6 +1132,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: f8d44f5e672d2654995eb61a4be00266,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_chump_02 (1)
+      objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: f8d44f5e672d2654995eb61a4be00266,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -1150,11 +1157,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2030592887331379832}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 0a3b0c870a38c7648863628eb65fd8c9,
-        type: 3}
-      propertyPath: m_Name
-      value: wood_plank_02 (5)
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 0a3b0c870a38c7648863628eb65fd8c9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1224,6 +1226,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 0a3b0c870a38c7648863628eb65fd8c9,
+        type: 3}
+      propertyPath: m_Name
+      value: wood_plank_02 (5)
       objectReference: {fileID: 0}
     - target: {fileID: -1504981713932161579, guid: 0a3b0c870a38c7648863628eb65fd8c9,
         type: 3}

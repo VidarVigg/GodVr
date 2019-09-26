@@ -51,6 +51,20 @@ public class SessionController
 
                 //Here we do winning stuff
 
+                //xd
+
+                for (int i = 0; i < GameObject.FindObjectsOfType<EnemySpawnerMaster>().Length; i++)
+                {
+                    GameObject.Destroy(GameObject.FindObjectsOfType<EnemySpawnerMaster>()[i].gameObject);
+                }
+
+                for (int i = 0; i < GameObject.FindObjectsOfType<UnitAIMaster>().Length; i++)
+                {
+                    GameObject.FindObjectsOfType<UnitAIMaster>()[i].Idle();
+                }
+
+                //xd
+
                 //sessionData.winCanvas.gameObject.SetActive(true);
 
                 sessionData.winBigSign.SetActive(true);

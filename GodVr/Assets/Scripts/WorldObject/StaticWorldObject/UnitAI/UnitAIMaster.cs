@@ -34,6 +34,11 @@ public class UnitAIMaster : MonoBehaviour
             unitAIController.Update();
     }
 
+    public void Idle()
+    {
+        unitAIController.Idle();
+    }
+
     #endregion
 
 }

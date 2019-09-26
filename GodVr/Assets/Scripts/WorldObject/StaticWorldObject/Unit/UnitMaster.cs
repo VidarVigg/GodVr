@@ -71,13 +71,6 @@ public class UnitMaster : StaticWorldObject, IDamagable
         Destroy(gameObject);
     }
 
-    private void Update()
-    {
-        if (Input.anyKey)
-        {
-            KillUnit();
-        }
-    }
 
     #endregion
 

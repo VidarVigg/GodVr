@@ -42,9 +42,9 @@ public class AudioController
                     Debug.LogWarning("<b> No Audio Clip in Source! </b>");
                 }
             }
-            
+
         }
-        
+
     }
     public void PlayMusic(AudioType testAudioType)
     {
@@ -54,6 +54,15 @@ public class AudioController
             {
                 if (testAudioConfig.AudioStructs[i].clip != null)
                 {
+                    if (testAudioType == AudioType.MusicWin)
+                    {
+                        testAudioConfig.AudioStructs[i].musicAudioSource.volume = 1;
+                    }
+                    else
+                    {
+
+                        testAudioConfig.AudioStructs[i].musicAudioSource.volume = 0.35f;
+                    }
                     testAudioConfig.AudioStructs[i].musicAudioSource.clip = testAudioConfig.AudioStructs[i].clip[0];
                     testAudioConfig.AudioStructs[i].musicAudioSource.Play();
                 }

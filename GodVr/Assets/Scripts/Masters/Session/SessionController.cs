@@ -51,6 +51,7 @@ public class SessionController
 
                 //Here we do winning stuff
 
+                ServiceLocator.TestAudioMasterService.SetMusic(AudioType.MusicWin);
                 //xd
 
                 for (int i = 0; i < GameObject.FindObjectsOfType<EnemySpawnerMaster>().Length; i++)

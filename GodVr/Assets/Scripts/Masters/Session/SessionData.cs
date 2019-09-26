@@ -8,7 +8,7 @@ public class SessionData
     {
         Playing,
         Win,
-        Losts
+        Lose
 
     }
     #region Fields

@@ -725,6 +725,10 @@ MonoBehaviour:
   actualHousePrefab: {fileID: 8262338309512254825, guid: ca0efbec9a1c4074b9b5a89912cb0c06,
     type: 3}
   houseProgressVisualizer: {fileID: 883769095860190345}
+  VFX_Place: {fileID: 6440758003580319339, guid: 1be3dd4bad38cc141879ee6390ee8eac,
+    type: 3}
+  VFX_Finish: {fileID: 6440758003580319339, guid: 61f55674ed2af7f4496a90d065039982,
+    type: 3}
 --- !u!82 &-2778010566549017335
 AudioSource:
   m_ObjectHideFlags: 0

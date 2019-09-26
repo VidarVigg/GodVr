@@ -61,7 +61,7 @@ public class AudioController
                     else
                     {
 
-                        testAudioConfig.AudioStructs[i].musicAudioSource.volume = 0.35f;
+                        testAudioConfig.AudioStructs[i].musicAudioSource.volume = 0.2f;
                     }
                     testAudioConfig.AudioStructs[i].musicAudioSource.clip = testAudioConfig.AudioStructs[i].clip[0];
                     testAudioConfig.AudioStructs[i].musicAudioSource.Play();

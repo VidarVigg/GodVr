@@ -65,7 +65,7 @@ public class TreeSpawner : NaturalMaster
         }
         else
         {
-            Debug.Log("Tree is not ready yet");
+            //Debug.Log("Tree is not ready yet");
         }
 
 

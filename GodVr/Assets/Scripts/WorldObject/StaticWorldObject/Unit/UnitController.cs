@@ -46,7 +46,7 @@
         }
         else
         {
-            UnityEngine.Debug.Log("Unit Health: " + unitData.Health/* + "Took " + damage + " damage"*/);
+            //UnityEngine.Debug.Log("Unit Health: " + unitData.Health/* + "Took " + damage + " damage"*/);
         }
     }
 

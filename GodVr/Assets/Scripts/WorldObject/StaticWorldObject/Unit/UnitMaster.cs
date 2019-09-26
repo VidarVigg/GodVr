@@ -35,12 +35,12 @@ public class UnitMaster : StaticWorldObject, IDamagable
         {
             if (collider.attachedRigidbody.velocity.sqrMagnitude > 0.05)
             {
-                Debug.Log("Interactable Hit us");
+                //Debug.Log("Interactable Hit us");
                 Receive(long.MaxValue);
             }
             else if (collider.CompareTag("ImpactZone"))
             {
-                Debug.Log("I'm in the impact zone!");
+                //Debug.Log("I'm in the impact zone!");
                 Receive(long.MaxValue);
             }
             
@@ -50,7 +50,7 @@ public class UnitMaster : StaticWorldObject, IDamagable
 
     public void Receive(long damage)
     {
-        Debug.Log(damage + " damage");
+        //Debug.Log(damage + " damage");
         unitController.RecieveDamage(damage);
     }
 
@@ -62,7 +62,7 @@ public class UnitMaster : StaticWorldObject, IDamagable
         Physics.Raycast(transform.position + Vector3.up * 10, Vector3.down, out hitInfo, 50.0f, mask);
         var point = hitInfo.point;
 
-        UnityEngine.Debug.Log("ded af xd");
+        //UnityEngine.Debug.Log("ded af xd");
         ServiceLocator.SpawnerMasterService.RegisterDeath();
 
         GameObject newBoi = Instantiate(unitConfig.FlyingCorpse, point, Quaternion.identity);

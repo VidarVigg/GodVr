@@ -24,7 +24,7 @@ public class Rock : NaturalMaster
 
         base.OnCollisionEnter(collision);
         activateDestroyTimer = true;
-        Debug.Log("Activate DestroyTimer");
+        //Debug.Log("Activate DestroyTimer");
 
         if (rigi.velocity.sqrMagnitude >= vfxSpawnThreshold)
         {

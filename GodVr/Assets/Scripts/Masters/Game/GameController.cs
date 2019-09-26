@@ -72,7 +72,7 @@ public class GameController
     internal void ReceiveTrackPadPosition(WhichID whichID, float horizontal, float vertical)
     {
         // Update the position for the radial menu for the hand.
-        UnityEngine.Debug.Log(whichID + " Trackpad Position");
+        //UnityEngine.Debug.Log(whichID + " Trackpad Position");
         ServiceLocator.GodMasterService.SendTrackPadPosition(whichID,horizontal,vertical);  
     }
 

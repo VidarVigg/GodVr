@@ -188,7 +188,7 @@ public class GodController
 
         if (Physics.RaycastNonAlloc(position, Vector3.down, hits, godData.RayPlaceDistance, godConfig.LayerMaskTerrain) < 1)
         {
-            UnityEngine.Debug.Log("Failed to Place");
+            //UnityEngine.Debug.Log("Failed to Place");
             return false;
         }
 

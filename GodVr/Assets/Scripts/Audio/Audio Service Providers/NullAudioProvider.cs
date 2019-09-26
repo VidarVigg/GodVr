@@ -8,4 +8,9 @@ public class NullAudioProvider : IAudioMasterService
     {
 
     }
+
+    public void SetMusic(AudioType audioType)
+    {
+        
+    }
 }

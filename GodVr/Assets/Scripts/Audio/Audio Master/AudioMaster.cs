@@ -25,6 +25,22 @@ public class AudioMaster : MonoBehaviour, IAudioMasterService
     {
         audioController.PlaySound(testAudioType, audioSource);
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.J))
+        {
+            SetMusic(AudioType.MusicRegular);
+        }
+        if (Input.GetKeyDown(KeyCode.K))
+        {
+            SetMusic(AudioType.MusicWin);
+        }
+    }
+
+    public void SetMusic(AudioType audioType)
+    {
+        audioController.PlayMusic(audioType);
+    }
 
     #endregion
 

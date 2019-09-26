@@ -10,5 +10,7 @@
     SFXEnemyDies,
     AMBEnvironment,
     AMBMusic,
-    SFXHouseDone
+    SFXHouseDone,
+    MusicRegular,
+    MusicWin
 }

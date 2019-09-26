@@ -5,4 +5,6 @@ using UnityEngine;
 public interface IAudioMasterService
 {
     void PlayOneShot(AudioType audioType, AudioSource audioSource);
+    void SetMusic( AudioType audioType);
+
 }

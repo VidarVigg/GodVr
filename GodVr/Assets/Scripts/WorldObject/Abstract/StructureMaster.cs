@@ -32,7 +32,12 @@ public abstract class StructureMaster : InteractableWorldObject, IDamagable
     {
         base.Awake();
         structureController = new StructureController(this, structureConfig, structureData);
-    }  
+    }
+
+    private void Start()
+    {
+        ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXHouseDone, audioSource);
+    }
 
     public void Receive(long damage)
     {

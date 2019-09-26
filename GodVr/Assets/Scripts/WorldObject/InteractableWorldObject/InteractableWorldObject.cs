@@ -130,7 +130,7 @@ public abstract class InteractableWorldObject : WorldObject
     }
     public virtual void Drop()
     {
-        Object.DestroyImmediate(joint);
+        Object.Destroy(joint);
         joint = null;
 
         //Makes sure the controller we held is set correctly

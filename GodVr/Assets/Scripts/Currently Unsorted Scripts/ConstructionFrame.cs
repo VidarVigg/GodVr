@@ -15,6 +15,8 @@ public class ConstructionFrame : InteractableWorldObject
     [SerializeField]
     private GameObject houseProgressVisualizer;
 
+    public GameObject VFX_Place, VFX_Finish;
+
 
     protected override void OnCollisionEnter(Collision collision)
     {
@@ -25,6 +27,9 @@ public class ConstructionFrame : InteractableWorldObject
             RaycastHit hitInfo;
             LayerMask mask = LayerMask.GetMask("Terrain");
             Physics.Raycast(transform.position + Vector3.up, Vector3.down, out hitInfo, 100.0f, mask);
+
+            var vfx = Object2.Instantiate<GameObject>(VFX_Place, transform.position, Quaternion.identity);
+            Destroy(vfx, 1.1f);
 
             rigi.isKinematic = true;
 
@@ -45,7 +50,6 @@ public class ConstructionFrame : InteractableWorldObject
                     if (worldObject.joint)
                     {
                         worldObject.Drop();
-
                     }
                 }
 
@@ -72,10 +76,12 @@ public class ConstructionFrame : InteractableWorldObject
     {
         gameObject.SetActive(false);
         var house = Object2.Instantiate<GameObject>(actualHousePrefab, transform.position, Quaternion.identity);
+        var vfx = Object2.Instantiate<GameObject>(VFX_Finish, transform.position, Quaternion.identity);
         house.transform.localScale = transform.localScale;
         house.transform.localRotation = transform.localRotation;
         house.GetComponent<Rigidbody>().isKinematic = true;
         ServiceLocator.TestAudioMasterService.PlayOneShot(AudioType.SFXHouseDone, house.GetComponent<AudioSource>());
+        Destroy(vfx, 1.1f);
         Destroy(gameObject, 0.0f);
 
         //TODO: Implement Place() after the house has been instantiated

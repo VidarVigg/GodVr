@@ -45,7 +45,7 @@ public class SessionController
         if(sessionData.State == SessionData.SessionState.Playing)
         {
             // Check if population have reached a certain amount!!
-            if(sessionData.Population > sessionData.PopulationGoal)
+            if(sessionData.Population >= sessionData.PopulationGoal)
             {
                 sessionData.State = SessionData.SessionState.Win;
 

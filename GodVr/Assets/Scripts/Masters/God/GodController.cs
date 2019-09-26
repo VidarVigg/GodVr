@@ -307,6 +307,8 @@ public class GodController
             Vector3 direction = rb.transform.forward;
             direction = Quaternion.AngleAxis(godData.aimAngleOffset, rb.transform.right) * direction;
 
+            UnityEngine.Debug.DrawLine(rb.position, direction * 10.0f, Color.red);
+
             godData.lr1.SetPositions(CalculateLineRenderPoints(rb.position, direction * 1.0f));
         }
 
@@ -348,6 +350,8 @@ public class GodController
 
         Vector3 direction = rb.transform.forward;
         direction = Quaternion.AngleAxis(godData.aimAngleOffset, rb.transform.right) * direction;
+
+        UnityEngine.Debug.DrawLine(pos, direction * 10.0f, Color.green);
 
         if(Physics.Raycast(pos, direction, out hit, 50, 1 << 11))
         {

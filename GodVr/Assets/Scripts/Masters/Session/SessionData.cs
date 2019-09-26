@@ -39,6 +39,8 @@ public class SessionData
 
     public TMPro.TextMeshProUGUI tmp;
 
+    public GameObject VFX;
+
     #endregion
 
     #region Properties

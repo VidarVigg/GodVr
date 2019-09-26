@@ -274,7 +274,8 @@ public class GodController
         //UnityEngine.Debug.Log("grip button held for " + time + " ms");
         if (time >= godData.missclickProtectionTime)
         {
-            MovementTeleport(rb);
+            if (godData.canTeleport)
+                MovementTeleport(rb);
         }
         ray = false;
         godData.sphere.gameObject.SetActive(false);
@@ -297,19 +298,19 @@ public class GodController
 
         if (hitPoint != godMaster.transform.position)
         {
+            godData.canTeleport = true;
             godData.lr1.colorGradient = godData.allowedTeleportColor;
             godData.lr1.SetPositions(CalculateLineRenderPoints(rb.position, hitPoint));
         }
         else
         {
+            godData.canTeleport = false;
             godData.lr1.colorGradient = godData.disallowedTeleportColor;
 
             Vector3 direction = rb.transform.forward;
             direction = Quaternion.AngleAxis(godData.aimAngleOffset, rb.transform.right) * direction;
 
-            UnityEngine.Debug.DrawLine(rb.position, direction * 10.0f, Color.red);
-
-            godData.lr1.SetPositions(CalculateLineRenderPoints(rb.position, direction * 1.0f));
+            godData.lr1.SetPositions(CalculateLineRenderPoints(rb.position, rb.position + direction * 10.0f));
         }
 
         godData.sphere.position = hitPoint;
@@ -350,8 +351,6 @@ public class GodController
 
         Vector3 direction = rb.transform.forward;
         direction = Quaternion.AngleAxis(godData.aimAngleOffset, rb.transform.right) * direction;
-
-        UnityEngine.Debug.DrawLine(pos, direction * 10.0f, Color.green);
 
         if(Physics.Raycast(pos, direction, out hit, 50, 1 << 11))
         {

@@ -63,6 +63,10 @@ public class UnitAIController
                 unitAIData.Tick -= unitAIData.DamageFrequency;
                 DamageBuilding();
             }
+            else
+            {
+                unitAIData.Animator.SetBool("Attacking", false);
+            }
 
         }
         else
